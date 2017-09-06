@@ -30,16 +30,31 @@ var slugify = function (str) {
 
 
 var savePages = function() {
-	var fileContent = fs.readFileSync(this.path, 'utf-8');
+	let fileContent = fs.readFileSync(this.path, 'utf-8');
 
-	var pageList = JSON.parse(fileContent).region;
+	let pageList = JSON.parse(fileContent).region;
 
-	for (var page of pageList){
-		var filename = currentContentFolder+'/'+slugify(page.name)+'.md';
+	for (let page of pageList){
+		let filename = currentContentFolder+'/'+slugify(page.name)+'.md';
 
-		var contentFile = fs.createWriteStream(filename, {'flags': 'w'});
+		let contentFile = fs.createWriteStream(filename, {'flags': 'wx'});
 
-		var frontMatter = `---
+		contentFile.on("open", () => {
+			console.log(`Writing ${filename}`);
+		});
+
+		contentFile.on("error", (err) => {
+			if (err.code == "EEXIST") {
+				console.log(filename + " already exists")
+				contentFile.end();
+			} else {
+				// Re-raise the error
+				throw err;
+			}
+			return;
+		});
+
+		let frontMatter = `---
 date: ${new Date().toISOString()}
 draft: false
 title: ${page.name}
@@ -48,11 +63,9 @@ id: ${page.id}
 		`;
 
 		contentFile.write(frontMatter);
+		contentFile.close(); // close() is async, call cb after close completes.
 
-		contentFile.on('finish', function() {
-			contentFile.close(); // close() is async, call cb after close completes.
-			console.log(`${filename} saved as ${contentFolder}`);
-		});
+		console.log(`${filename} saved.`);
 	}
 }
 
