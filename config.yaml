@@ -1,0 +1,11 @@
+baseURL:         "http://2017.deolhonasmetas.org.br/"
+languageCode:    "pt-br"
+title:           "De Olho nas Metas - 2017"
+disableKinds:    ["taxonomy", "taxonomyTerm", "RSS"]
+enableRobotsTXT: true
+googleAnalytics: ""
+metaDataFormat:  "yaml"
+params:
+  Subtitle:      "gestão 2017"
+  AuthorName:    "AppCívico"
+  GitHubUser:    "AppCivico"
