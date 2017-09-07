@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/hugo,node,linux,macos,bower,windows,sublimetext
+# Created by https://www.gitignore.io/api/bower,hugo,linux,macos,node,sublimetext,vim,windows
 
 ### Bower ###
 bower_components
@@ -144,6 +144,19 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+### Vim ###
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+# auto-generated tag files
+tags
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -165,4 +178,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/hugo,node,linux,macos,bower,windows,sublimetext
+# End of https://www.gitignore.io/api/bower,hugo,linux,macos,node,sublimetext,vim,windows
