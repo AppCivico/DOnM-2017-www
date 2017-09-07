@@ -1,7 +1,9 @@
 var https = require('https');
 var fs = require('fs');
 
-var domain = 'https://dapidonm.eokoe.com';
+const DOMAIN = process.env['NODE_ENV'] === 'production'
+			? 'https://api.2017.deolhonasmetas.org.br'
+			: 'https://dapidonm.eokoe.com';
 
 var sourcesAndDests = [
 	{
@@ -100,7 +102,7 @@ var download = function(url, dest, cb) {
 for (let file of sourcesAndDests) {
 	currentContentFolder = file.contentFolder;
 
-	download(`${domain}${file.url}`, file.dataDest, savePages);
+	download(`${DOMAIN}${file.url}`, file.dataDest, savePages);
 }
 
 
