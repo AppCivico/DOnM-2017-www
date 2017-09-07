@@ -32,26 +32,25 @@ var slugify = function (str) {
 var savePages = function() {
 	let fileContent = fs.readFileSync(this.path, 'utf-8');
 
-	let pageList = JSON.parse(fileContent).region;
+	let jsonElements = JSON.parse(fileContent).region;
 
-	for (let page of pageList){
+	let pageList = [];
+
+	for (let page of jsonElements){
 		let filename = currentContentFolder+'/'+slugify(page.name)+'.md';
 
-		let contentFile = fs.createWriteStream(filename, {'flags': 'wx'});
+		if (pageList.indexOf(filename) !== -1){
+			throw `${filename} already exists.`;
+		}
+
+		let contentFile = fs.createWriteStream(filename, {'flags': 'w'});
 
 		contentFile.on("open", () => {
 			console.log(`Writing ${filename}`);
 		});
 
-		contentFile.on("error", (err) => {
-			if (err.code == "EEXIST") {
-				console.log(filename + " already exists")
-				contentFile.end();
-			} else {
-				// Re-raise the error
-				throw err;
-			}
-			return;
+		contentFile.on("close", () => {
+			console.log(`${filename} saved.`)
 		});
 
 		let frontMatter = `---
@@ -63,9 +62,10 @@ id: ${page.id}
 		`;
 
 		contentFile.write(frontMatter);
-		contentFile.close(); // close() is async, call cb after close completes.
 
-		console.log(`${filename} saved.`);
+		pageList[pageList.length] = filename;
+
+		contentFile.close();
 	}
 }
 
