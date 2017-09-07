@@ -5,8 +5,8 @@ var domain = 'https://dapidonm.eokoe.com';
 
 var sourcesAndDests = [
 	{
-		url:         '/api/region',
-		dataDest:    './data/districts.json',
+		url:           '/api/region',
+		dataDest:      './data/districts.json',
 		contentFolder: './content/distritos'
 	}
 ];
@@ -15,9 +15,9 @@ var currentContentFolder;
 
 // @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
 var slugify = function (str) {
-	const from  = "ąàáäâãåæćçęęèéëêìíïîłńòóöôõøśùúüûñçżź",
-	      to    = "aaaaaaaacceeeeeeiiiilnoooooosuuuunczz",
-	      regex = new RegExp('[' + from.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1') + ']', 'g');
+	const from  = "ąàáäâãåæćçęęèéëêìíïîłńòóöôõøśùúüûñçżź";
+	const to    = "aaaaaaaacceeeeeeiiiilnoooooosuuuunczz";
+	const regex = new RegExp('[' + from.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1') + ']', 'g');
 
 	if (str === null) return '';
 
