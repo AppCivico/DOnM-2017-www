@@ -1,4 +1,3 @@
-
 const https = require('https');
 const fs = require('fs');
 
@@ -33,9 +32,9 @@ function slugify(str) {
 		.toLowerCase();
 }
 
-function userException(message) {
+function UserException(message) {
 	this.message = message;
-	this.name = 'userException';
+	this.name = 'UserException';
 }
 
 function savePages() {
@@ -47,17 +46,17 @@ function savePages() {
 		const filename = `${currentContentFolder}/${slugify(page.name)}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
-			throw new userException(`${filename} already exists.`);
+			throw new UserException(`${filename} already exists.`);
 		}
 
 		const contentFile = fs.createWriteStream(filename, { flags: 'w' });
 
 		contentFile.on('open', () => {
-			console.log(`Writing ${filename}`);
+			console.log(`Writing ${filename}`); // eslint-disable-line no-console
 		});
 
 		contentFile.on('close', () => {
-			console.log(`${filename} saved.`);
+			console.log(`${filename} saved.`); // eslint-disable-line no-console
 		});
 
 		const frontMatter = `---
@@ -90,7 +89,7 @@ function download(url, dest, cb) {
 
 		file.on('finish', () => {
 			file.close(cb); // close() is async, call cb after close completes.
-			console.log(`${url} saved as ${dest}`);
+			console.log(`${url} saved as ${dest}`); // eslint-disable-line no-console
 		});
 	});
 
