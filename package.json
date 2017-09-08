@@ -4,8 +4,23 @@
   "description": "Sistema de acompanhamento da administração municipal de São Paulo na gestão 2017.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
+    "build": "npm-run-all --parallel build:content build:img build:css",
+    "build:content": "node ./_buildScripts/dataContent.js",
+    "build:css": "npm-run-all compile:sass compress:css",
+    "build:dev": "npm-run-all build",
+    "build:img": "npm-run-all compress:img",
+    "build:prod": "npm-run-all build cachebust",
+    "cachebust": "hashmark -l 8 ./static/dist/**/*.{js,css} public_html/{dir}/{name}-{hash}{ext} | replaceinfiles -s 'dist/*.css' -d '{dir}/{base}'",
+    "compile:sass": "node-sass ./_source/stylesheets --output-style compressed --output ./static/dist/css --source-map true",
+    "compress:css": "postcss --use autoprefixer cssnano --safe -r ./static/dist/css/**/*.css",
+    "compress:img": "imagemin ./_source/images/**/*.{gif,jpg,png,svg} --out-dir=./static/dist/img",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:sass": "sass-lint \"./_source/stylesheets/**/*.scss\" --verbose --no-exit",
+    "test": "npm run lint && echo \"Error: no test specified\" && exit 0",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:sass": "onchange './_source/stylesheets/**/*.scss' -- npm run build:sass",
+    "watch:img": "onchange './_source/images/**/*.{gif,jpg,png,svg}' -- npm run build:sass"
   },
   "repository": {
     "type": "git",
