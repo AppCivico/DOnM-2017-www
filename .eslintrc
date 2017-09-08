@@ -5,6 +5,7 @@
   "extends": "airbnb-base",
   "rules": {
   	//Override 2 spaces from Airbnb
-  	"indent": ["error", "tab"]
+  	"indent": ["error", "tab"],
+  	"no-tabs": 0
   }
 }
