@@ -2,7 +2,7 @@
 // Copy this file, and add rule overrides as needed.
 // Ref https://www.npmjs.com/package/eslint-config-airbnb
 {
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "rules": {
   	//Override 2 spaces from Airbnb
   	"indent": ["error", "tab"]
