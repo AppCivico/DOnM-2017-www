@@ -37,7 +37,6 @@
     "postcss-cli": "^4.1.0",
     "sass-lint": "^1.11.1",
     "susy": "^3.0.1",
-    "svgo": "^0.7.2",
     "uglify-js": "^3.0.28",
     "version-changelog": "^2.1.0"
   }
