@@ -8,10 +8,11 @@ const sourcesAndDests = [
 		url: '/api/region',
 		dataDest: './data/districts.json',
 		contentFolder: './content/distritos',
+		jsonRootElement: 'region',
 	},
 ];
 
-let currentContentFolder;
+let currentElement;
 
 // @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
 function slugify(str) {
@@ -39,11 +40,11 @@ function UserException(message) {
 
 function savePages() {
 	const fileContent = fs.readFileSync(this.path, 'utf-8');
-	const jsonElements = JSON.parse(fileContent).region;
+	const jsonElements = JSON.parse(fileContent)[currentElement.jsonRootElement];
 	const pageList = [];
 
 	jsonElements.forEach((page) => {
-		const filename = `${currentContentFolder}/${slugify(page.name)}.md`;
+		const filename = `${currentElement.contentFolder}/${slugify(page.name)}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
 			throw new UserException(`${filename} already exists.`);
@@ -105,7 +106,7 @@ function download(url, dest, cb) {
 }
 
 sourcesAndDests.forEach((file) => {
-	currentContentFolder = file.contentFolder;
+	currentElement = file;
 
 	download(`${DOMAIN}${file.url}`, file.dataDest, savePages);
 });
