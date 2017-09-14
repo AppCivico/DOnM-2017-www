@@ -33,11 +33,6 @@ function slugify(str) {
 		.toLowerCase();
 }
 
-function UserException(message) {
-	this.message = message;
-	this.name = 'UserException';
-}
-
 function savePages() {
 	const fileContent = fs.readFileSync(this.path, 'utf-8');
 	const jsonElements = JSON.parse(fileContent)[currentElement.jsonRootElement];
@@ -47,7 +42,7 @@ function savePages() {
 		const filename = `${currentElement.contentFolder}/${slugify(page.name)}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
-			throw new UserException(`${filename} already exists.`);
+			throw new Error(`${filename} already exists.`);
 		}
 
 		const contentFile = fs.createWriteStream(filename, { flags: 'w' });
