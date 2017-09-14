@@ -124,6 +124,7 @@ rules:
 
       - 'display'
       - 'z-index'
+      - 'box-decoration-break'
 
       - 'align-content'
       - 'align-items'
@@ -258,6 +259,8 @@ rules:
       - 'background'
       - 'background-image'
       - 'background-position'
+      - 'background-position-x'
+      - 'background-position-y'
       - 'background-size'
       - 'background-repeat'
       - 'background-origin'
@@ -286,6 +289,11 @@ rules:
       - 'border-bottom-color'
       - 'border-left-color'
       - 'border-image'
+      - 'border-image-source'
+      - 'border-image-slice'
+      - 'border-image-width'
+      - 'border-image-outset'
+      - 'border-image-repeat'
       - 'border-spacing'
       - 'border-radius'
       - 'border-top-left-radius'
