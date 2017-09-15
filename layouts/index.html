@@ -3,7 +3,7 @@
 		{{ with $.Site.Data.districts.region }}
 			<section class="districts">
 				<table class="districts__table">
-					{{ range . }}
+					{{ range sort . "name" "asc" }}
 						<tr id="districts__table__district-{{ .id }}">
 							<th>{{ .name }}</th>
 						</tr>
