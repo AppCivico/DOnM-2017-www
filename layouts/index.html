@@ -12,7 +12,7 @@
 			</section>
 		{{ end }}
 
-		{{ with where $.Site.Pages ".Type" "faq" }}
+		{{ with where .Site.RegularPages ".Type" "faq" }}
 			<section class="faq">
 				{{ range . }}
 					<details id="faq__{{ .File.TranslationBaseName }}">
