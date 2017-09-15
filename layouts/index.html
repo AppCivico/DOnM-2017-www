@@ -1,5 +1,15 @@
 {{ partial "header.html" . }}
 	<main role="main">
 
+		{{ with where $.Site.Pages ".Type" "faq" }}
+			<section class="faq">
+				{{ range . }}
+					<details id="faq__{{ .File.TranslationBaseName }}">
+						<summary>{{ .Title | safeHTML | markdownify }}</summary>
+						{{ .Content }}
+					</details>
+  				{{ end }}
+			</section>
+		{{ end }}
 	</main>
 {{ partial "footer.html" . }}
