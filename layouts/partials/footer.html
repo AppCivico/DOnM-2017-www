@@ -1,0 +1,46 @@
+	<footer class="site-footer">
+		<div role="contentinfo">
+			{{ with .Site.Params.responsibles }}
+				<div class="contentinfo__responsibles">
+					<h5>
+						{{ i18n "responsibles" }}
+					</h5>
+					<ul>
+						{{ range $k, $v := . }}
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+						{{ end }}
+					</ul>
+				</div>
+			{{ end }}
+
+			{{ with .Site.Params.partners }}
+				<div class="contentinfo__partners">
+					<h5>
+						{{ i18n "partners" }}
+					</h5>
+					<ul>
+						{{ range $k, $v := . }}
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+						{{ end }}
+					</ul>
+				</div>
+			{{ end }}
+
+			{{ with .Site.Params.supporters }}
+				<div class="contentinfo__supporters">
+					<h5>
+						{{ i18n "supporters" }}
+					</h5>
+					<ul>
+						{{ range $k, $v := . }}
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+						{{ end }}
+					</ul>
+				</div>
+			{{ end }}
+		</div>
+
+		{{ partial "menu.html" . }}
+	</footer>
+</body>
+</html>
