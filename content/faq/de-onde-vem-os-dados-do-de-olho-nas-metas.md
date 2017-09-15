@@ -6,4 +6,4 @@ type: faq
 weight: 5
 ---
 
-Periodicamente, o De Olho nas Metas consulta automaticamente as informações sobre as metas e projetos do Planeja Sampa - site da Prefeitura de São Paulo que foi especialmente criado para incentivar a transparência e a participação social (http://planejasampa.prefeitura.sp.gov.br). Além dos dados do Planeja Sampa, o De Olho nas Metas também disponibiliza informações sobre as empresas executoras das metas. Essas informações fazem parte do Acordo de Cooperação Técnica entre o Tribunal de Contas do Município de São Paulo e a Rede Nossa São Paulo.
+Periodicamente, o De Olho nas Metas consulta automaticamente as informações sobre as metas e projetos do [Planeja Sampa](http://planejasampa.prefeitura.sp.gov.br) - site da Prefeitura de São Paulo que foi especialmente criado para incentivar a transparência e a participação social. Além dos dados do Planeja Sampa, o De Olho nas Metas também disponibiliza informações sobre as empresas executoras das metas. Essas informações fazem parte do Acordo de Cooperação Técnica entre o Tribunal de Contas do Município de São Paulo e a Rede Nossa São Paulo.
