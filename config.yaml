@@ -9,3 +9,18 @@ params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
   GitHubUser:    "AppCivico"
+  responsibles:
+    redeNossaSaoPaulo:
+      name: Rede Nossa São Paulo
+      link: http://www.nossasaopaulo.org.br
+  partners:
+    mitMl:
+      name: mit media lab
+      link: http://civic.mit.edu
+    tbcSP:
+      name: Tribunal de Contas do Município de São Paulo
+      link: http://www.tcm.sp.gov.br
+  supporters:
+    avina:
+      name: Fundación Avina
+      link: http://www.avinaamericas.org
