@@ -1,5 +1,5 @@
 ---
-title: "O que e de olhos nas metas?"
+title: "O que é o De Olho nas Metas?"
 date: 2017-09-14T15:32:40-03:00
 layout: none
 type: faq
