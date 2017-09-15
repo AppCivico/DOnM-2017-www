@@ -1,5 +1,16 @@
 {{ partial "header.html" . }}
 	<main role="main">
+		{{ with $.Site.Data.districts.region }}
+			<section class="districts">
+				<table class="districts__table">
+					{{ range . }}
+						<tr id="districts__table__district-{{ .id }}">
+							<th>{{ .name }}</th>
+						</tr>
+					{{ end }}
+				</table>
+			</section>
+		{{ end }}
 
 		{{ with where $.Site.Pages ".Type" "faq" }}
 			<section class="faq">
