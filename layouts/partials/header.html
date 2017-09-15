@@ -6,8 +6,9 @@
 	<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
 	<link rel="stylesheet" href="/dist/css/index.css" media="all">
-
-	<link rel="stylesheet" href="/dist/css/index.css" media="all">
+    {{ if ne (getenv "NODE_ENV") "production" }}
+		<link rel="stylesheet" href="/dist/css/qa.css" media="all">
+	{{ end }}
 
 	<title>{{ if not .IsHome }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
