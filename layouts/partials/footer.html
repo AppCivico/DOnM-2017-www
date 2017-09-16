@@ -42,5 +42,10 @@
 
 		{{ partial "menu.html" . }}
 	</footer>
+
+	{{ with $.Site.Params.googleMapsAPI }}
+		<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}&callback=initMap" async defer></script>
+	{{ end }}
+
 </body>
 </html>
