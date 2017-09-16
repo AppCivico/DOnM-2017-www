@@ -19,8 +19,9 @@
 						<summary>{{ .Title | safeHTML | markdownify }}</summary>
 						{{ .Content }}
 					</details>
-  				{{ end }}
+				{{ end }}
 			</section>
 		{{ end }}
 	</main>
+
 {{ partial "footer.html" . }}
