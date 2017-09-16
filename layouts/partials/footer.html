@@ -47,6 +47,9 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}&callback=initMap" async defer></script>
 	{{ end }}
 
+	{{ with $.Scratch.Get "scriptsFooter" }}
+		{{ . | safeHTML }}
+	{{ end }}
 
 	{{ if eq (getenv "NODE_ENV") "production" }}
 		{{ template "_internal/google_analytics.html" . }}
