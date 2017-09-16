@@ -30,8 +30,6 @@
 	{{ with .Site.Params.SiteDescription }}<meta name="description" content="{{ . }}">{{ end }}
 	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-	<meta property="og:image" content="{{ .Site.BaseURL }}dist/img/og-thumb.png">
-
 	{{ with $.Scratch.Get "scriptsHeader" }}
 		{{ . | safeHTML }}
 	{{ end }}
