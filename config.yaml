@@ -5,6 +5,7 @@ disableKinds:    ["taxonomy", "taxonomyTerm", "RSS"]
 enableRobotsTXT: true
 googleAnalytics: ""
 metaDataFormat:  "yaml"
+enableMissingTranslationPlaceholders: true
 params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
