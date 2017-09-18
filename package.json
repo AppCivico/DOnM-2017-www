@@ -4,8 +4,9 @@
   "description": "Sistema de acompanhamento da administração municipal de São Paulo na gestão 2017.",
   "main": "index.html",
   "scripts": {
-    "build": "npm-run-all --parallel build:content build:img build:css",
+    "build": "npm-run-all --parallel build:content build:img build:css build:js",
     "build:content": "node ./_buildScripts/dataContent.js",
+    "build:js": "npm-run-all compile:js",
     "build:css": "npm-run-all compile:sass compress:css",
     "build:dev": "npm-run-all build",
     "build:img": "npm-run-all compress:img",
@@ -14,6 +15,7 @@
     "compile:sass": "node-sass ./_source/stylesheets --output-style compressed --output ./static/dist/css --source-map true",
     "compress:css": "postcss --use autoprefixer cssnano --safe -r ./static/dist/css/**/*.css",
     "compress:img": "imagemin ./_source/images/**/*.{gif,jpg,png,svg} --out-dir=./static/dist/img",
+    "compile:js": "browserify ./_source/javascripts/index.js -o ./static/dist/js/index.js -t [ babelify ]",
     "lint": "npm-run-all --parallel lint:*",
     "lint:sass": "sass-lint \"./_source/stylesheets/**/*.scss\" --verbose --no-exit",
     "test": "npm run lint && echo \"Error: no test specified\" && exit 0",
@@ -21,6 +23,7 @@
     "watch": "npm-run-all --parallel watch:*",
     "watch:sass": "onchange './_source/stylesheets/**/*.scss' -- npm run build:sass",
     "watch:img": "onchange './_source/images/**/*.{gif,jpg,png,svg}' -- npm run build:sass"
+    "watch:es6": "onchange \"./_source/javascript/**/*.js\" -- npm run build:js",
   },
   "repository": {
     "type": "git",
@@ -39,6 +42,10 @@
   "homepage": "https://github.com/AppCivico/DOnM-2017-www#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
     "changelog-verify": "^1.0.4",
     "cssnano": "^3.10.0",
     "eslint": "^4.6.1",
