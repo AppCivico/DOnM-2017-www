@@ -2,13 +2,15 @@
 	<main role="main">
 		{{ with $.Site.Data.districts.region }}
 			<section class="districts">
-				<table class="districts__table">
-					{{ range sort . "name" "asc" }}
-						<tr id="districts__table__district-{{ .id }}">
-							<th>{{ .name }}</th>
-						</tr>
-					{{ end }}
-				</table>
+				<noscript>
+					<table class="districts__table">
+						{{ range sort . "name" "asc" }}
+							<tr id="districts__table__district-{{ .id }}">
+								<th>{{ .name }}</th>
+							</tr>
+						{{ end }}
+					</table>
+				</noscript>
 			</section>
 		{{ end }}
 
