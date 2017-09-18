@@ -2,6 +2,8 @@
 	<main role="main">
 		{{ with $.Site.Data.districts.region }}
 			<section class="districts">
+				<div id="map"></div>
+
 				<noscript>
 					<table class="districts__table">
 						{{ range sort . "name" "asc" }}
