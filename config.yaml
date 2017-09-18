@@ -9,7 +9,7 @@ params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
   GitHubUser:    "AppCivico"
-  googleMapsAPI:
+  googleMapsAPI: "AIzaSyBHIYUva7giKEo0zcgX8x8HFTCWSCW4IgU"
   responsibles:
     redeNossaSaoPaulo:
       name: Rede Nossa São Paulo
