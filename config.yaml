@@ -6,6 +6,7 @@ enableRobotsTXT: true
 googleAnalytics: ""
 metaDataFormat:  "yaml"
 enableMissingTranslationPlaceholders: true
+defaultContentLanguage: pt
 menu:
   main:
       - Name: "O que é?"
