@@ -57,7 +57,7 @@ function savePages() {
 
 		const frontMatter = `---
 date: ${new Date().toISOString()}
-draft: false
+draft: true
 title: ${page.name}
 id: ${page.id}
 ---
