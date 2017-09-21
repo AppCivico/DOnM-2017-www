@@ -53,12 +53,11 @@
 	}
 </style>
 
+	<script src="/dist/js/index.js" defer></script>
 
 	{{ with $.Site.Params.googleMapsAPI }}
-		<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}&callback=initMap" async defer></script>
 	{{ end }}
-
-	<script src="/dist/js/index.js"></script>
 
 	{{ with $.Scratch.Get "scriptsFooter" }}
 		{{ . | safeHTML }}

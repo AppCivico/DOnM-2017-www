@@ -1,3 +1,3 @@
 import initMap from './maps';
 
-initMap();
+window.initMap = initMap;
