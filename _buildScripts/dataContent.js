@@ -10,8 +10,21 @@ const sourcesAndDests = [
 		contentFolder: './content/distritos',
 		jsonRootElement: 'region',
 	},
-];
 
+	{
+		url: '/api/project',
+		dataDest: './static/dist/js/projects.json',
+		contentFolder: './content/projetos',
+		jsonRootElement: 'projects',
+	},
+
+	{
+		url: '/api/goal',
+		dataDest: './static/dist/js/goals.json',
+		contentFolder: './content/metas',
+		jsonRootElement: 'goals',
+	},
+];
 
 // @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
 function slugify(str) {
