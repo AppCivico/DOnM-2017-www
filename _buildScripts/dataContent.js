@@ -12,7 +12,6 @@ const sourcesAndDests = [
 	},
 ];
 
-let currentElement;
 
 // @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
 function slugify(str) {
@@ -33,17 +32,17 @@ function slugify(str) {
 		.toLowerCase();
 }
 
-function savePages() {
-	const fileContent = fs.readFileSync(this.path, 'utf-8');
-	const jsonElements = JSON.parse(fileContent)[currentElement.jsonRootElement];
+function savePages(fileData) {
+	const fileContent = fs.readFileSync(fileData.dataDest, 'utf-8');
+	const jsonElements = JSON.parse(fileContent)[fileData.jsonRootElement];
 	const pageList = [];
 
 	if (typeof (jsonElements) === 'undefined' || jsonElements === null) {
-		throw new Error(`error on parse ${currentElement.dataDest}: ${currentElement.jsonRootElement}`);
+		throw new Error(`error on parse ${fileData.dataDest}: ${fileData.jsonRootElement}`);
 	}
 
 	jsonElements.forEach((page) => {
-		const filename = `${currentElement.contentFolder}/${slugify(page.name || page.title)}.md`;
+		const filename = `${fileData.contentFolder}/${slugify(page.name || page.title)}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
 			throw new Error(`${filename} already exists.`);
@@ -84,8 +83,8 @@ id: ${page.id}
 }
 
 
-function download(url, dest, cb) {
-	const file = fs.createWriteStream(dest);
+function download(url, fileData, cb) {
+	const file = fs.createWriteStream(fileData.dataDest);
 
 	const request = https.get(url, (response) => {
 		// check if response is success
@@ -96,24 +95,26 @@ function download(url, dest, cb) {
 		response.pipe(file);
 
 		file.on('finish', () => {
-			file.close(cb); // close() is async, call cb after close completes.
-			console.log(`${url} saved as ${dest}`); // eslint-disable-line no-console
+			file.close(() => {
+				cb(fileData);
+			}); // close() is async, call cb after close completes.
+			console.log(`${url} saved as ${fileData.dataDest}`); // eslint-disable-line no-console
 		});
 	});
 
 	request.on('error', (err) => { // Handle errors
-		fs.unlink(dest); // Delete the file async. (But we don't check the result)
+		fs.unlink(fileData.dataDest); // Delete the file async. (But we don't check the result)
 		if (cb) cb(err.message);
 	});
 
 	file.on('error', (err) => { // Handle errors
-		fs.unlink(dest); // Delete the file async. (But we don't check the result)
+		fs.unlink(fileData.dataDest); // Delete the file async. (But we don't check the result)
 		if (cb) cb(err.message);
 	});
 }
 
 sourcesAndDests.forEach((file) => {
-	currentElement = file;
+	const fileData = file;
 
-	download(`${DOMAIN}${file.url}`, file.dataDest, savePages);
+	download(`${DOMAIN}${file.url}`, fileData, savePages);
 });
