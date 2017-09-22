@@ -51,6 +51,16 @@ function savePages() {
 			console.log(`Writing ${filename}`); // eslint-disable-line no-console
 		});
 
+
+		contentFile.on('error', (err) => { // Handle errors
+			fs.unlink(filename); // Delete the file async. (But we don't check the result)
+			throw new Error(`error on writing ${filename}. ${err.message}`);
+		});
+
+		contentFile.on('finish', () => {
+			contentFile.close();
+		});
+
 		contentFile.on('close', () => {
 			console.log(`${filename} saved.`); // eslint-disable-line no-console
 		});
@@ -66,8 +76,6 @@ id: ${page.id}
 		contentFile.write(frontMatter);
 
 		pageList[pageList.length] = filename;
-
-		contentFile.close();
 	});
 }
 
