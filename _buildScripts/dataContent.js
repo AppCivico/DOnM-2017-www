@@ -16,8 +16,8 @@ let currentElement;
 
 // @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
 function slugify(str) {
-	const from = 'ąàáäâãåæćçęęèéëêìíïîłńòóöôõøśùúüûñçżź';
-	const to = 'aaaaaaaacceeeeeeiiiilnoooooosuuuunczz';
+	const from = 'ąàáäâãåæćçęęèéëêìíïîłńòóöôõøśùúüûñżź';
+	const to = 'aaaaaaaacceeeeeeiiiilnoooooosuuuunzz';
 	let regex = from.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1');
 
 	regex = new RegExp(`[${regex}]`, 'g');
