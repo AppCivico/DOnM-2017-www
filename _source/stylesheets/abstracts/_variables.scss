@@ -12,7 +12,7 @@
 ///
 /// @example scss
 /// $title-font-stack: ComicSans, $basic-title-font-stack;
-$title-font-stack: $basic-title-font-stack !default;
+$title-font-stack: Lato, $basic-title-font-stack !default;
 
 
 /// Text body font stack
@@ -23,7 +23,7 @@ $title-font-stack: $basic-title-font-stack !default;
 ///
 /// @example scss
 /// $text-font-stack: ComicSans, $native-font-stack;
-$text-font-stack: $native-font-stack !default;
+$text-font-stack: Lato, $basic-title-font-stack !default;
 
 
 /// Code (monospace) font stack
