@@ -1,7 +1,9 @@
 let map;
 
 const initMap = function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-undef
+	const mapElement = document.getElementById('map');
+
+	map = new google.maps.Map(mapElement, { // eslint-disable-line no-undef
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
 	});
@@ -30,8 +32,16 @@ const initMap = function initMap() {
 			throw new TypeError("Oops, we haven't got JSON!");
 		})
 		.then((districtsList) => {
-			for (let i = 0; i < districtsList.region.length; i += 1) {
-				const district = districtsList.region[i];
+			let districts = districtsList.regions;
+
+			if (mapElement.hasAttribute('data-district')) {
+				const districtToDraw = parseInt(mapElement.getAttribute('data-district'), 10);
+
+				districts = districts.filter(x => x.id === districtToDraw);
+			}
+
+			for (let i = 0; i < districts.length; i += 1) {
+				const district = districts[i];
 				const points = [];
 				const geoJSON = JSON.parse(district.geo_json);
 
