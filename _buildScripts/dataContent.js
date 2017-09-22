@@ -39,7 +39,7 @@ function savePages() {
 	const pageList = [];
 
 	jsonElements.forEach((page) => {
-		const filename = `${currentElement.contentFolder}/${slugify(page.name)}.md`;
+		const filename = `${currentElement.contentFolder}/${slugify(page.name || page.title)}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
 			throw new Error(`${filename} already exists.`);
@@ -58,7 +58,7 @@ function savePages() {
 		const frontMatter = `---
 date: ${new Date().toISOString()}
 draft: true
-title: ${page.name}
+title: ${page.name || page.title}
 id: ${page.id}
 ---
 		`;
