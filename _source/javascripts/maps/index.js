@@ -30,19 +30,21 @@ const initMap = function initMap() {
 			throw new TypeError("Oops, we haven't got JSON!");
 		})
 		.then((districtsList) => {
-			districtsList.region.forEach((district) => {
+			for (let i = 0; i < districtsList.region.length; i += 1) {
+				const district = districtsList.region[i];
 				const points = [];
-
 				const geoJSON = JSON.parse(district.geo_json);
 
-				geoJSON.coordinates.forEach((coord) => {
-					coord.forEach((corner) => {
+				for (let j = 0; j < geoJSON.coordinates.length; j += 1) {
+					const coord = geoJSON.coordinates[j];
+					for (let k = 0; k < coord.length; k += 1) {
+						const corner = coord[k];
 						points[points.length] = {
 							lat: corner[1],
 							lng: corner[0],
 						};
-					});
-				});
+					}
+				}
 
 				// Construct the polygon.
 				const districtToDraw = new google.maps.Polygon({
@@ -55,7 +57,7 @@ const initMap = function initMap() {
 				});
 
 				districtToDraw.setMap(map);
-			});
+			}
 		})
 		.catch((error) => {
 			throw new TypeError(error);
