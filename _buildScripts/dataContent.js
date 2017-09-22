@@ -108,9 +108,7 @@ function download(url, fileData, cb) {
 		response.pipe(file);
 
 		file.on('finish', () => {
-			file.close(() => {
-				cb(fileData);
-			}); // close() is async, call cb after close completes.
+			file.close(cb(fileData)); // close() is async, call cb after close completes.
 			console.log(`${url} saved as ${fileData.dataDest}`); // eslint-disable-line no-console
 		});
 	});
