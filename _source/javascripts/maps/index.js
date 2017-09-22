@@ -1,7 +1,7 @@
 let map;
 
 const initMap = function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
+	map = new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-undef
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
 	});
@@ -47,7 +47,7 @@ const initMap = function initMap() {
 				}
 
 				// Construct the polygon.
-				const districtToDraw = new google.maps.Polygon({
+				const districtToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
 					paths: points,
 					strokeColor: '#FF0000',
 					strokeOpacity: 0.8,
