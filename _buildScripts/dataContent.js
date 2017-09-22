@@ -38,6 +38,10 @@ function savePages() {
 	const jsonElements = JSON.parse(fileContent)[currentElement.jsonRootElement];
 	const pageList = [];
 
+	if (typeof (jsonElements) === 'undefined' || jsonElements === null) {
+		throw new Error(`error on parse ${currentElement.dataDest}: ${currentElement.jsonRootElement}`);
+	}
+
 	jsonElements.forEach((page) => {
 		const filename = `${currentElement.contentFolder}/${slugify(page.name || page.title)}.md`;
 
