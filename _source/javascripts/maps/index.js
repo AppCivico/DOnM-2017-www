@@ -17,7 +17,7 @@ const initMap = function initMap() {
 		cache: 'default',
 	};
 
-	const myRequest = new Request('https://dapidonm.eokoe.com/api/region');
+	const myRequest = new Request('/dist/js/districts.json');
 
 	fetch(myRequest, myInit)
 		.then((response) => {
