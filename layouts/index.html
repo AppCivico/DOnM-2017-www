@@ -2,7 +2,7 @@
 	<main role="main" id="conteudo">
 
 		{{ $regions := getJSON "./static/dist/js/districts.json" }}
-		{{ with $regions.region }}
+		{{ with $regions.regions }}
 			<section class="districts">
 				<div id="map"></div>
 
