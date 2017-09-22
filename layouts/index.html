@@ -1,6 +1,8 @@
 {{ partial "header.html" . }}
 	<main role="main" id="conteudo">
-		{{ with $.Site.Data.districts.region }}
+
+		{{ $regions := getJSON "./static/dist/js/districts.json" }}
+		{{ with $regions.region }}
 			<section class="districts">
 				<div id="map"></div>
 

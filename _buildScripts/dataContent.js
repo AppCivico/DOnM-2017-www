@@ -6,7 +6,7 @@ const DOMAIN = process.env.NODE_ENV === 'production' ? 'https://api.2017.deolhon
 const sourcesAndDests = [
 	{
 		url: '/api/region',
-		dataDest: './data/districts.json',
+		dataDest: './static/dist/js/districts.json',
 		contentFolder: './content/distritos',
 		jsonRootElement: 'region',
 	},
