@@ -8,7 +8,7 @@ const sourcesAndDests = [
 		url: '/api/region',
 		dataDest: './static/dist/js/districts.json',
 		contentFolder: './content/distritos',
-		jsonRootElement: 'region',
+		jsonRootElement: 'regions',
 	},
 
 	{
