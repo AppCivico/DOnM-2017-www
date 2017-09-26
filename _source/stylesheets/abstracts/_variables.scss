@@ -178,7 +178,7 @@ $breakpoints: im-to-em(
 ) !default;
 
 $susy: (
-	'columns': susy-repeat(12, (80 / 16 * 1em)),
+	'columns': susy-repeat(12, (72 / 16 * 1em)),
 	'gutters': (24 / 16 * 1em),
 	'spread': 'narrow',
 	'container-spread': 'wider',
