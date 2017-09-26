@@ -3,7 +3,7 @@
 
 		{{ $regions := getJSON "./static/dist/js/districts.json" }}
 		{{ with $regions.regions }}
-			<section class="districts">
+			<article class="districts map-container">
 				<div id="map"></div>
 
 				<noscript>
@@ -15,18 +15,18 @@
 						{{ end }}
 					</table>
 				</noscript>
-			</section>
+			</article>
 		{{ end }}
 
 		{{ with where .Site.RegularPages ".Type" "faq" }}
-			<section class="faq">
+			<article class="faq">
 				{{ range . }}
 					<details id="faq__{{ .File.TranslationBaseName }}">
 						<summary>{{ .Title | safeHTML | markdownify }}</summary>
 						{{ .Content }}
 					</details>
 				{{ end }}
-			</section>
+			</article>
 		{{ end }}
 	</main>
 
