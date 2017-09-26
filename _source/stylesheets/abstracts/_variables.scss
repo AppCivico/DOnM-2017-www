@@ -145,15 +145,10 @@ $palette: (
 	),
 );
 
-
 /// Default border-radius
 /// @todo Customize it to match your design.
 /// @type number
 $border-radius: 0 !default;
-
-/// Container's maximum width
-/// @type number
-$max-width: 1180px !default;
 
 @function im-to-em($breakpoints, $base-value: 16px) {
 	$new-breakpoints: ();
@@ -190,6 +185,26 @@ $susy: (
 // 1200
 // 1600.
 
+/// Container's maximum width
+/// @type number
+$max-width: span(12) !default;
+
+$col-breakpoints: (
+	'1col': span(1),
+	'2col': span(2),
+	'3col': span(3),
+	'4col': span(4),
+	'5col': span(5),
+	'6col': span(6),
+	'7col': span(7),
+	'8col': span(8),
+	'9col': span(9),
+	'10col': span(10),
+	'11col': span(11),
+	'12col': span(12)
+);
+
+$breakpoints: map-merge($breakpoints, $col-breakpoints);
 
 /// Z-indexes map, gathering all Z layers of the application. Avoid to edit it.
 /// @access public
