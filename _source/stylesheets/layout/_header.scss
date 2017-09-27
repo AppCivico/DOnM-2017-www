@@ -16,12 +16,15 @@
 
 	margin: 0 auto;
 
-	background-color: palette('white');
-
-	outline: 1px solid;
-
 	@include media('<desktop') {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+
 		width: 0;
+
+		margin: 0;
 
 		overflow: hidden;
 
@@ -36,29 +39,38 @@
 
 		z-index: layer('default');
 
-		max-width: none;
-		margin: 0 0 0 calc(50% - #{span(4) / 2});
+		margin-left: 50%;
 	}
 }
 
+
 .main-menu > ul {
-	display: table;
+	@include clearfix;
 
 	max-width: span(12);
 
-	margin: 0 auto 0 0;
+	margin: 0 0 0 (span(2 'wide') * -1);
+
+	background-color: palette('white');
+
+	outline: 1px solid;
+
+	@include media('<desktop') {
+		display: block;
+
+		margin: 0;
+	}
+}
+
+
+.main-menu > ul > li {
+	float: left;
 
 	font-size: ms(-1);
 
 	@include media('<desktop') {
-		display: block;
-	}
-}
+		float: none;
 
-.main-menu > ul > li {
-	display: table-cell;
-
-	@include media('<desktop') {
 		display: block;
 	}
 }
