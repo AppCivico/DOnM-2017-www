@@ -3579,9 +3579,9 @@ minimist@^1.1.0, minimist@^1.1.3, minimist@^1.2.0, minimist@~1.2.0:
   dependencies:
     minimist "0.0.8"
 
-modular-scale@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/modular-scale/-/modular-scale-4.4.1.tgz#9dc07cb170ab9b536838bc7750e63fc6cc3724e0"
+modularscale-sass@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/modularscale-sass/-/modularscale-sass-3.0.3.tgz#f51bd7e4ed3bc42566dfd2c1c3c11f80fb5de958"
 
 module-deps@^4.0.8:
   version "4.1.1"
