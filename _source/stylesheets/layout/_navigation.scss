@@ -40,6 +40,86 @@ nav a {
 }
 
 
+.main-menu {
+	max-width: span(10);
+
+	margin: 0 auto;
+
+	@include media('<desktop') {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+
+		width: 0;
+
+		margin: 0;
+
+		overflow: hidden;
+
+		.menu-controller:checked ~ * & {
+			width: span(2);
+
+			overflow-y: auto;
+		}
+	}
+
+	@include media ('>=10col') {
+		position: relative;
+		top: $line-height * 1em;
+
+		z-index: layer('default');
+
+		margin-left: 50%;
+	}
+}
+
+
+.main-menu > ul {
+	@include clearfix;
+
+	max-width: span(12);
+
+	margin: 0 0 0 (span(2 'wide') * -1);
+
+	background-color: palette('white');
+
+	outline: 1px solid;
+
+	@include media('<desktop') {
+		display: block;
+
+		margin: 0;
+	}
+}
+
+
+.main-menu > ul > li {
+	float: left;
+
+	font-size: ms(-1);
+
+	@include media('<desktop') {
+		float: none;
+
+		display: block;
+	}
+}
+
+
+[for='menu-controller'] {
+	&::before {
+		font-weight: bold;
+		font-family: sans-serif;
+
+		content: '\20\2261\20';
+
+		.menu-controller:checked ~ * & {
+			content: '\20\d7\20';
+		}
+	}
+}
+
 /* access
 ---------------------------------------------------------------------------- */
 .skip-links {
