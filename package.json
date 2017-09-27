@@ -21,7 +21,7 @@
     "test": "npm run lint && echo \"Error: no test specified\" && exit 0",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:sass": "onchange \"./_source/stylesheets/**/*.scss\" -- npm run build:css",
+    "watch:sass": "onchange \"./_source/stylesheets/**/*.scss\" -- npm-run-all lint:sass build:css",
     "watch:es6": "onchange \"./_source/javascripts/**/*.js\" -- npm run build:js",
     "watch:img": "onchange \"./_source/images/**/*.{gif,jpg,png,svg}\" -- npm run build:img"
   },
