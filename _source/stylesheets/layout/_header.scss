@@ -23,6 +23,8 @@
 	@include media('<desktop') {
 		width: 0;
 
+		overflow: hidden;
+
 		.menu-controller:checked & {
 			width: 90%;
 		}
