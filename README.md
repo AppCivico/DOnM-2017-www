@@ -18,13 +18,13 @@ Serve with hot reload at `localhost:1313`: `hugo server`
 Don't forget to set environment as `production`.
 
 ```
-NODE_ENV='production` && npm install && npm test && npm run build:prod && hugo
+NODE_ENV='production' && npm install && npm test && npm run build:prod && hugo
 ```
 
 Or:
 
 ```
-NODE_ENV='production` && yarn && yarn test && yarn run build:prod && hugo
+NODE_ENV='production' && yarn && yarn test && yarn run build:prod && hugo
 ```
 
 Move the content of `/public` to site root.
