@@ -16,7 +16,6 @@
 
 	margin: 0 auto;
 
-	font-size: ms(-1);
 
 	outline: 1px solid;
 
@@ -45,6 +44,8 @@
 	max-width: span(12);
 
 	margin: 0 auto 0 0;
+
+	font-size: ms(-1);
 
 	@include media('<desktop') {
 		display: block;
