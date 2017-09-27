@@ -28,8 +28,10 @@
 
 		overflow: hidden;
 
-		.menu-controller:checked & {
-			width: 90%;
+		.menu-controller:checked ~ * & {
+			width: span(2);
+
+			overflow-y: auto;
 		}
 	}
 
@@ -72,5 +74,19 @@
 		float: none;
 
 		display: block;
+	}
+}
+
+
+[for='menu-controller'] {
+	&::before {
+		font-weight: bold;
+		font-family: sans-serif;
+
+		content: '\20\2261\20';
+
+		.menu-controller:checked ~ * & {
+			content: '\20\d7\20';
+		}
 	}
 }
