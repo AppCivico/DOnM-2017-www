@@ -58,7 +58,7 @@ nav a {
 		overflow: hidden;
 
 		.menu-controller:checked ~ * & {
-			width: span(2);
+			width: $off-canvas-menu-width;
 
 			overflow-y: auto;
 		}

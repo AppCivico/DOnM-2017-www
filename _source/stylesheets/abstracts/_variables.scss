@@ -189,6 +189,11 @@ $susy: (
 /// @type number
 $max-width: span(12) !default;
 
+
+/// Off-canvas menu width
+/// @type number
+$off-canvas-menu-width: span(2 'wide');
+
 $col-breakpoints: (
 	'1col': span(1),
 	'2col': span(2),
