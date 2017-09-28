@@ -2,6 +2,9 @@
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
 
+.site-footer {
+	padding-top: $line-height * 1rem;
+}
 
 /**
  * A large perceivable region that contains information about the parent document.
@@ -11,4 +14,56 @@
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `contentinfo` role.
  */
 [role='contentinfo'] {
+	width: 100%;
+	max-width: $max-width - gutter();
+
+	padding: gutter() gutter() / 2;
+	margin: 0 auto;
+
+	@include media('>=6col') {
+		@include table-layout-wrapper;
+	}
+}
+
+[role='contentinfo'] > div {
+	outline: 1px solid;
+
+	@include media('>=6col') {
+		@include table-layout-item;
+
+	}
+
+	@include media('>=6col', '<#{$max-width - gutter()}') {
+		padding: gutter() / 2;
+	}
+}
+
+[role='contentinfo'] h5 {
+	padding: gutter() / 2;
+	margin: 0 0 $line-height * 1rem;
+
+	font-size: ms(-1);
+}
+
+[role='contentinfo'] ul {
+	@include inline-block-wrapper;
+}
+
+[role='contentinfo'] li {
+	@include inline-block-item;
+
+	padding: gutter() / 2;
+}
+
+[role='contentinfo'] a {
+	@include image-replacement;
+
+	display: block;
+
+	width: span(1);
+	height: span(1);
+
+	background-color: palette('gray');
+
+	outline: 1px solid;
 }
