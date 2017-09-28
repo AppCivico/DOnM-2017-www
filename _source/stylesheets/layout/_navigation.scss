@@ -30,6 +30,8 @@ nav a {
 
 	padding: gutter();
 
+	font-size: ms(-1);
+
 	&:link {
 		text-decoration: none;
 	}
@@ -96,8 +98,6 @@ nav a {
 
 .main-menu > ul > li {
 	float: left;
-
-	font-size: ms(-1);
 
 	@include media('<desktop') {
 		float: none;
