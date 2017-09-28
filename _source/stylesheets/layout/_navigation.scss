@@ -8,10 +8,15 @@ menu ul,
 menu ol,
 nav ul,
 nav ol {
+	width: 100%;
+	max-width: $max-width;
+
 	padding: 0;
-	margin: 0;
+	margin: 0 auto;
 
 	list-style: none;
+
+	outline: 1px solid;
 }
 
 menu li,
@@ -28,7 +33,7 @@ menu a,
 nav a {
 	display: block;
 
-	padding: gutter();
+	padding: gutter() / 1em * 1rem;
 
 	font-size: ms(-1);
 
@@ -43,10 +48,6 @@ nav a {
 
 
 .main-menu {
-	max-width: span(10);
-
-	margin: 0 auto;
-
 	@include media('<desktop') {
 		position: fixed;
 		top: 0;
@@ -80,18 +81,19 @@ nav a {
 .main-menu > ul {
 	@include clearfix;
 
-	max-width: span(12);
-
-	margin: 0 0 0 (span(2 'wide') * -1);
+	width: auto;
+	max-width: none;
 
 	background-color: palette('white');
-
-	outline: 1px solid;
 
 	@include media('<desktop') {
 		display: block;
 
 		margin: 0;
+	}
+
+	@include media('>=10col') {
+		margin: 0 0 0 (span(2 'wide') / 1em * -1 * 1rem);
 	}
 }
 
