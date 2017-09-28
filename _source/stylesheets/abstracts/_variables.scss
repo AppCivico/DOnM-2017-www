@@ -187,7 +187,7 @@ $susy: (
 
 /// Container's maximum width
 /// @type number
-$max-width: span(12) !default;
+$max-width: span(12 'wider') !default;
 
 
 /// Off-canvas menu width
