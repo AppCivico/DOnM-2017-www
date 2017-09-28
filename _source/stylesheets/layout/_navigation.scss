@@ -152,6 +152,22 @@ nav a {
 /* access
 ---------------------------------------------------------------------------- */
 .skip-links {
+	@include table-layout-wrapper;
+
+	max-width: $max-width;
+}
+
+.skip-links ul {
+	display: table-row;
+
+}
+
+.skip-links li {
+	@include table-layout-item;
+}
+
+.skip-links a {
+	@include visually-hidden--focusable;
 }
 
 /* pagination
