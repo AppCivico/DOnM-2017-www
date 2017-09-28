@@ -124,6 +124,29 @@ nav a {
 		display: block;
 	}
 }
+
+.footer-menu {
+}
+
+.footer-menu ul {
+	@include media ('>=desktop') {
+		@include table-layout-wrapper;
+
+		text-align: center;
+	}
+}
+
+.footer-menu li {
+	@include media ('>=desktop') {
+		@include table-layout-item;
+	}
+}
+
+.footer-menu a {
+	@include media ('<desktop') {
+		padding-top: gutter() / 2;
+		padding-bottom: gutter() / 2;
+	}
 }
 
 /* access
