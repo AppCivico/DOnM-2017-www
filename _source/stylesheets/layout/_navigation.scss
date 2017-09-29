@@ -109,11 +109,23 @@ nav a {
 }
 
 [for='menu-controller'] {
+	float: left;
+
 	display: none;
+
+	width: (span(2) / 1em * 1rem);
+
+	padding: (gutter() / 2) gutter();
+
+	font-size: 1em;
 
 	&::before {
 		font-weight: bold;
+		font-size: 2em;
+		line-height: 0.75;
 		font-family: sans-serif;
+
+		vertical-align: middle;
 
 		content: '\20\2261\20';
 
