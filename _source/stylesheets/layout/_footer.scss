@@ -26,7 +26,7 @@
 }
 
 [role='contentinfo'] > div {
-	outline: 1px solid;
+	outline: 1px solid palette('gray');
 
 	@include media('>=6col') {
 		@include table-layout-item;
@@ -63,7 +63,7 @@
 	width: span(1);
 	height: span(1);
 
-	background-color: palette('gray');
+	background-color: palette('gray', 'light');
 
-	outline: 1px solid;
+	outline: 1px solid palette('gray');
 }
