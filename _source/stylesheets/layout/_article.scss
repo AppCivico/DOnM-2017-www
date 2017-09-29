@@ -1,0 +1,8 @@
+article {
+	max-width: $max-width;
+
+	padding: gutter();
+	margin: 0 auto;
+
+	outline: 1px solid palette('gray');
+}
