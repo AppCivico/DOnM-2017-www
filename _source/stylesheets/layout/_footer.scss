@@ -57,13 +57,13 @@
 
 [role='contentinfo'] a {
 	@include image-replacement;
+	@include placeholder-bg;
 
 	display: block;
 
 	width: span(1);
 	height: span(1);
 
-	background-color: palette('gray', 'light');
 
 	outline: 1px solid palette('gray');
 }
