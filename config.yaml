@@ -7,6 +7,7 @@ googleAnalytics: ""
 metaDataFormat:  "yaml"
 enableMissingTranslationPlaceholders: true
 defaultContentLanguage: pt
+pluralizeListTitles: false
 menu:
   main:
       - Name: "O que é?"
