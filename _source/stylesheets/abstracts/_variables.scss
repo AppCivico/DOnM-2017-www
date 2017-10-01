@@ -195,18 +195,18 @@ $max-width: span(12 'wider') !default;
 $off-canvas-menu-width: span(2 'wide');
 
 $col-breakpoints: (
-	'1col': span(1),
-	'2col': span(2),
-	'3col': span(3),
-	'4col': span(4),
-	'5col': span(5),
-	'6col': span(6),
-	'7col': span(7),
-	'8col': span(8),
-	'9col': span(9),
-	'10col': span(10),
-	'11col': span(11),
-	'12col': span(12)
+	'1col': span(1 'wider'),
+	'2col': span(2 'wider'),
+	'3col': span(3 'wider'),
+	'4col': span(4 'wider'),
+	'5col': span(5 'wider'),
+	'6col': span(6 'wider'),
+	'7col': span(7 'wider'),
+	'8col': span(8 'wider'),
+	'9col': span(9 'wider'),
+	'10col': span(10 'wider'),
+	'11col': span(11 'wider'),
+	'12col': span(12 'wider')
 );
 
 $breakpoints: map-merge($breakpoints, $col-breakpoints);
