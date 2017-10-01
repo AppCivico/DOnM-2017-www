@@ -67,7 +67,7 @@ nav a {
 		}
 	}
 
-	@include media ('>=10col') {
+	@include media ('>=desktop') {
 		position: relative;
 		top: $line-height * 1em;
 
@@ -92,7 +92,7 @@ nav a {
 		margin: 0;
 	}
 
-	@include media('>=10col') {
+	@include media('>=desktop') {
 		margin: 0 0 0 (span(2 'wide') / 1em * -1 * 1rem);
 	}
 }
