@@ -9,4 +9,30 @@
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `banner` role.
  */
 [role='banner'] {
+	max-width: $max-width;
+
+	margin: 0 auto;
+}
+
+[role='banner'] > a {
+	@include image-replacement;
+	@include placeholder-bg;
+
+	display: block;
+
+
+	width: span(3 'wider');
+	height: span(1 'wider');
+
+	margin-top: (gutter() / 2);
+	margin-right: auto;
+	margin-bottom: (gutter() / 2);
+	margin-left: auto;
+
+	outline: 1px solid palette('gray');
+
+	@include media('>=12col') {
+		margin-bottom: (gutter() * -2);
+		margin-left: (gutter() / 2);
+	}
 }
