@@ -83,8 +83,8 @@ function savePages(fileData) {
 
 		const frontMatter = `---
 date: ${new Date().toISOString()}
-draft: true
-title: ${page.name || page.title}
+draft: false
+title: "${page.name || page.title}"
 id: ${page.id}
 ---
 		`;
