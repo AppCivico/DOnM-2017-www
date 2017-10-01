@@ -1,6 +1,16 @@
+- id: districtTitleCase
+  translation: Distrito
+- id: goalTitleCase
+  translation: Meta
 - id: partnersTitleCase
   translation: Parceiros
+- id: projectTitleCase
+  translation: Projeto
+- id: relatedProjectsSentenceCase
+  translation: Projetos associados
 - id: responsiblesTitleCase
   translation: Responsáveis
 - id: supportersTitleCase
   translation: Apoiadores
+- id: topicTitleCase
+  translation: Eixo
