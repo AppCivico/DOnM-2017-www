@@ -3,11 +3,11 @@
 // -----------------------------------------------------------------------------
 
 .site-footer {
-	padding-top: $line-height * 1rem;
+	padding: (span(1) / 1em * 1rem) 0;
 
 	color: palette('white');
 
-	background-image: image('dots.png');
+	background-image: image('dots.png'), linear-gradient(to left top, palette('brown', 'dark'), palette('orange', 'dark'));
 	background-position: right bottom;
 	background-color: palette('brown');
 }
