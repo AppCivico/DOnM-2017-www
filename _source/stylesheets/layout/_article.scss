@@ -4,5 +4,7 @@ article {
 	padding: gutter();
 	margin: 0 auto span(1);
 
-	outline: 1px solid palette('gray');
+	.grid & {
+		outline: 1px solid palette('gray');
+	}
 }

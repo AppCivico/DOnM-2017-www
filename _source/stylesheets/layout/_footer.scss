@@ -32,15 +32,16 @@
 }
 
 [role='contentinfo'] > div {
-	outline: 1px solid palette('gray');
-
 	@include media('>=6col') {
 		@include table-layout-item;
-
 	}
 
 	@include media('>=6col', '<#{$max-width - gutter()}') {
 		padding: gutter() / 2;
+	}
+
+	.grid & {
+		outline: 1px solid palette('gray');
 	}
 }
 
@@ -73,6 +74,7 @@
 	width: span(1);
 	height: span(1);
 
-
-	outline: 1px solid palette('gray');
+	.grid & {
+		outline: 1px solid palette('gray');
+	}
 }
