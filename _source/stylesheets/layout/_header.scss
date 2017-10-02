@@ -8,6 +8,17 @@
  *
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `banner` role.
  */
+
+.site-header {
+	position: relative;
+
+	z-index: layer('default');
+
+	padding-top: span(1);
+
+	box-shadow: 0 16px 24px palette('shadow');
+}
+
 [role='banner'] {
 	max-width: $max-width;
 
@@ -22,9 +33,9 @@
 	width: span(3 'wider');
 	height: span(1 'wider');
 
-	margin-top: (gutter() / 2);
+	padding-top: (gutter() / 2);
+	padding-bottom: (gutter() / 2);
 	margin-right: auto;
-	margin-bottom: (gutter() / 2);
 	margin-left: auto;
 
 	background-image: image('logo.png');
