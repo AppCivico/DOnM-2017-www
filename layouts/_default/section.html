@@ -6,6 +6,7 @@
 			{{ . }}
 		</article>
 	{{ end }}
+
 	{{ with .Data.Pages }}
 		<section class="article-list">
 			{{ range sort . "Params.id" "asc" }}
