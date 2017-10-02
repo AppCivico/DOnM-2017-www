@@ -77,6 +77,10 @@ $modularscale: (
 	ratio: 1.25
 );
 
+$_orange--light: rgb(255, 144, 68);
+$_orange--x-light: rgb(249, 149, 77);
+$_orange--base: rgb(255, 83, 66);
+
 /// List all available colors and tones.
 ///
 /// @access private
@@ -94,6 +98,17 @@ $palette: (
 	),
 	'white': rgb(255, 255, 255),
 	'black': rgb(0, 0, 0),
+	'brown': (
+		'light': rgb(148, 100, 110),
+		'base': rgb(81, 55, 60),
+	),
+	'orange': (
+		'x-light': $_orange--x-light,
+		'light': $_orange--light,
+		'base': $_orange--base,
+		'dark': shade($_orange--base, 35%),
+		'x-dark': shade($_orange--base, 65%),
+	),
 	'debug': rgb(255, 0, 0),
 	'anchor': (
 		'base': rgb(0, 102, 204),
