@@ -1,0 +1,42 @@
+{{ partial "header.html" . }}
+<main>
+	{{ with .Content }}
+		<article>
+			{{ . }}
+		</article>
+	{{ end }}
+
+	{{ $projects := getJSON "./static/dist/js/projects.json" }}
+
+	{{ with $projects.projects }}
+		<section class="article-list">
+			{{ range sort . "id" "asc" }}
+				<article class="post" id="{{ .Section }}-{{ .id }}">
+					<h2>
+						<a href="/projetos/{{ .title | urlize }}">
+							{{ .id }}. {{ .title }}
+						</a>
+					</h2>
+					{{ with .description }}
+						<p>{{ . }}</p>
+					{{ end }}
+					{{ with .topics }}
+						<footer>
+							<ul>
+								{{ range . }}
+								<li>
+									<a href='/eixos/{{ .name | urlize }}'>
+										{{ i18n "topicTitleCase" }} {{ .name }}
+									</a>
+								</li>
+								{{ end }}
+							</ul>
+						</footer>
+					{{ end }}
+				</article>
+			{{ end }}
+		</section>
+	{{ end }}
+</main>
+
+{{ partial "footer.html" . }}
