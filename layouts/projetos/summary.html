@@ -1,0 +1,21 @@
+<article class="post" id="{{ .Section }}-{{ .Params.id }}">
+	<h2>
+		<a href="{{ .Permalink }}">
+			{{ .Params.id }} {{ .Title }}
+		</a>
+	</h2>
+	{{ .Title }}
+	{{ $projects := getJSON "./static/dist/js/projects.json" }}
+	{{ $currentProject := .Params.id }}
+
+	{{ range where $projects.projects "id" $currentProject }}
+		{{ with .topic }}
+			<footer>
+				<a href='/eixos/{{ .name | urlize }}'>
+					{{ .id }} {{ .name }}
+				</a>
+			</footer>
+		{{ end }}
+	{{ end }}
+</article>
+
