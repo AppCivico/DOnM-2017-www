@@ -113,9 +113,9 @@ body {
 
 	margin: 0;
 
-	.grid &:after {
 	background-color: transparent;
 
+	.grid &::after {
 		position: fixed;
 		top: 0;
 		right: 0;
