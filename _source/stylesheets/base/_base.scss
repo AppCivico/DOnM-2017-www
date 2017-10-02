@@ -165,13 +165,14 @@ summary {
 
 	display: list-item;
 
+	padding: gutter() / 2 0;
 	margin-bottom: $line-height * 1em;
 
 	list-style-type: none;
 
 	cursor: pointer;
 
-	border-bottom: $stroke solid palette('brown', 'light');
+	border-bottom: $stroke solid palette('orange', 'x-light');
 
 	&::-webkit-details-marker {
 		display: none;
@@ -192,7 +193,7 @@ summary {
 		border-top-width: 0;
 		border-right-width: ($line-height * 0.75em);
 		border-left-width: ($line-height * 0.75em);
-		border-bottom-color: palette('brown', 'light');
+		border-bottom-color: palette('orange', 'x-light');
 	}
 
 	details[open] > &::before {
@@ -204,7 +205,7 @@ summary {
 		border-right-width: ($line-height * 0.75em);
 		border-bottom-width: 0;
 		border-left-width: ($line-height * 0.75em);
-		border-top-color: palette('brown', 'light');
+		border-top-color: palette('orange', 'x-light');
 	}
 }
 
