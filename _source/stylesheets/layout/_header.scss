@@ -16,10 +16,8 @@
 
 [role='banner'] > a {
 	@include image-replacement;
-	@include placeholder-bg;
 
 	display: block;
-
 
 	width: span(3 'wider');
 	height: span(1 'wider');
@@ -29,7 +27,8 @@
 	margin-bottom: (gutter() / 2);
 	margin-left: auto;
 
-	outline: 1px solid palette('gray');
+	background-image: image('logo.png');
+	background-position: 50% 50%;
 
 	@include media('>=12col') {
 		margin-bottom: (gutter() * -2);
