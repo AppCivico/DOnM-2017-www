@@ -2,7 +2,7 @@ article {
 	max-width: $max-width;
 
 	padding: gutter();
-	margin: 0 auto;
+	margin: 0 auto span(1);
 
 	outline: 1px solid palette('gray');
 }
