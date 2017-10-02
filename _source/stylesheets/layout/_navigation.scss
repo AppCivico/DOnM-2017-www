@@ -2,7 +2,6 @@
 ---------------------------------------------------------------------------- */
 menu,
 nav {
-	font-variant: small-caps;
 	font-weight: bold;
 }
 
@@ -38,8 +37,6 @@ nav a {
 	display: block;
 
 	padding: gutter() / 1em * 1rem;
-
-	font-size: ms(-1);
 
 	@include on-event() {
 		color: palette('white');
@@ -90,6 +87,7 @@ nav a {
 	max-width: none;
 
 	background: linear-gradient(to left, palette('orange'), palette('orange', 'light'));
+	box-shadow: 0 16px 24px palette('shadow');
 
 	@include media('<desktop') {
 		display: block;
@@ -147,6 +145,10 @@ nav a {
 }
 
 .footer-menu {
+	margin: ($line-height * 2rem) 0;
+
+	background: palette('white');
+	box-shadow: 0 16px 24px palette('shadow') inset;
 }
 
 .footer-menu ul {
