@@ -11,6 +11,8 @@
 .main-container {
 	overflow: hidden;
 
+	background-color: palette('white');
+
 	@include media('<desktop') {
 		.menu-controller:checked + & {
 			margin-left: $off-canvas-menu-width;

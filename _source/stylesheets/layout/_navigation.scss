@@ -15,8 +15,6 @@ nav ol {
 	margin: 0 auto;
 
 	list-style: none;
-
-	outline: 1px solid palette('gray');
 }
 
 menu li,
@@ -31,14 +29,19 @@ nav li {
 
 menu a,
 nav a {
+	@include link-undercover {
+		color: palette('brown');
+	}
+
 	display: block;
 
 	padding: gutter() / 1em * 1rem;
 
 	font-size: ms(-1);
 
-	&:link {
-		text-decoration: none;
+	@include on-event() {
+		color: palette('white');
+		background-color: palette('orange', 'dark');
 	}
 }
 
@@ -84,12 +87,14 @@ nav a {
 	width: auto;
 	max-width: none;
 
-	background-color: palette('white');
+	background: linear-gradient(to left, palette('orange'), palette('orange', 'light'));
 
 	@include media('<desktop') {
 		display: block;
 
 		margin: 0;
+
+		background: transparent;
 	}
 
 	@include media('>=desktop') {

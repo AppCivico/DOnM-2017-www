@@ -101,7 +101,7 @@ html {
 	/* 4 */
 	text-size-adjust: 100%;
 
-	background: palette('white');
+	background: linear-gradient(to bottom, palette('orange'), palette('orange', 'light'));
 
 	box-sizing: border-box;
 
@@ -114,6 +114,8 @@ body {
 	margin: 0;
 
 	.grid &:after {
+	background-color: transparent;
+
 		position: fixed;
 		top: 0;
 		right: 0;
