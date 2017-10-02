@@ -4,6 +4,12 @@
 
 .site-footer {
 	padding-top: $line-height * 1rem;
+
+	color: palette('white');
+
+	background-image: image('dots.png');
+	background-position: right bottom;
+	background-color: palette('brown');
 }
 
 /**
@@ -43,6 +49,8 @@
 	margin: 0 0 $line-height * 1rem;
 
 	font-size: ms(-1);
+
+	color: inherit;
 }
 
 [role='contentinfo'] ul {
@@ -57,6 +65,7 @@
 
 [role='contentinfo'] a {
 	@include image-replacement;
+	@include link-undercover;
 	@include placeholder-bg;
 
 	display: block;
