@@ -2,6 +2,10 @@
 * @see http://microformats.org/wiki/h-feed
 */
 .h-feed {
+	max-width: $max-width;
+
+	padding: 0 gutter();
+	margin: 0 auto;
 }
 
 .h-feed__p-name {
@@ -22,5 +26,6 @@
 .h-feed__u-photo {
 }
 
-.h-feed__h-entry {
+.h-feed .h-entry {
+	padding: 0;
 }
