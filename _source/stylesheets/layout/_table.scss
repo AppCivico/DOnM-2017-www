@@ -3,6 +3,8 @@
 table {
 	@include fallback('margin', 0 0 1.5em 0);/* line-height */
 
+	max-width: 100%;
+
 	font-size: 100%;
 	font-family: inherit;
 	font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 0;
