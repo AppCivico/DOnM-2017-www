@@ -1,12 +1,40 @@
-<article class="post" id="{{ .Section }}-{{ .Params.id }}">
-	<header>
-		<h2>
-			<a href="{{ .Permalink }}">
-				{{ .Params.id }}. {{ .Title }}
-			</a>
-		</h2>
-	</header>
-	<footer>
-		<a href='{{ .Permalink }}'><nobr>Leia mais →</nobr></a>
-	</footer>
-</article>
+{{ partial "header.html" . }}
+<main id="conteudo">
+	{{ with .Content }}
+		<article>
+			{{ . }}
+		</article>
+	{{ end }}
+
+	{{ $districts := getJSON "./static/dist/js/districts.json" }}
+
+	{{ with $districts.regions }}
+		<section class="h-feed">
+			<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
+			<table>
+				<tr>
+					<th>{{ i18n "districtTitleCase" }}</th>
+					<th>{{ i18n "subPrefectureTitleCase" }}</th>
+					<th>{{ i18n "goalsTitleCase" }}</th>
+				</tr>
+				{{ range sort . "name" "asc" }}
+					<tr class="h-entry" id="district-{{ .id }}">
+						<th>
+							<a href="/distritos/{{ .slug }}">
+								{{ .name }}
+							</a>
+						</th>
+						<td>
+							{{ .subprefecture.name }}
+						</td>
+						<td>
+						</td>
+					</tr>
+				{{ end }}
+			</table>
+		</section>
+	{{ end }}
+	<div id="map"></div>
+</main>
+
+{{ partial "footer.html" . }}
