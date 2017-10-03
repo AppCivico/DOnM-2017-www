@@ -14,9 +14,13 @@
 
 	z-index: layer('default');
 
-	padding-top: span(1);
+	padding-top: gutter();
 
 	box-shadow: 0 16px 24px palette('shadow');
+
+	@include media('>=desktop') {
+		padding-top: span(1);
+	}
 }
 
 [role='banner'] {
