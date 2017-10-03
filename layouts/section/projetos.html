@@ -9,10 +9,10 @@
 	{{ $projects := getJSON "./static/dist/js/projects.json" }}
 
 	{{ with $projects.projects }}
-		<section class="article-list">
+		<section class="h-feed">
 			<p><b>{{ len . }}</b> {{ i18n "projectsLowerCase" }}.</p>
 			{{ range sort . "id" "asc" }}
-				<article class="post" id="project-{{ .id }}">
+				<article class="h-entry" id="project-{{ .id }}">
 					<h2>
 						<a href="/projetos/{{ .title | urlize }}">
 							{{ .id }}. {{ .title }}

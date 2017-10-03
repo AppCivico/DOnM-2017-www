@@ -9,10 +9,10 @@
 	{{ $goals := getJSON "./static/dist/js/goals.json" }}
 
 	{{ with $goals.goals }}
-		<section class="article-list">
+		<section class="h-feed">
 			<p><b>{{ len . }}</b> {{ i18n "goalsLowerCase" }}.</p>
 			{{ range sort . "id" "asc" }}
-				<article class="post" id="goal-{{ .id }}">
+				<article class="h-entry" id="goal-{{ .id }}">
 					<h2>
 						<a href="/metas/{{ .title | urlize }}">
 							{{ i18n "goalTitleCase" }} {{ .id }}
