@@ -11,7 +11,7 @@
 	{{ with $goals.goals }}
 		<section class="article-list">
 			{{ range sort . "id" "asc" }}
-				<article class="post" id="{{ .Section }}-{{ .id }}">
+				<article class="post" id="goal-{{ .id }}">
 					<h2>
 						<a href="/metas/{{ .title | urlize }}">
 							{{ i18n "goalTitleCase" }} {{ .id }}
