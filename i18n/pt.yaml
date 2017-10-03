@@ -1,16 +1,28 @@
 - id: districtTitleCase
-  translation: Distrito
+  translation: "Distrito"
+- id: districtsLowerCase
+  translation: "distritos"
 - id: goalTitleCase
-  translation: Meta
+  translation: "Meta"
+- id: goalsLowerCase
+  translation: "metas"
+- id: goalsTitleCase
+  translation: "Metas"
+- id: notFoundTitleCase
+  translation: "Não Encontrado"
 - id: partnersTitleCase
-  translation: Parceiros
+  translation: "Parceiros"
 - id: projectTitleCase
-  translation: Projeto
+  translation: "Projeto"
 - id: relatedProjectsSentenceCase
-  translation: Projetos associados
+  translation: "Projetos associados"
 - id: responsiblesTitleCase
-  translation: Responsáveis
+  translation: "Responsáveis"
+- id: returnToHome
+  translation: "Voltar para página inicial"
+- id: subPrefectureTitleCase
+  translation: "Subprefeitura"
 - id: supportersTitleCase
-  translation: Apoiadores
+  translation: "Apoiadores"
 - id: topicTitleCase
-  translation: Eixo
+  translation: "Eixo"
