@@ -87,7 +87,6 @@ nav a {
 	max-width: none;
 
 	background: linear-gradient(to left, palette('orange'), palette('orange', 'light'));
-	box-shadow: 0 16px 24px palette('shadow');
 
 	@include media('<desktop') {
 		display: block;
@@ -99,6 +98,8 @@ nav a {
 
 	@include media('>=desktop') {
 		margin: 0 0 0 (span(2 'wide') / 1em * -1 * 1rem);
+
+		box-shadow: 0 16px 24px palette('shadow');
 	}
 }
 
