@@ -10,6 +10,7 @@
 
 	{{ with $goals.goals }}
 		<section class="article-list">
+			<p><b>{{ len . }}</b> {{ i18n "goalsLowerCase" }}.</p>
 			{{ range sort . "id" "asc" }}
 				<article class="post" id="goal-{{ .id }}">
 					<h2>

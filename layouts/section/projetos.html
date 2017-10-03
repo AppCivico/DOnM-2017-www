@@ -10,6 +10,7 @@
 
 	{{ with $projects.projects }}
 		<section class="article-list">
+			<p><b>{{ len . }}</b> {{ i18n "projectsLowerCase" }}.</p>
 			{{ range sort . "id" "asc" }}
 				<article class="post" id="project-{{ .id }}">
 					<h2>
