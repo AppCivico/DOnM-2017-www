@@ -14,7 +14,7 @@
 			{{ range sort . "id" "asc" }}
 				<article class="h-entry" id="project-{{ .id }}">
 					<h2>
-						<a href="/projetos/{{ .title | urlize }}">
+						<a href="/projetos/{{ .slug }}">
 							{{ .id }}. {{ .title }}
 						</a>
 					</h2>
@@ -26,7 +26,7 @@
 							<ul>
 								{{ range . }}
 								<li>
-									<a href='/eixos/{{ .name | urlize }}'>
+									<a href='/eixos/{{ .slug }}'>
 										{{ i18n "topicTitleCase" }} {{ .name }}
 									</a>
 								</li>

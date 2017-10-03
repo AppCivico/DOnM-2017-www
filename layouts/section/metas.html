@@ -14,14 +14,14 @@
 			{{ range sort . "id" "asc" }}
 				<article class="h-entry" id="goal-{{ .id }}">
 					<h2>
-						<a href="/metas/{{ .title | urlize }}">
+						<a href="/metas/{{ .slug }}">
 							{{ i18n "goalTitleCase" }} {{ .id }}
 						</a>
 					</h2>
 					{{ .title }}
 					{{ with .topic }}
 						<footer>
-							<a href='/eixos/{{ .name | urlize }}'>
+							<a href='/eixos/{{ .slug }}'>
 								{{ i18n "topicTitleCase" }} {{ .name }}
 							</a>
 						</footer>
@@ -31,7 +31,7 @@
 							<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
 							<ul>
 								{{ range sort .  "id" "asc"}}
-									<li><a href="/projetos/{{ .project.title | urlize }}">{{ .project.id }} {{ .project.title }}</a></li>
+									<li><a href="/projetos/{{ .project.slug }}">{{ .project.id }} {{ .project.title }}</a></li>
 								{{ end }}
 							</ul>
 						</aside>

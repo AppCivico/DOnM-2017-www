@@ -26,25 +26,6 @@ const sourcesAndDests = [
 	},
 ];
 
-// @see https://gist.github.com/mathewbyrne/1280286#gistcomment-2100112
-function slugify(str) {
-	const from = 'ąàáäâãåæćçęęèéëêìíïîłńòóöôõøśùúüûñżź';
-	const to = 'aaaaaaaacceeeeeeiiiilnoooooosuuuunzz';
-	let regex = from.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1');
-
-	regex = new RegExp(`[${regex}]`, 'g');
-
-	if (str === null) return '';
-
-	return String(str)
-		.toLowerCase()
-		.replace(regex, c => to.charAt(from.indexOf(c)) || '-')
-		.replace(/[^\w\s-]/g, '')
-		.replace(/([A-Z])/g, '-$1')
-		.replace(/[-_\s]+/g, '-')
-		.toLowerCase();
-}
-
 function savePages(fileData) {
 	const fileContent = fs.readFileSync(fileData.dataDest, 'utf-8');
 	const jsonElements = JSON.parse(fileContent)[fileData.jsonRootElement];
@@ -55,7 +36,7 @@ function savePages(fileData) {
 	}
 
 	jsonElements.forEach((page) => {
-		const filename = `${fileData.contentFolder}/${slugify(page.name || page.title)}.md`;
+		const filename = `${fileData.contentFolder}/${page.slug}.md`;
 
 		if (pageList.indexOf(filename) !== -1) {
 			throw new Error(`${filename} already exists.`);
