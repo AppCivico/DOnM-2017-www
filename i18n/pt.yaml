@@ -32,7 +32,15 @@
   translation: "Distritos Beneficiados"
 - id: textProgressSentenceCase
   translation: "Progresso de acordo com a prefeitura."
-- id: year17-18
+- id: year17_18
   translation: "2017 - 2018"
-- id: year19-20
+- id: year19_20
   translation: "2019 - 2020"
+- id: situationSentenceCase
+  translation: "Situação Atual"
+- id: expectedResults
+  translation: "Resultados Esperados"
+- id: actionSentenceCase
+  translation: "Linhas de Ação"
+- id: recursosProprios
+  translation: "Recursos Próprios"
