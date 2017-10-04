@@ -11,7 +11,9 @@ Sistema de acompanhamento da administração municipal de São Paulo na gestão 
 
 Prepare files: `npm run build:dev` or `yarn run build:dev`.
 
-Serve with hot reload at `localhost:1313`: `hugo server`
+Serve with hot reload at `localhost:1313`: `hugo server --noHTTPCache=true`
+
+To watch changes on assets, use `npm run watch`.
 
 ## For production
 
