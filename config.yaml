@@ -45,6 +45,7 @@ params:
   AuthorName:    "AppCívico"
   GitHubUser:    "AppCivico"
   googleMapsAPI: "AIzaSyDqT0PwlW6s3z_DmUF47L6A9bSTwNAyoYs"
+  domainAPI: "https://dapidonm.eokoe.com"
   responsibles:
     redeNossaSaoPaulo:
       name: Rede Nossa São Paulo
