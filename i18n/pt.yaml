@@ -1,17 +1,37 @@
-- id: districtTitleCase
-  translation: "Distrito"
+- id: actionSentenceCase
+  translation: "Linhas de ação"
+- id: costingSetenceCase
+  translation: "Custeio"
+- id: districtsBenefitedSentenceCase
+  translation: "Distritos beneficiados"
 - id: districtsLowerCase
   translation: "distritos"
-- id: goalTitleCase
-  translation: "Meta"
+- id: districtTitleCase
+  translation: "Distrito"
+- id: expectedResults
+  translation: "Resultados esperados"
 - id: goalsLowerCase
   translation: "metas"
+- id: goalsRelatedSentenceCase
+  translation: "Metas Associadas"
 - id: goalsTitleCase
   translation: "Metas"
+- id: goalTitleCase
+  translation: "Meta"
+- id: investimentSetenceCase
+  translation: "Investimento"
 - id: notFoundTitleCase
   translation: "Não Encontrado"
+- id: othersResourcesSetenceCase
+  translation: "Outros recursos"
+- id: ownResourcesSetenceCase
+  translation: "Recursos próprios"
 - id: partnersTitleCase
   translation: "Parceiros"
+- id: progressProjectSentenceCase
+  translation: "Progresso deste projeto"
+- id: projectionSentenceCase
+  translation: "Projeção da meta"
 - id: projectTitleCase
   translation: "Projeto"
 - id: relatedProjectsSentenceCase
@@ -20,27 +40,21 @@
   translation: "Responsáveis"
 - id: returnToHome
   translation: "Voltar para página inicial"
+- id: secretariesSentenceCase
+  translation: "Secretarias"
+- id: secretarySentenceCase
+  translation: "Secretaria"
+- id: situationSentenceCase
+  translation: "Situação atual"
 - id: subPrefectureTitleCase
   translation: "Subprefeitura"
 - id: supportersTitleCase
   translation: "Apoiadores"
-- id: topicTitleCase
-  translation: "Eixo"
-- id: projectionSentenceCase
-  translation: "Projeção da meta"
-- id: districtsSentenceCase
-  translation: "Distritos Beneficiados"
 - id: textProgressSentenceCase
   translation: "Progresso de acordo com a prefeitura."
+- id: topicTitleCase
+  translation: "Eixo"
 - id: year17_18
   translation: "2017 - 2018"
 - id: year19_20
   translation: "2019 - 2020"
-- id: situationSentenceCase
-  translation: "Situação Atual"
-- id: expectedResults
-  translation: "Resultados Esperados"
-- id: actionSentenceCase
-  translation: "Linhas de Ação"
-- id: recursosProprios
-  translation: "Recursos Próprios"
