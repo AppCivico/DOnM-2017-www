@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+{{ $url := (print .Site.Params.domainapi "/api/goal/" .Params.id ) }}
+
+{{ $goal := getJSON $url }}
+
+{{ range $goal }}
+	<article role="main" id="conteudo">
+		<header>
+			{{ i18n "goalTitleCase" }}
+			<strong>{{ .id }}</strong>
+		</header>
+
+		{{ with .Content }}
+			{{ . }}
+		{{ end }}
+
+		<aside>
+			<section class="progress">
+
+			</section>
+			<section class="districts">
+
+				<div id="map" data-district=""></div>
+			</section>
+		</aside>
+	</article>
+{{ end }}
+{{ partial "footer.html" . }}
