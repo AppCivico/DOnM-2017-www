@@ -4,25 +4,93 @@
 {{ $goal := getJSON $url }}
 
 {{ range $goal }}
-	<article role="main" id="conteudo">
-		<header>
+
+<article role="main" id="conteudo">
+	<header>
+		<h1>
 			{{ i18n "goalTitleCase" }}
 			<strong>{{ .id }}</strong>
-		</header>
+		</h1>
+		<h3>
+			{{ i18n "topicTitleCase" }} {{.topic.name}}
+		</h3>
+		<h2>{{ .title }}</h2>
+	</header>
 
-		{{ with .Content }}
-			{{ . }}
+	<section class="indicator">
+
+		<p>{{ .indicator }}</p>
+
+	</section>
+
+
+	<section class="projection">
+
+		<h2>{{ i18n "projectionSentenceCase" }}</h2>
+
+		<dl>
+			<dt>{{ i18n "year17-18" }}</dt>
+			<dd>{{ .first_biennium }}</dd>
+
+			<dt>{{ i18n "year19-20" }}</dt>
+			<dd>{{ .second_biennium }}</dd>
+		</dl>
+
+	</section>
+
+	{{ with .related-projects }}
+
+	<section class="related-projects">
+
+		<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
+
+		<dl>
+		{{ range . }}
+
+			<dt><a href="/projects/{{ .slug }}">{{ .name }}</a></dt>
+			<dd>{{ .description }}</dd>
+
 		{{ end }}
+		</dl>
 
-		<aside>
-			<section class="progress">
+	</section>
 
-			</section>
-			<section class="districts">
-
-				<div id="map" data-district=""></div>
-			</section>
-		</aside>
-	</article>
 {{ end }}
+
+<aside>
+	<section class="progress">
+
+		<p>{{ i18n "textProgressSentenceCase" }}</p>
+
+		<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
+
+
+
+	</section>
+
+	{{ with .districts }}
+
+	<section class="districts">
+
+		<h2>{{ i18n "districtsSentenceCase" }}</h2>
+		<ul>
+
+		{{ range . }}
+
+			<li><a href="/distritos/{{ .slug }}">{{ .name }}</a></li>
+
+		{{ end }}
+		</ul>
+		<div id="map" data-district="{{ range . }}{{ .id }} {{ end }}"></div>
+
+	</section>
+
+{{ end }}
+
+</aside>
+
+</article>
+
+{{ end }}
+
 {{ partial "footer.html" . }}

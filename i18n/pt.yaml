@@ -26,3 +26,13 @@
   translation: "Apoiadores"
 - id: topicTitleCase
   translation: "Eixo"
+- id: projectionSentenceCase
+  translation: "Projeção da meta"
+- id: districtsSentenceCase
+  translation: "Distritos Beneficiados"
+- id: textProgressSentenceCase
+  translation: "Progresso de acordo com a prefeitura."
+- id: year17-18
+  translation: "2017 - 2018"
+- id: year19-20
+  translation: "2019 - 2020"
