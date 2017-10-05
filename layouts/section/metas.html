@@ -23,7 +23,7 @@
 						<p>{{ .title }}</p>
 						{{ with .topic }}
 							<footer>
-								{{ i18n "topicTitleCase" }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+								{{ i18n "topicTitleCase" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
 							</footer>
 						{{ end }}
 					</div>
