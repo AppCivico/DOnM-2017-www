@@ -116,6 +116,8 @@ p {
  * @see: http://demosthenes.info/blog/946/Controlling-Widows--Orphans
  */
 article p {
+	max-width: 35em;
+
 	margin: 0 0 $line-height * 1em;
 
 	orphans: 3;
