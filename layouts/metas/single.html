@@ -3,7 +3,7 @@
 
 {{ $goal := getJSON $url }}
 
-{{ range $goal }}
+{{ with $goal.goal }}
 
 <article role="main" id="conteudo">
 	<header>
@@ -12,82 +12,78 @@
 			<strong>{{ .id }}</strong>
 		</h1>
 		<h3>
-			{{ i18n "topicTitleCase" }} {{.topic.name}}
+			{{ i18n "topicTitleCase" }} {{ .topic.name }}
 		</h3>
 		<h2>{{ .title }}</h2>
 	</header>
 
 	<section class="indicator">
-
-		<p>{{ .indicator }}</p>
-
+		<p>{{ .indicator_description }}</p>
 	</section>
 
-
 	<section class="projection">
-
 		<h2>{{ i18n "projectionSentenceCase" }}</h2>
 
 		<dl>
-			<dt>{{ i18n "year17-18" }}</dt>
+			<dt>{{ i18n "year17_18" }}</dt>
 			<dd>{{ .first_biennium }}</dd>
 
-			<dt>{{ i18n "year19-20" }}</dt>
+			<dt>{{ i18n "year19_20" }}</dt>
 			<dd>{{ .second_biennium }}</dd>
 		</dl>
 
 	</section>
 
-	{{ with .related-projects }}
-
 	<section class="related-projects">
-
 		<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
 
 		<dl>
-		{{ range . }}
-
-			<dt><a href="/projects/{{ .slug }}">{{ .name }}</a></dt>
-			<dd>{{ .description }}</dd>
-
+		{{ range .projects }}
+			<dt>
+				{{ with .slug }}
+					<a href="/projects/{{ . }}">
+				{{ end }}
+					{{ .project.title }}
+				{{ with .slug }}
+					</a>
+				{{ end }}
+			</dt>
+			<dd>{{ .project.description }}</dd>
 		{{ end }}
 		</dl>
 
 	</section>
 
-{{ end }}
+	<aside>
 
-<aside>
-	<section class="progress">
+		<section class="progress">
+			<p>{{ i18n "textProgressSentenceCase" }}</p>
 
-		<p>{{ i18n "textProgressSentenceCase" }}</p>
+			<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
+		</section>
 
-		<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
+		<section class="districts">
+			<h2>{{ i18n "districtsSentenceCase" }}</h2>
+			<ul>
 
+				{{ range .districts }}
+					<li>
+						{{ with .slug }}
+							<a href="/distritos/{{ .slug }}">
+						{{ end }}
+							{{ .name }}
+						{{ with .slug }}
+							</a>
+						{{ end }}
+					</li>
+				{{ end }}
 
+			</ul>
+			<div id="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 
-	</section>
+		</section>
 
-	{{ with .districts }}
-
-	<section class="districts">
-
-		<h2>{{ i18n "districtsSentenceCase" }}</h2>
-		<ul>
-
-		{{ range . }}
-
-			<li><a href="/distritos/{{ .slug }}">{{ .name }}</a></li>
-
-		{{ end }}
-		</ul>
-		<div id="map" data-district="{{ range . }}{{ .id }} {{ end }}"></div>
-
-	</section>
-
-{{ end }}
-
-</aside>
+	</aside>
 
 </article>
 
