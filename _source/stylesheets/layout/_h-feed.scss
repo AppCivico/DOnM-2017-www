@@ -9,10 +9,14 @@
 	margin: 0 auto;
 }
 
+.h-feed > section {
+}
+
 .h-feed__p-name {
 }
 
 .h-feed__p-summary {
+	margin-bottom: span();
 }
 
 .h-feed__p-author {
@@ -36,7 +40,9 @@
 .h-feed__h-entry .p-name {
 	@include fallback('line-height', $line-height * 1rem);
 
-	margin: 0;
+	@include media('>=desktop') {
+		margin: 0;
+	}
 
 	font-size: ms(2);
 }

@@ -11,7 +11,7 @@
 
 	{{ with $goals.goals }}
 		<section>
-			<p><b>{{ len . }}</b> {{ i18n "goalsLowerCase" }}.</p>
+			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goalLowerCase" (len .) }}.</p>
 			{{ range sort . "id" "asc" }}
 				<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
 					<div class="h-entry__e-content .e-content">

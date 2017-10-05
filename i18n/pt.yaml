@@ -10,8 +10,10 @@
   translation: "Distrito"
 - id: expectedResults
   translation: "Resultados esperados"
-- id: goalsLowerCase
-  translation: "metas"
+- id: goalLowerCase
+  translation:
+    one: "meta"
+    other: "metas"
 - id: goalsRelatedSentenceCase
   translation: "Metas Associadas"
 - id: goalsTitleCase
@@ -32,6 +34,10 @@
   translation: "Progresso deste projeto"
 - id: projectionSentenceCase
   translation: "Projeção da meta"
+- id: projectLowerCase
+  translation:
+    one: "projeto"
+    other: "projetos"
 - id: projectTitleCase
   translation: "Projeto"
 - id: relatedProjectsSentenceCase
