@@ -53,7 +53,9 @@
 - id: textProgressSentenceCase
   translation: "Progresso de acordo com a prefeitura."
 - id: topicTitleCase
-  translation: "Eixo"
+  translation:
+    one: "Eixo"
+    other: "Eixos"
 - id: year17_18
   translation: "2017 - 2018"
 - id: year19_20
