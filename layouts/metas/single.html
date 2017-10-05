@@ -5,64 +5,63 @@
 
 {{ with $goal.goal }}
 
-<article role="main" id="conteudo">
-	<header>
-		<h1>
-			{{ i18n "goalTitleCase" }}
-			<strong>{{ .id }}</strong>
-		</h1>
-		<h3>
-			{{ i18n "topicTitleCase" }} {{ .topic.name }}
-		</h3>
-		<h2>{{ .title }}</h2>
-	</header>
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h1 class="h-entry__p-name p-name">
+				{{ i18n "goalTitleCase" }}
+				<strong>{{ .id }}</strong>
+			</h1>
+			<h3>
+				{{ i18n "topicTitleCase" }} {{ .topic.name }}
+			</h3>
+			<h2>{{ .title }}</h2>
+		</header>
 
-	<section class="indicator">
-		<p>{{ .indicator_description }}</p>
-	</section>
+		<section class="indicator">
+			<p>{{ .indicator_description }}</p>
+		</section>
 
-	<section class="projection">
-		<h2>{{ i18n "projectionSentenceCase" }}</h2>
+		<section class="projection">
+			<h2>{{ i18n "projectionSentenceCase" }}</h2>
+			<dl>
+				<dt>{{ i18n "year17_18" }}</dt>
+				<dd>{{ .first_biennium }}</dd>
 
-		<dl>
-			<dt>{{ i18n "year17_18" }}</dt>
-			<dd>{{ .first_biennium }}</dd>
+				<dt>{{ i18n "year19_20" }}</dt>
+				<dd>{{ .second_biennium }}</dd>
+			</dl>
+		</section>
 
-			<dt>{{ i18n "year19_20" }}</dt>
-			<dd>{{ .second_biennium }}</dd>
-		</dl>
+		<section class="related-projects">
+			<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
 
-	</section>
+			<dl>
+			{{ range .projects }}
+				<dt>
+					{{ with .slug }}
+						<a href="/projects/{{ . }}">
+					{{ end }}
+						{{ .project.title }}
+					{{ with .slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .project.description }}</dd>
+			{{ end }}
+			</dl>
+		</section>
 
-	<section class="related-projects">
-		<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
-
-		<dl>
-		{{ range .projects }}
-			<dt>
-				{{ with .slug }}
-					<a href="/projects/{{ . }}">
-				{{ end }}
-					{{ .project.title }}
-				{{ with .slug }}
-					</a>
-				{{ end }}
-			</dt>
-			<dd>{{ .project.description }}</dd>
-		{{ end }}
-		</dl>
-
-	</section>
+	</div>
 
 	<aside>
-
 		<section class="progress">
 			<p>{{ i18n "textProgressSentenceCase" }}</p>
 
 			<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
 		</section>
 
-		<section class="districts">
+		<section class="districts map-container">
 			<h2>{{ i18n "districtsSentenceCase" }}</h2>
 			<ul>
 
@@ -79,10 +78,8 @@
 				{{ end }}
 
 			</ul>
-			<div id="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
-
+			<div id="map" class="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 		</section>
-
 	</aside>
 
 </article>
