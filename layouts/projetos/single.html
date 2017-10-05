@@ -1,0 +1,160 @@
+{{ partial "header.html" . }}
+{{ $url := (print .Site.Params.domainapi "/api/project/" .Params.id ) }}
+
+{{ $project := getJSON $url }}
+
+{{ range $project }}
+
+<article role="main" id="conteudo">
+	<header>
+		<h1>
+			{{ i18n "projectTitleCase" }}
+			<strong>{{ .id }}</strong>
+		</h1>
+		<h3>{{ i18n "projectTitleCase" }} {{.topic.name}} </h3>
+		<h2>{{ .title }}</h2>
+
+	</header>
+
+	<section class="situation">
+		<h3> {{ i18n "situationSentenceCase" }}</h3>
+		<p>{{ .situation }}</p>
+
+	</section>
+
+	<section class="expected-results">
+
+		<h3> {{ i18n "expectedResults" }}</h3>
+		<p>{{ .results }}</p>
+
+	</section>
+
+	<section class="budget">
+		<h3> {{ i18n "budget" }}</h3>
+
+
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>{{ i18n "ownResourcesSetenceCase" }}</th>
+					<th>{{ i18n "othersResourcesSetenceCase" }}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<th>{{ i18n "investimentSetenceCase" }}</th>
+					<td>{{ .investiment_1 }}</td>
+					<td>{{ .costing_1 }}</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th>{{ i18n "costingSetenceCase" }}</th>
+					<td>{{ .investiment_2 }}</td>
+					<td>{{ .costing_2 }}</td>
+				</tr>
+			</tfoot>
+
+		</table>
+
+	</section>
+
+	<section class="action-lines">
+		<h2>{{ i18n "actionSentenceCase" }}</h2>
+
+		<dl>
+		{{ range .projects }}
+			<dt>
+				{{ with .slug }}
+					<a href="/actions_lines/{{ . }}">
+				{{ end }}
+					{{ .action_lines.title }}
+				{{ with .slug }}
+					</a>
+				{{ end }}
+			</dt>
+			<dd>{{ .action_lines.description }}</dd>
+		{{ end }}
+		</dl>
+
+	</section>
+
+
+
+<aside>
+
+
+
+
+	<section class="secretaries">
+
+		{{ range . }}
+
+		<h3> {{ i18n "secretariesSentenceCase" }}</h3>
+		<p><a href="/secretaries/{{ .slug }}">{{ .name }}</a>
+
+		{{ end }}
+		</p>
+
+	</section>
+
+
+
+
+	<section class="progress">
+
+		<h3>{{ i18n "progressProjectSentenceCase" }}</h3>
+
+		<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
+
+	</section>
+
+	<section class="goals">
+		<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
+
+		<dl>
+		{{ range .goals }}
+			<dt>
+				{{ with .slug }}
+					<a href="/goals/{{ . }}">
+				{{ end }}
+					{{ .goals.title }}
+				{{ with .slug }}
+					</a>
+				{{ end }}
+			</dt>
+			<dd>{{ .goals.description }}</dd>
+		{{ end }}
+		</dl>
+
+	</section>
+
+	{{ with .districts }}
+
+	<section class="districts">
+
+		<h2>{{ i18n "districtsSentenceCase" }}</h2>
+		<ul>
+
+		{{ range . }}
+
+			<li><a href="/distritos/{{ .slug }}">{{ .name }}</a></li>
+
+		{{ end }}
+		</ul>
+		<div id="map" data-district="{{ range . }}{{ .id }} {{ end }}"></div>
+
+	</section>
+
+{{ end }}
+
+</aside>
+
+</article>
+
+{{ end }}
+
+{{ partial "footer.html" . }}
