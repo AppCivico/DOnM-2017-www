@@ -193,7 +193,7 @@ summary {
 		border-top-width: 0;
 		border-right-width: ($line-height * 0.75em);
 		border-left-width: ($line-height * 0.75em);
-		border-bottom-color: palette('orange', 'x-light');
+		border-bottom-color: palette('border');
 	}
 
 	details[open] > &::before {
@@ -205,7 +205,7 @@ summary {
 		border-right-width: ($line-height * 0.75em);
 		border-bottom-width: 0;
 		border-left-width: ($line-height * 0.75em);
-		border-top-color: palette('orange', 'x-light');
+		border-top-color: palette('border');
 	}
 }
 

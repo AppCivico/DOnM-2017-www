@@ -122,9 +122,9 @@ $palette: (
 		'active': rgb(229, 0, 80),
 	),
 	'border': (
-		'base': rgb(192, 192, 192),
+		'base': $_orange--x-light,
 		'focus': rgb(0, 0 , 0),
-		),
+	),
 	'button': (
 		'base': rgb(225, 225, 225),
 		'focus': rgb(229, 241, 251),
