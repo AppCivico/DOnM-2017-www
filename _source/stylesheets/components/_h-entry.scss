@@ -5,12 +5,15 @@
 	max-width: $max-width;
 
 	padding: gutter();
-	margin: 0 auto span(1);
+	margin-right: auto;
+	margin-bottom: span(1);
+	margin-left: auto;
 
 	@include media('>=6col') {
 		@include table-layout-wrapper;
 
 		width: 100%;
+
 		border-spacing: gutter;
 	}
 
