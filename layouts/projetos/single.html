@@ -48,19 +48,18 @@
 					<td>{{ .investiment_1 }}</td>
 					<td>{{ .costing_1 }}</td>
 				</tr>
-			</tbody>
 
-			<tfoot>
 				<tr>
 					<th>{{ i18n "costingSetenceCase" }}</th>
 					<td>{{ .investiment_2 }}</td>
 					<td>{{ .costing_2 }}</td>
 				</tr>
-			</tfoot>
+			</tbody>
 
 		</table>
 
 	</section>
+
 
 	<section class="action-lines">
 		<h2>{{ i18n "actionSentenceCase" }}</h2>
@@ -69,7 +68,7 @@
 		{{ range .projects }}
 			<dt>
 				{{ with .slug }}
-					<a href="/actions_lines/{{ . }}">
+					<a href="/action-lines/{{ . }}">
 				{{ end }}
 					{{ .action_lines.title }}
 				{{ with .slug }}
@@ -82,24 +81,29 @@
 
 	</section>
 
-
-
 <aside>
 
 
 
+	{{ with .districts }}
 
 	<section class="secretaries">
 
+		<h3>{{ i18n "secretariesSentenceCase" }}</h3>
+		<ul>
+
 		{{ range . }}
 
-		<h3> {{ i18n "secretariesSentenceCase" }}</h3>
-		<p><a href="/secretaries/{{ .slug }}">{{ .name }}</a>
+			<li><a href="/secretaries/{{ .slug }}">{{ .name }}</a></li>
 
 		{{ end }}
-		</p>
+
+		</ul>
+		<div id="map" data-secretaries="{{ range . }}{{ .id }} {{ end }}"></div>
 
 	</section>
+		{{ end }}
+
 
 
 
@@ -132,24 +136,26 @@
 
 	</section>
 
-	{{ with .districts }}
+		<section class="districts">
+			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+			<ul>
 
-	<section class="districts">
+				{{ range .districts }}
+					<li>
+						{{ with .slug }}
+							<a href="/distritos/{{ .slug }}">
+						{{ end }}
+							{{ .name }}
+						{{ with .slug }}
+							</a>
+						{{ end }}
+					</li>
+				{{ end }}
 
-		<h2>{{ i18n "districtsSentenceCase" }}</h2>
-		<ul>
+			</ul>
+			<div id="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 
-		{{ range . }}
-
-			<li><a href="/distritos/{{ .slug }}">{{ .name }}</a></li>
-
-		{{ end }}
-		</ul>
-		<div id="map" data-district="{{ range . }}{{ .id }} {{ end }}"></div>
-
-	</section>
-
-{{ end }}
+		</section>
 
 </aside>
 
