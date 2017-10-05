@@ -29,6 +29,8 @@
 
 .h-feed__h-entry {
 	padding: 0;
+
+	border-bottom: 1px solid palette('border');
 }
 
 .h-feed__h-entry .p-name {

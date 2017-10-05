@@ -38,7 +38,7 @@
 
 // full content of the entry
 .h-entry__e-content {
-	margin-bottom: $line-height * 1em;
+	padding-bottom: $line-height * 1em;
 
 	@include media('>=6col') {
 		@include table-layout-item;
@@ -125,6 +125,7 @@
 	padding: 0 0 0 2.5em;
 }
 
+.h-entry footer li,
 .h-entry aside li {
 	position: relative;
 
