@@ -4,7 +4,8 @@
 .h-feed {
 	max-width: $max-width;
 
-	padding: 0 gutter();
+	padding-right: gutter();
+	padding-left: gutter();
 	margin: 0 auto;
 }
 
@@ -26,6 +27,33 @@
 .h-feed__u-photo {
 }
 
-.h-feed .h-entry {
+.h-feed__h-entry {
 	padding: 0;
+}
+
+.h-feed__h-entry .p-name {
+	@include fallback('line-height', $line-height * 1rem);
+
+	margin: 0;
+
+	font-size: ms(2);
+}
+
+.h-feed__h-entry aside {
+	position: relative;
+
+	@include media('>=6col') {
+		@include fallback('padding-top', $line-height * 1rem);
+	}
+}
+
+.h-feed__h-entry aside h3 {
+	@include media('>=6col') {
+		position: absolute;
+		top: $line-height * -3rem;
+
+		.h-entry + & {
+			display: none;
+		}
+	}
 }

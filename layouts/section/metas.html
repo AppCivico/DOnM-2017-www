@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
-<main id="conteudo">
+<main id="conteudo" class="h-feed">
+	<h1 class="h-feed__p-name p-name">{{ .Title }}</h1>
 	{{ with .Content }}
 		<article>
 			{{ . }}
@@ -9,29 +10,32 @@
 	{{ $goals := getJSON "./static/dist/js/goals.json" }}
 
 	{{ with $goals.goals }}
-		<section class="h-feed">
+		<section>
 			<p><b>{{ len . }}</b> {{ i18n "goalsLowerCase" }}.</p>
 			{{ range sort . "id" "asc" }}
-				<article class="h-entry" id="goal-{{ .id }}">
-					<h2>
-						<a href="/metas/{{ .slug }}">
-							{{ i18n "goalTitleCase" }} {{ .id }}
-						</a>
-					</h2>
-					{{ .title }}
-					{{ with .topic }}
-						<footer>
-							<a href='/eixos/{{ .slug }}'>
-								{{ i18n "topicTitleCase" }} {{ .name }}
+				<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
+					<div class="h-entry__e-content .e-content">
+						<h2 class="h-entry__p-name p-name">
+							<a href="/metas/{{ .slug }}">
+								<span class="alt">{{ i18n "goalTitleCase" }}</span> {{ .id }}
 							</a>
-						</footer>
-					{{ end }}
+						</h2>
+						{{ .title }}
+						{{ with .topic }}
+							<footer>
+								{{ i18n "topicTitleCase" }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+							</footer>
+						{{ end }}
+					</div>
 					{{ with .goal_projects }}
 						<aside>
 							<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
 							<ul>
-								{{ range sort .  "id" "asc"}}
-									<li><a href="/projetos/{{ .project.slug }}">{{ .project.id }} {{ .project.title }}</a></li>
+								{{ range sort . "id" "asc"}}
+									<li>
+										<a href="/projetos/{{ .project.slug }}">
+											<b>{{ .project.id }}</b> {{ .project.title }}</a>
+										</li>
 								{{ end }}
 							</ul>
 						</aside>

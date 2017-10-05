@@ -2,14 +2,34 @@
 * @see http://microformats.org/wiki/h-entry
 */
 .h-entry {
-}
+	max-width: $max-width;
 
-.h-entry footer {
-	margin-top: $line-height * 1em;
+	padding: gutter();
+	margin: 0 auto span(1);
+
+	@include media('>=6col') {
+		@include table-layout-wrapper;
+
+		width: 100%;
+		border-spacing: gutter;
+	}
+
+	@include media('>=desktop') {
+		padding-bottom: gutter();
+	}
+
+	.grid & {
+		outline: 1px solid palette('gray');
+	}
 }
 
 // entry name/title
 .h-entry__p-name {
+	@include alt-preposition {
+		text-transform: lowercase;
+	}
+
+	line-height: $line-height * 2rem;
 }
 
 // short entry summary
@@ -18,6 +38,17 @@
 
 // full content of the entry
 .h-entry__e-content {
+	margin-bottom: $line-height * 1em;
+
+	@include media('>=6col') {
+		@include table-layout-item;
+
+		padding-right: gutter() / 2;
+
+		.grid & {
+			outline: 1px solid palette('gray');
+		}
+	}
 }
 
 // when the entry was published
@@ -88,4 +119,59 @@
 
 // special u- parsing rules for <video src> & <source src>
 .h-entry__u-video {
+}
+
+.h-entry aside ul {
+	padding: 0 0 0 2.5em;
+}
+
+.h-entry aside li {
+	position: relative;
+
+	list-style-type: none;
+
+	&:before {
+		content: none;
+	}
+}
+
+.h-entry aside b {
+	position: absolute;
+	left: -2.5em;
+
+	width: 2em;
+
+	text-align: right;
+	text-decoration: none;
+
+	color: palette('brown');
+
+	font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+.h-entry footer {
+	margin-top: $line-height * 1em;
+
+	color: palette('gray', 'dark');
+}
+
+.h-entry footer a {
+	@include link-undercover {
+		text-decoration: underline;
+		text-decoration-color: palette('anchor');
+	}
+}
+
+.h-entry aside {
+	border-top: 1px solid palette('border');
+
+	@include media('>=6col') {
+		@include fallback('width', calc(#{span(3) + gutter() / 2}), span(3));
+		@include table-layout-item;
+
+		padding-left: gutter() / 2;
+
+		border-top: 0;
+		border-left: 1px solid palette('border');
+	}
 }

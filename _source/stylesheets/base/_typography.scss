@@ -38,6 +38,9 @@ h6,
 legend,
 caption,
 details > summary {
+	@include fallback ('margin-top', $line-height * 2rem, $line-height * 16px);
+	@include fallback ('margin-bottom', $line-height * 1rem, $line-height * 16px);
+
 	font-weight: bold;
 	font-family: $title-font-stack;
 	font-feature-settings: 'case' 1, 'cpsp' 1, 'cswh' 1, 'liga' 1, 'locl' 1, 'lnum' 1, 'pnum' 1, 'titl' 1, 'zero' 1;
@@ -46,6 +49,10 @@ details > summary {
 	page-break-after: avoid;
 
 	color: palette('orange', 'x-dark');
+
+	&:first-child {
+		margin-top: 0;
+	}
 }
 
 /// @see http://www.modularscale.com/?1&rem&1.25
