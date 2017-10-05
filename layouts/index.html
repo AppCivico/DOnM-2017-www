@@ -21,7 +21,7 @@
 		{{ end }}
 
 		{{ with where .Site.RegularPages ".Type" "faq" }}
-			<article class="faq">
+			<article class="h-entry faq">
 				{{ range . }}
 					<details id="faq__{{ .File.TranslationBaseName }}">
 						<summary>{{ .Title | safeHTML | markdownify }}</summary>
