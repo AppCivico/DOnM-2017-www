@@ -35,9 +35,9 @@ const initMap = function initMap() {
 			let districts = districtsList.regions;
 
 			if (mapElement.hasAttribute('data-district')) {
-				const districtToDraw = parseInt(mapElement.getAttribute('data-district'), 10);
+				const districtToDraw = mapElement.getAttribute('data-district').split(' ').map(item => parseInt(item, 10));
 
-				districts = districts.filter(x => x.id === districtToDraw);
+				districts = districts.filter(x => districtToDraw.indexOf(x.id) !== -1);
 			}
 
 			for (let i = 0; i < districts.length; i += 1) {
