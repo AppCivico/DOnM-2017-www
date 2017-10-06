@@ -10,15 +10,15 @@
 	margin-left: auto;
 
 	@include media('>=6col') {
-		@include table-layout-wrapper;
+		@include table-layout-wrapper {
+			border-spacing: gutter();
+
+			border-collapse: separate;
+		}
 
 		width: 100%;
 
-		border-spacing: gutter;
-	}
-
-	@include media('>=desktop') {
-		padding-bottom: gutter();
+		padding: 0;
 	}
 
 	.grid & {
@@ -124,11 +124,49 @@
 .h-entry__u-video {
 }
 
+.h-entry footer {
+	margin-top: $line-height * 1em;
+
+	color: palette('gray', 'dark');
+}
+
+.h-entry footer li {
+	list-style-type: none;
+
+	&:before {
+		content: none;
+	}
+}
+
+.h-entry footer a {
+	@include link-undercover {
+		text-decoration: underline;
+		text-decoration-color: palette('anchor');
+	}
+}
+
+.h-entry aside {
+	border-top: 1px solid palette('border');
+
+	@include media('>=6col') {
+		@include fallback('width', calc(#{span(3) + gutter() / 2}), span(3));
+		@include table-layout-item;
+
+		padding-left: gutter() / 2;
+
+		border-top: 0;
+		border-left: 1px solid palette('border');
+	}
+
+	.grid & {
+		outline: 1px solid palette('gray');
+	}
+}
+
 .h-entry aside ul {
 	padding: 0 0 0 2.5em;
 }
 
-.h-entry footer li,
 .h-entry aside li {
 	position: relative;
 
@@ -151,31 +189,4 @@
 	color: palette('brown');
 
 	font-variant-numeric: oldstyle-nums proportional-nums;
-}
-
-.h-entry footer {
-	margin-top: $line-height * 1em;
-
-	color: palette('gray', 'dark');
-}
-
-.h-entry footer a {
-	@include link-undercover {
-		text-decoration: underline;
-		text-decoration-color: palette('anchor');
-	}
-}
-
-.h-entry aside {
-	border-top: 1px solid palette('border');
-
-	@include media('>=6col') {
-		@include fallback('width', calc(#{span(3) + gutter() / 2}), span(3));
-		@include table-layout-item;
-
-		padding-left: gutter() / 2;
-
-		border-top: 0;
-		border-left: 1px solid palette('border');
-	}
 }
