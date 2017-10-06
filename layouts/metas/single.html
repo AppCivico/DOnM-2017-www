@@ -65,10 +65,10 @@
 			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
 			<ul>
 
-				{{ range .districts }}
+				{{ range .regions }}
 					<li>
 						{{ with .slug }}
-							<a href="/distritos/{{ .slug }}">
+							<a href="/distritos/{{ . }}">
 						{{ end }}
 							{{ .name }}
 						{{ with .slug }}
@@ -78,7 +78,7 @@
 				{{ end }}
 
 			</ul>
-			<div id="map" class="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" class="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 		</section>
 	</aside>
 
