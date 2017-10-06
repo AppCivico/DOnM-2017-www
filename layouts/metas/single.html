@@ -58,7 +58,7 @@
 		<section class="progress">
 			<p>{{ i18n "textProgressSentenceCase" }}</p>
 
-			<progress value="{{ .progress | default 0 }}" max="100">{{ .progress | default 0 }}%</progress>
+			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">{{ with .progress }}value="{{ . }}"{{ end }}%</progress>
 		</section>
 
 		<section class="districts map-container">
