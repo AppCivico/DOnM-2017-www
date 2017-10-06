@@ -32,6 +32,24 @@ const initMap = function initMap() {
 			throw new TypeError("Oops, we haven't got JSON!");
 		})
 		.then((districtsList) => {
+			function getArrayBounds(polyArray) {
+				const bounds = new google.maps.LatLngBounds(); // eslint-disable-line no-undef
+				let path;
+				let paths;
+
+				for (let polys = 0; polys < polyArray.length; polys += 1) {
+					paths = polyArray[polys].getPaths();
+					for (let l = 0; l < paths.getLength(); l += 1) {
+						path = paths.getAt(l);
+
+						for (let ii = 0; ii < path.getLength(); ii += 1) {
+							bounds.extend(path.getAt(ii));
+						}
+					}
+				}
+				return bounds;
+			}
+
 			let districts = districtsList.regions;
 
 			if (mapElement.hasAttribute('data-district')) {
@@ -39,6 +57,8 @@ const initMap = function initMap() {
 
 				districts = districts.filter(x => districtToDraw.indexOf(x.id) !== -1);
 			}
+
+			const polygons = [];
 
 			for (let i = 0; i < districts.length; i += 1) {
 				const district = districts[i];
@@ -67,6 +87,14 @@ const initMap = function initMap() {
 				});
 
 				districtToDraw.setMap(map);
+
+				polygons.push(districtToDraw);
+			}
+
+			const polygonsBounds = getArrayBounds(polygons) || null;
+
+			if (polygonsBounds) {
+				map.fitBounds(polygonsBounds);
 			}
 		})
 		.catch((error) => {
