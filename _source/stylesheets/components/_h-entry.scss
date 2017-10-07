@@ -28,10 +28,6 @@
 
 // entry name/title
 .h-entry__p-name {
-	@include alt-preposition {
-		text-transform: lowercase;
-	}
-
 	line-height: $line-height * 2rem;
 }
 

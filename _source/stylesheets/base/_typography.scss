@@ -53,6 +53,10 @@ details > summary {
 	&:first-child {
 		margin-top: 0;
 	}
+
+	@include alt-preposition {
+		text-transform: lowercase;
+	}
 }
 
 /// @see http://www.modularscale.com/?1&rem&1.25
