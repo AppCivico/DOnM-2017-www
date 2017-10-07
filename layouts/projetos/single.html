@@ -74,31 +74,17 @@
 	</section>
 
 <aside>
-
-
-
-	{{ with .districts }}
-
-	<section class="secretaries">
-
-		<h3>{{ i18n "secretariesSentenceCase" }}</h3>
-		<ul>
-
-		{{ range . }}
-
-			<li><a href="/secretaries/{{ .slug }}">{{ .name }}</a></li>
-
-		{{ end }}
-
-		</ul>
-		<div id="map" data-secretaries="{{ range . }}{{ .id }} {{ end }}"></div>
-
-	</section>
-		{{ end }}
-
-
-
-
+	{{ with .regions }}
+		<section class="secretaries">
+			<h3>{{ i18n "secretariesSentenceCase" }}</h3>
+			<ul>
+			{{ range . }}
+				<li><a href="/secretaries/{{ .slug }}">{{ .name }}</a></li>
+			{{ end }}
+			</ul>
+			<div id="map" data-secretaries="{{ range . }}{{ .id }} {{ end }}"></div>
+		</section>
+	{{ end }}
 
 	<section class="progress">
 
