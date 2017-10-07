@@ -87,11 +87,14 @@
 	{{ end }}
 
 	<section class="progress">
-
 		<h3>{{ i18n "progressProjectSentenceCase" }}</h3>
-
-		<progress value="{{ .progress }}" max="100">{{ .progress }}%</progress>
-
+		<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
+			<div class="progress-bar">
+				<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
+					{{ with .progress }}{{ . }}%{{ end }}
+				</span>
+			</div>
+		</progress>
 	</section>
 
 	<section class="goals">
