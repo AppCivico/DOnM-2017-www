@@ -13,7 +13,7 @@
 				<strong class="id">{{ .id }}</strong>
 			</h1>
 			<h3>
-				{{ i18n "topicTitleCase" }} {{ .topic.name }}
+				<span class="alt">{{ i18n "topicTitleCase" 1 }}</span> {{ .topic.name }}
 			</h3>
 			<h2>{{ .title }}</h2>
 		</header>
@@ -66,6 +66,7 @@
 				</div>
 			</progress>
 		</section>
+
 
 		<section class="districts map-container">
 			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
