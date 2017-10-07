@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.Language.Params.locale }}{{ . }}{{ else }}{{ .Site.LanguageCode }}{{ end }}" class="{{ if .IsHome }}home {{ end }}{{ $.Scratch.Get "rootClass" }} {{ .Params.rootClass }} {{ if ne (getenv "NODE_ENV") "production" }}gr id{{ end }} no-js">
+<html lang="{{ with .Site.Language.Params.locale }}{{ . }}{{ else }}{{ .Site.LanguageCode }}{{ end }}" class="{{ if .IsHome }}home {{ end }}{{ $.Scratch.Get "rootClass" }} {{ .Params.rootClass }} {{ if ne (getenv "NODE_ENV") "production" }}grid{{ end }} no-js">
 <head>
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta charset="utf-8">
