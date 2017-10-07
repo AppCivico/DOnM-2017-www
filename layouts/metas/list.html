@@ -34,7 +34,7 @@
 								{{ range sort . "id" "asc"}}
 									<li>
 										<a href="/projetos/{{ .project.slug }}">
-											<b>{{ .project.id }}</b> {{ .project.title }}</a>
+											<b>{{ .id }}</b> {{ .title }}</a>
 										</li>
 								{{ end }}
 							</ul>

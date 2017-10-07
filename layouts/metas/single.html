@@ -42,12 +42,12 @@
 					{{ with .slug }}
 						<a href="/projects/{{ . }}">
 					{{ end }}
-						{{ .project.title }}
+						{{ .title }}
 					{{ with .slug }}
 						</a>
 					{{ end }}
 				</dt>
-				<dd>{{ .project.description }}</dd>
+				<dd>{{ .description }}</dd>
 			{{ end }}
 			</dl>
 		</section>
