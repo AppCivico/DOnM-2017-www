@@ -107,6 +107,21 @@ dt a {
 	}
 }
 
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6,
+header p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+header {
+	margin-bottom: span(1);
+}
+
 p {
 	padding: 0;
 	/*  -moz-font-feature-settings: 'onum' 1, 'pnum' 1, 'zero' 1;
