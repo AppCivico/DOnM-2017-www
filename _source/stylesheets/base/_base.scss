@@ -101,7 +101,8 @@ html {
 	/* 4 */
 	text-size-adjust: 100%;
 
-	background: linear-gradient(to bottom, palette('orange'), palette('orange', 'light'));
+	background-image: linear-gradient(to bottom, palette('orange'), palette('orange', 'light'));
+	background-attachment: fixed;
 
 	box-sizing: border-box;
 
