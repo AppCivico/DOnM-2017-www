@@ -12,10 +12,10 @@
 				{{ i18n "projectTitleCase" }}
 				{{ .id }}
 			</h2>
+			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 			{{ with .topics }}
 				<h3>{{ i18n "topicTitleCase" (len .) }} {{ range . }}{{ .name }}{{ end }} </h3>
 			{{ end }}
-			<h1 class="h-entry__p-name p-name">{{ .title }}</h1>
 
 		</header>
 
