@@ -1,4 +1,68 @@
+@mixin progress-bar-bg {
+	&::-webkit-progress-bar {
+		@content;
+	}
+
+	&::-moz-progress-bar {
+		@content;
+	}
+
+	.progress-bar {
+		@content;
+	}
+
+	@content;
+}
+
+@mixin progress-bar-fg {
+	&[value]::-moz-progress-bar {
+		@content;
+	}
+
+	&[value]::-webkit-progress-value {
+		@content;
+	}
+
+	.progress-bar > span {
+		@include hide-text;
+
+		@content;
+	}
+
+}
+
+@keyframes animate-stripes {
+	100% {
+		background-position: -101.41414% 0;
+	}
+}
+
 progress {
 	width: 100%;
 	height: $line-height * 1em;
+
+	color: palette('orange');
+
+	// Get rid of default border in Firefox.
+	border: 0;
+
+	@include progress-bar-fg { // sass-lint:disable-line mixins-before-declarations
+		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('shadow') 33%, palette('shadow') 66%, transparent 66%), linear-gradient(to top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), linear-gradient(to left, palette('orange', 'dark'), palette('orange', 'light'), palette('orange', 'dark'));
+		background-size: 2.12121em 1.5em, 100% 100%, 100% 100%;
+		background-color: palette('orange');
+
+		border-radius: $border-radius;
+
+		animation: animate-stripes 5s linear infinite;
+	}
+
+	@include progress-bar-bg { // sass-lint:disable-line mixins-before-declarations
+		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('shadow') 33%, palette('shadow') 66%, transparent 66%), linear-gradient(to top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2));
+		background-size: 2.12121em 1.5em, 100% 100%;
+		background-color: palette('gray', 'light');
+
+		border-radius: $border-radius;
+
+		box-shadow: 0 2px 3px palette('shadow') inset;
+	}
 }
