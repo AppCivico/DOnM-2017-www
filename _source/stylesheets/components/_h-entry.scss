@@ -163,11 +163,12 @@
 	}
 }
 
+.h-entry aside h2,
 .h-entry aside h3,
 .h-entry aside h4 {
 	@include fallback('line-height', $line-height * 1rem);
 
-	font-size: ms(1);
+	font-size: ms(2);
 }
 
 .h-entry aside ul {
