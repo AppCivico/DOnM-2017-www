@@ -99,7 +99,10 @@ $palette: (
 	),
 	'white': rgb(255, 255, 255),
 	'black': rgb(0, 0, 0),
-	'shadow': rgba(rgb(0, 0, 0), 0.2),
+	'shadow': (
+		'inverse': rgba(255, 255, 255, 0.25),
+		'base': rgba(0, 0, 0, 0.2),
+	),
 	'brown': (
 		'light': rgb(148, 100, 110),
 		'base': $_brown--base,

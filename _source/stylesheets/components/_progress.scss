@@ -33,7 +33,7 @@
 
 @keyframes animate-stripes {
 	100% {
-		background-position: -101.41414% 0;
+		background-position: -101.5% 0;
 	}
 }
 
@@ -47,8 +47,8 @@ progress {
 	border: 0;
 
 	@include progress-bar-fg { // sass-lint:disable-line mixins-before-declarations
-		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('shadow') 33%, palette('shadow') 66%, transparent 66%), linear-gradient(to top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), linear-gradient(to left, palette('orange', 'dark'), palette('orange', 'light'), palette('orange', 'dark'));
-		background-size: 2.12121em 1.5em, 100% 100%, 100% 100%;
+		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('shadow') 33%, palette('shadow') 66%, transparent 66%), linear-gradient(to top, palette('shadow', 'inverse'), palette('shadow')), linear-gradient(to left, palette('orange', 'dark'), palette('orange', 'light'));
+		background-size: 2.75em 1.5em, 100% 100%, 100% 100%;
 		background-color: palette('orange');
 
 		border-radius: $border-radius;
@@ -57,8 +57,8 @@ progress {
 	}
 
 	@include progress-bar-bg { // sass-lint:disable-line mixins-before-declarations
-		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('shadow') 33%, palette('shadow') 66%, transparent 66%), linear-gradient(to top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2));
-		background-size: 2.12121em 1.5em, 100% 100%;
+		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('gray', 'light') 33%, palette('gray', 'light') 66%, transparent 66%), linear-gradient(to top, palette('gray', 'light'), palette('gray', 'x-light'));
+		background-size: 2.75em 1.5em, 100% 100%;
 		background-color: palette('gray', 'light');
 
 		border-radius: $border-radius;
