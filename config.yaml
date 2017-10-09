@@ -46,6 +46,7 @@ params:
   GitHubUser:    "AppCivico"
   googleMapsAPI: "AIzaSyDqT0PwlW6s3z_DmUF47L6A9bSTwNAyoYs"
   domainAPI: "https://dapidonm.eokoe.com"
+  colophon: "Acompanhamento das ações da prefeitura da cidade de São Paulo na gestão 2017&mdash;2020."
   responsibles:
     redeNossaSaoPaulo:
       name: Rede Nossa São Paulo

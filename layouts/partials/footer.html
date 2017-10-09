@@ -38,6 +38,11 @@
 					</ul>
 				</div>
 			{{ end }}
+			{{ with .Site.Params.supporters }}
+				<div class="contentinfo__colophon">
+					{{ $.Site.Params.colophon | safeHTML }}
+				</div>
+			{{ end }}
 		</div>
 
 		<nav class="footer-menu">

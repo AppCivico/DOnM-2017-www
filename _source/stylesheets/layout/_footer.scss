@@ -27,7 +27,9 @@
 	margin: 0 auto;
 
 	@include media('>=6col') {
-		@include table-layout-wrapper;
+		@include table-layout-wrapper {
+			table-layout: fixed;
+		}
 	}
 }
 
