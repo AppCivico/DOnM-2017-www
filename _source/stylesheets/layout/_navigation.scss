@@ -38,9 +38,8 @@ nav a {
 
 	padding: gutter() / 1em * 1rem;
 
-	@include on-event() {
-		color: palette('white');
-		background-color: palette('orange', 'dark');
+	@include on-event {
+		text-decoration: underline;
 	}
 }
 
@@ -114,6 +113,17 @@ nav a {
 	}
 }
 
+.main-menu a {
+	@include on-event() {
+		@include media('<desktop') {
+			text-decoration: none;
+
+			color: palette('white');
+			background-color: palette('orange', 'dark');
+		}
+	}
+}
+
 [for='menu-controller'] {
 	float: left;
 
@@ -148,16 +158,12 @@ nav a {
 .footer-menu {
 	margin: ($line-height * 2rem) 0;
 
-	background: palette('white');
 
-	box-shadow: 0 16px 24px palette('shadow') inset;
 }
 
 .footer-menu ul {
 	@include media ('>=desktop') {
 		@include table-layout-wrapper;
-
-		text-align: center;
 	}
 }
 
@@ -168,6 +174,8 @@ nav a {
 }
 
 .footer-menu a {
+	@include link-undercover;
+
 	@include media ('<desktop') {
 		padding-top: gutter() / 2;
 		padding-bottom: gutter() / 2;
