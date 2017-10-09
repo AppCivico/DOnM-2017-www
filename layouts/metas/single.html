@@ -39,15 +39,15 @@
 			<dl>
 			{{ range .projects }}
 				<dt>
-					{{ with .slug }}
+					{{ with .project.slug }}
 						<a href="/projects/{{ . }}">
 					{{ end }}
-						{{ .title }}
-					{{ with .slug }}
+						{{ .project.title }}
+					{{ with .project.slug }}
 						</a>
 					{{ end }}
 				</dt>
-				<dd>{{ .description }}</dd>
+				<dd>{{ .project.description }}</dd>
 			{{ end }}
 			</dl>
 		</section>
