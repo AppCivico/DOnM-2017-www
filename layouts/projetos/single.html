@@ -121,7 +121,7 @@
 			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
 			<ul>
 
-				{{ range .districts }}
+				{{ range .regions }}
 					<li>
 						{{ with .slug }}
 							<a href="/distritos/{{ .slug }}">
@@ -134,7 +134,7 @@
 				{{ end }}
 
 			</ul>
-			<div id="map" {{ with .districts }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 
 		</section>
 
