@@ -5,140 +5,143 @@
 
 {{ range $project }}
 
-<article role="main" id="conteudo">
-	<header>
-		<h1>
-			{{ i18n "projectTitleCase" }}
-			<strong class="id">{{ .id }}</strong>
-		</h1>
-		<h3>{{ i18n "projectTitleCase" }} {{.topic.name}} </h3>
-		<h2>{{ .title }}</h2>
-
-	</header>
-
-	<section class="situation">
-		<h3>{{ i18n "situationSentenceCase" }}</h3>
-		<p>{{ .situation }}</p>
-	</section>
-
-	<section class="expected-results">
-		<h3> {{ i18n "expectedResults" }}</h3>
-		<p>{{ .results }}</p>
-	</section>
-
-	<section class="budget">
-		<h3>{{ i18n "budget" }}</h3>
-
-		<table>
-			<thead>
-				<tr>
-					<th></th>
-					<th>{{ i18n "ownResourcesSetenceCase" }}</th>
-					<th>{{ i18n "othersResourcesSetenceCase" }}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>{{ i18n "investimentSetenceCase" }}</th>
-					<td>{{ .investiment_1 }}</td>
-					<td>{{ .costing_1 }}</td>
-				</tr>
-				<tr>
-					<th>{{ i18n "costingSetenceCase" }}</th>
-					<td>{{ .investiment_2 }}</td>
-					<td>{{ .costing_2 }}</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-
-
-	<section class="action-lines">
-		<h2>{{ i18n "actionSentenceCase" }}</h2>
-
-		<dl>
-		{{ range .projects }}
-			<dt>
-				{{ with .slug }}
-					<a href="/action-lines/{{ . }}">
-				{{ end }}
-					{{ .action_lines.title }}
-				{{ with .slug }}
-					</a>
-				{{ end }}
-			</dt>
-			<dd>{{ .action_lines.description }}</dd>
-		{{ end }}
-		</dl>
-
-	</section>
-
-<aside>
-	{{ with .regions }}
-		<section class="secretaries">
-			<h3>{{ i18n "secretariesSentenceCase" }}</h3>
-			<ul>
-			{{ range . }}
-				<li><a href="/secretaries/{{ .slug }}">{{ .name }}</a></li>
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h2>
+				{{ i18n "projectTitleCase" }}
+				<strong class="id">{{ .id }}</strong>
+			</h2>
+			{{ with .topics }}
+				<h3><span class="alt">{{ i18n "projectTitleCase" }}</span> {{ range . }}{{ .name }}{{ end }} </h3>
 			{{ end }}
-			</ul>
-			<div id="map" data-secretaries="{{ range . }}{{ .id }} {{ end }}"></div>
+			<h1 class="h-entry__p-name p-name">{{ .title }}</h1>
+
+		</header>
+
+		<section class="situation">
+			<h3>{{ i18n "situationSentenceCase" }}</h3>
+			<p>{{ .situation }}</p>
 		</section>
-	{{ end }}
 
-	<section class="progress">
-		<h3>{{ i18n "progressProjectSentenceCase" }}</h3>
-		<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
-			<div class="progress-bar">
-				<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
-					{{ with .progress }}{{ . }}%{{ end }}
-				</span>
-			</div>
-		</progress>
-	</section>
+		<section class="expected-results">
+			<h3> {{ i18n "expectedResults" }}</h3>
+			<p>{{ .results }}</p>
+		</section>
 
-	<section class="goals">
-		<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
+		<section class="budget">
+			<h3>{{ i18n "budget" }}</h3>
 
-		<dl>
-		{{ range .goals }}
-			<dt>
-				{{ with .slug }}
-					<a href="/goals/{{ . }}">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>{{ i18n "ownResourcesSetenceCase" }}</th>
+						<th>{{ i18n "othersResourcesSetenceCase" }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>{{ i18n "investimentSetenceCase" }}</th>
+						<td>{{ .investiment_1 }}</td>
+						<td>{{ .costing_1 }}</td>
+					</tr>
+					<tr>
+						<th>{{ i18n "costingSetenceCase" }}</th>
+						<td>{{ .investiment_2 }}</td>
+						<td>{{ .costing_2 }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="action-lines">
+			<h2>{{ i18n "actionSentenceCase" }}</h2>
+
+			<dl>
+			{{ range .projects }}
+				<dt>
+					{{ with .slug }}
+						<a href="/action-lines/{{ . }}">
+					{{ end }}
+						{{ .action_lines.title }}
+					{{ with .slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .action_lines.description }}</dd>
+			{{ end }}
+			</dl>
+
+		</section>
+	</div>
+
+	<aside>
+		{{ with .regions }}
+			<section class="secretaries">
+				<h3>{{ i18n "secretariesSentenceCase" }}</h3>
+				<ul>
+				{{ range . }}
+					<li><a href="/secretaries/{{ .slug }}">{{ .name }}</a></li>
 				{{ end }}
-					{{ .goals.title }}
-				{{ with .slug }}
-					</a>
-				{{ end }}
-			</dt>
-			<dd>{{ .goals.description }}</dd>
+				</ul>
+				<div id="map" data-secretaries="{{ range . }}{{ .id }} {{ end }}"></div>
+			</section>
 		{{ end }}
-		</dl>
 
-	</section>
+		<section class="progress">
+			<h3>{{ i18n "progressProjectSentenceCase" }}</h3>
+			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100" value="50">
+				<div class="progress-bar">
+					<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
+						{{ with .progress }}{{ . }}%{{ end }}
+					</span>
+				</div>
+			</progress>
+		</section>
 
-		<section class="districts">
-			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
-			<ul>
+		<section class="goals">
+			<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
 
-				{{ range .regions }}
-					<li>
-						{{ with .slug }}
-							<a href="/distritos/{{ .slug }}">
-						{{ end }}
-							{{ .name }}
-						{{ with .slug }}
-							</a>
-						{{ end }}
-					</li>
-				{{ end }}
-
-			</ul>
-			<div id="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<dl>
+			{{ range .goals }}
+				<dt>
+					{{ with .slug }}
+						<a href="/goals/{{ . }}">
+					{{ end }}
+						{{ .goals.title }}
+					{{ with .slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .goals.description }}</dd>
+			{{ end }}
+			</dl>
 
 		</section>
 
-</aside>
+			<section class="districts">
+				<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+				<ul>
+
+					{{ range .regions }}
+						<li>
+							{{ with .slug }}
+								<a href="/distritos/{{ .slug }}">
+							{{ end }}
+								{{ .name }}
+							{{ with .slug }}
+								</a>
+							{{ end }}
+						</li>
+					{{ end }}
+
+				</ul>
+				<div id="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+
+			</section>
+
+	</aside>
 
 </article>
 
