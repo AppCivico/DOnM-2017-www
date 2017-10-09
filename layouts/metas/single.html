@@ -70,8 +70,7 @@
 
 		<section class="districts map-container">
 			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
-			<ul>
-
+			<ul class="district-list">
 				{{ range .regions }}
 					<li>
 						{{ with .slug }}
@@ -83,7 +82,6 @@
 						{{ end }}
 					</li>
 				{{ end }}
-
 			</ul>
 			<div id="map" class="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 		</section>
