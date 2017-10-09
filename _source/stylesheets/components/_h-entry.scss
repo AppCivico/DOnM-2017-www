@@ -120,6 +120,10 @@
 .h-entry__u-video {
 }
 
+.h-entry section {
+	margin-bottom: span(1);
+}
+
 .h-entry footer {
 	margin-top: $line-height * 1em;
 
