@@ -59,17 +59,19 @@
 			<h2>{{ i18n "actionSentenceCase" }}</h2>
 
 			<dl>
-			{{ range .projects }}
+			{{ range .action_lines }}
 				<dt>
 					{{ with .slug }}
 						<a href="/action-lines/{{ . }}">
 					{{ end }}
-						{{ .action_lines.title }}
+						{{ .title }}
 					{{ with .slug }}
 						</a>
 					{{ end }}
 				</dt>
-				<dd>{{ .action_lines.description }}</dd>
+				<dd>
+
+				</dd>
 			{{ end }}
 			</dl>
 
