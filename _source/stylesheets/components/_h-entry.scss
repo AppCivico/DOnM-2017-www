@@ -159,6 +159,13 @@
 	}
 }
 
+.h-entry aside h3,
+.h-entry aside h4 {
+	@include fallback('line-height', $line-height * 1rem);
+
+	font-size: ms(1);
+}
+
 .h-entry aside ul {
 	padding: 0 0 0 2.5em;
 }
