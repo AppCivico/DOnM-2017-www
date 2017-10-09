@@ -63,6 +63,10 @@ details > summary {
 
 h1 {
 	font-size: ms(4);
+
+	@include media('<desktop') {
+		font-size: ms(3);
+	}
 }
 
 h2 {
@@ -116,6 +120,29 @@ header h6,
 header p {
 	margin-top: 0;
 	margin-bottom: 0;
+}
+
+header h2,
+header h3,
+header h4,
+header h5,
+header h6,
+header p {
+	font-weight: normal;
+	font-size: ms(2);
+
+	text-transform: lowercase;
+
+	color: palette('orange', 'dark');
+}
+
+header h1 + h2,
+header h1 + h3,
+header h1 + h4,
+header h1 + h5,
+header h1 + h6,
+header h1 + p {
+	color: palette('orange');
 }
 
 header {
