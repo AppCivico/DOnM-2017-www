@@ -9,7 +9,7 @@
 	margin-bottom: span(1);
 	margin-left: auto;
 
-	@include media('>=6col') {
+	@include media('>=8col') {
 		@include table-layout-wrapper {
 			border-spacing: gutter();
 
@@ -31,6 +31,7 @@
 	line-height: $line-height * 2rem;
 }
 
+
 // short entry summary
 .h-entry__p-summary {
 }
@@ -39,7 +40,7 @@
 .h-entry__e-content {
 	padding-bottom: $line-height * 1em;
 
-	@include media('>=6col') {
+	@include media('>=8col') {
 		@include table-layout-item;
 
 		padding-right: gutter() / 2;
@@ -148,7 +149,7 @@
 .h-entry aside {
 	border-top: 1px solid palette('border');
 
-	@include media('>=6col') {
+	@include media('>=8col') {
 		@include fallback('width', calc(#{span(3) + gutter() / 2}), span(3));
 		@include table-layout-item;
 

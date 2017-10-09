@@ -11,7 +11,7 @@
 		height: $line-height * 25em;
 	}
 
-	@include media('>=6col') {
+	@include media('>=8col') {
 		aside & {
 			height: span(3);
 		}

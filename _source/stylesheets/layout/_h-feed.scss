@@ -48,13 +48,13 @@
 .h-feed__h-entry aside {
 	position: relative;
 
-	@include media('>=6col') {
+	@include media('>=8col') {
 		@include fallback('padding-top', $line-height * 1rem);
 	}
 }
 
 .h-feed__h-entry aside h3 {
-	@include media('>=6col') {
+	@include media('>=8col') {
 		position: absolute;
 		top: $line-height * -3rem;
 
