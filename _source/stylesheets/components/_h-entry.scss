@@ -126,7 +126,11 @@
 }
 
 .h-entry footer {
+	@include fallback('line-height', $line-height * 1rem);
+
 	margin-top: $line-height * 1em;
+
+	font-size: ms(-1);
 
 	color: palette('gray', 'dark');
 }
@@ -147,6 +151,10 @@
 }
 
 .h-entry aside {
+	@include fallback('line-height', $line-height * 1rem);
+
+	font-size: ms(-1);
+
 	border-top: 1px solid palette('border');
 
 	@include media('>=8col') {
