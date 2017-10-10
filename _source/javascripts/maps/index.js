@@ -95,6 +95,10 @@ const initMap = function initMap() {
 
 			if (polygonsBounds) {
 				map.fitBounds(polygonsBounds);
+
+				google.maps.event.addListenerOnce(map, 'bounds_changed', () => { // eslint-disable-line no-undef
+					map.setZoom(map.getZoom() + 1);
+				});
 			}
 		})
 		.catch((error) => {
