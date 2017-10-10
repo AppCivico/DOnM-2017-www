@@ -59,7 +59,7 @@ progress {
 	}
 
 	@include progress-bar-bg { // sass-lint:disable-line mixins-before-declarations
-		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('gray', 'light') 33%, palette('gray', 'light') 66%, transparent 66%), linear-gradient(to top, palette('gray', 'light'), palette('gray', 'x-light'));
+		background-image: linear-gradient(135deg, transparent, transparent 33%, palette('gray', 'light') 33%, palette('gray', 'light') 66%, transparent 66%), linear-gradient(to top, palette('gray', 'base'), palette('gray', 'light'));
 		background-size: 2.75em 1.5em, 100% 100%;
 		background-color: palette('gray', 'light');
 
