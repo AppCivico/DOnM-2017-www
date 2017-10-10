@@ -38,6 +38,8 @@
 }
 
 progress {
+	@include fallback('font-size', 1rem);
+
 	width: 100%;
 	height: $line-height * 1em;
 
