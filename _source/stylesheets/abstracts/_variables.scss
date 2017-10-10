@@ -80,6 +80,7 @@ $modularscale: (
 $_orange--light: rgb(255, 144, 68);
 $_orange--x-light: rgb(249, 149, 77);
 $_orange--base: rgb(255, 83, 66);
+$_brown--light: rgb(148, 100, 110);
 $_brown--base: rgb(81, 55, 60);
 
 /// List all available colors and tones.
@@ -104,7 +105,7 @@ $palette: (
 		'base': rgba(0, 0, 0, 0.2),
 	),
 	'brown': (
-		'light': rgb(148, 100, 110),
+		'light': $_brown--light,
 		'base': $_brown--base,
 		'dark': shade($_brown--base, 35%),
 	),
@@ -126,7 +127,7 @@ $palette: (
 	),
 	'border': (
 		'base': $_orange--x-light,
-		'focus': rgb(0, 0 , 0),
+		'focus': $_brown--light,
 	),
 	'button': (
 		'base': rgb(225, 225, 225),

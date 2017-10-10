@@ -1,0 +1,22 @@
+.projection {
+}
+
+.projection dl {
+	@include table-layout-wrapper {
+		border-spacing: gutter();
+
+		border-collapse: separate;
+	}
+
+	width: 100%;
+
+	border: $stroke solid palette('border', 'focus');
+}
+
+.projection .definition-item {
+	@include table-layout-item;
+}
+
+.projection dt {
+	border-bottom: $stroke solid palette('border');
+}
