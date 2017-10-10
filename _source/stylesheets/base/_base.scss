@@ -423,6 +423,7 @@ a {
 	font-size: 100%;
 
 	vertical-align: baseline;
+	color: palette('anchor');
 
 	@include on-event {
 		text-decoration: underline;
@@ -433,16 +434,19 @@ a {
 
 		cursor: pointer;
 		-webkit-tap-highlight-color: palette('tap-highlight'); // sass-lint:disable-line no-vendor-prefixes
+		color: palette('anchor', 'link');
 	}
 
 	&:visited {
 		@include on-event {
 			text-decoration: underline;
 		}
+		color: palette('anchor', 'visited');
 	}
 
 	&:hover,
 	&:focus {
+		color: palette('anchor', 'hover');
 	}
 
 	&:focus {
@@ -466,6 +470,7 @@ a {
 	 */
 	&:active {
 		background-color: transparent;
+		color: palette('anchor', 'active');
 	}
 
 	&[target='_blank'],
