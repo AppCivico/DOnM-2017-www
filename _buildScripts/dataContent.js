@@ -1,7 +1,15 @@
 const https = require('https');
 const fs = require('fs');
 
-const DOMAIN = process.env.NODE_ENV === 'production' ? 'https://api.2017.deolhonasmetas.org.br' : 'https://dapidonm.eokoe.com';
+let DOMAIN;
+
+if (process.env.NODE_ENV === 'production') {
+	DOMAIN = 'https://api.2017.deolhonasmetas.org.br';
+} else if (process.env.NODE_ENV === 'homol') {
+	DOMAIN = 'https://hapidonm.eokoe.com';
+} else {
+	DOMAIN = 'https://dapidonm.eokoe.com';
+}
 
 const sourcesAndDests = [
 	{

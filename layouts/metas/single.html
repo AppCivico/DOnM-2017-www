@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-{{ $url := (print .Site.Params.domainapi "/api/goal/" .Params.id ) }}
+{{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/goal/" .Params.id ) }}
 
 {{ $goal := getJSON $url }}
 

@@ -45,7 +45,10 @@ params:
   AuthorName:    "AppCívico"
   GitHubUser:    "AppCivico"
   googleMapsAPI: "AIzaSyDqT0PwlW6s3z_DmUF47L6A9bSTwNAyoYs"
-  domainAPI: "https://dapidonm.eokoe.com"
+  domainAPI:
+    dev: "https://dapidonm.eokoe.com"
+    homol: "https://hapidonm.eokoe.com"
+    prod: "https://2017.deolhonasmetas.org.br/api"
   colophon: "Acompanhamento das ações da prefeitura da cidade de São Paulo na gestão 2017&mdash;2020."
   responsibles:
     redeNossaSaoPaulo:
