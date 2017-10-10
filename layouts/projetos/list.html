@@ -7,7 +7,7 @@
 		</article>
 	{{ end }}
 
-	{{ $projects := getJSON "./static/dist/js/projects.json" }}
+	{{ $projects := getJSON "./static/dist/data/projects.json" }}
 
 	{{ with $projects.projects }}
 		<section>

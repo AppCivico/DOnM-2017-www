@@ -19,7 +19,7 @@ const initMap = function initMap() {
 		cache: 'default',
 	};
 
-	const myRequest = new Request('/dist/js/districts.json');
+	const myRequest = new Request('/dist/data/districts.json');
 
 	fetch(myRequest, myInit)
 		.then((response) => {

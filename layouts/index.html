@@ -1,9 +1,9 @@
 {{ $.Scratch.Add "scriptsHeader" `
-<link rel="preload" href="/dist/js/districts.json" as="fetch" type="application/json">
+<link rel="preload" href="/dist/data/districts.json" as="fetch" type="application/json">
 ` }}{{ partial "header.html" . }}
 	<main role="main" id="conteudo">
 
-		{{ $regions := getJSON "./static/dist/js/districts.json" }}
+		{{ $regions := getJSON "./static/dist/data/districts.json" }}
 		{{ with $regions.regions }}
 			<article class="districts map-container">
 				<div id="map"></div>

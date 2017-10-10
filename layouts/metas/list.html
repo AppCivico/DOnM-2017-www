@@ -7,7 +7,7 @@
 		</article>
 	{{ end }}
 
-	{{ $goals := getJSON "./static/dist/js/goals.json" }}
+	{{ $goals := getJSON "./static/dist/data/goals.json" }}
 
 	{{ with $goals.goals }}
 		<section>

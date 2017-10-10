@@ -6,21 +6,21 @@ const DOMAIN = process.env.NODE_ENV === 'production' ? 'https://api.2017.deolhon
 const sourcesAndDests = [
 	{
 		url: '/api/region',
-		dataDest: './static/dist/js/districts.json',
+		dataDest: './static/dist/data/districts.json',
 		contentFolder: './content/distritos',
 		jsonRootElement: 'regions',
 	},
 
 	{
 		url: '/api/project',
-		dataDest: './static/dist/js/projects.json',
+		dataDest: './static/dist/data/projects.json',
 		contentFolder: './content/projetos',
 		jsonRootElement: 'projects',
 	},
 
 	{
 		url: '/api/goal',
-		dataDest: './static/dist/js/goals.json',
+		dataDest: './static/dist/data/goals.json',
 		contentFolder: './content/metas',
 		jsonRootElement: 'goals',
 	},
