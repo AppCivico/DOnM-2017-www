@@ -11,7 +11,7 @@
     "build:dev": "npm-run-all build",
     "build:img": "npm-run-all compress:img",
     "build:prod": "npm-run-all build cachebust",
-    "cachebust": "npm run cachebust:img && npm run cachebust:content && npm run cachebust:cssAndJs",
+    "cachebust": "npm run cachebust:img && npm run cachebust:cssAndJs",
     "cachebust:content": "hashmark -l 8 /**/*.{gif,jpg,png,svg} {dir}/{name}-{hash}{ext} --cwd content | replaceinfiles -s \"{content,data}/**/*.{md,yaml}\" -d \"{dir}/{base}\"",
     "cachebust:cssAndJs": "hashmark -l 8 dist/**/*.{js,css} {dir}/{name}-{hash}{ext} --cwd static | replaceinfiles -s \"layouts/**/*.html\" -d \"{dir}/{base}\"",
     "cachebust:img": "hashmark -l 8 dist/**/*.{gif,jpg,png,svg} {dir}/{name}-{hash}{ext} --cwd static | replaceinfiles -s \"{content,data,layouts,static}/**/*.{md,html,css}\" -d \"{dir}/{base}\"",
