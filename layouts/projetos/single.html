@@ -16,17 +16,17 @@
 			{{ with .topics }}
 				<h3>{{ i18n "topicTitleCase" (len .) }} {{ range . }}{{ .name }}{{ end }} </h3>
 			{{ end }}
-
+			<h4>{{ .description }}</h4>
 		</header>
 
 		<section class="situation">
 			<h3>{{ i18n "situationSentenceCase" }}</h3>
-			<p>{{ .situation }}</p>
+			<p>{{ .current_scenario }}</p>
 		</section>
 
 		<section class="expected-results">
 			<h3> {{ i18n "expectedResults" }}</h3>
-			<p>{{ .results }}</p>
+			<p>{{ .expected_results }}</p>
 		</section>
 
 		<section class="budget">
