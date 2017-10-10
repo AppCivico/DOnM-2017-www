@@ -1,0 +1,16 @@
+.goals-list.goals-list {
+	padding: 0;
+	margin-bottom: $line-height * 1em;
+}
+
+.goals-list li {
+	display: inline;
+
+	&::after {
+		content: ', ';
+	}
+
+	&:last-child::after {
+		content: none;
+	}
+}

@@ -105,22 +105,21 @@
 		</section>
 
 		<section class="goals">
-			<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
+			<h3>{{ i18n "relatedGoalsSentenceCase" }}</h3>
 
-			<dl>
+			<ul class="goals-list">
 			{{ range .goals }}
-				<dt>
+				<li>
 					{{ with .slug }}
 						<a href="/goals/{{ . }}">
 					{{ end }}
-						{{ .goals.title }}
+						{{ trim .title "." }}
 					{{ with .slug }}
 						</a>
 					{{ end }}
-				</dt>
-				<dd>{{ .goals.description }}</dd>
+				</li>
 			{{ end }}
-			</dl>
+			</ul>
 
 		</section>
 

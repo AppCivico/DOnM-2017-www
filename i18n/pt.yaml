@@ -40,6 +40,8 @@
     other: "projetos"
 - id: projectTitleCase
   translation: "Projeto"
+- id: relatedGoalsSentenceCase
+  translation: "Metas associadas"
 - id: relatedProjectsSentenceCase
   translation: "Projetos associados"
 - id: responsiblesTitleCase
