@@ -148,6 +148,16 @@ header h1 + p {
 	color: palette('orange');
 }
 
+header h1 ~ h2,
+header h1 ~ h3,
+header h1 ~ h4,
+header h1 ~ h5,
+header h1 ~ h6,
+header h1 + p {
+	font-size: ms(1);
+	line-height: $line-height;
+}
+
 header {
 	margin-bottom: span(1);
 }
