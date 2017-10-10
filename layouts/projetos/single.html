@@ -58,20 +58,22 @@
 		<section class="action-lines">
 			<h2>{{ i18n "actionSentenceCase" }}</h2>
 
-			<dl>
+			<dl class="action-lines__list">
 			{{ range .action_lines }}
-				<dt>
-					{{ with .slug }}
-						<a href="/action-lines/{{ . }}">
-					{{ end }}
+				<div class="definition-item">
+					<dt>
+						{{ with .slug }}
+							<a href="/action-lines/{{ . }}">
+						{{ end }}
+							{{ .id }}
+						{{ with .slug }}
+							</a>
+						{{ end }}
+					</dt>
+					<dd>
 						{{ .title }}
-					{{ with .slug }}
-						</a>
-					{{ end }}
-				</dt>
-				<dd>
-
-				</dd>
+					</dd>
+				</div>
 			{{ end }}
 			</dl>
 

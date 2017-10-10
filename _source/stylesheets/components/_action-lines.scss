@@ -1,0 +1,23 @@
+.action-lines {
+}
+
+.action-lines__list {
+	display: table;
+
+	width: 100%;
+}
+
+.action-lines__list > div {
+	display: table-row;
+}
+
+.action-lines__list dt,
+.action-lines__list dd {
+	display: table-cell;
+
+	vertical-align: middle;
+}
+
+.action-lines__list dt {
+	font-size: ms(2);
+}
