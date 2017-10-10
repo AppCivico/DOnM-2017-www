@@ -58,8 +58,10 @@ thead > tr:nth-last-of-type(odd) > th,
 thead > tr:nth-last-of-type(odd) > td {
 }
 
-tbody {
-	font-family: mono-space, monospace;
+tbody td {
+	text-align: right;
+
+	font-variant-numeric: lining-nums oldstyle-nums;
 }
 
 tbody th {
