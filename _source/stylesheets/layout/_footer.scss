@@ -35,6 +35,17 @@
 	}
 }
 
+.contentinfo__colophon {
+	@include fallback('padding-top', $line-height * 1rem);
+	@include fallback('padding-bottom', $line-height * 1rem);
+
+	font-size: ms(-1);
+
+	@include media('>=6col') {
+		@include fallback('padding-top', $line-height * 3rem);
+	}
+}
+
 [role='contentinfo'] > div {
 	@include media('>=6col') {
 		@include table-layout-item;
