@@ -61,10 +61,14 @@ nav a {
 
 		overflow: hidden;
 
+		white-space: nowrap;
+		transition: width 0.5s;
+
 		.menu-controller:checked + * & {
 			width: $off-canvas-menu-width;
 
 			overflow-y: auto;
+			transition: width 0.5s;
 		}
 	}
 
