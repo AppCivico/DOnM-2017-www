@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1][] - 2017-10-11
+
 ### Changed
 
 - improve colophon style
@@ -15,3 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - link to projects on goals pages
+
+
+[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/AppCivico/DOnM-2017-www/tree/v0.1.1
