@@ -79,17 +79,6 @@
 	padding: gutter() / 2;
 }
 
-[role='contentinfo'] a {
-	@include image-replacement;
-	@include link-undercover;
-	@include placeholder-bg;
-
-	display: block;
-
-	width: span(1);
-	height: span(1);
-
-	.grid & {
-		outline: 1px solid palette('gray');
-	}
+[role='contentinfo'] img {
+	background-color: transparent;
 }

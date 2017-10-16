@@ -22,6 +22,8 @@
   translation: "Meta"
 - id: investimentSetenceCase
   translation: "Investimento"
+- id: logo
+  translation: "Logo"
 - id: notFoundTitleCase
   translation: "Não Encontrado"
 - id: othersResourcesSetenceCase

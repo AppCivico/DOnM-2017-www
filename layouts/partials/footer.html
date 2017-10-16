@@ -7,7 +7,7 @@
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
 						{{ end }}
 					</ul>
 				</div>
@@ -20,7 +20,7 @@
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
 						{{ end }}
 					</ul>
 				</div>
@@ -33,7 +33,7 @@
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank">{{ $v.name }}</a></li>
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
 						{{ end }}
 					</ul>
 				</div>
