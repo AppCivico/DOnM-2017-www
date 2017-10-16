@@ -180,7 +180,16 @@ summary {
 	}
 
 	&:focus {
-		outline: -webkit-focus-ring-color auto 5px;
+		outline: none;
+		border-bottom: $stroke solid palette('brown', 'light');
+
+		&::before {
+			border-bottom-color: palette('brown', 'light');
+		}
+
+		details[open] > &::before {
+			border-top-color: palette('brown', 'light');
+		}
 	}
 
 	&::before {
