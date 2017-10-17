@@ -118,12 +118,12 @@ $palette: (
 	),
 	'debug': rgb(255, 0, 0),
 	'anchor': (
-		'base': #4e393d,
-		'link': #4e393d,
-		'visited': #443838,
-		'hover': #808080,
-		'focus': #808080,
-		'active': #d3d3d3,
+		'base': rgb(78, 57, 61),
+		'link': rgb(78, 57, 61),
+		'visited': rgb(78, 57, 61),
+		'hover': rgb(128, 128, 128),
+		'focus': rgb(128, 128, 128),
+		'active': rgb(211, 211, 211),
 	),
 	'border': (
 		'base': $_orange--x-light,
