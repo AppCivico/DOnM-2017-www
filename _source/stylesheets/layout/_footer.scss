@@ -82,3 +82,26 @@
 [role='contentinfo'] img {
 	background-color: transparent;
 }
+
+
+.contentinfo__colophon p {
+	margin-bottom: $line-height * 1em;
+}
+
+.contentinfo__colophon a {
+	@include image-replacement;
+
+	display: block;
+
+	width: 100%;
+	height: 2em;
+	min-height: 28px;
+
+	margin-top: $line-height * 0.5em;
+
+	background-image: url('/dist/img/logo-appcivico.png');
+}
+
+
+
+

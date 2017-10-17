@@ -40,8 +40,13 @@
 			{{ end }}
 			{{ with .Site.Params.supporters }}
 				<div class="contentinfo__colophon">
-					{{ $.Site.Params.colophon | safeHTML }}
+					<p>{{ i18n "colophon" | safeHTML }}</p>
+
+					<p>{{ i18n "developedBy" }}
+						<a href="http://appcivico.com" target="_blank">AppCívico</a>
+					</p>
 				</div>
+
 			{{ end }}
 		</div>
 
