@@ -180,8 +180,8 @@ summary {
 	}
 
 	&:focus {
-		outline: none;
 		border-bottom: $stroke solid palette('brown', 'light');
+		outline: none;
 
 		&::before {
 			border-bottom-color: palette('brown', 'light');
