@@ -225,6 +225,28 @@ details {
 	}
 }
 
+details[open] summary ~ * {
+	overflow: hidden;
+
+	animation: here-comes-the-detail 0.5s ease-in-out;
+
+	@at-root {
+		@keyframes here-comes-the-detail {
+			0% {
+				max-height: 0;
+
+				opacity: 0;
+			}
+
+			100% {
+				max-height: $line-height * 70em;
+
+				opacity: 1;
+			}
+		}
+	}
+}
+
 
 /**
  * Address `[hidden]` styling not present in IE 8/9.
