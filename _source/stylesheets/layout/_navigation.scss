@@ -68,8 +68,12 @@ nav a {
 			width: $off-canvas-menu-width;
 
 			overflow-y: auto;
+
+			box-shadow: inset -7px 1px 20px palette('shadow');
+
 			transition: width 0.5s;
 		}
+
 	}
 
 	@include media ('>=desktop') {
