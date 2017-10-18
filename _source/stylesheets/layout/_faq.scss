@@ -1,0 +1,22 @@
+@include media ('>=10col') {
+	.faq.h-entry {
+		@include fallback('max-width', $max-width / 1em * 1rem);
+		@include inline-block-wrapper;
+
+		display: block;
+
+		padding-right: gutter() / 2;
+		padding-left: gutter() / 2;
+	}
+
+	.faq.h-entry > details {
+		@include inline-block-item;
+
+		width: 50%;
+
+		padding-right: gutter() / 2;
+		padding-left: gutter() / 2;
+		margin-top: 0;
+		margin-bottom: span(1);
+	}
+}
