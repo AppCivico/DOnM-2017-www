@@ -5,6 +5,16 @@
 	max-width: $max-width;
 
 	margin: 0 auto;
+
+	@include media('>=10col') {
+		@include fallback('max-width', $max-width / 1em * 1rem);
+		@include inline-block-wrapper;
+
+		display: block;
+
+		padding-right: gutter() / 2em * 1rem;
+		padding-left: gutter() / 2em * 1rem;
+	}
 }
 
 .h-feed > section {
@@ -29,27 +39,70 @@
 .h-feed__u-photo {
 }
 
-.h-feed__h-entry {
+.h-feed .h-entry {
 	padding: 0;
 
 	border-bottom: 1px solid palette('border');
+
+	@include media('>=10col') {
+		@include inline-block-item;
+
+		width: calc(50% - #{gutter()}); //sobral
+
+		margin-top: 0;
+		margin-right: gutter() / 2;
+		margin-bottom: span(1);
+		margin-left: gutter() / 2;
+
+		border-bottom: 0;
+
+		& + .h-entry + .h-entry {
+			padding-top: span(1);
+
+			border-top: 1px solid palette('border');
+		}
+	}
 }
 
-.h-feed__h-entry .p-name {
+.h-feed .h-entry .p-name {
 	@include fallback('line-height', $line-height * 1rem);
+
+	font-size: ms(2);
 
 	@include media('>=desktop') {
 		margin: 0;
 	}
 
-	font-size: ms(2);
+	@include media('>=10col') {
+		margin-bottom: $line-height * 1rem;
+	}
 }
 
-.h-feed__h-entry aside {
+.h-feed .h-entry__e-content {
+	display: block;
+}
+
+.h-feed .h-entry aside {
 	position: relative;
 
 	@include media('>=8col') {
 		@include fallback('padding-top', $line-height * 1rem);
+	}
+
+	@include media('>=10col') {
+		display: block;
+
+		width: auto;
+
+		padding: 0;
+
+		border: 0;
+	}
+}
+
+.h-feed .h-entry ul {
+	@include media('>=10col') {
+		padding: 0;
 	}
 }
 
@@ -60,6 +113,14 @@
 
 		.h-entry + & {
 			display: none;
+		}
+	}
+
+	@include media('>=10col') {
+		position: static;
+
+		.h-entry + & {
+			display: block;
 		}
 	}
 }

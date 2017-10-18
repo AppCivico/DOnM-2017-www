@@ -177,7 +177,7 @@
 .h-entry aside h4 {
 	@include fallback('line-height', $line-height * 1rem);
 
-	font-size: ms(2);
+	font-size: ms(1);
 }
 
 .h-entry aside ul {
