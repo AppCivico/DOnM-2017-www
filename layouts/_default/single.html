@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h1 class="h-entry__p-name p-name">{{ .Title }}</h1>
+		</header>
+		{{ .Content }}
+	</div>
+</article>
+
+{{ partial "footer.html" . }}
