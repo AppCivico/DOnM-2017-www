@@ -19,7 +19,7 @@ menu:
         Pre: ""
         Weight: 2
         Identifier: "distritos"
-        URL: "//"
+        URL: "/distritos/"
       - Name: "Metas"
         Pre: ""
         Weight: 3
