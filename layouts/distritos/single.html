@@ -1,0 +1,116 @@
+{{ partial "header.html" . }}
+{{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/region/" .Params.id ) }}
+
+{{ $region := getJSON $url }}
+
+{{ with $region.region }}
+
+
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h2>
+				{{ i18n "districtUpperCase" }}
+			</h2>
+			<h1>
+
+				{{ .name }}
+
+			</h1>
+
+		</header>
+
+		<section class="district map-container">
+
+			<div id="map" class="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+
+		</section>
+
+
+		<section class="action-lines">
+			<h2>{{ i18n "actionSentenceCase" }}</h2>
+
+			<dl class="action-lines__list">
+			{{ range .action_lines }}
+				<div class="definition-item">
+					<dt>
+						{{ with .slug }}
+							<a href="/action-lines/{{ . }}">
+						{{ end }}
+							{{ .id }}
+						{{ with .slug }}
+							</a>
+						{{ end }}
+					</dt>
+					<dd>
+						{{ .title }}
+					</dd>
+				</div>
+			{{ end }}
+			</dl>
+
+		</section>
+
+	</div>
+
+
+
+	<aside>
+
+
+<!-- 		<section class="sub-prefecture">
+			<h2>{{ i18n "districtFile" }}</h2>
+			<h3>{{ i18n "regionalGovernment" }} {{ .name }}</h3>
+
+
+			{{ with .subprefecture }}
+
+			<p>{{ .address }}</p>
+			<p>{{ .site }}</p>
+			<p>{{ .email }}</p>
+
+			{{ end }}
+
+			{{ range .region_variables }}
+				<div class="definition-item">
+					<th>
+						{{ .variable.name }}
+					</th>
+					<td>
+						{{ .value }}
+					</td>
+				</div>
+			{{ end }}
+
+
+		</section> -->
+
+
+		<section class="related-projects">
+			<h2>{{ i18n "goalsRelatedSentenceCase" }}</h2>
+
+			<dl>
+			{{ range .projects }}
+				<dt>
+					{{ with .project.slug }}
+						<a href="/projetos/{{ . }}">
+					{{ end }}
+						{{ .project.title }}
+					{{ with .project.slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .project.description }}</dd>
+			{{ end }}
+			</dl>
+		</section>
+
+
+	</aside>
+
+
+</article>
+
+{{ end }}
+
+{{ partial "footer.html" . }}

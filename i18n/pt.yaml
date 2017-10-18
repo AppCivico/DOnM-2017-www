@@ -10,10 +10,14 @@
   translation: "Desenvolvido por"
 - id: districtsBenefitedSentenceCase
   translation: "Distritos beneficiados"
+- id: districtFile
+  translation: "Ficha do distrito"
 - id: districtsLowerCase
   translation: "distritos"
 - id: districtTitleCase
   translation: "Distrito"
+- id: districtUpperCase
+  translation: "DISTRITO"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: goalLowerCase
@@ -48,6 +52,8 @@
     other: "projetos"
 - id: projectTitleCase
   translation: "Projeto"
+- id: regionalGovernment
+  translation: "Prefeitura Regional"
 - id: relatedGoalsSentenceCase
   translation: "Metas associadas"
 - id: relatedProjectsSentenceCase
@@ -82,3 +88,4 @@
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
+
