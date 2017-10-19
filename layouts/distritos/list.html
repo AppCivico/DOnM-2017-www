@@ -1,42 +1,56 @@
 {{ $.Scratch.Add "scriptsHeader" `
 <link rel="preload" href="/dist/data/districts.json" as="fetch" type="application/json">
 ` }}{{ partial "header.html" . }}
-<main id="conteudo">
-	{{ with .Content }}
-		<article>
-			{{ . }}
-		</article>
-	{{ end }}
+<main id="conteudo" class="h-entry">
 
-	{{ $districts := getJSON "./static/dist/data/districts.json" }}
 
-	{{ with $districts.regions }}
-		<section class="h-feed">
-			<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
-			<table>
-				<tr>
-					<th>{{ i18n "districtTitleCase" }}</th>
-					<th>{{ i18n "subPrefectureTitleCase" }}</th>
-					<th>{{ i18n "goalsTitleCase" }}</th>
-				</tr>
-				{{ range sort . "name" "asc" }}
-					<tr class="h-entry" id="district-{{ .id }}">
-						<th>
-							<a href="/distritos/{{ .slug }}">
-								{{ .name }}
-							</a>
-						</th>
-						<td>
-							{{ .subprefecture.name }}
-						</td>
-						<td>
-						</td>
+
+	<header>
+
+
+	<h1>{{ i18n "districtSentenceCase" }}</h1>
+
+	<p>	{{ with .Content }}</p>
+
+			<article>
+
+				{{ . }}
+			</article>
+
+	</header>
+
+		{{ end }}
+
+		{{ $districts := getJSON "./static/dist/data/districts.json" }}
+
+		{{ with $districts.regions }}
+
+			<section class="h-feed">
+				<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
+				<table>
+					<tr>
+						<th>{{ i18n "districtTitleCase" }}</th>
+						<th>{{ i18n "subPrefectureTitleCase" }}</th>
+						<th>{{ i18n "goalsTitleCase" }}</th>
 					</tr>
-				{{ end }}
-			</table>
-		</section>
-	{{ end }}
-	<div id="map"></div>
+					{{ range sort . "name" "asc" }}
+						<tr class="h-entry" id="district-{{ .id }}">
+							<th>
+								<a href="/distritos/{{ .slug }}">
+									{{ .name }}
+								</a>
+							</th>
+							<td>
+								{{ .subprefecture.name }}
+							</td>
+							<td>
+							</td>
+						</tr>
+					{{ end }}
+				</table>
+			</section>
+		{{ end }}
+		<div id="map"></div>
 </main>
 
 {{ partial "footer.html" . }}
