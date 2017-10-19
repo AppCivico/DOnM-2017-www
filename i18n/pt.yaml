@@ -18,6 +18,10 @@
   translation: "Distrito"
 - id: districtUpperCase
   translation: "DISTRITO"
+- id: districtSentenceCase
+  translation: "Distrito"
+- id: districtsSentenceCase
+  translation: "Distrito"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: goalLowerCase
