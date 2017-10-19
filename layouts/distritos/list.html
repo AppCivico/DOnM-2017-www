@@ -7,50 +7,49 @@
 
 	<header>
 
-
-	<h1>{{ i18n "districtSentenceCase" }}</h1>
-
-	<p>	{{ with .Content }}</p>
-
-			<article>
-
-				{{ . }}
-			</article>
+		<h1>
+			{{ i18n "districtSentenceCase" }}
+		</h1>
 
 	</header>
 
-		{{ end }}
+	{{ with .Content }}
+		<section>
+			{{ . }}
+		</section>
+	{{ end }}
 
-		{{ $districts := getJSON "./static/dist/data/districts.json" }}
 
-		{{ with $districts.regions }}
+	{{ $districts := getJSON "./static/dist/data/districts.json" }}
 
-			<section class="h-feed">
-				<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
-				<table>
-					<tr>
-						<th>{{ i18n "districtTitleCase" }}</th>
-						<th>{{ i18n "subPrefectureTitleCase" }}</th>
-						<th>{{ i18n "goalsTitleCase" }}</th>
+	{{ with $districts.regions }}
+
+		<section>
+			<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
+			<table>
+				<tr>
+					<th>{{ i18n "districtTitleCase" }}</th>
+					<th>{{ i18n "subPrefectureTitleCase" }}</th>
+				</tr>
+				{{ range sort . "name" "asc" }}
+					<tr id="district-{{ .id }}">
+						<th>
+							<a href="/distritos/{{ .slug }}">
+								{{ .name }}
+							</a>
+						</th>
+						<td>
+							{{ .subprefecture.name }}
+						</td>
+
 					</tr>
-					{{ range sort . "name" "asc" }}
-						<tr class="h-entry" id="district-{{ .id }}">
-							<th>
-								<a href="/distritos/{{ .slug }}">
-									{{ .name }}
-								</a>
-							</th>
-							<td>
-								{{ .subprefecture.name }}
-							</td>
-							<td>
-							</td>
-						</tr>
-					{{ end }}
-				</table>
-			</section>
-		{{ end }}
-		<div id="map"></div>
+				{{ end }}
+			</table>
+		</section>
+	{{ end }}
+
+	<div id="map"></div>
+
 </main>
 
 {{ partial "footer.html" . }}
