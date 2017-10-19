@@ -32,6 +32,13 @@ const sourcesAndDests = [
 		contentFolder: './content/metas',
 		jsonRootElement: 'goals',
 	},
+
+	{
+		url: '/api/subprefecture',
+		dataDest: './static/dist/data/subprefecture.json',
+		contentFolder: './content/prefeituras-regionais',
+		jsonRootElement: 'subprefectures',
+	},
 ];
 
 function savePages(fileData) {
