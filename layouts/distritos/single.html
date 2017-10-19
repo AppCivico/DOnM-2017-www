@@ -58,10 +58,9 @@
 	<aside>
 
 
-<!-- 		<section class="sub-prefecture">
+		<section class="sub-prefecture">
 			<h2>{{ i18n "districtFile" }}</h2>
 			<h3>{{ i18n "regionalGovernment" }} {{ .name }}</h3>
-
 
 			{{ with .subprefecture }}
 
@@ -71,19 +70,24 @@
 
 			{{ end }}
 
-			{{ range .region_variables }}
-				<div class="definition-item">
+
+			{{ with .region_variables }}
+			<table>
+			{{ range . }}
+				<tr>
 					<th>
 						{{ .variable.name }}
 					</th>
 					<td>
 						{{ .value }}
 					</td>
-				</div>
+				</tr>
+			{{ end }}
+				</table>
 			{{ end }}
 
 
-		</section> -->
+		</section>
 
 
 		<section class="related-projects">
