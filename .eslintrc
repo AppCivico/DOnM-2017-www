@@ -8,7 +8,6 @@
 		"node": true
 	},
 	"rules": {
-		"linebreak-style": ["error", "windows"],
 		//Override 2 spaces from Airbnb
 		"indent": ["error", "tab"],
 		"no-tabs": 0
