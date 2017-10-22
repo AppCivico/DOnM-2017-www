@@ -46,16 +46,16 @@
   },
   "homepage": "https://github.com/AppCivico/DOnM-2017-www#readme",
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
+    "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
+    "browserify": "^14.5.0",
     "changelog-verify": "^1.0.4",
     "cssnano": "^3.10.0",
-    "eslint": "^4.6.1",
-    "eslint-config-airbnb-base": "^12.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "hashmark": "^5.0.0",
     "imagemin-cli": "^3.0.0",
     "include-media": "^1.4.9",
@@ -65,9 +65,9 @@
     "onchange": "^3.2.1",
     "postcss-cli": "^4.1.1",
     "replaceinfiles": "^1.1.4",
-    "sass-lint": "^1.11.1",
+    "sass-lint": "^1.12.1",
     "susy": "^3.0.1",
-    "uglify-js": "^3.1.0",
+    "uglify-js": "^3.1.5",
     "version-changelog": "^2.1.0"
   }
 }
