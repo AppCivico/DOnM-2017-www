@@ -75,7 +75,6 @@ const initMap = function initMap() {
 						};
 					}
 				}
-
 				// Construct the polygon.
 				const districtToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
 					paths: points,
@@ -96,9 +95,11 @@ const initMap = function initMap() {
 			if (polygonsBounds) {
 				map.fitBounds(polygonsBounds);
 
-				google.maps.event.addListenerOnce(map, 'bounds_changed', () => { // eslint-disable-line no-undef
-					map.setZoom(map.getZoom() + 1);
-				});
+				if (mapElement.getAttribute('data-subprefectures') == 'all' || mapElement.getAttribute('data-district') == 'all'){
+					google.maps.event.addListenerOnce(map, 'bounds_changed', () => { // eslint-disable-line no-undef
+						map.setZoom(map.getZoom() + 1);
+					});
+				}
 			}
 		})
 		.catch((error) => {
