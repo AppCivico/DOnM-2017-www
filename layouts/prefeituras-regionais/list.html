@@ -1,0 +1,52 @@
+{{ $.Scratch.Add "scriptsHeader" `
+<link rel="preload" href="/dist/data/subprefecture.json" as="fetch" type="application/json">
+` }}{{ partial "header.html" . }}
+<main id="conteudo" class="h-entry">
+
+	<header>
+
+		<h1>
+			{{ i18n "regionalPrefecturesSetenceCase" }}
+		</h1>
+
+	</header>
+
+	{{ with .Content }}
+		<section>
+			{{ . }}
+		</section>
+	{{ end }}
+
+	{{ $subprefectures := getJSON "./static/dist/data/subprefecture.json" }}
+
+	{{ with $subprefectures.subprefectures }}
+
+		<section>
+			<p><b>{{ len . }}</b> {{ i18n "regionalPrefecturesSetenceCase" }}.</p>
+
+				{{ range sort . "name" "asc" }}
+
+
+						<ul id="subprefectures-{{ .id }}">
+							<li>
+
+							<a href="/prefeituras-regionais/{{ .slug }}">
+							{{ .name }}
+							</a>
+
+							</li>
+
+						</ul>
+
+
+				{{ end }}
+			</table>
+		</section>
+	{{ end }}
+
+	<div id="map"></div>
+
+
+</main>
+
+{{ partial "footer.html" . }}
