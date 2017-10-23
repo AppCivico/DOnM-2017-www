@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+{{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/subprefecture/" .Params.id ) }}
+
+{{ $subprefecture := getJSON $url }}
+
+{{ with $subprefecture.subprefecture }}
+
+
+<article role="main" id="conteudo" class="h-entry">
+
+
+</article>
+
+{{ end }}
+
+{{ partial "footer.html" . }}

@@ -92,4 +92,16 @@
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
+- id: regionalPrefecturesSetenceCase
+  translation: "Prefeituras Regionais"
+- id: districtUpperCase
+  translation:
+    one: "Distrito"
+    other: "Distritos"
+- id: districtLowerCase
+  translation:
+    one: "distrito"
+    other: "distritos"
+
+
 
