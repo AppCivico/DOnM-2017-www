@@ -192,3 +192,5 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/vim,node,hugo,sass,linux,macos,bower,windows,sublimetext,visualstudiocode
 #
+
+_testReports/*
