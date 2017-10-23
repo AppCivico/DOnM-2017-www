@@ -12,16 +12,6 @@
   translation: "Distritos beneficiados"
 - id: districtFile
   translation: "Ficha do distrito"
-- id: districtsLowerCase
-  translation: "distritos"
-- id: districtTitleCase
-  translation: "Distrito"
-- id: districtUpperCase
-  translation: "DISTRITO"
-- id: districtSentenceCase
-  translation: "Distrito"
-- id: districtsSentenceCase
-  translation: "Distrito"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: goalLowerCase
@@ -102,6 +92,24 @@
   translation:
     one: "distrito"
     other: "distritos"
+- id: districtsLowerCase
+  translation: "distritos"
+- id: districtTitleCase
+  translation: "Distrito"
+- id: districtUpperCase
+  translation: "DISTRITO"
+- id: districtSentenceCase
+  translation: "Distrito"
+- id: districtsSentenceCase
+  translation: "Distritos"
 
+- id: regionalPrefectureFileSetenceCase
+  translation: "Ficha da prefeitura regional"
+
+- id: subMayorSetenceCase
+  translation: "Subprefeito"
+
+- id: relevantDistrictsSentenceCase
+  translation: "Distritos pertencentes"
 
 
