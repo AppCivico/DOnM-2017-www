@@ -95,7 +95,7 @@ const initMap = function initMap() {
 			if (polygonsBounds) {
 				map.fitBounds(polygonsBounds);
 
-				if (mapElement.getAttribute('data-subprefectures') === 'all' || mapElement.getAttribute('data-district') === 'all') {
+				if (mapElement.getAttribute('data-zoom') === '+1') {
 					google.maps.event.addListenerOnce(map, 'bounds_changed', () => { // eslint-disable-line no-undef
 						map.setZoom(map.getZoom() + 1);
 					});
