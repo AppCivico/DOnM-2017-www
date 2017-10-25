@@ -1,3 +1,5 @@
+import mapStyles from './mapStyles';
+
 let map;
 
 const initMap = function initMap() {
@@ -6,6 +8,7 @@ const initMap = function initMap() {
 	map = new google.maps.Map(mapElement, { // eslint-disable-line no-undef
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
+		styles: mapStyles,
 	});
 
 	const myHeaders = new Headers();
