@@ -35,7 +35,7 @@ const sourcesAndDests = [
 
 	{
 		url: '/api/subprefecture',
-		dataDest: './static/dist/data/subprefecture.json',
+		dataDest: './static/dist/data/subprefectures.json',
 		contentFolder: './content/prefeituras-regionais',
 		jsonRootElement: 'subprefectures',
 	},
