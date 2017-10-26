@@ -1,4 +1,4 @@
-const mapStyles = [
+export default [
 	{
 		featureType: 'administrative',
 		elementType: 'geometry.stroke',
@@ -150,5 +150,3 @@ const mapStyles = [
 		],
 	},
 ];
-
-export { mapStyles as default };
