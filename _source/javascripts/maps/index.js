@@ -1,3 +1,4 @@
+/* global google */
 import mapStyles from './mapStyles';
 
 let map;
@@ -5,7 +6,7 @@ let map;
 const initMap = function initMap() {
 	const mapElement = document.getElementById('map');
 
-	map = new google.maps.Map(mapElement, { // eslint-disable-line no-undef
+	map = new google.maps.Map(mapElement, {
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
 		styles: mapStyles,
@@ -38,7 +39,7 @@ const initMap = function initMap() {
 		})
 		.then((areasList) => {
 			function getArrayBounds(polyArray) {
-				const bounds = new google.maps.LatLngBounds(); // eslint-disable-line no-undef
+				const bounds = new google.maps.LatLngBounds();
 				let path;
 				let paths;
 
@@ -83,7 +84,7 @@ const initMap = function initMap() {
 						}
 					}
 					// Construct the polygon.
-					const areaToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
+					const areaToDraw = new google.maps.Polygon({
 						paths: points,
 						strokeColor: '#ff9145',
 						strokeOpacity: 0.5,
@@ -104,7 +105,7 @@ const initMap = function initMap() {
 				map.fitBounds(polygonsBounds);
 
 				if (mapElement.getAttribute('data-zoom') === '+1') {
-					google.maps.event.addListenerOnce(map, 'bounds_changed', () => { // eslint-disable-line no-undef
+					google.maps.event.addListenerOnce(map, 'bounds_changed', () => {
 						map.setZoom(map.getZoom() + 1);
 					});
 				}
