@@ -66,31 +66,34 @@ const initMap = function initMap() {
 			for (let i = 0; i < districts.length; i += 1) {
 				const district = districts[i];
 				const points = [];
-				const geoJSON = JSON.parse(district.geo_json);
 
-				for (let j = 0; j < geoJSON.coordinates.length; j += 1) {
-					const coord = geoJSON.coordinates[j];
-					for (let k = 0; k < coord.length; k += 1) {
-						const corner = coord[k];
-						points[points.length] = {
-							lat: corner[1],
-							lng: corner[0],
-						};
+				if (district.geo_json !== null) {
+					const geoJSON = JSON.parse(district.geo_json);
+
+					for (let j = 0; j < geoJSON.coordinates.length; j += 1) {
+						const coord = geoJSON.coordinates[j];
+						for (let k = 0; k < coord.length; k += 1) {
+							const corner = coord[k];
+							points[points.length] = {
+								lat: corner[1],
+								lng: corner[0],
+							};
+						}
 					}
+					// Construct the polygon.
+					const districtToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
+						paths: points,
+						strokeColor: '#ff9145',
+						strokeOpacity: 0.5,
+						strokeWeight: 2,
+						fillColor: '#ff9145',
+						fillOpacity: 0.25,
+					});
+
+					districtToDraw.setMap(map);
+
+					polygons.push(districtToDraw);
 				}
-				// Construct the polygon.
-				const districtToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
-					paths: points,
-					strokeColor: '#FF0000',
-					strokeOpacity: 0.8,
-					strokeWeight: 2,
-					fillColor: '#FF0000',
-					fillOpacity: 0.35,
-				});
-
-				districtToDraw.setMap(map);
-
-				polygons.push(districtToDraw);
 			}
 
 			const polygonsBounds = getArrayBounds(polygons) || null;
