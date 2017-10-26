@@ -24,6 +24,8 @@ const initMap = function initMap() {
 
 	const myRequest = new Request('/dist/data/districts.json');
 
+	const rootElement = 'regions';
+
 	fetch(myRequest, myInit)
 		.then((response) => {
 			const contentType = response.headers.get('content-type');
@@ -34,7 +36,7 @@ const initMap = function initMap() {
 
 			throw new TypeError("Oops, we haven't got JSON!");
 		})
-		.then((districtsList) => {
+		.then((areasList) => {
 			function getArrayBounds(polyArray) {
 				const bounds = new google.maps.LatLngBounds(); // eslint-disable-line no-undef
 				let path;
@@ -53,22 +55,22 @@ const initMap = function initMap() {
 				return bounds;
 			}
 
-			let districts = districtsList.regions;
+			let areas = areasList[rootElement];
 
 			if (mapElement.hasAttribute('data-district')) {
-				const districtToDraw = mapElement.getAttribute('data-district').split(' ').map(item => parseInt(item, 10));
+				const areasToDraw = mapElement.getAttribute('data-district').split(' ').map(item => parseInt(item, 10));
 
-				districts = districts.filter(x => districtToDraw.indexOf(x.id) !== -1);
+				areas = areas.filter(x => areasToDraw.indexOf(x.id) !== -1);
 			}
 
 			const polygons = [];
 
-			for (let i = 0; i < districts.length; i += 1) {
-				const district = districts[i];
+			for (let i = 0; i < areas.length; i += 1) {
+				const area = areas[i];
 				const points = [];
 
-				if (district.geo_json !== null) {
-					const geoJSON = JSON.parse(district.geo_json);
+				if (area.geo_json !== null) {
+					const geoJSON = JSON.parse(area.geo_json);
 
 					for (let j = 0; j < geoJSON.coordinates.length; j += 1) {
 						const coord = geoJSON.coordinates[j];
@@ -81,7 +83,7 @@ const initMap = function initMap() {
 						}
 					}
 					// Construct the polygon.
-					const districtToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
+					const areaToDraw = new google.maps.Polygon({ // eslint-disable-line no-undef
 						paths: points,
 						strokeColor: '#ff9145',
 						strokeOpacity: 0.5,
@@ -90,9 +92,9 @@ const initMap = function initMap() {
 						fillOpacity: 0.25,
 					});
 
-					districtToDraw.setMap(map);
+					areaToDraw.setMap(map);
 
-					polygons.push(districtToDraw);
+					polygons.push(areaToDraw);
 				}
 			}
 
