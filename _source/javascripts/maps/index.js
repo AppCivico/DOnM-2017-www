@@ -6,6 +6,12 @@ let map;
 const initMap = function initMap() {
 	const mapElement = document.getElementById('map');
 
+	let areasToDraw = 'all';
+
+	if (mapElement.hasAttribute('data-district')) {
+		areasToDraw = mapElement.getAttribute('data-district').split(' ').map(item => parseInt(item, 10));
+	}
+
 	map = new google.maps.Map(mapElement, {
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
@@ -58,9 +64,7 @@ const initMap = function initMap() {
 
 			let areas = areasList[rootElement];
 
-			if (mapElement.hasAttribute('data-district')) {
-				const areasToDraw = mapElement.getAttribute('data-district').split(' ').map(item => parseInt(item, 10));
-
+			if (areasToDraw !== 'all') {
 				areas = areas.filter(x => areasToDraw.indexOf(x.id) !== -1);
 			}
 
