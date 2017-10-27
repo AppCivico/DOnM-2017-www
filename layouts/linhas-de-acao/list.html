@@ -1,0 +1,54 @@
+{{ partial "header.html" . }}
+<main id="conteudo" class="h-feed">
+	<h1 class="h-feed__p-name p-name">{{ .Title }}</h1>
+	{{ with .Content }}
+		<article>
+			{{ . }}
+		</article>
+	{{ end }}
+
+	{{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
+
+	{{ with $action_lines.action_lines }}
+
+	<header>
+
+		<h1>
+			{{ i18n "actionSentenceCase" }}
+		</h1>
+
+	</header>
+
+	{{ with .Content }}
+		<section>
+			{{ . }}
+		</section>
+	{{ end }}
+
+
+	<section class="related-projects">
+			<h2>{{ i18n "actionSentenceCase" }}</h2>
+
+			<dl>
+			{{ range .action-lines }}
+				<dt>
+					{{ with .action-lines.slug }}
+						<a href="/action-lines/{{ . }}">
+					{{ end }}
+						{{ .action-line.title }}
+					{{ with .action-line.slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .action-lines.description }}</dd>
+			{{ end }}
+			</dl>
+		</section>
+
+
+
+	{{ end }}
+
+</main>
+
+{{ partial "footer.html" . }}
