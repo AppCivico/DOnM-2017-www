@@ -90,11 +90,11 @@ const initMap = function initMap() {
 					// Construct the polygon.
 					const areaToDraw = new google.maps.Polygon({
 						paths: points,
-						strokeColor: '#ff9145',
-						strokeOpacity: 0.5,
+						strokeColor: '#fff',
+						strokeOpacity: 1,
 						strokeWeight: 2,
-						fillColor: '#ff9145',
-						fillOpacity: 0.25,
+						fillColor: '#1b0863',
+						fillOpacity: 0.15,
 					});
 
 					areaToDraw.setMap(map);
