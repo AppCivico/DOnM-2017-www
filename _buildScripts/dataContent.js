@@ -39,6 +39,13 @@ const sourcesAndDests = [
 		contentFolder: './content/prefeituras-regionais',
 		jsonRootElement: 'subprefectures',
 	},
+
+	{
+		url: '/api/action-line',
+		dataDest: './static/dist/data/action_lines.json',
+		contentFolder: './content/linhas-de-acao',
+		jsonRootElement: 'action_lines',
+	},
 ];
 
 function savePages(fileData) {
