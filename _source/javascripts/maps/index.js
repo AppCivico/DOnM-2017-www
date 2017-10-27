@@ -88,7 +88,7 @@ const initMap = function initMap() {
 						}
 					}
 					// Construct the polygon.
-					const areaToDraw = new google.maps.Polygon({
+					const polygonToDraw = new google.maps.Polygon({
 						paths: points,
 						strokeColor: '#fff',
 						strokeOpacity: 1,
@@ -97,9 +97,21 @@ const initMap = function initMap() {
 						fillOpacity: 0.15,
 					});
 
-					areaToDraw.setMap(map);
+					polygonToDraw.setMap(map);
 
-					polygons.push(areaToDraw);
+					google.maps.event.addListener(polygonToDraw, 'mouseover', function polygonIn() {
+						const currentPolygon = this;
+						currentPolygon.setOptions({ fillOpacity: 0.35 });
+					});
+
+					google.maps.event.addListener(polygonToDraw, 'mouseout', function polygonOut() {
+						const currentPolygon = this;
+						currentPolygon.setOptions({ fillOpacity: 0.15 });
+					});
+
+					polygons.push(polygonToDraw);
+				} else {
+					console.warn(`${area.name} doens't have a geoJson`);
 				}
 			}
 
