@@ -1,6 +1,8 @@
 /* global google */
 import mapStyles from './mapStyles';
 
+import drawPolygon from './drawPolygon';
+
 let map;
 
 const initMap = function initMap() {
@@ -62,56 +64,23 @@ const initMap = function initMap() {
 				return bounds;
 			}
 
-			let areas = areasList[rootElement];
+			let polygonsToDraw = areasList[rootElement];
 
 			if (areasToDraw !== 'all') {
-				areas = areas.filter(x => areasToDraw.indexOf(x.id) !== -1);
+				polygonsToDraw = polygonsToDraw.filter(x => areasToDraw.indexOf(x.id) !== -1);
 			}
 
 			const polygons = [];
 
-			for (let i = 0; i < areas.length; i += 1) {
-				const area = areas[i];
-				const points = [];
+			for (let i = 0; i < polygonsToDraw.length; i += 1) {
+				const polygon = polygonsToDraw[i];
 
-				if (area.geo_json !== null) {
-					const geoJSON = JSON.parse(area.geo_json);
+				if (polygon.geo_json !== null) {
+					const geoJSON = JSON.parse(polygon.geo_json);
 
-					for (let j = 0; j < geoJSON.coordinates.length; j += 1) {
-						const coord = geoJSON.coordinates[j];
-						for (let k = 0; k < coord.length; k += 1) {
-							const corner = coord[k];
-							points[points.length] = {
-								lat: corner[1],
-								lng: corner[0],
-							};
-						}
-					}
-					// Construct the polygon.
-					const polygonToDraw = new google.maps.Polygon({
-						paths: points,
-						strokeColor: '#fff',
-						strokeOpacity: 1,
-						strokeWeight: 2,
-						fillColor: '#1b0863',
-						fillOpacity: 0.15,
-					});
+					const drawnPolygon = drawPolygon(geoJSON.coordinates, map);
 
-					polygonToDraw.setMap(map);
-
-					google.maps.event.addListener(polygonToDraw, 'mouseover', function polygonIn() {
-						const currentPolygon = this;
-						currentPolygon.setOptions({ fillOpacity: 0.35 });
-					});
-
-					google.maps.event.addListener(polygonToDraw, 'mouseout', function polygonOut() {
-						const currentPolygon = this;
-						currentPolygon.setOptions({ fillOpacity: 0.15 });
-					});
-
-					polygons.push(polygonToDraw);
-				} else {
-					console.warn(`${area.name} doens't have a geoJson`);
+					polygons.push(drawnPolygon);
 				}
 			}
 
