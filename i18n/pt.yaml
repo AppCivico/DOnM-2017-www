@@ -1,5 +1,7 @@
 - id: actionSentenceCase
   translation: "Linhas de ação"
+- id: actionLineSentenceCase
+  translation: "Linhas de ação"
 - id: budget
   translation: "Orçamento"
 - id: colophon
@@ -112,4 +114,16 @@
 - id: relevantDistrictsSentenceCase
   translation: "Distritos pertencentes"
 
+- id: regionalizationSetenceCase
+  translation: "Regionalização"
+
+- id: value2017_2020
+  translation: "Regionalização"
+
+
+- id: regionalizationMap
+  translation: "Mapa da regionalização"
+
+- id: relatedProject
+  translation: "Projeto associados"
 
