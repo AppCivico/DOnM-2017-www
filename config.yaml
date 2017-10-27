@@ -3,7 +3,7 @@ languageCode:    "pt-br"
 title:           "De Olho nas Metas - 2017"
 disableKinds:    ["taxonomy", "taxonomyTerm", "RSS"]
 enableRobotsTXT: true
-googleAnalytics: ""
+googleAnalytics: "UA-10515816-3"
 metaDataFormat:  "yaml"
 enableMissingTranslationPlaceholders: true
 defaultContentLanguage: pt
