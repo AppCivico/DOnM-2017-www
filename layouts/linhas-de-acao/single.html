@@ -1,0 +1,141 @@
+{{ partial "header.html" . }}
+{{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/action-line/" .Params.id ) }}
+
+{{ $action-line := getJSON $url }}
+
+{{ with $action-line.action-line }}
+
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h2>
+				{{ i18n "actionLineSentenceCase" }}
+				{{ .id }}
+			</h2>
+			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
+			<h3>
+				{{ i18n "topicTitleCase" 1 }} {{ .topic.name }}
+			</h3>
+		</header>
+
+		<section class="indicator">
+			<p>{{ .indicator_description }}</p>
+		</section>
+
+		<section class="projection">
+			<h2>{{ i18n "regionalizationSetenceCase" }}</h2>
+			<dl>
+				<div class="definition-item">
+					<dt>{{ i18n "regionalGovernment" }}</dt>
+					<dd>{{ .first_biennium }}</dd>
+				</div>
+				<div class="definition-item">
+					<dt>{{ value2017_2020" }}</dt>
+					<dd>{{ .second_biennium }}</dd>
+				</div>
+			</dl>
+			<dl>
+				<div class="definition-item">
+					<dt>{{ i18n "regionalGovernment" }}</dt>
+					<dd>{{ .first_biennium }}</dd>
+				</div>
+				<div class="definition-item">
+					<dt>{{ value2017_2020" }}</dt>
+					<dd>{{ .second_biennium }}</dd>
+				</div>
+			</dl>
+
+		</section>
+
+		<section class="map-container">
+			<h2>{{ i18n "regionalizationMap" }}</h2>
+
+			<div id="map" class="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+		</section>
+
+		<aside>
+
+
+			<section class="secretaries">
+				<h2>{{ i18n "situationSentenceCase" }}</h2>
+				<ul class="district-list">
+					{{ range .action-line }}
+						<li>
+							{{ with .slug }}
+								<a href="/linhas-de-acao/{{ . }}">
+							{{ end }}
+								{{ .name }}
+							{{ with .slug }}
+								</a>
+							{{ end }}
+						</li>
+					{{ end }}
+				</ul>
+
+
+			<section class="progress">
+				<p>{{ i18n "textProgressSentenceCase" }}</p>
+
+				<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
+					<div class="progress-bar">
+						<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
+							{{ with .progress }}{{ . }}%{{ end }}
+						</span>
+					</div>
+				</progress>
+			</section>
+
+			<section class="related-projects">
+				<h2>{{ i18n "relatedProject" }}</h2>
+
+				<dl>
+				{{ range .projects }}
+					<dt>
+						{{ with .project.slug }}
+							<a href="/projetos/{{ . }}">
+						{{ end }}
+							{{ .project.title }}
+						{{ with .project.slug }}
+							</a>
+						{{ end }}
+					</dt>
+					<dd>{{ .project.description }}</dd>
+				{{ end }}
+				</dl>
+			</section>
+
+			<section class="related-actionlines">
+				<h2>{{ i18n "actionSentenceCase" }}</h2>
+
+				<dl>
+				{{ range .projects }}
+					<dt>
+						{{ with .action-line.slug }}
+							<a href="/linhas-de-acao/{{ . }}">
+						{{ end }}
+							{{ .action-line.title }}
+						{{ with .action-line.slug }}
+							</a>
+						{{ end }}
+					</dt>
+					<dd>{{ .action-line.description }}</dd>
+				{{ end }}
+				</dl>
+			</section>
+
+
+
+
+
+
+
+
+		</aside>
+
+
+
+{{ end }}
+
+{{ partial "footer.html" . }}
+
+
