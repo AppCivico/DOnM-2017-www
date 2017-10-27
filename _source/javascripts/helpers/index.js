@@ -1,4 +1,2 @@
-import gradientSteps from './gradientSteps';
-import throwIfMissing from './throwIfMissing';
-
-export { gradientSteps, throwIfMissing };
+export { default as gradientSteps } from './gradientSteps';
+export { default as throwIfMissing } from './throwIfMissing';
