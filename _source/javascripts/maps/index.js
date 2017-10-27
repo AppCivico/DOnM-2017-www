@@ -5,7 +5,7 @@ import drawPolygon from './drawPolygon';
 
 let map;
 
-const initMap = function initMap() {
+export default function initMap() {
 	const mapElement = document.getElementById('map');
 
 	let areasToDraw = 'all';
@@ -99,6 +99,4 @@ const initMap = function initMap() {
 		.catch((error) => {
 			throw new TypeError(error);
 		});
-};
-
-export { initMap as default };
+}
