@@ -38,6 +38,10 @@
 	{{ with $.Scratch.Get "scriptsHeader" }}
 		{{ . | safeHTML }}
 	{{ end }}
+
+	{{ if eq (getenv "NODE_ENV") "production" }}
+		{{ template "_internal/google_analytics.html" . }}
+	{{ end }}
 </head>
 <body>
 	<input type="checkbox" id="menu-controller" class="menu-controller" hidden>

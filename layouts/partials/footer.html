@@ -75,9 +75,5 @@
 		{{ . | safeHTML }}
 	{{ end }}
 
-	{{ if eq (getenv "NODE_ENV") "production" }}
-		{{ template "_internal/google_analytics.html" . }}
-	{{ end }}
-
 </body>
 </html>
