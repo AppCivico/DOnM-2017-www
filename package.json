@@ -19,15 +19,15 @@
     "compile:sass": "node-sass ./_source/stylesheets --output-style compressed --output ./static/dist/css --source-map true",
     "compress:css": "postcss --use autoprefixer cssnano --safe -r ./static/dist/css/**/*.css",
     "compress:img": "imagemin \"./_source/images/**/*.{gif,jpg,png,svg}\" --out-dir=./static/dist/img",
-    "compile:js": "browserify ./_source/javascripts/index.js -o ./static/dist/js/index.js -t [ babelify ]",
+    "compile:js": "browserify ./_source/scripts/index.js -o ./static/dist/js/index.js -t [ babelify ]",
     "lint": "npm-run-all --parallel lint:*",
-    "lint:es": "eslint --ext .es,.js \"./_source/javascripts/**\" --format junit --output-file ./_testReports/esLint.xml",
+    "lint:es": "eslint --ext .es,.js \"./_source/scripts/**\" --format junit --output-file ./_testReports/esLint.xml",
     "lint:sass": "sass-lint \"./_source/stylesheets/**/*.scss\" --verbose --no-exit --format junit --output ./_testReports/sassLint.xml",
     "test": "echo \"Error: no test specified\" && exit 0",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
     "watch": "npm-run-all --parallel watch:*",
     "watch:sass": "onchange \"./_source/stylesheets/**/*.scss\" -- npm run build:css",
-    "watch:es6": "onchange \"./_source/javascripts/**/*.js\" -- npm run build:js",
+    "watch:es6": "onchange \"./_source/scripts/**/*.js\" -- npm run build:js",
     "watch:img": "onchange \"./_source/images/**/*.{gif,jpg,png,svg}\" -- npm run build:img"
   },
   "repository": {
