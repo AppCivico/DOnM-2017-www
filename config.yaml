@@ -7,6 +7,10 @@ googleAnalytics: "UA-10515816-3"
 metaDataFormat:  "yaml"
 enableMissingTranslationPlaceholders: true
 defaultContentLanguage: pt
+disableFastRender: true
+ignoreFiles: [ "\\.tmp$", "\\.tmp-browserify" ]
+stepAnalysis: true
+templateMetrics: true
 pluralizeListTitles: false
 menu:
   main:
