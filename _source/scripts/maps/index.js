@@ -1,5 +1,5 @@
 /* global google */
-import mapStyles from './mapStyles';
+import mapStyles from './mapStyles.json';
 
 import * as polygonStyles from './polygonStyles';
 
