@@ -1,6 +1,8 @@
 /* global google */
 import mapStyles from './mapStyles';
 
+import * as polygonStyles from './polygonStyles';
+
 import drawPolygon from './drawPolygon';
 
 let map;
@@ -79,6 +81,14 @@ export default function initMap() {
 					const geoJSON = JSON.parse(polygon.geo_json);
 
 					const drawnPolygon = drawPolygon(geoJSON.coordinates, map);
+
+					google.maps.event.addListener(drawnPolygon, 'mouseover', () => {
+						drawnPolygon.setOptions(polygonStyles.toggle);
+					});
+
+					google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
+						drawnPolygon.setOptions(polygonStyles.initial);
+					});
 
 					polygons.push(drawnPolygon);
 				}
