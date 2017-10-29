@@ -1,6 +1,8 @@
 const https = require('https');
 const fs = require('fs');
 
+const sourcesAndDests = require('../_source/scripts/apiSources.json');
+
 let DOMAIN;
 
 if (process.env.NODE_ENV === 'production') {
@@ -10,43 +12,6 @@ if (process.env.NODE_ENV === 'production') {
 } else {
 	DOMAIN = 'https://dapidonm.eokoe.com';
 }
-
-const sourcesAndDests = [
-	{
-		url: '/api/region',
-		dataDest: './static/dist/data/districts.json',
-		contentFolder: './content/distritos',
-		jsonRootElement: 'regions',
-	},
-
-	{
-		url: '/api/project',
-		dataDest: './static/dist/data/projects.json',
-		contentFolder: './content/projetos',
-		jsonRootElement: 'projects',
-	},
-
-	{
-		url: '/api/goal',
-		dataDest: './static/dist/data/goals.json',
-		contentFolder: './content/metas',
-		jsonRootElement: 'goals',
-	},
-
-	{
-		url: '/api/subprefecture',
-		dataDest: './static/dist/data/subprefectures.json',
-		contentFolder: './content/prefeituras-regionais',
-		jsonRootElement: 'subprefectures',
-	},
-
-	{
-		url: '/api/action-line',
-		dataDest: './static/dist/data/action_lines.json',
-		contentFolder: './content/linhas-de-acao',
-		jsonRootElement: 'action_lines',
-	},
-];
 
 function savePages(fileData) {
 	const fileContent = fs.readFileSync(fileData.dataDest, 'utf-8');
