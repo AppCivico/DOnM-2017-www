@@ -96,7 +96,8 @@
 					</li>
 				{{ end }}
 			</ul>
-			<div id="map" class="map" {{ with .subprefectures }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+
 		</section>
 
 
