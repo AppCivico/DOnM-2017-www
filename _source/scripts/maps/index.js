@@ -3,6 +3,8 @@ import mapStyles from './mapStyles.json';
 
 import * as polygonStyles from './polygonStyles';
 
+import * as panel from './customInfoPanel';
+
 import drawPolygon from './drawPolygon';
 
 let map;
@@ -89,6 +91,22 @@ export default function initMap() {
 					google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
 						drawnPolygon.setOptions(polygonStyles.initial);
 					});
+
+					drawnPolygon.panelContent = `${polygon.name} / ${polygon.subprefecture.name}`;
+
+					if (drawnPolygon.panelContent !== null) {
+						google.maps.event.addListener(drawnPolygon, 'mouseover', (e) => {
+							panel.insertInfoPanel(e, drawnPolygon.panelContent);
+						});
+
+						google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
+							panel.deleteInfoPanel();
+						});
+
+						google.maps.event.addListener(drawnPolygon, 'mousemove', (e) => {
+							panel.moveInfoPanel(e);
+						});
+					}
 
 					polygons.push(drawnPolygon);
 				}

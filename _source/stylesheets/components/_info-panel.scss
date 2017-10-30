@@ -1,0 +1,25 @@
+.custom-info-panel {
+	z-index: layer('modal');
+
+	padding: gutter() / 2;
+
+	background-color: palette('white');
+
+	border-top: $stroke solid palette('border', 'focus');
+
+	transform: translate(calc(-50% - 20px), calc(-100% - 20px - #{gutter() / 2}));
+	transform-origin: left top;
+	transform-style: preserve-3d;
+
+	animation: flip-in 0.8s ease-out;
+
+	@keyframes flip-in {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+}
