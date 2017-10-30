@@ -6,7 +6,7 @@
 		{{ $regions := getJSON "./static/dist/data/districts.json" }}
 		{{ with $regions.regions }}
 			<article class="districts map-container">
-				<div id="map" data-subprefectures="all" data-zoom="+1"></div>
+				<div id="map" data-to-draw="subprefectures" data-info-panel-for="subprefectures" data-zoom="+1"></div>
 
 				<noscript>
 					<table class="districts__table">
