@@ -1,6 +1,6 @@
 - id: actionSentenceCase
-  translation: "Linhas de ação"
-- id: actionLineSentenceCase
+  translation: "Linha de ação"
+- id: actionLinesSentenceCase
   translation: "Linhas de ação"
 - id: budget
   translation: "Orçamento"
@@ -14,6 +14,20 @@
   translation: "Distritos beneficiados"
 - id: districtFile
   translation: "Ficha do distrito"
+- id: districtLowerCase
+  translation:
+    one: "distrito"
+    other: "distritos"
+- id: districtsLowerCase
+  translation: "distritos"
+- id: districtTitleCase
+  translation: "Distrito"
+- id: districtUpperCase
+  translation: "DISTRITO"
+- id: districtSentenceCase
+  translation: "Distrito"
+- id: districtsSentenceCase
+  translation: "Distritos"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: goalLowerCase
@@ -50,10 +64,22 @@
   translation: "Projeto"
 - id: regionalGovernment
   translation: "Prefeitura Regional"
+- id: regionalizationSetenceCase
+  translation: "Regionalização"
+- id: regionalizationMap
+  translation: "Mapa da regionalização"
+- id: regionalPrefectureFileSetenceCase
+  translation: "Ficha da prefeitura regional"
+- id: regionalPrefecturesSetenceCase
+  translation: "Prefeituras Regionais"
 - id: relatedGoalsSentenceCase
   translation: "Metas associadas"
 - id: relatedProjectsSentenceCase
   translation: "Projetos associados"
+- id: relatedProject
+  translation: "Projeto associados"
+- id: relevantDistrictsSentenceCase
+  translation: "Distritos pertencentes"
 - id: responsiblesTitleCase
   translation: "Responsáveis"
 - id: returnToHome
@@ -64,6 +90,8 @@
   translation: "Secretaria"
 - id: situationSentenceCase
   translation: "Situação atual"
+- id: subMayorSetenceCase
+  translation: "Subprefeito"
 - id: subPrefectureTitleCase
   translation: "Subprefeitura"
 - id: supportersTitleCase
@@ -84,46 +112,4 @@
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
-- id: regionalPrefecturesSetenceCase
-  translation: "Prefeituras Regionais"
-- id: districtUpperCase
-  translation:
-    one: "Distrito"
-    other: "Distritos"
-- id: districtLowerCase
-  translation:
-    one: "distrito"
-    other: "distritos"
-- id: districtsLowerCase
-  translation: "distritos"
-- id: districtTitleCase
-  translation: "Distrito"
-- id: districtUpperCase
-  translation: "DISTRITO"
-- id: districtSentenceCase
-  translation: "Distrito"
-- id: districtsSentenceCase
-  translation: "Distritos"
-
-- id: regionalPrefectureFileSetenceCase
-  translation: "Ficha da prefeitura regional"
-
-- id: subMayorSetenceCase
-  translation: "Subprefeito"
-
-- id: relevantDistrictsSentenceCase
-  translation: "Distritos pertencentes"
-
-- id: regionalizationSetenceCase
-  translation: "Regionalização"
-
-- id: value2017_2020
-  translation: "Regionalização"
-
-
-- id: regionalizationMap
-  translation: "Mapa da regionalização"
-
-- id: relatedProject
-  translation: "Projeto associados"
 
