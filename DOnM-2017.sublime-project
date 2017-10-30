@@ -4,15 +4,5 @@
 		{
 			"path": "."
 		}
-	],
-    "SublimeLinter":
-    {
-        "linters":
-        {
-            "eslint":
-            {
-                "chdir": "${project}/."
-            }
-        }
-    }
+	]
 }
