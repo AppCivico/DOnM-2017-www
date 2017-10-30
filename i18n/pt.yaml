@@ -2,6 +2,8 @@
   translation: "Linha de ação"
 - id: actionLinesSentenceCase
   translation: "Linhas de ação"
+- id: actionLinesAssociated
+  translation: "Linhas de ação Associadas"
 - id: budget
   translation: "Orçamento"
 - id: colophon
@@ -102,6 +104,8 @@
   translation:
     one: "Eixo"
     other: "Eixos"
+- id: value2017_2020
+  translation: "Valor 2007-2020"
 - id: year17_18
   translation: "2017 - 2018"
 - id: year19_20
@@ -112,4 +116,5 @@
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
+
 

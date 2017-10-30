@@ -1,26 +1,29 @@
 {{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/action-line/" .Params.id ) }}
 
-{{ $action-line := getJSON $url }}
 
-{{ with $action-line.action-line }}
+
+{{ $action_line := getJSON $url }}
+
+
+{{ with $action_line.action_line }}
+
 
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "actionLineSentenceCase" }}
+				{{ i18n "actionLinesSentenceCase" }}
 				{{ .id }}
 			</h2>
-			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
+
 			<h3>
 				{{ i18n "topicTitleCase" 1 }} {{ .topic.name }}
 			</h3>
-		</header>
 
-		<section class="indicator">
-			<p>{{ .indicator_description }}</p>
-		</section>
+			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
+
+		</header>
 
 		<section class="projection">
 			<h2>{{ i18n "regionalizationSetenceCase" }}</h2>
@@ -30,7 +33,7 @@
 					<dd>{{ .first_biennium }}</dd>
 				</div>
 				<div class="definition-item">
-					<dt>{{ value2017_2020" }}</dt>
+					<dt>{{ i18n "value2017_2020" }}</dt>
 					<dd>{{ .second_biennium }}</dd>
 				</div>
 			</dl>
@@ -40,7 +43,7 @@
 					<dd>{{ .first_biennium }}</dd>
 				</div>
 				<div class="definition-item">
-					<dt>{{ value2017_2020" }}</dt>
+					<dt>{{ i18n "value2017_2020" }}</dt>
 					<dd>{{ .second_biennium }}</dd>
 				</div>
 			</dl>
@@ -53,13 +56,15 @@
 			<div id="map" class="map" {{ with .regions }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 		</section>
 
+	</div>
+
 		<aside>
 
 
 			<section class="secretaries">
-				<h2>{{ i18n "situationSentenceCase" }}</h2>
+				<h2>{{ i18n "secretariesSentenceCase" }}</h2>
 				<ul class="district-list">
-					{{ range .action-line }}
+					{{ range .action_lines }}
 						<li>
 							{{ with .slug }}
 								<a href="/linhas-de-acao/{{ . }}">
@@ -71,7 +76,7 @@
 						</li>
 					{{ end }}
 				</ul>
-
+			</section>
 
 			<section class="progress">
 				<p>{{ i18n "textProgressSentenceCase" }}</p>
@@ -86,7 +91,7 @@
 			</section>
 
 			<section class="related-projects">
-				<h2>{{ i18n "relatedProject" }}</h2>
+				<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
 
 				<dl>
 				{{ range .projects }}
@@ -105,20 +110,20 @@
 			</section>
 
 			<section class="related-actionlines">
-				<h2>{{ i18n "actionSentenceCase" }}</h2>
+				<h2>{{ i18n "actionLinesAssociated" }}</h2>
 
 				<dl>
 				{{ range .projects }}
 					<dt>
-						{{ with .action-line.slug }}
+						{{ with .action_lines.slug }}
 							<a href="/linhas-de-acao/{{ . }}">
 						{{ end }}
-							{{ .action-line.title }}
-						{{ with .action-line.slug }}
+							{{ .action_lines.title }}
+						{{ with .action_lines.slug }}
 							</a>
 						{{ end }}
 					</dt>
-					<dd>{{ .action-line.description }}</dd>
+					<dd>{{ .action_lines.description }}</dd>
 				{{ end }}
 				</dl>
 			</section>
@@ -132,7 +137,7 @@
 
 		</aside>
 
-
+</article>
 
 {{ end }}
 
