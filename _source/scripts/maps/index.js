@@ -9,6 +9,8 @@ import drawPolygon from './drawPolygon';
 
 import apiSources from '../apiSources.json';
 
+import { gradientSteps } from '../helpers';
+
 let map;
 
 export default function initMap() {
@@ -78,6 +80,17 @@ export default function initMap() {
 							polygonsToDraw = polygonsToDraw.filter(x => areasToDraw.indexOf(x.id) !== -1);
 						}
 
+						let fills;
+						let distributeBy;
+
+						if (mapElement.hasAttribute(`data-${rootElement}-distribute-by`)) {
+							distributeBy = mapElement.getAttribute(`data-${rootElement}-distribute-by`);
+
+							fills = gradientSteps([255, 144, 68], [255, 83, 66], polygonsToDraw.length);
+
+							polygonsToDraw.sort((a, b) => a[distributeBy] - b[distributeBy]);
+						}
+
 						const polygons = [];
 
 						for (let i = 0; i < polygonsToDraw.length; i += 1) {
@@ -98,6 +111,10 @@ export default function initMap() {
 									google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
 										drawnPolygon.setOptions(polygonStyles.initial);
 									});
+								}
+
+								if (distributeBy != null) {
+									drawnPolygon.setOptions({ fillColor: `rgb(${fills[i].join(', ')})` });
 								}
 
 								if (endPointData.contentFolder != null && polygon.slug != null) {
