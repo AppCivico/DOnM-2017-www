@@ -77,7 +77,7 @@ function download(url, fileData, cb) {
 
 		file.on('finish', () => {
 			file.close(() => {
-				if (fileData.contentFolder !== null) {
+				if (fileData.contentFolder != null) {
 					cb(fileData);
 				}
 			}); // close() is async, call cb after close completes.
