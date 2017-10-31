@@ -22,34 +22,10 @@
 
 		<section class="district map-container">
 
-			<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" class="map" data-to-draw="regions" data-regions-to-draw="{{ .id }}"></div>
 
 		</section>
 
-
-		<section class="action-lines">
-			<h2>{{ i18n "actionSentenceCase" }}</h2>
-
-			<dl class="action-lines__list">
-			{{ range .action_lines }}
-				<div class="definition-item">
-					<dt>
-						{{ with .slug }}
-							<a href="/action-lines/{{ . }}">
-						{{ end }}
-							{{ .id }}
-						{{ with .slug }}
-							</a>
-						{{ end }}
-					</dt>
-					<dd>
-						{{ .title }}
-					</dd>
-				</div>
-			{{ end }}
-			</dl>
-
-		</section>
 
 	</div>
 
@@ -64,49 +40,37 @@
 
 			{{ with .subprefecture }}
 
-			<p>{{ .address }}</p>
-			<p>{{ .site }}</p>
-			<p>{{ .email }}</p>
+				{{ with .address }}
+					<p>{{ . }}</p>
+				{{ end }}
+
+				{{ with .site }}
+					<p><a href="{{ . }}">{{ . }}</a></p>
+				{{ end }}
+
+				{{ with .email }}
+					<p><a href="mailto:{{ . }}">{{ . }}</a></p>
+				{{ end }}
 
 			{{ end }}
 
 
 			{{ with .region_variables }}
 			<table>
-			{{ range . }}
-				<tr>
-					<th>
-						{{ .variable.name }}
-					</th>
-					<td>
-						{{ .value }}
-					</td>
-				</tr>
+				{{ range . }}
+					<tr>
+						<th>
+							{{ .variable.name }}
+						</th>
+						<td>
+							{{ .value }}
+						</td>
+					</tr>
+				{{ end }}
+			</table>
 			{{ end }}
-				</table>
-			{{ end }}
 
 
-		</section>
-
-
-		<section class="related-projects">
-			<h2>{{ i18n "goalsRelatedSentenceCase" }}</h2>
-
-			<dl>
-			{{ range .projects }}
-				<dt>
-					{{ with .project.slug }}
-						<a href="/projetos/{{ . }}">
-					{{ end }}
-						{{ .project.title }}
-					{{ with .project.slug }}
-						</a>
-					{{ end }}
-				</dt>
-				<dd>{{ .project.description }}</dd>
-			{{ end }}
-			</dl>
 		</section>
 
 
