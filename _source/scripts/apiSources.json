@@ -32,5 +32,12 @@
     "dataDest": "./static/dist/data/action_lines.json",
     "contentFolder": "./content/linhas-de-acao",
     "jsonRootElement": "action_lines"
+  },
+
+  {
+    "url": "/api/sao-paulo",
+    "dataDest": "./static/dist/data/sao_paulo.json",
+    "jsonRootElement": "sao_paulo"
   }
+
 ]
