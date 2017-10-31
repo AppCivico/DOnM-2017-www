@@ -12,7 +12,7 @@ export default function gradientSteps(firstColor, lastColor, steps = 1) {
 		while (i < firstColor.length) {
 			cMax = Math.max(firstColor[i], lastColor[i]);
 			cMin = Math.min(firstColor[i], lastColor[i]);
-			c.push(Math.round(((cMax - cMin) / ((steps + 1) * j)) + cMin));
+			c.push(Math.round((((cMax - cMin) / (steps + 1)) * j) + cMin));
 			i += 1;
 		}
 
