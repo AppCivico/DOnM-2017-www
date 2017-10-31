@@ -36,8 +36,7 @@
 
   {
     "url": "/api/sao-paulo",
-    "dataDest": "./static/dist/data/sao_paulo.json",
-    "jsonRootElement": "sao_paulo"
+    "dataDest": "./static/dist/data/cities.json",
+    "jsonRootElement": "cities"
   }
-
 ]
