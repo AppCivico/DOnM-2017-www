@@ -17,5 +17,3 @@ const city = {
 };
 
 export { initial, toggle, city };
-
-
