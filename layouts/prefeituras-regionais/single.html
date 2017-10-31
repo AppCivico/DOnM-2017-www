@@ -1,6 +1,7 @@
 {{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/subprefecture/" .Params.id ) }}
 
+
 {{ $subprefecture := getJSON $url }}
 
 {{ with $subprefecture.subprefecture }}
@@ -22,7 +23,7 @@
 
 		<section class="district map-container">
 
-			<div id="map" class="map" {{ with .subprefecture }}data-district="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" class="map" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ .id }}"></div>
 
 		</section>
 
@@ -65,8 +66,8 @@
 
 			{{ with .address }}<p>{{ . }}</p>{{ end }}
 			{{ with .telephone }}<p>{{ . }}</p>{{ end }}
-			{{ with .email }}<p>{{ . }}</p>{{ end }}
-			{{ with .site }}<p>{{ . }}</p>{{ end }}
+			{{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+			{{ with .site }}<p><a href="{{ . }}">{{ . }}</a></p>{{ end }}
 
 
 		</section>
@@ -84,7 +85,7 @@
 		<section class="districts map-container">
 			<h2>{{ i18n "relevantDistrictsSentenceCase" }}</h2>
 			<ul class="district-list">
-				{{ range .subprefectures }}
+				{{ range .regions }}
 					<li>
 						{{ with .slug }}
 							<a href="/prefeituras-regionais/{{ . }}">
