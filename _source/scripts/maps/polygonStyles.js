@@ -13,6 +13,7 @@ const toggle = {
 const city = {
 	strokecolor: 'orange',
 	fillOpacity: 0,
+	zIndex: -1,
 };
 
 export { initial, toggle, city };
