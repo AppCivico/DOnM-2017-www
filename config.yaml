@@ -19,9 +19,32 @@ menu:
         Weight: 1
         Identifier: "o-que-e"
         URL: "/o-que-e/"
-      - Name: "Distritos"
+      - Name: "Prefeituras Regionais"
         Pre: ""
         Weight: 2
+        Identifier: "prefeituras-regionais"
+        URL: "/prefeituras-regionais/"
+      - Name: "Metas"
+        Pre: ""
+        Weight: 3
+        Identifier: "metas"
+        URL: "/metas/"
+      - Name: "Indicadores"
+        Pre: ""
+        Weight: 4
+        Identifier: "indicadores"
+        URL: "/indicadores/"
+      - Name: "Linhas de Ação"
+        Pre: ""
+        Weight: 5
+        Identifier: "linhas-de-acao"
+        URL: "/linhas-de-acao/"
+      - Name: "Dados abertos"
+        Pre: ""
+        Weight: 6
+        Identifier: "dados-abertos"
+        URL: "/dados-abertos/"
+
         Identifier: "distritos"
         URL: "/distritos/"
       - Name: "Metas"
