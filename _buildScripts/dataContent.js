@@ -23,43 +23,45 @@ function savePages(fileData) {
 	}
 
 	jsonElements.forEach((page) => {
-		const filename = `${fileData.contentFolder}/${page.slug}.md`;
+		if (page.slug != null) {
+			const filename = `${fileData.contentFolder}/${page.slug}.md`;
 
-		if (pageList.indexOf(filename) !== -1) {
-			throw new Error(`${filename} already exists.`);
-		}
+			if (pageList.indexOf(filename) !== -1) {
+				throw new Error(`${filename} already exists.`);
+			}
 
-		const contentFile = fs.createWriteStream(filename, { flags: 'w' });
+			const contentFile = fs.createWriteStream(filename, { flags: 'w' });
 
-		contentFile.on('open', () => {
-			console.log(`Writing ${filename}`); // eslint-disable-line no-console
-		});
+			contentFile.on('open', () => {
+				console.log(`Writing ${filename}`); // eslint-disable-line no-console
+			});
 
 
-		contentFile.on('error', (err) => { // Handle errors
-			fs.unlink(filename); // Delete the file async. (But we don't check the result)
-			throw new Error(`error on writing ${filename}. ${err.message}`);
-		});
+			contentFile.on('error', (err) => { // Handle errors
+				fs.unlink(filename); // Delete the file async. (But we don't check the result)
+				throw new Error(`error on writing ${filename}. ${err.message}`);
+			});
 
-		contentFile.on('finish', () => {
-			contentFile.close();
-		});
+			contentFile.on('finish', () => {
+				contentFile.close();
+			});
 
-		contentFile.on('close', () => {
-			console.log(`${filename} saved.`); // eslint-disable-line no-console
-		});
+			contentFile.on('close', () => {
+				console.log(`${filename} saved.`); // eslint-disable-line no-console
+			});
 
-		const frontMatter = `---
+			const frontMatter = `---
 date: ${new Date().toISOString()}
 draft: false
 title: "${page.name || page.title}"
 id: ${page.id}
 ---
-		`;
+			`;
 
-		contentFile.write(frontMatter);
+			contentFile.write(frontMatter);
 
-		pageList[pageList.length] = filename;
+			pageList[pageList.length] = filename;
+		}
 	});
 }
 
