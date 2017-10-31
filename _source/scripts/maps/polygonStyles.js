@@ -11,11 +11,11 @@ const toggle = {
 };
 
 const city = {
-	strokecolor: 'orange',
+	clickableIcons: false,
 	fillOpacity: 0,
+	strokeColor: '#42eeff',
+	strokeWeight: 3,
 	zIndex: -1,
 };
 
 export { initial, toggle, city };
-
-

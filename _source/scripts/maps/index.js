@@ -88,13 +88,17 @@ export default function initMap() {
 
 								const drawnPolygon = drawPolygon(geoJSON.coordinates, map);
 
-								google.maps.event.addListener(drawnPolygon, 'mouseover', () => {
-									drawnPolygon.setOptions(polygonStyles.toggle);
-								});
+								if (rootElement === 'cities') {
+									drawnPolygon.setOptions(polygonStyles.city);
+								} else {
+									google.maps.event.addListener(drawnPolygon, 'mouseover', () => {
+										drawnPolygon.setOptions(polygonStyles.toggle);
+									});
 
-								google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
-									drawnPolygon.setOptions(polygonStyles.initial);
-								});
+									google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
+										drawnPolygon.setOptions(polygonStyles.initial);
+									});
+								}
 
 								if (endPointData.contentFolder != null && polygon.slug != null) {
 									google.maps.event.addListener(drawnPolygon, 'click', () => {
