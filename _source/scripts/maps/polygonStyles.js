@@ -10,4 +10,11 @@ const toggle = {
 	fillOpacity: 0.35,
 };
 
-export { initial, toggle };
+const city = {
+	strokecolor: 'orange',
+	fillOpacity: 0,
+};
+
+export { initial, toggle, city };
+
+
