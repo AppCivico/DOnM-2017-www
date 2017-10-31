@@ -85,7 +85,7 @@
 		<section class="districts map-container">
 			<h2>{{ i18n "relevantDistrictsSentenceCase" }}</h2>
 			<ul class="district-list">
-				{{ range .subprefectures }}
+				{{ range .regions }}
 					<li>
 						{{ with .slug }}
 							<a href="/prefeituras-regionais/{{ . }}">
