@@ -96,6 +96,12 @@ export default function initMap() {
 									drawnPolygon.setOptions(polygonStyles.initial);
 								});
 
+								if (endPointData.contentFolder != null && polygon.slug != null) {
+									google.maps.event.addListener(drawnPolygon, 'click', () => {
+										window.location = `${endPointData.contentFolder.replace('./content', '')}/${polygon.slug}`;
+									});
+								}
+
 								if (mapElement.hasAttribute('data-info-panel-for')) {
 									const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
 
