@@ -26,8 +26,8 @@ export function insertInfoPanel(event, data) {
 
 		if (coordPropName[0]) {
 			panelEl.style.position = 'fixed';
-			panelEl.style.top = `${event[coordPropName[0]].clientY + window.scrollY + offset.y}px`;
-			panelEl.style.left = `${event[coordPropName[0]].clientX + window.scrollX + offset.x}px`;
+			panelEl.style.top = `${event[coordPropName[0]].clientY + offset.y}px`;
+			panelEl.style.left = `${event[coordPropName[0]].clientX + offset.x}px`;
 
 			document.body.appendChild(panelEl);
 		}
@@ -37,8 +37,8 @@ export function insertInfoPanel(event, data) {
 export function moveInfoPanel(event) {
 	if (panelEl && event && coordPropName[0]) {
 		// position it
-		panelEl.style.top = `${event[coordPropName[0]].clientY + window.scrollY + offset.y}px`;
-		panelEl.style.left = `${event[coordPropName[0]].clientX + window.scrollX + offset.x}px`;
+		panelEl.style.top = `${event[coordPropName[0]].clientY + offset.y}px`;
+		panelEl.style.left = `${event[coordPropName[0]].clientX + offset.x}px`;
 	}
 }
 
