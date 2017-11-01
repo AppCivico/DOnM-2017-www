@@ -20,6 +20,8 @@ export default function initMap() {
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
 		styles: mapStyles,
+		mapTypeControl: false,
+		streetViewControl: false,
 	});
 
 	function getArrayBounds(polyArray) {
