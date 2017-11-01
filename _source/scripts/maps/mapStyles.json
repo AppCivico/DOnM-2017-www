@@ -9,20 +9,10 @@
     ]
   },
   {
-    "featureType": "landscape.man_made",
-    "elementType": "geometry.fill",
+    "featureType": "landscape",
     "stylers": [
       {
-        "color": "#f1f4ff"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#f1f4ff"
+        "color": "#ffffff"
       }
     ]
   },
