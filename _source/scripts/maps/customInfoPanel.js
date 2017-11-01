@@ -19,7 +19,11 @@ export function insertInfoPanel(event, data) {
 		// create the InfoPanel object
 		panelEl = document.createElement('div');
 		panelEl.className = 'custom-info-panel';
-		panelEl.innerHTML = data;
+		if (typeof data === 'string') {
+			panelEl.innerHTML = data;
+		} else if (typeof data === 'object' && 'nodeType' in data && data.nodeType === 1 && data.cloneNode) {
+			panelEl.appendChild(data);
+		}
 
 		// get the property which captures the mouse event
 		coordPropName = Object.keys(event).filter(p => event[p] instanceof MouseEvent);
