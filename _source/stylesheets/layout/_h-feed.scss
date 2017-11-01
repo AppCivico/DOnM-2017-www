@@ -4,6 +4,8 @@
 .h-feed {
 	max-width: $max-width;
 
+	padding-right: gutter() / 1em * 1rem;
+	padding-left: gutter() / 1em * 1rem;
 	margin: 0 auto;
 
 	@include media('>=10col') {
@@ -84,6 +86,9 @@
 
 .h-feed .h-entry aside {
 	position: relative;
+
+	padding-top: gutter();
+	padding-bottom: gutter();
 
 	@include media('>=8col') {
 		@include fallback('padding-top', $line-height * 1rem);
