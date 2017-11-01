@@ -1,7 +1,7 @@
 /* global google */
 import mapStyles from './mapStyles.json';
 
-import * as polygonStyles from './polygonStyles';
+import * as polygonStyles from './polygonStyles.json';
 
 import * as panel from './customInfoPanel';
 
