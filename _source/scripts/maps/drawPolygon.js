@@ -1,9 +1,7 @@
 /* global google */
 import { throwIfMissing } from '../helpers';
 
-import { initial as defaultStyles } from './polygonStyles';
-
-export default function drawPolygon(coordinates, map = throwIfMissing()) {
+export default function drawPolygon(coordinates = throwIfMissing()) {
 	const points = [];
 
 	for (let j = 0; j < coordinates.length; j += 1) {
@@ -22,10 +20,5 @@ export default function drawPolygon(coordinates, map = throwIfMissing()) {
 		paths: points,
 	});
 
-	polygon.setOptions(defaultStyles);
-
-	polygon.setMap(map);
-
 	return polygon;
 }
-

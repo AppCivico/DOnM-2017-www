@@ -81,13 +81,13 @@ export default function initMap() {
 						}
 
 						let fills;
-						let distributeBy;
 
-						if (mapElement.hasAttribute(`data-${rootElement}-distribute-by`)) {
-							distributeBy = mapElement.getAttribute(`data-${rootElement}-distribute-by`);
+						const distributeBy = mapElement.hasAttribute(`data-${rootElement}-distribute-by`)
+							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
+							: null;
 
+						if (distributeBy != null) {
 							fills = gradientSteps([255, 144, 68], [255, 83, 66], polygonsToDraw.length);
-
 							polygonsToDraw.sort((a, b) => a[distributeBy] - b[distributeBy]);
 						}
 
@@ -96,25 +96,39 @@ export default function initMap() {
 						for (let i = 0; i < polygonsToDraw.length; i += 1) {
 							const polygon = polygonsToDraw[i];
 
+							const initialStyles = distributeBy != null
+								? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[i].join(', ')})` })
+								: polygonStyles.initial;
+
 							if (polygon.geo_json !== null) {
 								const geoJSON = JSON.parse(polygon.geo_json);
 
-								const drawnPolygon = drawPolygon(geoJSON.coordinates, map);
+								const drawnPolygon = drawPolygon(geoJSON.coordinates);
+
+								drawnPolygon.setOptions(initialStyles);
+								drawnPolygon.initialStyles = initialStyles;
+								drawnPolygon.setMap(map);
 
 								if (rootElement === 'cities') {
 									drawnPolygon.setOptions(polygonStyles.city);
 								} else {
 									google.maps.event.addListener(drawnPolygon, 'mouseover', () => {
+										const previousStyles = {};
+
+										Object.keys(polygonStyles.toggle)
+											.map((styleRule) => {
+												previousStyles[styleRule] = drawnPolygon[styleRule];
+												return previousStyles[styleRule];
+											});
+
+										drawnPolygon.previousStyles = previousStyles;
+
 										drawnPolygon.setOptions(polygonStyles.toggle);
 									});
 
 									google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
-										drawnPolygon.setOptions(polygonStyles.initial);
+										drawnPolygon.setOptions(drawnPolygon.previousStyles);
 									});
-								}
-
-								if (distributeBy != null) {
-									drawnPolygon.setOptions({ fillColor: `rgb(${fills[i].join(', ')})` });
 								}
 
 								if (endPointData.contentFolder != null && polygon.slug != null) {
