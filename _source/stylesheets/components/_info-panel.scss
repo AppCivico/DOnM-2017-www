@@ -7,11 +7,13 @@
 
 	border-top: $stroke solid palette('border', 'focus');
 
-	transform: translate(calc(-50% - 20px), calc(-100% - 20px - #{gutter() / 2}));
+	transform: translate(calc(-50% - 20px), calc(-100% - 20px - #{gutter()}));
 	transform-origin: left top;
 	transform-style: preserve-3d;
 
-	animation: flip-in 0.8s ease-out;
+	box-shadow: 0 4px 2px palette('shadow');
+
+	animation: flip-in 0.35s ease-out;
 
 	@keyframes flip-in {
 		0% {
@@ -21,5 +23,17 @@
 		100% {
 			opacity: 1;
 		}
+	}
+
+	&::after {
+		@include triangle('bottom');
+
+		position: absolute;
+		bottom: -1.5em;
+		left: 50%;
+
+		margin-left: -0.75em;
+
+		color: palette('white');
 	}
 }
