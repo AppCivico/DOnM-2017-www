@@ -37,23 +37,14 @@
 					<dd>{{ .second_biennium }}</dd>
 				</div>
 			</dl>
-			<dl>
-				<div class="definition-item">
-					<dt>{{ i18n "regionalGovernment" }}</dt>
-					<dd>{{ .first_biennium }}</dd>
-				</div>
-				<div class="definition-item">
-					<dt>{{ i18n "value2017_2020" }}</dt>
-					<dd>{{ .second_biennium }}</dd>
-				</div>
-			</dl>
+
 
 		</section>
 
 		<section class="map-container">
 			<h2>{{ i18n "regionalizationMap" }}</h2>
 
-			<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			<div id="map" class="map" data-link-for="regions" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 
 		</section>
 

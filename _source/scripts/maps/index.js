@@ -133,10 +133,16 @@ export default function initMap() {
 									});
 								}
 
-								if (endPointData.contentFolder != null && polygon.slug != null) {
-									google.maps.event.addListener(drawnPolygon, 'click', () => {
-										window.location = `${endPointData.contentFolder.replace('./content', '')}/${polygon.slug}`;
-									});
+								if (mapElement.hasAttribute('data-link-for')) {
+									const linkFor = mapElement.getAttribute('data-link-for').split(' ');
+
+									if (linkFor.indexOf(rootElement) !== -1) {
+										if (endPointData.contentFolder != null && polygon.slug != null) {
+											google.maps.event.addListener(drawnPolygon, 'click', () => {
+												window.location = `${endPointData.contentFolder.replace('./content', '')}/${polygon.slug}`;
+											});
+										}
+									}
 								}
 
 								if (mapElement.hasAttribute('data-info-panel-for')) {
