@@ -61,6 +61,15 @@ export default function initMap() {
 					cache: 'default',
 				};
 
+				let panelTemplate = null;
+
+				if (mapElement.hasAttribute('data-info-panel-for')) {
+					const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
+					if (infoPanelFor.indexOf(rootElement) !== -1) {
+						panelTemplate = document.getElementById(`info-panel__${rootElement}`) || null;
+					}
+				}
+
 				const myRequest = new Request(endPointData.dataDest.replace('./static', ''));
 
 				return fetch(myRequest, myInit)
@@ -145,25 +154,32 @@ export default function initMap() {
 									}
 								}
 
-								if (mapElement.hasAttribute('data-info-panel-for')) {
-									const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
+								if (panelTemplate !== null) {
+									const panelContent = document.createElement('div');
+									panelContent.innerHTML = panelTemplate.innerHTML;
 
-									if (infoPanelFor.indexOf(rootElement) !== -1) {
-										drawnPolygon.panelContent = `${polygon.name}`;
+									const elsToDataBind = panelContent.querySelectorAll('[data-to-bind]');
 
-										if (drawnPolygon.panelContent !== null) {
-											google.maps.event.addListener(drawnPolygon, 'mouseover', (e) => {
-												panel.insertInfoPanel(e, drawnPolygon.panelContent);
-											});
-
-											google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
-												panel.deleteInfoPanel();
-											});
-
-											google.maps.event.addListener(drawnPolygon, 'mousemove', (e) => {
-												panel.moveInfoPanel(e);
-											});
+									for (let j = elsToDataBind.length - 1; j >= 0; j -= 1) {
+										if (polygon[elsToDataBind[j].getAttribute('data-to-bind')] != null) {
+											elsToDataBind[j].textContent = polygon[elsToDataBind[j].getAttribute('data-to-bind')];
 										}
+									}
+
+									drawnPolygon.panelContent = panelContent;
+
+									if (drawnPolygon.panelContent !== null) {
+										google.maps.event.addListener(drawnPolygon, 'mouseover', (e) => {
+											panel.insertInfoPanel(e, drawnPolygon.panelContent);
+										});
+
+										google.maps.event.addListener(drawnPolygon, 'mouseout', () => {
+											panel.deleteInfoPanel();
+										});
+
+										google.maps.event.addListener(drawnPolygon, 'mousemove', (e) => {
+											panel.moveInfoPanel(e);
+										});
 									}
 								}
 
