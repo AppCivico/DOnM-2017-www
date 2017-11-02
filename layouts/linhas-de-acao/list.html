@@ -21,9 +21,9 @@
 		<section>
 			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" }}.</p>
 
-			<ul>
+			<ul class="action-lines-list">
 				{{ range sort . "name" "asc" }}
-					<li id="action_lines{{ .id }}">
+					<li id="action-line-{{ .id }}">
 
 						<a href="/linhas-de-acao/{{ .slug }}">
 						{{ .title }}
