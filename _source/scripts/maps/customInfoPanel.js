@@ -17,12 +17,13 @@ let coordPropName = null;
 export function insertInfoPanel(event, data) {
 	if (!panelEl && event) {
 		// create the InfoPanel object
-		panelEl = document.createElement('div');
-		panelEl.className = 'custom-info-panel';
 		if (typeof data === 'string') {
+			panelEl = document.createElement('div');
+			panelEl.className = 'custom-info-panel';
 			panelEl.innerHTML = data;
 		} else if (typeof data === 'object' && 'nodeType' in data && data.nodeType === 1 && data.cloneNode) {
-			panelEl.appendChild(data);
+			panelEl = data;
+			panelEl.className += ' custom-info-panel';
 		}
 
 		// get the property which captures the mouse event
