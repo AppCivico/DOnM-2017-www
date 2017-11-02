@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
 } else if (process.env.NODE_ENV === 'homol') {
 	DOMAIN = 'https://hapidonm.eokoe.com';
 } else {
-	DOMAIN = 'https://dapidonm.eokoe.com';
+	DOMAIN = 'http://dapidonm.eokoe.com';
 }
 
 function savePages(fileData) {
