@@ -3,7 +3,7 @@ export default function gradientSteps(firstColor, lastColor, steps = 1) {
 	let cMin;
 	let j = 1;
 
-	const r = [];
+	const r = [firstColor];
 
 	while (j <= steps) {
 		let i = 0;
@@ -19,6 +19,8 @@ export default function gradientSteps(firstColor, lastColor, steps = 1) {
 		r.push(c);
 		j += 1;
 	}
+
+	r.push(lastColor);
 
 	return r;
 }
