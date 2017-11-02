@@ -2,7 +2,12 @@
 <html lang="{{ with .Site.Language.Params.locale }}{{ . }}{{ else }}{{ .Site.LanguageCode }}{{ end }}" class="{{ if .IsHome }}home {{ end }}{{ $.Scratch.Get "rootClass" }} {{ .Params.rootClass }} {{ if eq (getenv "NODE_ENV") "dev" }}grid{{ end }} no-js">
 <head>
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
 	<meta charset="utf-8">
+
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+	<link rel="dns-prefetch" href="https://maps.googleapis.com/">
+
 	<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
 	<link rel="stylesheet" href="/dist/css/index.css" media="all">
