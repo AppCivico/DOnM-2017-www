@@ -70,6 +70,17 @@ export default function initMap() {
 					}
 				}
 
+				let previousSegments = null;
+
+				if (mapElement.hasAttribute('data-link-for')) {
+					const linkFor = mapElement.getAttribute('data-link-for').split(' ');
+					if (linkFor.indexOf(rootElement) !== -1) {
+						if (endPointData.contentFolder != null) {
+							previousSegments = `${endPointData.contentFolder.replace('./content', '')}`;
+						}
+					}
+				}
+
 				const myRequest = new Request(endPointData.dataDest.replace('./static', ''));
 
 				return fetch(myRequest, myInit)
@@ -149,15 +160,15 @@ export default function initMap() {
 									});
 								}
 
-								if (mapElement.hasAttribute('data-link-for')) {
-									const linkFor = mapElement.getAttribute('data-link-for').split(' ');
+								if (previousSegments !== null || panelTemplate !== null) {
+									drawnPolygon.setOptions({ clickable: true });
+								}
 
-									if (linkFor.indexOf(rootElement) !== -1) {
-										if (endPointData.contentFolder != null && polygon.slug != null) {
-											google.maps.event.addListener(drawnPolygon, 'click', () => {
-												window.location = `${endPointData.contentFolder.replace('./content', '')}/${polygon.slug}`;
-											});
-										}
+								if (previousSegments !== null) {
+									if (polygon.slug != null) {
+										google.maps.event.addListener(drawnPolygon, 'click', () => {
+											window.location = `${previousSegments}/${polygon.slug}`;
+										});
 									}
 								}
 

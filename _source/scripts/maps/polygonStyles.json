@@ -1,5 +1,6 @@
 {
 	"initial" : {
+		"clickable": false,
 		"strokeColor": "#fff",
 		"strokeOpacity": 1,
 		"strokeWeight": 2,
