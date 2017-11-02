@@ -7,17 +7,18 @@
 	width: 100%;
 }
 
-.action-lines__list > div {
+.action-lines__list-item {
 	display: table-row;
 }
 
-.action-lines__list dt,
-.action-lines__list dd {
+.action-lines__item-id,
+.action-lines__item-title {
 	display: table-cell;
 
 	vertical-align: middle;
 }
 
-.action-lines__list dt {
+.action-lines__item-id {
 	font-size: ms(2);
 }
+

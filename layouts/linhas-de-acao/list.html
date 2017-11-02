@@ -18,20 +18,26 @@
 	{{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
 
 	{{ with $action_lines.action_lines }}
-		<section>
+		<section class="action-lines">
 			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" }}.</p>
-
-			<ul class="action-lines-list">
+			<dl class="action-lines__list">
 				{{ range sort . "name" "asc" }}
-					<li id="action-line-{{ .id }}">
-
-						<a href="/linhas-de-acao/{{ .slug }}">
-						{{ .title }}
-						</a>
-
-					</li>
+					<div class="definition-item action-lines__list-item">
+						<dt class="action-lines__item-id">
+							{{ with .slug }}
+								<a href="/linhas-de-acao/{{ . }}">
+							{{ end }}
+								{{ .id }}
+							{{ with .slug }}
+								</a>
+							{{ end }}
+						</dt>
+						<dd class="action-lines__item-title">
+							{{ .title }}
+						</dd>
+					</div>
 				{{ end }}
-			</ul>
+			</dl>
 		</section>
 	{{ end }}
 </main>
