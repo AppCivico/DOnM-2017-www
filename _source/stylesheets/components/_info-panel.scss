@@ -3,6 +3,10 @@
 
 	padding: gutter() / 2;
 
+	font-size: ms(-1);
+
+	text-align: center;
+
 	background-color: palette('white');
 
 	border-top: $stroke solid palette('border', 'focus');
@@ -34,6 +38,35 @@
 
 		margin-left: -0.75em;
 
+		font-size: ms(-2);
+
 		color: palette('white');
 	}
+}
+
+.custom-info-panel dl {
+	margin: 0;
+}
+
+.custom-info-panel dt {
+	font-weight: normal;
+
+	color: palette('gray');
+}
+
+.custom-info-panel dd {
+	margin-bottom: $line-height * 0.5rem;
+
+	font-weight: bold;
+	// font-size: ms(1);
+
+	color: palette('orange', 'dark');
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.custom-info-panel__counter {
+	font-size: ms(3);
 }
