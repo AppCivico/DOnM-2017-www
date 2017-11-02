@@ -3,16 +3,11 @@
 ` }}{{ partial "header.html" . }}
 <main id="conteudo" class="h-entry">
 
-
-
 	<header>
-
 		<h1>
 			{{ i18n "actionLinesSentenceCase" }}
 		</h1>
-
 	</header>
-
 
 	{{ with .Content }}
 		<section>
@@ -20,36 +15,25 @@
 		</section>
 	{{ end }}
 
-
 	{{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
 
 	{{ with $action_lines.action_lines }}
-
 		<section>
 			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" }}.</p>
 
+			<ul>
 				{{ range sort . "name" "asc" }}
+					<li id="action_lines{{ .id }}">
 
+						<a href="/linhas-de-acao/{{ .slug }}">
+						{{ .title }}
+						</a>
 
-						<ul id="action_lines{{ .id }}">
-							<li>
-
-							<a href="/linhas-de-acao/{{ .slug }}">
-							{{ .title }}
-							</a>
-
-							</li>
-
-						</ul>
-
-
+					</li>
 				{{ end }}
-			</table>
+			</ul>
 		</section>
 	{{ end }}
-
-	<div id="map" data-to-draw="regions" data-info-panel-for="regions" data-link-for="regions" data-zoom="+1"></div>
-
 </main>
 
 {{ partial "footer.html" . }}
