@@ -1,16 +1,6 @@
 .district-list.district-list {
-	padding: 0;
 	margin-bottom: $line-height * 1em;
 }
 
 .district-list li {
-	display: inline;
-
-	&::after {
-		content: ', ';
-	}
-
-	&:last-child::after {
-		content: none;
-	}
 }

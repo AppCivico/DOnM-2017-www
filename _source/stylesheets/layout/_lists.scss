@@ -30,9 +30,11 @@ article li {
 
 	&::before {
 		position: absolute;
-		left: -0.5em;
+		left: -1em;
 
 		font-weight: bold;
+
+		color: palette('orange');
 	}
 
 	&:last-child {
@@ -41,7 +43,7 @@ article li {
 }
 
 article ul > li::before {
-	content: '-\a0';
+	content: '\2022\a0';
 }
 
 article ol > li::before {
