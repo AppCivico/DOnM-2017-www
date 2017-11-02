@@ -19,7 +19,7 @@
 
 	{{ with $action_lines.action_lines }}
 		<section class="action-lines">
-			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" }}.</p>
+			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" | lower }}.</p>
 			<dl class="action-lines__list">
 				{{ range sort . "name" "asc" }}
 					<div class="definition-item action-lines__list-item">
