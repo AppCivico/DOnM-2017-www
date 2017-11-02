@@ -27,37 +27,36 @@
 
 		</section>
 
+		{{ with .action_lines }}
+			<section class="action-lines">
+				<h2>{{ i18n "actionSentenceCase" (len .) }}</h2>
 
-		<section class="action-lines">
-			<h2>{{ i18n "actionSentenceCase" }}</h2>
+				<dl class="action-lines__list">
+				{{ range . }}
+					<div class="definition-item">
+						<dt>
+							{{ with .slug }}
+								<a href="/action-lines/{{ . }}">
+							{{ end }}
+								{{ .id }}
+							{{ with .slug }}
+								</a>
+							{{ end }}
+						</dt>
+						<dd>
+							{{ .title }}
+						</dd>
+					</div>
+				{{ end }}
+				</dl>
 
-			<dl class="action-lines__list">
-			{{ range .action_lines }}
-				<div class="definition-item">
-					<dt>
-						{{ with .slug }}
-							<a href="/action-lines/{{ . }}">
-						{{ end }}
-							{{ .id }}
-						{{ with .slug }}
-							</a>
-						{{ end }}
-					</dt>
-					<dd>
-						{{ .title }}
-					</dd>
-				</div>
-			{{ end }}
-			</dl>
-
-		</section>
+			</section>
+		{{ end }}
 
 	</div>
 
 
-
 	<aside>
-
 
 		<section class="sub-prefecture">
 			<h2>{{ i18n "districtFile" }}</h2>
@@ -69,7 +68,6 @@
 			{{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
 			{{ with .site }}<p><a href="{{ . }}">{{ . }}</a></p>{{ end }}
 
-
 		</section>
 
 		<section class="sub-mayor">
@@ -77,10 +75,7 @@
 
 			{{ with .name }}<p>{{ . }}</p>{{ end }}
 
-
 		</section>
-
-
 
 		<section class="districts map-container">
 			<h2>{{ i18n "relevantDistrictsSentenceCase" }}</h2>
