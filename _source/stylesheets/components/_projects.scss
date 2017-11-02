@@ -1,0 +1,9 @@
+.projects-list.projects-list {
+	margin-bottom: $line-height * 1em;
+}
+
+.projects-list li {
+	&:before {
+		content: none;
+	}
+}

@@ -30,7 +30,7 @@
 					{{ with .projects }}
 						<aside>
 							<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
-							<ul>
+							<ul class="projects-list">
 								{{ range sort . "id" "asc"}}
 									<li>
 										<a href="/projetos/{{ .slug }}">
