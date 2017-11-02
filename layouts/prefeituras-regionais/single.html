@@ -23,7 +23,7 @@
 
 		<section class="district map-container">
 
-			<div id="map" class="map" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ .id }}"></div>
+		<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }} data-info-panel-for="regions" data-link-for="regions" ></div>
 
 		</section>
 
@@ -49,15 +49,11 @@
 					</div>
 				{{ end }}
 				</dl>
-
 			</section>
 		{{ end }}
-
 	</div>
 
-
 	<aside>
-
 		<section class="sub-prefecture">
 			<h2>{{ i18n "districtFile" }}</h2>
 			<h3>{{ i18n "regionalGovernment" }} {{ .name }}</h3>
@@ -67,14 +63,12 @@
 			{{ with .telephone }}<p>{{ . }}</p>{{ end }}
 			{{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
 			{{ with .site }}<p><a href="{{ . }}">{{ . }}</a></p>{{ end }}
-
 		</section>
 
 		<section class="sub-mayor">
 			<h2>{{ i18n "subMayorSetenceCase" }}</h2>
 
 			<p>Lorem Ipsum</p>
-
 		</section>
 
 		<section class="districts map-container">
@@ -92,16 +86,14 @@
 					</li>
 				{{ end }}
 			</ul>
-			<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
-
 		</section>
 
-
 	</aside>
-
 
 </article>
 
 {{ end }}
+
+{{ partial "microtemplates/infoPanelRegions.html" . }}
 
 {{ partial "footer.html" . }}
