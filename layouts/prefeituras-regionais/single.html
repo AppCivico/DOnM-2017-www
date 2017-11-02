@@ -54,15 +54,14 @@
 	</div>
 
 	<aside>
-		<section class="sub-prefecture">
+		<section class="sub-prefecture h-card">
 			<h2>{{ i18n "districtFile" }}</h2>
-			<h3>{{ i18n "regionalGovernment" }} {{ .name }}</h3>
+			<h3 class="p-name">{{ i18n "regionalGovernment" }} {{ .name }}</h3>
 
-
-			{{ with .address }}<p>{{ . }}</p>{{ end }}
-			{{ with .telephone }}<p>{{ . }}</p>{{ end }}
-			{{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
-			{{ with .site }}<p><a href="{{ . }}">{{ . }}</a></p>{{ end }}
+			{{ with .address }}<p class="p-adr">{{ . }}</p>{{ end }}
+			{{ with .telephone }}<p class="p-tel">{{ . }}</p>{{ end }}
+			{{ with .email }}<p class="u-email"><a class="value" href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+			{{ with .site }}<p class="u-url"><a class="value" href="{{ . }}">{{ . }}</a></p>{{ end }}
 		</section>
 
 		<section class="sub-mayor">
