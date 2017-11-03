@@ -1,7 +1,7 @@
 [
   {
     "url": "/api/region",
-    "dataDest": "./static/dist/data/districts.json",
+    "dataDest": "./static/dist/data/regions.json",
     "contentFolder": "./content/distritos",
     "jsonRootElement": "regions"
   },

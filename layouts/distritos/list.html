@@ -1,10 +1,10 @@
 {{ $.Scratch.Add "scriptsHeader" `
-<link rel="preload" href="/dist/data/districts.json" as="fetch" type="application/json">
 ` }}{{ partial "header.html" . }}
 <main id="conteudo" class="h-entry">
 
 
 
+<link rel="preload" href="/dist/data/regions.json" as="fetch" type="application/json">
 	<header>
 
 		<h1>
@@ -19,12 +19,12 @@
 		</section>
 	{{ end }}
 
+	{{ $regions := getJSON "./static/dist/data/regions.json" }}
 
-	{{ $districts := getJSON "./static/dist/data/districts.json" }}
 
-	{{ with $districts.regions }}
 
 		<section>
+	{{ with $regions.regions }}
 			<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
 			<table>
 				<tr>
