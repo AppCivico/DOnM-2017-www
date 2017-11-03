@@ -56,12 +56,22 @@
 	<aside>
 		<section class="sub-prefecture h-card">
 			<h2>{{ i18n "districtFile" }}</h2>
-			<h3 class="p-name">{{ i18n "regionalGovernment" }} {{ .name }}</h3>
+			<h3 class="h-card__p-name p-name">{{ i18n "regionalGovernment" }} {{ .name }}</h3>
 
-			{{ with .address }}<p class="p-adr">{{ . }}</p>{{ end }}
-			{{ with .telephone }}<p class="p-tel">{{ . }}</p>{{ end }}
-			{{ with .email }}<p class="u-email"><a class="value" href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
-			{{ with .site }}<p class="u-url"><a class="value" href="{{ . }}">{{ . }}</a></p>{{ end }}
+			{{ with .address }}<p class="h-card__p-adr p-adr">{{ . }}</p>{{ end }}
+			{{ with .telephone }}
+				<p class="h-card__p-tel p-tel">
+					{{ if eq (slicestr . 0 3) "+55" }}
+						<a href="tel://{{ . }}">
+						{{ slicestr . 3 5 }}&nbsp;{{ slicestr . 5 9 }}&nbsp;{{ slicestr . 9 }}
+						</a>
+					{{ else }}
+						{{ . }}
+					{{ end }}
+				</p>
+			{{ end }}
+			{{ with .email }}<p class="h-card__u-email u-email"><a class="value" href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+			{{ with .site }}<p class="h-card__u-url u-url"><a class="value" href="{{ . }}">{{ . }}</a></p>{{ end }}
 		</section>
 
 		<section class="sub-mayor">
