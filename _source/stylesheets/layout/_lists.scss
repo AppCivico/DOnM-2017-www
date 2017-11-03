@@ -56,6 +56,13 @@ li ol,
 li ul {
 }
 
+li small,
+li small {
+	font-style: italic;
+
+	color: palette('gray');
+}
+
 /* definition
 ---------------------------------------------------------------------------- */
 dl {

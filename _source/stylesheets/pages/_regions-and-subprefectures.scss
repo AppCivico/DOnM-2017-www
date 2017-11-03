@@ -22,11 +22,6 @@
 	page-break-inside: avoid; /* Theoretically FF 20+ */
 }
 
-.regions__list small,
-.subprefectures__list small {
-	white-space: nowrap;
-}
-
 .regions__list a,
 .subprefectures__list a {
 	&:link {
