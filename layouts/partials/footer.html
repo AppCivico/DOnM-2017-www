@@ -51,10 +51,10 @@
 		</div>
 
 		<nav class="footer-menu">
-			{{ partial "menu.html" . }}
+			{{ partialCached "menu.html" . }}
 		</nav>
 	</footer>
-	{{ partial "browserUpdate.html" . }}
+	{{ partialCached "browserUpdate.html" . }}
 </div><!-- .main-container -->
 
 <style>
@@ -75,6 +75,6 @@
 		{{ . | safeHTML }}
 	{{ end }}
 
-{{ partial "microtemplates/infoPanel.html" . }}
+{{ partialCached "microtemplates/infoPanel.html" . }}
 </body>
 </html>

@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ partialCached "header.html" . }}
 <main id="conteudo" class="h-feed">
 	<h1 class="h-feed__p-name p-name">{{ .Title }}</h1>
 	{{ with .Content }}
@@ -43,4 +43,4 @@
 	{{ end }}
 </main>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}
