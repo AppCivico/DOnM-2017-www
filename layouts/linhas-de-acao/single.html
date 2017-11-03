@@ -1,19 +1,15 @@
 {{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/action-line/" .Params.id ) }}
 
-
-
 {{ $action_line := getJSON $url }}
 
-
 {{ with $action_line.action_line }}
-
 
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "actionLinesSentenceCase" }}
+				{{ i18n "actionLine" }}
 				{{ .id }}
 			</h2>
 
@@ -37,102 +33,88 @@
 					<dd>{{ .second_biennium }}</dd>
 				</div>
 			</dl>
-
-
 		</section>
 
 		<section class="map-container">
 			<h2>{{ i18n "regionalizationMap" }}</h2>
 
-			<div id="map" class="map" data-link-for="regions" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
-
+			<div id="map" class="map" {{ with .subprefectures }} data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
 		</section>
 
 	</div>
 
-		<aside>
-
-
-			<section class="secretaries">
-				<h2>{{ i18n "secretariesSentenceCase" }}</h2>
-				<ul class="district-list">
-					{{ range .action_lines }}
-						<li>
-							{{ with .slug }}
-								<a href="/linhas-de-acao/{{ . }}">
-							{{ end }}
-								{{ .name }}
-							{{ with .slug }}
-								</a>
-							{{ end }}
-						</li>
-					{{ end }}
-				</ul>
-			</section>
-
-			<section class="progress">
-				<p>{{ i18n "textProgressSentenceCase" }}</p>
-
-				<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
-					<div class="progress-bar">
-						<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
-							{{ with .progress }}{{ . }}%{{ end }}
-						</span>
-					</div>
-				</progress>
-			</section>
-
-			<section class="related-projects">
-				<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
-
-				<dl>
-				{{ range .projects }}
-					<dt>
-						{{ with .project.slug }}
-							<a href="/projetos/{{ . }}">
-						{{ end }}
-							{{ .project.title }}
-						{{ with .project.slug }}
-							</a>
-						{{ end }}
-					</dt>
-					<dd>{{ .project.description }}</dd>
-				{{ end }}
-				</dl>
-			</section>
-
-			<section class="related-actionlines">
-				<h2>{{ i18n "actionLinesAssociated" }}</h2>
-
-				<dl>
-				{{ range .projects }}
-					<dt>
-						{{ with .action_lines.slug }}
+	<aside>
+		<section class="secretaries">
+			<h2>{{ i18n "secretariesSentenceCase" }}</h2>
+			<ul class="district-list">
+				{{ range .action_lines }}
+					<li>
+						{{ with .slug }}
 							<a href="/linhas-de-acao/{{ . }}">
 						{{ end }}
-							{{ .action_lines.title }}
-						{{ with .action_lines.slug }}
+							{{ .name }}
+						{{ with .slug }}
 							</a>
 						{{ end }}
-					</dt>
-					<dd>{{ .action_lines.description }}</dd>
+					</li>
 				{{ end }}
-				</dl>
-			</section>
+			</ul>
+		</section>
 
+		<section class="progress">
+			<p>{{ i18n "textProgressSentenceCase" }}</p>
 
+			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
+				<div class="progress-bar">
+					<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
+						{{ with .progress }}{{ . }}%{{ end }}
+					</span>
+				</div>
+			</progress>
+		</section>
 
+		<section class="related-projects">
+			<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
 
+			<dl>
+			{{ range .projects }}
+				<dt>
+					{{ with .slug }}
+						<a href="/projetos/{{ . }}">
+					{{ end }}
+						{{ .title }}
+					{{ with .slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .description }}</dd>
+			{{ end }}
+			</dl>
+		</section>
 
+		<section class="related-actionlines">
+			<h2>{{ i18n "actionLinesAssociated" }}</h2>
 
+			<dl>
+			{{ range .action_lines }}
+				<dt>
+					{{ with .slug }}
+						<a href="/linhas-de-acao/{{ . }}">
+					{{ end }}
+						{{ .title }}
+					{{ with .slug }}
+						</a>
+					{{ end }}
+				</dt>
+				<dd>{{ .description }}</dd>
+			{{ end }}
+			</dl>
+		</section>
 
-
-		</aside>
+	</aside>
 
 </article>
 
 {{ end }}
 
 {{ partial "footer.html" . }}
-
-
