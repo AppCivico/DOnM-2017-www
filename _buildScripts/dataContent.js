@@ -70,7 +70,7 @@ function download(url, fileData, cb) {
 	const request = https.get(url, (response) => {
 		// check if response is success
 		if (response.statusCode !== 200) {
-			if (cb) cb(`Response status was ${response.statusCode}`);
+			throw new Error(`Response status was ${response.statusCode}`);
 		}
 
 		response.pipe(file);
@@ -87,12 +87,12 @@ function download(url, fileData, cb) {
 
 	request.on('error', (err) => { // Handle errors
 		fs.unlink(fileData.dataDest); // Delete the file async. (But we don't check the result)
-		if (cb) cb(err.message);
+		throw new Error(err.message);
 	});
 
 	file.on('error', (err) => { // Handle errors
 		fs.unlink(fileData.dataDest); // Delete the file async. (But we don't check the result)
-		if (cb) cb(err.message);
+		throw new Error(err.message);
 	});
 }
 
