@@ -1,0 +1,35 @@
+.regions-page,
+.subprefectures-page {
+}
+
+.regions__list,
+.subprefectures__list {
+	@include media('>=6col') {
+		column-gap: gutter();
+
+		columns: 2;
+	}
+	@include media('>=10col') {
+		columns: 4;
+	}
+}
+
+.regions__list li,
+.subprefectures__list li {
+	display: table;
+
+	break-inside: avoid-column; /* IE 11 */
+	page-break-inside: avoid; /* Theoretically FF 20+ */
+}
+
+.regions__list small,
+.subprefectures__list small {
+	white-space: nowrap;
+}
+
+.regions__list a,
+.subprefectures__list a {
+	&:link {
+		text-decoration: none;
+	}
+}

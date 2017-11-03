@@ -1,8 +1,7 @@
 {{ $.Scratch.Add "scriptsHeader" `
 <link rel="preload" href="/dist/data/subprefectures.json" as="fetch" type="application/json">
-` }}{{ partial "header.html" . }}
+` }}{{ $.Scratch.Add "rootClass" "subprefectures-page" }}{{ partial "header.html" . }}
 <article id="conteudo" role="main">
-
 	<header>
 		<h1>
 			{{ i18n "regionalPrefecturesSetenceCase" }}
@@ -18,22 +17,21 @@
 	{{ $subprefectures := getJSON "./static/dist/data/subprefectures.json" }}
 
 	{{ with $subprefectures.subprefectures }}
-		<section>
+		<section class="subprefectures">
 			<p><b>{{ len . }}</b> {{ i18n "regionalPrefecturesSetenceCase" }}.</p>
 
-			<ul>
+			<ul class="subprefectures__list">
 				{{ range sort . "name" "asc" }}
-					<li id="subprefectures-{{ .id }}">
+					<li id="subprefectures-{{ .id }}" class="subprefectures__item">
 						<a href="/prefeituras-regionais/{{ .slug }}">
 							{{ .name }}
 						</a>
 					</li>
 				{{ end }}
 			</ul>
+			<div id="map" data-to-draw="subprefectures" data-link-for="subprefectures" data-info-panel-for="subprefectures" data-subprefectures-distribute-by="action_lines_count" data-zoom="+1"></div>
 		</section>
 	{{ end }}
-
-	<div id="map" data-to-draw="subprefectures" data-link-for="subprefectures" data-info-panel-for="subprefectures" data-subprefectures-distribute-by="action_lines_count" data-zoom="+1"></div>
 
 </article>
 

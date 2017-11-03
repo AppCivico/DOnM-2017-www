@@ -1,16 +1,11 @@
 {{ $.Scratch.Add "scriptsHeader" `
-` }}{{ partial "header.html" . }}
-<main id="conteudo" class="h-entry">
-
-
-
 <link rel="preload" href="/dist/data/regions.json" as="fetch" type="application/json">
+` }}{{ $.Scratch.Add "rootClass" "regions-page" }}{{ partial "header.html" . }}
+<article id="conteudo" role="main">
 	<header>
-
 		<h1>
 			{{ i18n "districtsSentenceCase" }}
 		</h1>
-
 	</header>
 
 	{{ with .Content }}
@@ -21,35 +16,28 @@
 
 	{{ $regions := getJSON "./static/dist/data/regions.json" }}
 
-
-
-		<section>
 	{{ with $regions.regions }}
+		<section class="regions">
 			<p><b>{{ len . }}</b> {{ i18n "districtsLowerCase" }}.</p>
-			<table>
-				<tr>
-					<th>{{ i18n "districtTitleCase" }}</th>
-					<th>{{ i18n "subPrefectureTitleCase" }}</th>
-				</tr>
+			<ul class="regions__list">
 				{{ range sort . "name" "asc" }}
-					<tr id="district-{{ .id }}">
-						<th>
-							<a href="/distritos/{{ .slug }}">
-								{{ .name }}
-							</a>
-						</th>
-						<td>
-							{{ .subprefecture.name }}
-						</td>
-
-					</tr>
+					<li id="region-{{ .id }}" class="regions__list-item">
+						<a href="/distritos/{{ .slug }}" class="regions__list-title">
+							{{ .name }}
+						</a>
+						{{ with .subprefecture }}
+							<small>
+								({{ i18n "subPrefectureTitleCase" }}:
+									{{ with .slug }}<a href="/prefeituras-regionais/{{ . }}">{{ end }}
+										<strong>{{ .name }}</strong>{{ with .slug }}</a>{{ end }})
+							</small>
+						{{ end }}
+					</li>
 				{{ end }}
-			</table>
+			</ul>
+			<div id="map" data-to-draw="regions" data-info-panel-for="regions" data-link-for="regions" data-zoom="+1"></div>
 		</section>
 	{{ end }}
-
-	<div id="map" data-to-draw="regions" data-info-panel-for="regions" data-link-for="regions" data-zoom="+1"></div>
-
-</main>
+</article>
 
 {{ partial "footer.html" . }}
