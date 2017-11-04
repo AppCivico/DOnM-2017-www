@@ -23,13 +23,13 @@ To watch changes on assets, use `npm run watch`.
 Don't forget to set environment as `production`.
 
 ```
-export NODE_ENV=production && npm install && npm test && npm run build:prod && hugo --ignoreCache
+export NODE_ENV=production && npm install && npm test && npm run build:prod && hugo --cleanDestinationDir --ignoreCache
 ```
 
 Or:
 
 ```
-export NODE_ENV=production && yarn && yarn test && yarn run build:prod && hugo --ignoreCache
+export NODE_ENV=production && yarn && yarn test && yarn run build:prod && hugo --cleanDestinationDir --ignoreCache
 ```
 
 Move the content of `/public` to site root.
