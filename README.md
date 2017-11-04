@@ -14,7 +14,7 @@ Prepare files: `npm run build:dev` or `yarn run build:dev`.
 
 To turn grid on, before to serve the website, set `NODE_ENV=dev`
 
-Serve with live reload at `localhost:1313`: `hugo server --noHTTPCache=true --ignoreCache`
+Serve with live reload at `localhost:1313`: `hugo server --noHTTPCache=true --ignoreCache --templateMetricsHints`
 
 To watch changes on assets, use `npm run watch`.
 
