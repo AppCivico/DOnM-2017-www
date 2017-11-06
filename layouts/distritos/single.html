@@ -1,10 +1,9 @@
-{{ partial "header.html" . }}
+{{ partialCached "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/region/" .Params.id ) }}
 
 {{ $region := getJSON $url }}
 
 {{ with $region.region }}
-
 
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
@@ -13,27 +12,16 @@
 				{{ i18n "districtUpperCase" }}
 			</h2>
 			<h1>
-
 				{{ .name }}
-
 			</h1>
-
 		</header>
 
 		<section class="district map-container">
-
 			<div id="map" class="map" data-to-draw="regions" data-regions-to-draw="{{ .id }}"></div>
-
 		</section>
-
-
 	</div>
 
-
-
 	<aside>
-
-
 		<section class="sub-prefecture">
 			<h2>{{ i18n "districtFile" }}</h2>
 			<h3>{{ i18n "regionalGovernment" }} {{ .name }}</h3>
@@ -70,15 +58,11 @@
 			</table>
 			{{ end }}
 
-
 		</section>
-
-
 	</aside>
-
 
 </article>
 
 {{ end }}
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}
