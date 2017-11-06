@@ -133,7 +133,9 @@ nav a {
 }
 
 [for='menu-controller'] {
-	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
 
 	display: none;
 
@@ -142,6 +144,11 @@ nav a {
 	padding: (gutter() / 2) gutter();
 
 	font-size: 1em;
+
+	@include media('<desktop') {
+		display: block;
+		z-index: layer('dropdown');
+	}
 
 	&::before {
 		font-weight: bold;
@@ -157,16 +164,10 @@ nav a {
 			content: '\20\d7\20';
 		}
 	}
-
-	@include media('<desktop') {
-		display: block;
-	}
 }
 
 .footer-menu {
 	margin: ($line-height * 2rem) 0;
-
-
 }
 
 .footer-menu ul {
@@ -200,7 +201,6 @@ nav a {
 
 .skip-links ul {
 	display: table-row;
-
 }
 
 .skip-links li {

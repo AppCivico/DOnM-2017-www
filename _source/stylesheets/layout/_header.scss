@@ -32,6 +32,10 @@
 	margin-bottom: 0;
 	margin-left: auto;
 
+	@include media('>=12col') {
+		margin-bottom: (gutter() * -2);
+	}
+
 	@supports (transform: translate(0, 0)) and (transform: scale(1, 1)) {
 		&::before,
 		&::after {
@@ -51,12 +55,12 @@
 
 			@include media('>=12col') {
 				left: 0;
-				margin-left: 0;
+				margin-left: 48px;
 			}
 		}
 
 		&::before {
-			top: calc(0.75em + 15px);
+			top: 15px;
 
 			height: 80px; //sass-lint:disable-line property-units
 
@@ -68,7 +72,7 @@
 		}
 
 		&::after {
-			top: calc(0.75em + 92px);
+			top: 92px;
 
 			height: 12px; //sass-lint:disable-line property-units
 
@@ -154,29 +158,32 @@
 	display: block;
 
 	width: span(3 'wider');
-	height: span(1 'wider');
+	height: span(1 'wide');
 
 	margin-right: auto;
 	margin-left: auto;
 
 	background-image: image('logo.png');
-	background-position: 50% 50%;
+	background-position: center center;
 
 	@include media('>=12col') {
-		margin-bottom: (gutter() * -2);
 		margin-left: (gutter() / 2);
 	}
 
 	@supports (transform: translate(0, 0)) and (transform: scale(1, 1)) {
 		position: relative;
 
+		overflow: hidden;
+
 		&::after {
 			position: absolute;
 			top: 0;
-			left: 0;
+			left: 50%;
 
-			width: 107px; //sass-lint:disable-line property-units
+			width: 70px; //sass-lint:disable-line property-units
 			height: 100%;
+
+			margin-left: -120px;
 
 			background-color: palette('white');
 
