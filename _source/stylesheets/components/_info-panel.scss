@@ -17,9 +17,9 @@
 
 	box-shadow: 0 4px 2px palette('shadow');
 
-	animation: fade-in 0.35s ease-out;
+	animation: flip-in 0.35s ease-out;
 
-	@keyframes fade-in {
+	@keyframes flip-in {
 		0% {
 			opacity: 0;
 		}
@@ -37,8 +37,6 @@
 		left: 50%;
 
 		margin-left: -0.75em;
-
-		font-size: ms(-2);
 
 		color: palette('white');
 	}

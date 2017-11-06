@@ -108,10 +108,8 @@ export default function initMap() {
 							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
 							: null;
 
-						let minimum = 0;
-						let maximum = 0;
-
 						if (distributeBy != null) {
+							fills = gradientSteps([255, 144, 68], [255, 83, 66], polygonsToDraw.length);
 							polygonsToDraw.sort((a, b) => a[distributeBy] - b[distributeBy]);
 
 							minimum = parseInt(polygonsToDraw[0][distributeBy], 10);
@@ -126,7 +124,7 @@ export default function initMap() {
 							const polygon = polygonsToDraw[i];
 
 							const initialStyles = distributeBy != null
-								? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[polygon[distributeBy] - minimum].join(', ')})` })
+								? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[i].join(', ')})` })
 								: polygonStyles.initial;
 
 							if (polygon.geo_json !== null) {
