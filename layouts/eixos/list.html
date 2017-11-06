@@ -1,0 +1,46 @@
+{{ $.Scratch.Add "scriptsHeader" `
+<link rel="preload" href="/dist/data/topic.json" as="fetch" type="application/json">
+` }}{{ $.Scratch.Add "rootClass" "topic-page" }}{{ partial "header.html" . }}
+<article id="conteudo" role="main">
+
+	<header>
+
+		<h1>
+			{{ i18n "topics" }} <!-- tem que colocar no plural -->
+		</h1>
+
+
+		{{ with .Content }}
+			<section>
+				{{ . }}
+			</section>
+		{{ end }}
+
+	</header>
+
+
+	{{ $topics := getJSON "./static/dist/data/topic.json" }}
+
+	{{ with $topics.topics }}
+
+
+		<section class="topics">
+
+			<ul class="topics__list">
+				{{ range sort . "name" "asc" }}
+
+					<li id="topic-{{ .id }}" class="topic__item">
+						<a href="/eixos/{{ .slug }}">
+							{{ .name }}
+						</a>
+					</li>
+
+				{{ end }}
+
+			</ul>
+		</section>
+	{{ end }}
+
+</article>
+
+{{ partialCached "footer.html" . }}

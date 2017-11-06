@@ -1,0 +1,68 @@
+{{ partialCached "header.html" . }}
+{{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/topic/" .Params.id ) }}
+
+{{ $topics := getJSON $url }}
+
+{{ with $topics.topic }}
+
+
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+
+		<header>
+
+			<h2>
+				{{ i18n "topics" }} <!-- tem que colocar no plural -->
+			</h2>
+
+			<h1>
+				{{ .name }}
+			</h1>
+
+			<p>
+				{{ .description }}
+			</p>
+
+			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goalLowerCase" (len .) }}.</p>
+
+		</header>
+
+		{{ with .goals }}
+
+			<section>
+				<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goalLowerCase" (len .) }}.</p>
+
+				{{ range sort . "id" "asc" }}
+
+					<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
+						<div class="h-entry__e-content e-content">
+							<h2 class="h-entry__p-name p-name">
+								<a href="/metas/{{ .slug }}">
+									{{ i18n "goalTitleCase" }} <strong class="id">{{ .id }}</strong>
+								</a>
+							</h2>
+							<p>{{ .title }}</p>
+
+							{{ with .topic }}
+								<footer>
+									{{ i18n "topicTitleCase" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+								</footer>
+							{{ end }}
+
+						</div>
+
+					</article>
+				{{ end }}
+			</section>
+
+
+		{{ end }}
+
+
+
+	</div>
+</article>
+
+{{ end }}
+
+{{ partialCached "footer.html" . }}

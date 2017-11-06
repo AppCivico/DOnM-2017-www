@@ -106,6 +106,8 @@
   translation:
     one: "Eixo"
     other: "Eixos"
+- id: topics
+  translation: "Eixos"
 - id: value2017_2020
   translation: "Valor 2007-2020"
 - id: year17_18
@@ -118,5 +120,3 @@
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
-
-
