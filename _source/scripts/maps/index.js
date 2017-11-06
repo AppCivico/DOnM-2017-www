@@ -22,6 +22,9 @@ export default function initMap() {
 		styles: mapStyles,
 		mapTypeControl: false,
 		streetViewControl: false,
+		fullscreenControlOptions: {
+			position: google.maps.ControlPosition.TOP_LEFT,
+		},
 	});
 
 	function getArrayBounds(polyArray) {
