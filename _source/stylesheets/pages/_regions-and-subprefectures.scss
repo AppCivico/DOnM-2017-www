@@ -16,10 +16,17 @@
 
 .regions__list li,
 .subprefectures__list li {
+	@include fallback('margin-bottom', $line-height * 1rem);
+
 	display: table;
 
 	break-inside: avoid-column; /* IE 11 */
 	page-break-inside: avoid; /* Theoretically FF 20+ */
+}
+
+.regions__list small,
+.subprefectures__list small {
+	display: block;
 }
 
 .regions__list a,
