@@ -10,6 +10,8 @@
   translation: "Acompanhamento das ações da prefeitura da cidade de São Paulo na gestão 2017&mdash;2020."
 - id: costingSetenceCase
   translation: "Custeio"
+- id: dataNotRestrictedToARegion
+  translation: "Esses dados não se restringem a áreas específicas da cidade, mas a ela como um todo."
 - id: developedBy
   translation: "Desenvolvido por"
 - id: districtsBenefitedSentenceCase

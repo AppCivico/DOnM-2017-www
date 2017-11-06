@@ -73,21 +73,32 @@
 
 		<section class="districts map-container">
 			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
-			<ul class="district-list">
-				{{ range .regions }}
-					<li>
-						{{ with .slug }}
-							<a href="/distritos/{{ . }}">
-						{{ end }}
-							{{ .name }}
-						{{ with .slug }}
-							</a>
-						{{ end }}
-					</li>
+			{{ if .regions }}
+				<ul class="district-list">
+					{{ range .regions }}
+						<li>
+							{{ with .slug }}
+								<a href="/distritos/{{ . }}">
+							{{ end }}
+								{{ .name }}
+							{{ with .slug }}
+								</a>
+							{{ end }}
+						</li>
+					{{ end }}
+				</ul>
+			{{ else }}
+				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
+			{{ end }}
+			<div id="map" class="map"
+				{{ if .regions }}
+					data-to-draw="regions cities"
+					data-regions-to-draw="{{ range .regions }}{{ .id }} {{ end }}"
+				{{ else }}
+					data-to-draw="cities"
+					data-zoom="+1"
 				{{ end }}
-			</ul>
-			<div id="map" class="map" {{ with .regions }} data-to-draw="regions cities" data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
-
+			></div>
 		</section>
 	</aside>
 

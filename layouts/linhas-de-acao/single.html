@@ -37,8 +37,16 @@
 
 		<section class="map-container">
 			<h2>{{ i18n "regionalizationMap" }}</h2>
-
-			<div id="map" class="map" {{ with .subprefectures }} data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
+			{{ if not .subprefectures }}
+				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
+			{{ end }}
+			<div id="map" class="map"
+				{{ if .subprefectures }}
+					data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
+				{{ else }}
+					data-to-draw="cities"
+				{{ end }}
+			></div>
 		</section>
 
 	</div>
