@@ -38,5 +38,12 @@
     "url": "/api/sao-paulo",
     "dataDest": "./static/dist/data/cities.json",
     "jsonRootElement": "cities"
+  },
+
+  {
+    "url": "/api/topic",
+    "dataDest": "./static/dist/data/topic.json",
+    "contentFolder": "./content/eixos",
+    "jsonRootElement": "topics"
   }
 ]
