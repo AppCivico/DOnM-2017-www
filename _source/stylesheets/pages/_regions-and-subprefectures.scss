@@ -4,11 +4,16 @@
 
 .regions__list,
 .subprefectures__list {
-	@include media('>=6col') {
+	@include media('>=4col') {
 		column-gap: gutter();
 
 		columns: 2;
 	}
+
+	@include media('>=6col') {
+		columns: 3;
+	}
+
 	@include media('>=10col') {
 		columns: 4;
 	}
