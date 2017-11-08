@@ -100,24 +100,6 @@
 			</dl>
 		</section>
 
-		<section class="related-actionlines">
-			<h2>{{ i18n "actionLinesAssociated" }}</h2>
-
-			<dl>
-			{{ range .action_lines }}
-				<dt>
-					{{ with .slug }}
-						<a href="/linhas-de-acao/{{ . }}">
-					{{ end }}
-						{{ .title }}
-					{{ with .slug }}
-						</a>
-					{{ end }}
-				</dt>
-				<dd>{{ .description }}</dd>
-			{{ end }}
-			</dl>
-		</section>
 
 	</aside>
 
