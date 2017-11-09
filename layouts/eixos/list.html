@@ -9,7 +9,6 @@
 			{{ i18n "topics" }} <!-- tem que colocar no plural -->
 		</h1>
 
-
 		{{ with .Content }}
 			<section>
 				{{ . }}
@@ -18,25 +17,20 @@
 
 	</header>
 
-
 	{{ $topics := getJSON "./static/dist/data/topic.json" }}
 
 	{{ with $topics.topics }}
-
-
 		<section class="topics">
-
 			<ul class="topics__list">
 				{{ range sort . "name" "asc" }}
 
 					<li id="topic-{{ .id }}" class="topic__item">
 						<a href="/eixos/{{ .slug }}">
-							{{ .name }}
+							{{ .name | humanize }}
 						</a>
 					</li>
 
 				{{ end }}
-
 			</ul>
 		</section>
 	{{ end }}
