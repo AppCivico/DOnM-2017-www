@@ -51,6 +51,11 @@
 	}
 }
 
+.h-entry__e-content header {
+	padding-right: gutter();
+	padding-left: gutter();
+}
+
 // when the entry was published
 .h-entry__dt-published {
 }
