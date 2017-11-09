@@ -18,22 +18,23 @@
 			</h3>
 
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
-
 		</header>
 
-		<section class="projection">
-			<h2>{{ i18n "regionalizationSetenceCase" }}</h2>
-			<dl>
-				<div class="definition-item">
-					<dt>{{ i18n "regionalGovernment" }}</dt>
-					<dd>{{ .first_biennium }}</dd>
-				</div>
-				<div class="definition-item">
-					<dt>{{ i18n "value2017_2020" }}</dt>
-					<dd>{{ .second_biennium }}</dd>
-				</div>
-			</dl>
-		</section>
+		{{ if .subprefectures }}
+			<section class="projection">
+				<h2>{{ i18n "regionalizationSetenceCase" }}</h2>
+				<dl>
+					<div class="definition-item">
+						<dt>{{ i18n "regionalGovernment" }}</dt>
+						<dd>{{ .first_biennium }}</dd>
+					</div>
+					<div class="definition-item">
+						<dt>{{ i18n "value" }} 2017-2020</dt>
+						<dd>{{ .second_biennium }}</dd>
+					</div>
+				</dl>
+			</section>
+		{{ end }}
 
 		<section class="map-container">
 			<h2>{{ i18n "regionalizationMap" }}</h2>
