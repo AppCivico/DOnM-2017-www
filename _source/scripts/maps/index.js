@@ -143,6 +143,12 @@ export default function initMap() {
 
 								if (rootElement === 'cities') {
 									drawnPolygon.setOptions(polygonStyles.city);
+									if (toDraw.length === 1) {
+										drawnPolygon.setOptions({
+											strokeOpacity: 0,
+											fillOpacity: polygonStyles.initial.fillOpacity,
+										});
+									}
 								} else {
 									google.maps.event.addListener(drawnPolygon, 'mouseover', () => {
 										const previousStyles = {};
