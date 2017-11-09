@@ -113,10 +113,10 @@
 
 		</section>
 
-			<section class="districts">
-				<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+		<section class="districts">
+			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+			{{ if .regions }}
 				<ul class="district-list">
-
 					{{ range .regions }}
 						<li>
 							{{ with .slug }}
@@ -128,10 +128,20 @@
 							{{ end }}
 						</li>
 					{{ end }}
-
 				</ul>
-				<div id="map" class="map" {{ with .regions }} data-to-draw="regions cities" data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }}></div>
-			</section>
+			{{ else }}
+				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
+			{{ end }}
+			<div id="map" class="map"
+				{{ if .regions }}
+					data-to-draw="regions cities"
+					data-regions-to-draw="{{ range .regions }}{{ .id }} {{ end }}"
+				{{ else }}
+					data-to-draw="cities"
+					data-zoom="+1"
+				{{ end }}
+			></div>
+		</section>
 
 	</aside>
 
