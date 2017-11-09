@@ -1,6 +1,6 @@
 {{ $.Scratch.Add "scriptsHeader" `
 <link rel="preload" href="/dist/data/action_lines.json" as="fetch" type="application/json">
-` }}{{ partial "header.html" . }}
+` }}{{ $.Scratch.Add "rootClass" "action-lines-page" }}{{ partial "header.html" . }}
 <main id="conteudo" class="h-entry">
 
 	<header>

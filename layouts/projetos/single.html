@@ -1,4 +1,4 @@
-{{ partialCached "header.html" . }}
+{{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/project/" .Params.id ) }}
 
 {{ $project := getJSON $url }}

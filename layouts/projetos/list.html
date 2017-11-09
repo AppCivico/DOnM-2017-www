@@ -1,4 +1,6 @@
-{{ partialCached "header.html" . }}
+{{ $.Scratch.Add "scriptsHeader" `
+<link rel="preload" href="/dist/data/projects.json" as="fetch" type="application/json">
+` }}{{ $.Scratch.Add "rootClass" "projects-page" }}{{ partial "header.html" . }}
 <main id="conteudo" class="h-feed">
 	<h1 class="h-feed__p-name p-name">{{ .Title }}</h1>
 	{{ with .Content }}
