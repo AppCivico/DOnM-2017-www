@@ -31,6 +31,8 @@ article li {
 		position: absolute;
 		left: -1em;
 
+		z-index: layer('default'); // required to prevent Blink clipping issues on columns
+
 		font-weight: bold;
 
 		color: palette('orange', 'light');
