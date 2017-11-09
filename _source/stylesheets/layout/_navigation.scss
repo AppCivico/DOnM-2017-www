@@ -41,6 +41,10 @@ nav a {
 	@include on-event {
 		text-decoration: underline;
 	}
+
+	@include media ('>=desktop') {
+		padding-right: 0;
+	}
 }
 
 .current > a {
@@ -104,9 +108,13 @@ nav a {
 	}
 
 	@include media('>=desktop') {
-		margin: 0 0 0 (span(2 'wide') / 1em * -1 * 1rem);
+		margin: 0 0 0 (span(3 'wide') / 1em * -1 * 1rem);
 
 		box-shadow: 0 16px 24px palette('shadow');
+	}
+
+	@include media('>=12col') {
+		margin: 0 0 0 (span(2 'wide') / 1em * -1 * 1rem);
 	}
 }
 
