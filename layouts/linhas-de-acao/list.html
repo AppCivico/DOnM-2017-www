@@ -1,8 +1,7 @@
 {{ $.Scratch.Add "scriptsHeader" `
 <link rel="preload" href="/dist/data/action_lines.json" as="fetch" type="application/json">
 ` }}{{ $.Scratch.Add "rootClass" "action-lines-page" }}{{ partial "header.html" . }}
-<main id="conteudo" class="h-entry">
-
+<article id="conteudo" class="h-entry">
 	<header>
 		<h1>
 			{{ i18n "actionLinesSentenceCase" }}
@@ -40,6 +39,6 @@
 			</dl>
 		</section>
 	{{ end }}
-</main>
+</article>
 
 {{ partialCached "footer.html" . }}
