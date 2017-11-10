@@ -1,7 +1,53 @@
 .not-found-page {
 }
 
-.not-found-page article,
+.not-found-page .site-header {
+	margin-bottom: 0;
+}
+
+.not-found-page article {
+	@include aspect-ratio(1 x 1);
+
+	max-width: none;
+
+	padding-top: $line-height * 2em;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	background-image: image('404--320w.jpg');
+	background-position: 50% 0;
+	background-size: 100% auto;
+
+	@include media('>=480px') {
+		background-image: image('404--480w.jpg');
+	}
+
+	@include media('>=640px') {
+		background-image: image('404--640w.jpg');
+	}
+
+	@include media('>=768px') {
+		background-image: image('404--768w.jpg');
+	}
+
+	@include media('>=1024px') {
+		background-image: image('404--1024w.jpg');
+	}
+
+	@include media('>=1280px') {
+		background-image: image('404--1280w.jpg');
+	}
+
+	@include media('>=1600px') {
+		background-image: image('404--1600w.jpg');
+	}
+}
+
+.not-found-page h1 {
+	@include visually-hidden;
+}
+
 .not-found-page p {
 	max-width: $max-width;
 
@@ -9,4 +55,6 @@
 	margin-left: auto;
 
 	text-align: center;
+
+	background-color: palette('white');
 }
