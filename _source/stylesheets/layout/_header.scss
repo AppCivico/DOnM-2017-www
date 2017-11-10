@@ -14,7 +14,11 @@
 
 	z-index: layer('default');
 
+	min-height: 144px;
+
 	padding-top: gutter();
+
+	background-color: palette('white');
 
 	box-shadow: 0 16px 24px palette('shadow');
 }
@@ -54,8 +58,10 @@
 			background-image: image('logo.png');
 
 			@include media('>=12col') {
-				left: 0;
-				margin-left: 48px;
+				html:not(.not-found-page) & {
+					left: 0;
+					margin-left: 48px;
+				}
 			}
 		}
 

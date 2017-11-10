@@ -54,7 +54,9 @@
 					{{ .Site.Title }}
 				</a>
 			</div>
-			<nav class="main-menu" id="menu">
-				{{ partialCached "menu.html" . }}
-			</nav>
+			{{ if ne .Kind "404" }}
+				<nav class="main-menu" id="menu">
+					{{ partialCached "menu.html" . }}
+				</nav>
+			{{ end }}
 		</header>
