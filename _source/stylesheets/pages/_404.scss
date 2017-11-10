@@ -6,7 +6,7 @@
 }
 
 .not-found-page article {
-	@include aspect-ratio(1 x 1);
+	@include aspect-ratio(3 x 1.5);
 
 	max-width: none;
 
@@ -16,8 +16,8 @@
 	margin-bottom: 0;
 
 	background-image: image('404--320w.jpg');
-	background-position: 50% 0;
-	background-size: 100% auto;
+	background-position: 50% 50%;
+	background-size: cover;
 
 	@include media('>=480px') {
 		background-image: image('404--480w.jpg');
@@ -49,6 +49,8 @@
 }
 
 .not-found-page p {
+	@include visually-hidden;
+
 	max-width: $max-width;
 
 	margin-right: auto;
