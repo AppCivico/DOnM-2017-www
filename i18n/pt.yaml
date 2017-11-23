@@ -113,9 +113,7 @@
 - id: logo
   translation: "Logo"
 - id: responsibles
-  translation: "Responsáveis"
-- id: supporters
-  translation: "Apoiadores"
+  translation: "Responsável"
 - id: partners
-  translation: "Parceiros"
+  translation: "Parceiro"
 

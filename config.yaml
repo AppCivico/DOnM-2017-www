@@ -63,18 +63,8 @@ params:
       logo: logo-rnsp-footer.png
 
   partners:
-    mitMl:
-      name: mit media lab
-      link: http://civic.mit.edu
-      logo: logo-mit-footer.png
-
     tbcSP:
       name: Tribunal de Contas do Município de São Paulo
       link: http://www.tcm.sp.gov.br
       logo: logo-tcm-footer.png
 
-  supporters:
-    avina:
-      name: Fundación Avina
-      link: http://www.avinaamericas.org
-      logo: logo-avina-footer.png

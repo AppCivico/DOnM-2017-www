@@ -26,19 +26,6 @@
 				</div>
 			{{ end }}
 
-			{{ with .Site.Params.supporters }}
-				<div class="contentinfo__supporters">
-					<h5>
-						{{ i18n "supporters" | title }}
-					</h5>
-					<ul>
-						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
-						{{ end }}
-					</ul>
-				</div>
-			{{ end }}
-			{{ with .Site.Params.supporters }}
 				<div class="contentinfo__colophon">
 					<p>{{ i18n "colophon" | safeHTML }}</p>
 
@@ -46,8 +33,6 @@
 						<a href="http://appcivico.com" target="_blank">AppCívico</a>
 					</p>
 				</div>
-
-			{{ end }}
 		</div>
 
 		<nav class="footer-menu">
