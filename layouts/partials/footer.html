@@ -3,7 +3,7 @@
 			{{ with .Site.Params.responsibles }}
 				<div class="contentinfo__responsibles">
 					<h5>
-						{{ i18n "responsibles" | title }}
+						{{ i18n "responsibles" (len .) | title }}
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
@@ -16,7 +16,7 @@
 			{{ with .Site.Params.partners }}
 				<div class="contentinfo__partners">
 					<h5>
-						{{ i18n "partners" | title }}
+						{{ i18n "partners" (len .) | title }}
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}

@@ -113,7 +113,10 @@
 - id: logo
   translation: "Logo"
 - id: responsibles
-  translation: "Responsável"
+  translation:
+    one: "Responsável"
+    other: "Responsáveis"
 - id: partners
-  translation: "Parceiro"
-
+  translation:
+    one: "Parceiro"
+    other: "Parceiros"
