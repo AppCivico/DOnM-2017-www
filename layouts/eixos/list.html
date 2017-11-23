@@ -2,11 +2,12 @@
 <link rel="preload" href="/dist/data/topic.json" as="fetch" type="application/json">
 ` }}{{ $.Scratch.Add "rootClass" "topics-page" }}{{ partial "header.html" . }}
 <article id="conteudo" role="main">
+	{{ $topics := getJSON "./static/dist/data/topic.json" }}
 
 	<header>
 
 		<h1>
-			{{ i18n "topics" }} <!-- tem que colocar no plural -->
+			{{ i18n "topic" (len $topics.topic) }}
 		</h1>
 
 		{{ with .Content }}
@@ -17,7 +18,6 @@
 
 	</header>
 
-	{{ $topics := getJSON "./static/dist/data/topic.json" }}
 
 	{{ with $topics.topics }}
 		<section class="topics">
