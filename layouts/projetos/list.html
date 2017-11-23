@@ -13,7 +13,7 @@
 
 	{{ with $projects.projects }}
 		<section>
-			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "projectLowerCase"  (len .) }}.</p>
+			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "project" (len .) }}.</p>
 			{{ range sort . "id" "asc" }}
 				<article class="h-feed__h-entry h-entry" id="project-{{ .id }}">
 					<div class="h-entry__e-content .e-content">
@@ -27,7 +27,7 @@
 					{{ end }}
 					{{ with .topics }}
 						<footer>
-							{{ i18n "topicTitleCase" (len .) }}:
+							{{ i18n "topic" (len .) }}:
 							<ul>
 								{{ range . }}
 								<li>

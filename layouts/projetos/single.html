@@ -9,18 +9,18 @@
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "projectTitleCase" }}
+				{{ i18n "project" 1 }}
 				{{ .id }}
 			</h2>
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 			{{ with .topics }}
-				<h3>{{ i18n "topicTitleCase" (len .) }} {{ range . }}{{ .name }}{{ end }} </h3>
+				<h3>{{ i18n "topic" 1 }} {{ range . }}{{ .name }}{{ end }} </h3>
 			{{ end }}
 			<h4>{{ .description }}</h4>
 		</header>
 
 		<section class="situation">
-			<h3>{{ i18n "situationSentenceCase" }}</h3>
+			<h3>{{ i18n "currentSituation" }}</h3>
 			<p>{{ .current_scenario }}</p>
 		</section>
 
@@ -36,18 +36,18 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th>{{ i18n "ownResourcesSetenceCase" }}</th>
-						<th>{{ i18n "othersResourcesSetenceCase" }}</th>
+						<th>{{ i18n "ownResources" }}</th>
+						<th>{{ i18n "othersResources" }}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th>{{ i18n "investimentSetenceCase" }}</th>
+						<th>{{ i18n "investiment" }}</th>
 						<td>0</td>
 						<td>0</td>
 					</tr>
 					<tr>
-						<th>{{ i18n "costingSetenceCase" }}</th>
+						<th>{{ i18n "costing" }}</th>
 						<td>0</td>
 						<td>0</td>
 					</tr>
@@ -57,7 +57,7 @@
 
 		{{ with .action_lines }}
 		<section class="action-lines">
-			<h2>{{ i18n "actionSentenceCase" }}</h2>
+			<h2>{{ i18n "actionLine" (len .) }}</h2>
 
 			<dl class="action-lines__list">
 			{{ range . }}
@@ -84,7 +84,7 @@
 
 	<aside>
 		<section class="progress">
-			<h3>{{ i18n "progressProjectSentenceCase" }}</h3>
+			<h3>{{ i18n "progressProject" }}</h3>
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100" value="50">
 				<div class="progress-bar">
 					<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
@@ -95,7 +95,7 @@
 		</section>
 
 		<section class="goals">
-			<h3>{{ i18n "relatedGoalsSentenceCase" }}</h3>
+			<h3>{{ i18n "relatedGoal" (len .) }}</h3>
 
 			<ul class="goals-list">
 			{{ range .goals }}
@@ -114,7 +114,7 @@
 		</section>
 
 		<section class="districts">
-			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+			<h2>{{ i18n "benefitedDistrict" (len .) }}</h2>
 			{{ if .regions }}
 				<ul class="district-list">
 					{{ range .regions }}
