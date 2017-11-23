@@ -19,7 +19,7 @@ menu:
         Weight: 1
         Identifier: "o-que-e"
         URL: "/o-que-e/"
-      - Name: "Prefeituras Regionais"
+      - Name: "Prefeituras regionais"
         Pre: ""
         Weight: 2
         Identifier: "prefeituras-regionais"
@@ -34,7 +34,7 @@ menu:
         Weight: 4
         Identifier: "indicadores"
         URL: "/indicadores/"
-      - Name: "Linhas de Ação"
+      - Name: "Linhas de ação"
         Pre: ""
         Weight: 5
         Identifier: "linhas-de-acao"
@@ -44,6 +44,43 @@ menu:
         Weight: 6
         Identifier: "dados-abertos"
         URL: "/dados-abertos/"
+
+  footer:
+      - Name: "O que é?"
+        Pre: ""
+        Weight: 1
+        Identifier: "o-que-e"
+        URL: "/o-que-e/"
+      - Name: "Prefeituras regionais"
+        Pre: ""
+        Weight: 2
+        Identifier: "prefeituras-regionais"
+        URL: "/prefeituras-regionais/"
+      - Name: "Metas"
+        Pre: ""
+        Weight: 3
+        Identifier: "metas"
+        URL: "/metas/"
+      - Name: "Indicadores"
+        Pre: ""
+        Weight: 4
+        Identifier: "indicadores"
+        URL: "/indicadores/"
+      - Name: "Linhas de ação"
+        Pre: ""
+        Weight: 5
+        Identifier: "linhas-de-acao"
+        URL: "/linhas-de-acao/"
+      - Name: "Dados abertos"
+        Pre: ""
+        Weight: 6
+        Identifier: "dados-abertos"
+        URL: "/dados-abertos/"
+      - Name: "Gestão anterior"
+        Pre: ""
+        Weight: 7
+        Identifier: "gestao-anterior"
+        URL: "http://2013.deolhonasmetas.org.br"
 
 
 params:
