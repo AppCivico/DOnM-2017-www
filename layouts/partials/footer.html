@@ -3,7 +3,7 @@
 			{{ with .Site.Params.responsibles }}
 				<div class="contentinfo__responsibles">
 					<h5>
-						{{ i18n "responsiblesTitleCase" }}
+						{{ i18n "responsibles" | title }}
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
@@ -16,7 +16,7 @@
 			{{ with .Site.Params.partners }}
 				<div class="contentinfo__partners">
 					<h5>
-						{{ i18n "partnersTitleCase" }}
+						{{ i18n "partners" | title }}
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
@@ -29,7 +29,7 @@
 			{{ with .Site.Params.supporters }}
 				<div class="contentinfo__supporters">
 					<h5>
-						{{ i18n "supportersTitleCase" }}
+						{{ i18n "supporters" | title }}
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
