@@ -9,7 +9,7 @@
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "regionalGovernment" }}
+				{{ i18n "regionalPrefecture" 1 }}
 			</h2>
 			<h1>
 
@@ -27,7 +27,7 @@
 
 		{{ with .action_lines }}
 			<section class="action-lines">
-				<h2>{{ i18n "actionSentenceCase" (len .) }}</h2>
+				<h2>{{ i18n "actionLine" (len .) }}</h2>
 
 				<dl class="action-lines__list">
 				{{ range . }}
@@ -54,7 +54,7 @@
 	<aside>
 		<section class="sub-prefecture h-card">
 			<h2>{{ i18n "districtFile" }}</h2>
-			<h3 class="h-card__p-name p-name">{{ i18n "regionalGovernment" }} {{ .name }}</h3>
+			<h3 class="h-card__p-name p-name">{{ i18n "regionalPrefecture" 1 }} {{ .name }}</h3>
 
 			{{ with .address }}<p class="h-card__p-adr p-adr">{{ . }}</p>{{ end }}
 			{{ with .telephone }}
@@ -73,13 +73,13 @@
 		</section>
 
 		<section class="sub-mayor">
-			<h2>{{ i18n "subMayorSetenceCase" }}</h2>
+			<h2>{{ i18n "subMayor" }}</h2>
 
 			<p>Lorem Ipsum</p>
 		</section>
 
 		<section class="districts map-container">
-			<h2>{{ i18n "relevantDistrictsSentenceCase" }}</h2>
+			<h2>{{ i18n "relevantDistricts" (len .) }}</h2>
 			<ul class="district-list">
 				{{ range .regions }}
 					<li>
