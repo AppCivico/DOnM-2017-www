@@ -25,7 +25,7 @@
 				<h2>{{ i18n "regionalization" }}</h2>
 				<dl>
 					<div class="definition-item">
-						<dt>{{ i18n "regionalGovernment" | title }}</dt>
+						<dt>{{ i18n "regionalPrefecture" (len .) | title }}</dt>
 						<dd>{{ .first_biennium }}</dd>
 					</div>
 					<div class="definition-item">
@@ -71,7 +71,7 @@
 		</section>
 
 		<section class="progress">
-			<p>{{ i18n "textProgressSentenceCase" }}</p>
+			<p>{{ i18n "textProgress" }}</p>
 
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
 				<div class="progress-bar">
