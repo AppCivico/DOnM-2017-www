@@ -13,25 +13,25 @@
 
 	{{ with $goals.goals }}
 		<section>
-			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goalLowerCase" (len .) }}.</p>
+			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
 			{{ range sort . "id" "asc" }}
 				<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
 					<div class="h-entry__e-content e-content">
 						<h2 class="h-entry__p-name p-name">
 							<a href="/metas/{{ .slug }}">
-								{{ i18n "goalTitleCase" }} <strong class="id">{{ .id }}</strong>
+								{{ i18n "goal" 1 }} <strong class="id">{{ .id }}</strong>
 							</a>
 						</h2>
 						<p>{{ .title }}</p>
 						{{ with .topic }}
 							<footer>
-								{{ i18n "topicTitleCase" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+								{{ i18n "topic" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
 							</footer>
 						{{ end }}
 					</div>
 					{{ with .projects }}
 						<aside>
-							<h3>{{ i18n "relatedProjectsSentenceCase" }}</h3>
+							<h3>{{ i18n "relatedProject" (len .) }}</h3>
 							<ul class="projects-list">
 								{{ range sort . "id" "asc"}}
 									<li>

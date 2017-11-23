@@ -9,12 +9,12 @@
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "goalTitleCase" }}
+				{{ i18n "goal" 1 | lower }}
 				{{ .id }}
 			</h2>
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 			<h3>
-				{{ i18n "topicTitleCase" 1 }} {{ .topic.name }}
+				{{ i18n "topic" 1 }} {{ .topic.name }}
 			</h3>
 		</header>
 
@@ -23,7 +23,7 @@
 		</section>
 
 		<section class="projection">
-			<h2>{{ i18n "projectionSentenceCase" }}</h2>
+			<h2>{{ i18n "goalProjection" }}</h2>
 			<dl>
 				<div class="definition-item">
 					<dt>2017 - 2018</dt>
@@ -37,7 +37,7 @@
 		</section>
 
 		<section class="related-projects">
-			<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
+			<h2>{{ i18n "relatedProject" (len .) }}</h2>
 
 			<dl>
 			{{ range .projects }}
@@ -59,7 +59,7 @@
 
 	<aside>
 		<section class="progress">
-			<p>{{ i18n "textProgressSentenceCase" }}</p>
+			<p>{{ i18n "textProgress" }}</p>
 
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
 				<div class="progress-bar">
@@ -71,7 +71,7 @@
 		</section>
 
 		<section class="districts">
-			<h2>{{ i18n "districtsBenefitedSentenceCase" }}</h2>
+			<h2>{{ i18n "benefitedDistrict" (len .) }}</h2>
 			{{ if .regions }}
 				<ul class="district-list">
 					{{ range .regions }}
