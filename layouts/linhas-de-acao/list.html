@@ -1,10 +1,13 @@
 {{ $.Scratch.Add "scriptsHeader" `
 <link rel="preload" href="/dist/data/action_lines.json" as="fetch" type="application/json">
 ` }}{{ $.Scratch.Add "rootClass" "action-lines-page" }}{{ partial "header.html" . }}
-<article id="conteudo" class="h-entry">
+
+	{{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
+
+	<article id="conteudo" class="h-entry">
 	<header>
 		<h1>
-			{{ i18n "actionLinesSentenceCase" }}
+			{{ i18n "actionLine" (len $action_lines.action_lines) }}
 		</h1>
 	</header>
 
@@ -14,11 +17,9 @@
 		</section>
 	{{ end }}
 
-	{{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
-
 	{{ with $action_lines.action_lines }}
 		<section class="action-lines">
-			<p><b>{{ len . }}</b> {{ i18n "actionLinesSentenceCase" | lower }}.</p>
+			<p><b>{{ len . }}</b> {{ i18n "actionLine" (len $action_lines.action_lines) | lower }}.</p>
 			<dl class="action-lines__list">
 				{{ range sort . "name" "asc" }}
 					<div class="definition-item action-lines__list-item">

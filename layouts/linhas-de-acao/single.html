@@ -9,12 +9,12 @@
 	<div class="h-entry__e-content e-content">
 		<header>
 			<h2>
-				{{ i18n "actionLine" }}
+				{{ i18n "actionLine" 1 }}
 				{{ .id }}
 			</h2>
 
 			<h3>
-				{{ i18n "topicTitleCase" 1 }} {{ .topic.name }}
+				{{ i18n "topic" 1 | lower }} {{ .topic.name }}
 			</h3>
 
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
@@ -22,14 +22,14 @@
 
 		{{ if .subprefectures }}
 			<section class="projection">
-				<h2>{{ i18n "regionalizationSetenceCase" }}</h2>
+				<h2>{{ i18n "regionalization" }}</h2>
 				<dl>
 					<div class="definition-item">
-						<dt>{{ i18n "regionalGovernment" }}</dt>
+						<dt>{{ i18n "regionalGovernment" | title }}</dt>
 						<dd>{{ .first_biennium }}</dd>
 					</div>
 					<div class="definition-item">
-						<dt>{{ i18n "value" }} 2017-2020</dt>
+						<dt>{{ i18n "value" | title }} 2017-2020</dt>
 						<dd>{{ .second_biennium }}</dd>
 					</div>
 				</dl>
@@ -54,7 +54,7 @@
 
 	<aside>
 		<section class="secretaries">
-			<h2>{{ i18n "secretariesSentenceCase" }}</h2>
+			<h2>{{ i18n "secretary" (len $action_line.action_line) }}</h2>
 			<ul class="district-list">
 				{{ range .action_lines }}
 					<li>
@@ -83,7 +83,7 @@
 		</section>
 
 		<section class="related-projects">
-			<h2>{{ i18n "relatedProjectsSentenceCase" }}</h2>
+			<h2>{{ i18n "relatedProject" (len $action_line.action_line) }}</h2>
 
 			<dl>
 			{{ range .projects }}

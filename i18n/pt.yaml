@@ -1,15 +1,8 @@
-- id: actionSentenceCase
-  translation: "Linha de ação"
-- id: actionLinesSentenceCase
-  translation: "Linhas de ação"
-- id: actionLinesAssociated
-  translation: "Linhas de ação associadas"
+
 - id: budget
   translation: "Orçamento"
 - id: costingSetenceCase
   translation: "Custeio"
-- id: dataNotRestrictedToARegion
-  translation: "Esses dados não se restringem a áreas específicas da cidade, mas a ela como um todo."
 - id: districtsBenefitedSentenceCase
   translation: "Distritos beneficiados"
 - id: districtFile
@@ -17,7 +10,7 @@
 - id: districtLowerCase
   translation:
     one: "distrito"
-    other: "distritos"
+    other: "Distritos"
 - id: districtsLowerCase
   translation: "distritos"
 - id: districtTitleCase
@@ -58,52 +51,63 @@
     other: "projetos"
 - id: projectTitleCase
   translation: "Projeto"
-- id: regionalGovernment
-  translation: "Prefeitura Regional"
-- id: regionalizationSetenceCase
-  translation: "Regionalização"
-- id: regionalizationMap
-  translation: "Mapa da regionalização"
 - id: regionalPrefectureFile
   translation: "Ficha da prefeitura regional"
 - id: regionalPrefecturesSetenceCase
   translation: "Prefeituras Regionais"
 - id: relatedGoalsSentenceCase
   translation: "Metas associadas"
-- id: relatedProjectsSentenceCase
-  translation: "Projetos associados"
-- id: relatedProject
-  translation: "Projeto associados"
 - id: relevantDistrictsSentenceCase
   translation: "Distritos pertencentes"
 - id: returnToHome
   translation: "Voltar para página inicial"
-- id: secretariesSentenceCase
-  translation: "Secretarias"
-- id: secretarySentenceCase
-  translation: "Secretaria"
 - id: situationSentenceCase
   translation: "Situação atual"
 - id: subMayorSetenceCase
   translation: "Subprefeito"
 - id: subPrefectureTitleCase
   translation: "Subprefeitura"
-- id: textProgressSentenceCase
-  translation: "Progresso de acordo com a prefeitura."
-- id: topicTitleCase
+- id: topic
   translation:
     one: "Eixo"
     other: "Eixos"
 - id: topics
   translation: "Eixos"
-- id: value
-  translation: "Valor"
 - id: action1_1
   translation: "1.1"
 - id: action1_2
   translation: "1.2"
 - id: action1_3
   translation: "1.3"
+
+
+
+
+  #Linhas de Ação
+- id: actionLine
+  translation:
+    one: "Linha de ação"
+    other: "Linhas de ação"
+- id: actionLinesAssociated
+  translation: "Linhas de ação associadas"
+- id: dataNotRestrictedToARegion
+  translation: "Esses dados não se restringem a áreas específicas da cidade, mas a ela como um todo."
+- id: regionalization
+  translation: "Regionalização"
+- id: regionalizationMap
+  translation: "Mapa da regionalização"
+- id: value
+  translation: "Valor"
+- id: secretary
+  translation:
+    one: "Secretaria"
+    other: "Secretarias"
+- id: relatedProject
+  translation:
+    one: "Projeto associado"
+    other: "Projetos associados"
+- id: textProgressSentenceCase
+  translation: "Progresso de acordo com a prefeitura."
 
   #footer
 - id: colophon
