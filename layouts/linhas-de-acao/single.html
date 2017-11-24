@@ -21,19 +21,42 @@
 		</header>
 
 		{{ if .subprefectures }}
+
+
+
 			<section class="projection">
 				<h2>{{ i18n "regionalization" }}</h2>
-				<dl>
-					<div class="definition-item">
-						<dt>{{ i18n "regionalPrefecture" (len .) | title }}</dt>
-						<dd>{{ .first_biennium }}</dd>
-					</div>
-					<div class="definition-item">
-						<dt>{{ i18n "value" | title }} 2017-2020</dt>
-						<dd>{{ .second_biennium }}</dd>
-					</div>
-				</dl>
+				<table>
+					<thead>
+						<tr>
+							<th>{{ i18n "regionalPrefecture" (len .) | title }}</th>
+							<th>{{ i18n "value" | title }} 2017-2020</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+						{{ range .subprefectures }}
+						<tr>
+							<td>
+								{{ with .slug }}
+									<a href="/prefeituras-regionais/{{ . }}">
+								{{ end }}
+									{{ .name }}
+								{{ with .slug }}
+									</a>
+								{{ end }}
+							</td>
+
+							<td>
+								{{ .indicator }}
+							</td>
+						</tr>
+						{{ end }}
+					</tbody>
+				</table>
 			</section>
+
 		{{ end }}
 
 		<section class="map-container">
