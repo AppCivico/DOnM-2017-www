@@ -76,6 +76,11 @@ menu:
         Weight: 6
         Identifier: "dados-abertos"
         URL: "/dados-abertos/"
+       - Name: "Distritos"
+        Pre: ""
+        Weight: 6
+        Identifier: "distritos"
+        URL: "/distritos/"
       - Name: "Gestão anterior"
         Pre: ""
         Weight: 7
