@@ -76,7 +76,7 @@ menu:
         Weight: 6
         Identifier: "dados-abertos"
         URL: "/dados-abertos/"
-       - Name: "Distritos"
+      - Name: "Distritos"
         Pre: ""
         Weight: 6
         Identifier: "distritos"
@@ -86,7 +86,6 @@ menu:
         Weight: 7
         Identifier: "gestao-anterior"
         URL: "http://2013.deolhonasmetas.org.br"
-
 
 params:
   Subtitle:      "gestão 2017"
