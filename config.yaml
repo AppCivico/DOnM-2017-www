@@ -81,12 +81,16 @@ menu:
         Weight: 6
         Identifier: "distritos"
         URL: "/distritos/"
-      - Name: "Gestão anterior"
+      - Name: "Eixos"
         Pre: ""
         Weight: 7
+        Identifier: "eixos"
+        URL: "/eixos/"
+      - Name: "Gestão anterior"
+        Pre: ""
+        Weight: 8
         Identifier: "gestao-anterior"
         URL: "http://2013.deolhonasmetas.org.br"
-
 params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
