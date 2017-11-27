@@ -44,6 +44,8 @@
   translation:
     one: "projeto"
     other: "projetos"
+- id: regionalMayor
+  translation: "Prefeito Regional"
 - id: regionalPrefecture
   translation:
     one: "Prefeitura regional"
@@ -70,8 +72,6 @@
   translation:
     one: "Secretaria"
     other: "Secretarias"
-- id: subMayor
-  translation: "Subprefeito"
 - id: subPrefecture
   translation:
     one: "Subprefeitura"
