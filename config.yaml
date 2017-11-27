@@ -78,17 +78,22 @@ menu:
         URL: "/dados-abertos/"
       - Name: "Distritos"
         Pre: ""
-        Weight: 6
+        Weight: 7
         Identifier: "distritos"
         URL: "/distritos/"
+      - Name: "Projetos"
+        Pre: ""
+        Weight: 8
+        Identifier: "projetos"
+        URL: "/projetos/"
       - Name: "Eixos"
         Pre: ""
-        Weight: 7
+        Weight: 9
         Identifier: "eixos"
         URL: "/eixos/"
       - Name: "Gestão anterior"
         Pre: ""
-        Weight: 8
+        Weight: 10
         Identifier: "gestao-anterior"
         URL: "http://2013.deolhonasmetas.org.br"
 params:
