@@ -20,9 +20,21 @@
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 		</header>
 
+		<section class="map-container">
+			<h2>{{ i18n "regionalizationMap" }}</h2>
+			{{ if not .subprefectures }}
+				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
+			{{ end }}
+			<div id="map" class="map"
+				{{ if .subprefectures }}
+					data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
+				{{ else }}
+					data-to-draw="cities"
+				{{ end }}
+			></div>
+		</section>
+
 		{{ if .subprefectures }}
-
-
 
 			<section class="projection">
 				<h2>{{ i18n "regionalization" }}</h2>
@@ -58,20 +70,6 @@
 			</section>
 
 		{{ end }}
-
-		<section class="map-container">
-			<h2>{{ i18n "regionalizationMap" }}</h2>
-			{{ if not .subprefectures }}
-				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
-			{{ end }}
-			<div id="map" class="map"
-				{{ if .subprefectures }}
-					data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
-				{{ else }}
-					data-to-draw="cities"
-				{{ end }}
-			></div>
-		</section>
 
 	</div>
 
@@ -123,7 +121,6 @@
 			{{ end }}
 			</dl>
 		</section>
-
 
 	</aside>
 
