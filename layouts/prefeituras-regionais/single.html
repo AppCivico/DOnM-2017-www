@@ -4,7 +4,6 @@
 {{ $subprefecture := getJSON $url }}
 
 {{ with $subprefecture.subprefecture }}
-
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -12,17 +11,12 @@
 				{{ i18n "regionalPrefecture" 1 }}
 			</h2>
 			<h1>
-
 				{{ .name }}
-
 			</h1>
-
 		</header>
 
 		<section class="district map-container">
-
-		<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }} data-info-panel-for="regions" data-link-for="regions" ></div>
-
+			<div id="map" class="map" data-to-draw="regions" {{ with .regions }}data-regions-to-draw="{{ range . }}{{ .id }} {{ end }}"{{ end }} data-info-panel-for="regions" data-link-for="regions"></div>
 		</section>
 
 		{{ with .action_lines }}
@@ -94,11 +88,8 @@
 				{{ end }}
 			</ul>
 		</section>
-
 	</aside>
-
 </article>
-
 {{ end }}
 
 {{ partialCached "footer.html" . }}
