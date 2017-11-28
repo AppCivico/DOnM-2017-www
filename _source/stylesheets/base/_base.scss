@@ -253,22 +253,21 @@ details[open] summary ~ * {
  */
 [hidden],
 template {
-	display: none !important; // sass-lint:disable-line no-important
+	display: none;
 }
 
 /**
  * Visually hidden content should remain accessible
  */
 [hidden][aria-hidden='false'] {
-	// sass-lint:disable-block no-important
-	position: absolute !important;
+	position: absolute;
 
-	display: inherit !important;
+	display: inherit;
 
-	clip: rect(0, 0, 0, 0) !important;
+	clip: rect(0, 0, 0, 0);
 
 	&:focus {
-		clip: auto !important;
+		clip: auto;
 	}
 }
 
