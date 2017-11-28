@@ -51,7 +51,7 @@
 							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
 							<td data-column-header="{{ $currentDistrict }}">{{ .value }}</td>
 							{{ with $regions.regions }}
-								<td data-column-header="" class="js-only></td>
+								<td data-column-header="" class="js-only"></td>
 							{{ end }}
 						</tr>
 					{{ end }}
