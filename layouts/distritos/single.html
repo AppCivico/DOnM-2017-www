@@ -5,6 +5,7 @@
 
 {{ with $region.region }}
 
+{{ $currentDistrict := .name }}
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -19,6 +20,44 @@
 		<section class="district map-container">
 			<div id="map" class="map" data-to-draw="regions" data-regions-to-draw="{{ .id }}"></div>
 		</section>
+
+		{{ with .variables }}
+			{{ $regions := getJSON "./static/dist/data/regions.json" }}
+			<section class="IOTA-indicators">
+				<h3>{{ i18n "indicator" (len .) | title }}</h3>
+				<p>{{ i18n "introIOTA" }}</p>
+				<table>
+					<thead>
+						<th>{{ i18n "indicator" 1 | title }}</th>
+						<td>{{ $currentDistrict }}</td>
+						{{ with $regions.regions }}
+							<td class="js-only">
+								{{ i18n "compareTo" }}
+								<select name="" id="">
+									<option></option>
+								{{ range sort . "name" "asc" }}
+									{{ if ne .name $currentDistrict }}
+										<option value="{{ .id }}">{{ .name }}</option>
+									{{ else }}
+										<option disabled value="{{ .id }}">{{ .name }}</option>
+									{{ end }}
+								{{ end }}
+								</select>
+							</td>
+						{{ end }}
+					</thead>
+					{{ range . }}
+						<tr id="IOTA-indicators__{{ .id }}">
+							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
+							<td data-column-header="{{ $currentDistrict }}">{{ .value }}</td>
+							{{ with $regions.regions }}
+								<td data-column-header="" class="js-only></td>
+							{{ end }}
+						</tr>
+					{{ end }}
+				</table>
+			</section>
+		{{ end }}
 	</div>
 
 	<aside>
@@ -58,7 +97,6 @@
 				{{ end }}
 			</table>
 			{{ end }}
-
 		</section>
 	</aside>
 
