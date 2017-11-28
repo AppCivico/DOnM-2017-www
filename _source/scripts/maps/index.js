@@ -16,6 +16,10 @@ let map;
 export default function initMap() {
 	const mapElement = document.getElementById('map');
 
+	if (mapElement === null) {
+		return false;
+	}
+
 	map = new google.maps.Map(mapElement, {
 		center: { lat: -23.55, lng: -46.633333 },
 		zoom: 10,
@@ -242,4 +246,6 @@ export default function initMap() {
 			}
 		});
 	}
+
+	return map;
 }
