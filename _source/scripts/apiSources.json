@@ -45,5 +45,11 @@
     "dataDest": "./static/dist/data/topic.json",
     "contentFolder": "./content/eixos",
     "jsonRootElement": "topics"
+  },
+
+  {
+    "url": "/api/variable",
+    "dataDest": "./static/dist/data/variable.json",
+    "jsonRootElement": "variables"
   }
 ]
