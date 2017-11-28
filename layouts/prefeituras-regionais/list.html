@@ -19,9 +19,11 @@
 
 	{{ with $subprefectures.subprefectures }}
 		<section class="subprefectures">
-			<p><b>{{ len . }}</b> {{ i18n "regionalPrefecture" (len .) }}.</p>
+			<p><b id="js-filterable__counter">{{ len . }}</b> {{ i18n "regionalPrefecture" (len .) }}.</p>
 
-			<ul class="subprefectures__list js-filterable">
+			{{ partialCached "filterForm.html" . }}
+
+			<ul class="subprefectures__list" id="js-filterable__list">
 				{{ range sort . "name" "asc" }}
 					<li id="subprefectures-{{ .id }}" class="subprefectures__item js-filterable__item">
 						<a href="/prefeituras-regionais/{{ .slug }}">
