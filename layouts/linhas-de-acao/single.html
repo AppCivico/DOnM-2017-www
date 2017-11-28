@@ -50,7 +50,7 @@
 					<tbody>
 						{{ range .subprefectures }}
 						<tr>
-							<td>
+							<th>
 								{{ with .slug }}
 									<a href="/prefeituras-regionais/{{ . }}">
 								{{ end }}
@@ -58,7 +58,7 @@
 								{{ with .slug }}
 									</a>
 								{{ end }}
-							</td>
+							</th>
 
 							<td>
 								{{ .indicator }}
