@@ -20,10 +20,22 @@
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 		</header>
 
+		<section class="map-container">
+			<h2>{{ i18n "regionalizationMap" }}</h2>
+			{{ if not .subprefectures }}
+				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
+			{{ end }}
+			<div id="map" class="map"
+				{{ if .subprefectures }}
+					data-link-for="subprefectures" data-info-panel-for="subprefectures" data-info-panel-for-subprefectures="info-panel__subprefectures--indicator" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
+					data-subprefectures-distribute-by="indicator"
+				{{ else }}
+					data-to-draw="cities"
+				{{ end }}
+			></div>
+		</section>
+
 		{{ if .subprefectures }}
-
-
-
 			<section class="projection">
 				<h2>{{ i18n "regionalization" }}</h2>
 				<table>
@@ -55,24 +67,27 @@
 						{{ end }}
 					</tbody>
 				</table>
+				<script>
+					var customDistribution = customDistribution || {};
+
+					customDistribution.indicator = {
+						{{ range .subprefectures }}
+							{{ .id }}: "{{ .indicator }}",
+						{{ end }}
+					};
+				</script>
+
+				<script type="text/template" id="info-panel__subprefectures--indicator">
+					<dl>
+						<dt>{{ i18n "regionalPrefecture" 1 }}</dt>
+						<dd data-to-bind="name">&mdash;</dd>
+						<dt>{{ i18n "indicator"  }}</dt>
+						<dd class="custom-info-panel__counter" data-to-bind="indicator">0</dd>
+					</dl>
+				</script>
+
 			</section>
-
 		{{ end }}
-
-		<section class="map-container">
-			<h2>{{ i18n "regionalizationMap" }}</h2>
-			{{ if not .subprefectures }}
-				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
-			{{ end }}
-			<div id="map" class="map"
-				{{ if .subprefectures }}
-					data-link-for="subprefectures" data-to-draw="subprefectures" data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
-				{{ else }}
-					data-to-draw="cities"
-				{{ end }}
-			></div>
-		</section>
-
 	</div>
 
 	<aside>
@@ -123,7 +138,6 @@
 			{{ end }}
 			</dl>
 		</section>
-
 
 	</aside>
 

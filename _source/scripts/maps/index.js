@@ -1,4 +1,4 @@
-/* global google */
+/* global google, customDistribution */
 import mapStyles from './mapStyles.json';
 
 import * as polygonStyles from './polygonStyles.json';
@@ -69,7 +69,9 @@ export default function initMap() {
 				if (mapElement.hasAttribute('data-info-panel-for')) {
 					const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
 					if (infoPanelFor.indexOf(rootElement) !== -1) {
-						panelTemplate = document.getElementById(`info-panel__${rootElement}`) || null;
+						panelTemplate = mapElement.hasAttribute(`data-info-panel-for-${rootElement}`)
+							? document.getElementById(mapElement.getAttribute(`data-info-panel-for-${rootElement}`))
+							: document.getElementById(`info-panel__${rootElement}`) || null;
 					}
 				}
 
@@ -115,6 +117,14 @@ export default function initMap() {
 						let maximum = 0;
 
 						if (distributeBy != null) {
+							if (!polygonsToDraw[0][distributeBy]) {
+								polygonsToDraw = polygonsToDraw.map((item) => {
+									const newItem = item;
+									newItem[distributeBy] = customDistribution[distributeBy][item.id] || 0;
+									return newItem;
+								});
+							}
+
 							polygonsToDraw.sort((a, b) => a[distributeBy] - b[distributeBy]);
 
 							minimum = parseInt(polygonsToDraw[0][distributeBy], 10);
