@@ -44,26 +44,27 @@
 							<th>{{ i18n "regionalPrefecture" (len .) | title }}</th>
 							<th>{{ i18n "value" | title }} 2017-2020</th>
 						</tr>
-
 					</thead>
 
 					<tbody>
 						{{ range .subprefectures }}
-						<tr>
-							<th>
-								{{ with .slug }}
-									<a href="/prefeituras-regionais/{{ . }}">
-								{{ end }}
-									{{ .name }}
-								{{ with .slug }}
-									</a>
-								{{ end }}
-							</th>
+							{{ if ne .indicator "0" }}
+								<tr>
+									<th>
+										{{ with .slug }}
+											<a href="/prefeituras-regionais/{{ . }}">
+										{{ end }}
+											{{ .name }}
+										{{ with .slug }}
+											</a>
+										{{ end }}
+									</th>
 
-							<td>
-								{{ .indicator }}
-							</td>
-						</tr>
+									<td>
+										{{ .indicator }}
+									</td>
+								</tr>
+							{{ end }}
 						{{ end }}
 					</tbody>
 				</table>
