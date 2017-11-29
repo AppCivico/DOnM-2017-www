@@ -172,27 +172,6 @@ $palette: (
 /// @type number
 $border-radius: 0 !default;
 
-@function im-to-em($breakpoints, $base-value: 16px) {
-	$new-breakpoints: ();
-
-	@each $name, $value in $breakpoints {
-		$em-value: ($value / $base-value) * 1em;
-		$new-breakpoints: map-merge($new-breakpoints, ($name: $em-value));
-	}
-
-	@return $new-breakpoints;
-}
-
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-$breakpoints: im-to-em(
-	(
-		'phone': 320px,
-		'tablet': 768px,
-		'desktop': 1024px
-	)
-) !default;
 
 $susy: (
 	'columns': susy-repeat(12, (72 / 16 * 1em)),
@@ -219,6 +198,36 @@ $stroke: 2px !default;
 /// Off-canvas menu width
 /// @type number
 $off-canvas-menu-width: span(2 'wide');
+
+@function im-to-em($breakpoints, $base-value: 16px) {
+	$new-breakpoints: ();
+
+	@each $name, $value in $breakpoints {
+		$em-value: ($value / $base-value) * 1em;
+		$new-breakpoints: map-merge($new-breakpoints, ($name: $em-value));
+	}
+
+	@return $new-breakpoints;
+}
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: im-to-em(
+	(
+		'phone': 320px,
+		'tablet': 768px,
+		'desktop': 1024px
+	)
+) !default;
+
+$toggle-breakpoints: (
+	'toggle-menu': 64em,
+	'toggle-table-layout': span(6 'wider'),
+);
+
+$breakpoints: map-merge($breakpoints, $toggle-breakpoints);
 
 $col-breakpoints: (
 	'1col': span(1 'wider'),
