@@ -121,24 +121,23 @@
 			</progress>
 		</section>
 
-		<section class="related-projects">
-			<h2>{{ i18n "relatedProject" (len $action_line.action_line) }}</h2>
-
-			<dl>
-			{{ range .projects }}
-				<dt>
-					{{ with .slug }}
-						<a href="/projetos/{{ . }}">
-					{{ end }}
-						{{ .title }}
-					{{ with .slug }}
-						</a>
-					{{ end }}
-				</dt>
-				<dd>{{ .description }}</dd>
+		{{ with .project }}
+			<section class="related-projects">
+				<h2>{{ i18n "relatedProject" 1 }}</h2>
+				<dl>
+					<dt>
+						{{ with .slug }}
+							<a href="/projetos/{{ . }}">
+						{{ end }}
+							{{ .title }}
+						{{ with .slug }}
+							</a>
+						{{ end }}
+					</dt>
+					<dd>{{ .description }}</dd>
+				</dl>
+			</section>
 			{{ end }}
-			</dl>
-		</section>
 
 	</aside>
 
