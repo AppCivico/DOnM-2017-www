@@ -9,11 +9,9 @@
 
 		columns: 2;
 	}
-
 	@include media('>=6col') {
 		columns: 3;
 	}
-
 	@include media('>=10col') {
 		columns: 4;
 	}
@@ -22,8 +20,6 @@
 .regions__list li,
 .subprefectures__list li {
 	@include fallback('margin-bottom', $line-height * 1rem);
-
-	display: table;
 
 	break-inside: avoid-column; /* IE 11 */
 	page-break-inside: avoid; /* Theoretically FF 20+ */

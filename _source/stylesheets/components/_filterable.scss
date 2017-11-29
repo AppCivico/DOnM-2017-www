@@ -1,0 +1,39 @@
+.js-filterable__form {
+}
+
+.js-filterable__field {
+}
+
+.js-filterable__counter {
+}
+
+.js-filterable__item {
+	display: block;
+
+	max-height: $line-height * 20em;
+
+	opacity: 1;
+
+	transition-duration: 1s;
+	transition-property: color, margin-bottom, max-height, opacity;
+
+	&[hidden] {
+		max-height: 0;
+
+		margin-bottom: 0;
+
+		overflow-x: visible;
+		overflow-y: hidden;
+
+		color: palette('disabled', 'foreground');
+
+		opacity: 0;
+
+		transition-duration: 1s;
+		transition-property: color, margin-bottom, max-height, opacity;
+
+		& * {
+			color: inherit;
+		}
+	}
+}
