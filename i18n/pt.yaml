@@ -26,6 +26,8 @@
   translation: "Ficha do distrito"
 - id: expectedResults
   translation: "Resultados esperados"
+- id: filterBy
+  translation: "Buscar"
 - id: goal
   translation:
     one: "Meta"
