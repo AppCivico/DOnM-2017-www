@@ -1,6 +1,9 @@
 /* TABLES
 ============================================================================ */
 table,
+thead,
+tbody,
+tfoot,
 tr,
 th,
 td {
@@ -14,6 +17,10 @@ td {
 	background: transparent;
 
 	border: 0;
+
+	@include media('<toggle-table-layout') {
+		display: block;
+	}
 }
 
 table {
@@ -37,6 +44,16 @@ table li {
 caption {
 }
 
+tr {
+	@include media('<toggle-table-layout') {
+		@include fallback('margin', 0 0 1.5rem);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 th {
 	font-weight: bold;
 }
@@ -47,6 +64,10 @@ thead td {
 	vertical-align: bottom;
 
 	border-bottom: $stroke solid palette('border');
+
+	@include media('<toggle-table-layout') {
+		display: none;
+	}
 }
 
 thead th:first-child,
@@ -58,18 +79,40 @@ thead > tr:nth-last-of-type(odd) > th,
 thead > tr:nth-last-of-type(odd) > td {
 }
 
+td {
+	font-family: inherit;
+
+	@include media('<toggle-table-layout') {
+		&:empty {
+			display: none;
+		}
+	}
+}
+
 tbody td {
 	text-align: right;
+
+	@include media('<toggle-table-layout') {
+		text-align: left;
+
+		&[title] {
+			text-align: right;
+
+			&::before {
+				float: left;
+
+				font-style: italic;
+
+				content: attr(title)': ';
+			}
+		}
+	}
 
 	font-variant-numeric: lining-nums oldstyle-nums;
 }
 
 tbody th {
 	text-align: left;
-}
-
-td {
-	font-family: inherit;
 }
 
 td img {
@@ -79,6 +122,10 @@ td img {
 tbody tr:nth-of-type(even) > th,
 tbody tr:nth-of-type(even) > td {
 	background-color: palette('gray', 'x-light');
+
+	@include media('<toggle-table-layout') {
+		background-color: transparent;
+	}
 }
 
 tfoot th,
