@@ -18,6 +18,8 @@
   translation: "Esses dados não se restringem a áreas específicas da cidade, mas a ela como um todo."
 - id: developedBy
   translation: "Desenvolvido por"
+- id: displaying
+  translation: "Exibindo"
 - id: district
   translation:
     one: "Distrito"
@@ -36,6 +38,8 @@
   translation: "Projeção da meta"
 - id: investiment
   translation: "Investimento"
+- id: of
+  translation: "De"
 - id: othersResources
   translation: "Outros recursos"
 - id: ownResources
