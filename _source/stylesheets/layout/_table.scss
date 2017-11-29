@@ -56,6 +56,12 @@ tr {
 
 th {
 	font-weight: bold;
+
+	color: palette('brown', 'light');
+
+	@include media('<toggle-table-layout') {
+		border-bottom: $stroke solid palette('orange', 'x-light');
+	}
 }
 
 thead th,

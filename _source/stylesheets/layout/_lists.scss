@@ -81,6 +81,10 @@ dd {
 
 dt {
 	font-weight: bold;
+
+	color: palette('brown', 'light');
+
+	border-bottom: $stroke solid palette('orange', 'x-light');
 }
 
 dd {
