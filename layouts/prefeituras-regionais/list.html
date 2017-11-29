@@ -19,7 +19,7 @@
 
 	{{ with $subprefectures.subprefectures }}
 		<section class="subprefectures">
-			<p><b id="js-filterable__counter">{{ len . }}</b> {{ i18n "regionalPrefecture" (len .) }}.</p>
+			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "regionalPrefecture" (len .) | lower }}.</p>
 
 			{{ partialCached "filterForm.html" . }}
 
