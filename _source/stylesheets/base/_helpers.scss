@@ -2,6 +2,10 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
+.no-js .js-only {
+	display: none !important; // sass-lint:disable-line no-important
+}
+
 /* CLASSES
 ============================================================================ */
 %loading-bg {
