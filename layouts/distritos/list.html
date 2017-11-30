@@ -17,11 +17,14 @@
 
 	{{ with $regions.regions }}
 		<section class="regions">
-			<p><b>{{ len . }}</b> {{ i18n "district" (len $regions.regions) | lower }}.</p>
-			<ul class="regions__list">
+			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "district" (len .) | lower }}.</p>
+
+			{{ partialCached "filterForm.html" . }}
+
+			<ul class="regions__list" id="js-filterable__list">
 				{{ range sort . "name" "asc" }}
-					<li id="region-{{ .id }}" class="regions__list-item">
-						<a href="/distritos/{{ .slug }}" class="regions__list-title">
+					<li id="region-{{ .id }}" class="regions__list-item js-filterable__item">
+						<a href="/distritos/{{ .slug }}" class="regions__list-title js-filterable__item">
 							{{ .name }}
 						</a>
 						{{ with .subprefecture }}
