@@ -10,6 +10,8 @@
     other: "Distritos beneficiados"
 - id: budget
   translation: "Orçamento"
+- id: compareTo
+  translation: "Comparar com"
 - id: costing
   translation: "Custeio"
 - id: currentSituation
@@ -36,6 +38,10 @@
     other: "Metas"
 - id: goalProjection
   translation: "Projeção da meta"
+- id: indicator
+  translation:
+    one: "Indicador"
+    other: "Indicadores"
 - id: investiment
   translation: "Investimento"
 - id: of

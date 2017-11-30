@@ -27,7 +27,7 @@
 			{{ $regions := getJSON "./static/dist/data/regions.json" }}
 			<section class="IOTA-indicators">
 				<h3>{{ i18n "indicator" (len .) | title }}</h3>
-				<p>{{ i18n "introIOTA" }}</p>
+				<p>{{ i18n "introIOTA" | markdownify }}</p>
 				<table id="js-districts-comparison__table">
 					<thead>
 						<th>{{ i18n "indicator" 1 | title }}</th>
@@ -81,9 +81,7 @@
 					<p><a href="{{ . }}">Website</a></p>
 				{{ end }}
 
-
 			{{ end }}
-
 
 			{{ with .region_variables }}
 			<table>
