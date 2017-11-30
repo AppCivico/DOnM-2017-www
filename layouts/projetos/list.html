@@ -12,7 +12,7 @@
 	{{ $projects := getJSON "./static/dist/data/projects.json" }}
 
 	{{ with $projects.projects }}
-		<section id="js-filterable__list">
+		<section>
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "project" (len .) | lower }}.</p>
 
 			{{ partialCached "filterForm.html" . }}
@@ -45,6 +45,7 @@
 					{{ end }}
 				</article>
 			{{ end }}
+
 		</section>
 	{{ end }}
 </main>

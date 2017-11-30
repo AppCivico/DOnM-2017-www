@@ -21,7 +21,7 @@
 
 			{{ partialCached "filterForm.html" . }}
 
-			<ul class="regions__list" id="js-filterable__list">
+			<ul class="regions__list">
 				{{ range sort . "name" "asc" }}
 
 					<li id="region-{{ .id }}" class="regions__list-item js-filterable__item">

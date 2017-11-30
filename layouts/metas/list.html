@@ -12,11 +12,12 @@
 	{{ $goals := getJSON "./static/dist/data/goals.json" }}
 
 	{{ with $goals.goals }}
-
-		<section class="goals-list" id="js-filterable__list">
+		<section class="goals-list">
 			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "goal" (len .) | lower }}.</p>
+
 			{{ partialCached "filterForm.html" . }}
+
 			{{ range sort . "id" "asc" }}
 				<article class="h-feed__h-entry h-entry js-filterable__item" id="goal-{{ .id }}">
 					<div class="h-entry__e-content e-content">
@@ -47,6 +48,7 @@
 					{{ end }}
 				</article>
 			{{ end }}
+
 		</section>
 	{{ end }}
 </main>
