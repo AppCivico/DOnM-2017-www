@@ -41,6 +41,7 @@
 
 		transition-duration: 1s !important;
 		transition-property: color, margin-bottom, max-height, opacity !important;
+
 		.h-feed & {
 			display: none;
 		}
