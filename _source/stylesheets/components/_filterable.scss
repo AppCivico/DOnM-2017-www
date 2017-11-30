@@ -19,6 +19,10 @@
 
 	&[hidden] {
 
+		.h-feed & {
+			display: none;
+		}
+
 		// sass-lint:disable-block no-important
 		max-height: 0 !important;
 
