@@ -51,7 +51,7 @@
 					{{ range . }}
 						<tr id="IOTA-indicators__{{ .id }}">
 							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
-							<td title="{{ $currentDistrict }}">{{ .value }}</td>
+							<td title="{{ $currentDistrict }}">{{ strings.TrimSuffix ".00" .value }}</td>
 							{{ if $regions.regions }}
 								<td title="" class="js-only js-districts-comparison__value" data-to-bind="{{ .id }}"></td>
 							{{ end }}

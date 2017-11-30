@@ -47,7 +47,7 @@ export default function initComparison() {
 						.map(x => x.regions
 							.filter(y => y.id === districtToCompareId)
 							.map(y => y.value)
-							.join('')).join('');
+							.join('')).join('').replace(/\.00$/, '');
 					comparisonItems[i].title = districtToCompareName;
 				}
 			});
