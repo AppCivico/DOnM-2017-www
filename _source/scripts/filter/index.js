@@ -9,7 +9,7 @@ export default function initFilter() {
 		return false;
 	}
 
-	filterableForm.submit = false;
+	filterableForm.onsubmit = false;
 
 	function filterBy() {
 		const filterTerm = filterableField.value.toLowerCase().trim();
