@@ -36,3 +36,11 @@
 		text-decoration: none;
 	}
 }
+
+.districts-comparison__field-wrapper {
+	@include media('<toggle-table-layout') {
+		display: block;
+
+		margin-bottom: $line-height * 1em;
+	}
+}

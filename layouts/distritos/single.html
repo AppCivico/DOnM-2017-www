@@ -1,4 +1,6 @@
-{{ partial "header.html" . }}
+{{ $.Scratch.Add "scriptsHeader" `
+<link rel="preload" href="/dist/data/variable.json" as="fetch" type="application/json">
+` }}{{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/region/" .Params.id ) }}
 
 {{ $region := getJSON $url }}
@@ -26,14 +28,14 @@
 			<section class="IOTA-indicators">
 				<h3>{{ i18n "indicator" (len .) | title }}</h3>
 				<p>{{ i18n "introIOTA" }}</p>
-				<table>
+				<table id="js-districts-comparison__table">
 					<thead>
 						<th>{{ i18n "indicator" 1 | title }}</th>
 						<td>{{ $currentDistrict }}</td>
 						{{ with $regions.regions }}
-							<td class="js-only">
+							<td class="js-only districts-comparison__field-wrapper">
 								{{ i18n "compareTo" }}
-								<select name="" id="">
+								<select id="js-districts-comparison__field">
 									<option></option>
 								{{ range sort . "name" "asc" }}
 									{{ if ne .name $currentDistrict }}
@@ -50,8 +52,8 @@
 						<tr id="IOTA-indicators__{{ .id }}">
 							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
 							<td title="{{ $currentDistrict }}">{{ .value }}</td>
-							{{ with $regions.regions }}
-								<td title="" class="js-only"></td>
+							{{ if $regions.regions }}
+								<td title="" class="js-only js-districts-comparison__value" data-to-bind="{{ .id }}"></td>
 							{{ end }}
 						</tr>
 					{{ end }}
