@@ -15,25 +15,32 @@
 	opacity: 1;
 
 	transition-duration: 1s;
-	transition-property: color, margin-bottom, max-height, opacity;
+	transition-property: color, margin-top, margin-bottom, padding-top, padding-bottom, max-height, opacity;
 
 	&[hidden] {
-		max-height: 0;
 
-		margin-bottom: 0;
+		// sass-lint:disable-block no-important
+		max-height: 0 !important;
 
-		overflow-x: visible;
-		overflow-y: hidden;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
 
-		color: palette('disabled', 'foreground');
+		overflow-x: visible !important;
+		overflow-y: hidden !important;
 
-		opacity: 0;
+		color: palette('disabled', 'foreground') !important;
 
-		transition-duration: 1s;
-		transition-property: color, margin-bottom, max-height, opacity;
+		border: 0 !important;
+
+		opacity: 0 !important;
+
+		transition-duration: 1s !important;
+		transition-property: color, margin-bottom, max-height, opacity !important;
 
 		& * {
-			color: inherit;
+			color: inherit !important;
 		}
 	}
 }
