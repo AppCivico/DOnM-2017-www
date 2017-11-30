@@ -48,10 +48,12 @@ legend {
 }
 
 label {
-	padding: 0;
+	display: block;
+
+	padding: 0 0 $line-height * 1rem;
 	margin: 0;
 
-	font-size: small;
+	font-size: ms(-1);
 	line-height: inherit;
 
 	cursor: pointer;

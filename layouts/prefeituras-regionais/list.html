@@ -24,7 +24,7 @@
 
 			<ul class="subprefectures__list">
 				{{ range sort . "name" "asc" }}
-					<li id="subprefectures-{{ .id }}" class="subprefectures__item js-filterable__item">
+					<li id="subprefectures-{{ .id }}" class="subprefectures__item js-filterable__item filterable__item">
 						<a href="/prefeituras-regionais/{{ .slug }}">
 							{{ .name }}
 						</a>

@@ -19,7 +19,7 @@
 
 			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "project" (len .) }}.</p>
 			{{ range sort . "id" "asc" }}
-				<article class="h-feed__h-entry h-entry js-filterable__item" id="project-{{ .id }}">
+				<article class="h-feed__h-entry h-entry js-filterable__item filterable__item" id="project-{{ .id }}">
 					<div class="h-entry__e-content .e-content">
 						<h2 class="h-entry__p-name p-name">
 							<a href="/projetos/{{ .slug }}">

@@ -24,7 +24,7 @@
 			<ul class="regions__list">
 				{{ range sort . "name" "asc" }}
 
-					<li id="region-{{ .id }}" class="regions__list-item js-filterable__item">
+					<li id="region-{{ .id }}" class="regions__list-item js-filterable__item filterable__item">
 						<a href="/distritos/{{ .slug }}" class="regions__list-title">
 						{{ .name }}
 						</a>
