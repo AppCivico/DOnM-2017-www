@@ -1,0 +1,52 @@
+.topics__list {
+	@include table-layout-wrapper;
+
+	width: 100%;
+
+	padding-left: 50px;
+	margin-right: auto;
+	margin-left: auto;
+
+	text-align: center;
+	text-decoration: none;
+}
+
+.topic__item {
+	@include table-layout-item;
+
+	width: 20%;
+	height: 180px;
+
+	vertical-align: middle;
+
+	list-style-type: none;
+
+	&::before {
+		content: none;
+	}
+}
+
+.topic__item--1 {
+	background-image: image('desenvolvimento-humano.png');
+	background-position: cover;
+}
+
+.topic__item--2 {
+	background-image: image('desenvolvimento-social.png');
+	background-position: cover;
+}
+
+.topic__item--3 {
+	background-image: image('desenvolvimento-urbano.png');
+	background-position: cover;
+}
+
+.topic__item--4 {
+	background-image: image('desenvolvimento-institucional.png');
+	background-position: cover;
+}
+
+.topic__item--5 {
+	background-image: image('economico-e-gestao.png');
+	background-position: cover;
+}
