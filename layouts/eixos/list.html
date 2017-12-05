@@ -5,19 +5,16 @@
 	{{ $topics := getJSON "./static/dist/data/topic.json" }}
 
 	<header>
-
 		<h1>
 			{{ i18n "topic" (len $topics.topics) }}
 		</h1>
-
-		{{ with .Content }}
-			<section>
-				{{ . }}
-			</section>
-		{{ end }}
-
 	</header>
 
+	{{ with .Content }}
+		<section>
+			{{ . }}
+		</section>
+	{{ end }}
 
 	{{ with $topics.topics }}
 		<section class="topics">
