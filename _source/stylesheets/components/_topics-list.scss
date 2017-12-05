@@ -1,52 +1,113 @@
 .topics__list {
-	@include table-layout-wrapper;
-
 	width: 100%;
 
-	padding-left: 50px;
-	margin-right: auto;
-	margin-left: auto;
+	padding: 0;
+	margin-right: 0;
+	margin-left: 0;
 
 	text-align: center;
 	text-decoration: none;
+
+	@include media('>=desktop') {
+		@include table-layout-wrapper {
+			border-spacing: gutter();
+
+			table-layout: fixed;
+			border-collapse: separate;
+		}
+	}
 }
 
 .topic__item {
-	@include table-layout-item;
+	@include aspect-ratio (8 x 3);
 
-	width: 20%;
-	height: 180px;
+	padding-top: $line-height * 2em;
+	padding-bottom: $line-height * 8em;
+	padding-left: gutter() / 2;
+	margin-bottom: $line-height * 1em;
 
-	vertical-align: middle;
+	overflow: hidden;
 
 	list-style-type: none;
 
-	&::before {
-		content: none;
+	background-position: 50% 100%;
+	background-size: cover;
+
+	@include media('>=tablet') {
+		padding-bottom: $line-height * 2em;
 	}
+
+	@include media('>=desktop') {
+		@include table-layout-item;
+
+		padding-top: 180px;
+		padding-bottom: 180px;
+
+		vertical-align: top;
+
+		&::before,
+		&::after {
+			float: none;
+
+			padding: 0;
+
+			content: none;
+		}
+	}
+
+	&::before {
+		content: '';
+	}
+}
+
+.topic__item dt,
+.topic__item dd {
+	max-width: span(3);
+
+	padding: gutter() / 2;
+	margin-right: 0;
+	margin-left: auto;
+
+	background-color: palette('white');
+
+	box-shadow: 0 4px 2px palette('shadow');
+}
+
+.topic__item dt {
+	margin-bottom: 2px;
+
+	border: 0;
+}
+
+.topic__item dd {
+	font-size: ms(-1);
+}
+
+.topic__item > a {
+	@include link-undercover;
+
+	position: relative;
+	top: 0;
+
+	display: block;
 }
 
 .topic__item--1 {
 	background-image: image('desenvolvimento-humano.png');
-	background-position: cover;
 }
 
 .topic__item--2 {
 	background-image: image('desenvolvimento-social.png');
-	background-position: cover;
 }
 
 .topic__item--3 {
 	background-image: image('desenvolvimento-urbano.png');
-	background-position: cover;
 }
 
 .topic__item--4 {
 	background-image: image('desenvolvimento-institucional.png');
-	background-position: cover;
 }
 
 .topic__item--5 {
-	background-image: image('economico-e-gestao.png');
-	background-position: cover;
+	background-image: image('desenvolvimento-economico-e-gestao.png');
 }
