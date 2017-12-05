@@ -158,6 +158,10 @@ section {
 	display: block;
 }
 
+section {
+	margin-bottom: $line-height * 1em;
+}
+
 /*
  * Add the correct display in all browsers.
  */

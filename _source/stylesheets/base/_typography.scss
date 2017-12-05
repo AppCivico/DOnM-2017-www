@@ -184,6 +184,10 @@ article p {
 
 	orphans: 3;
 	widows: 3;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 article p + p {
