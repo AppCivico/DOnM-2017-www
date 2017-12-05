@@ -18,18 +18,22 @@
 
 	{{ with $topics.topics }}
 		<section class="topics">
-			<ul class="topics__list">
+			<dl class="topics__list">
 				{{ range sort . "name" "asc" }}
-
-					<li id="topic-{{ .id }}" class="topic__item topic__item--{{ .id }}">
-						<a href="/eixos/{{ .slug }}">
-							{{ .name | humanize }}
-						</a>
-					</li>
-
+					<div id="topic-{{ .id }}" class="topic__item topic__item--{{ .id }}">
+						<dt>
+							<a href="/eixos/{{ .slug }}">
+								{{ .name | humanize }}
+							</a>
+						</dt>
+						<dd>
+							<p>
+								{{ .description | markdownify }}
+							</p>
+						</dd>
+					</div>
 				{{ end }}
-			</ul>
-
+			</dl>
 		</section>
 	{{ end }}
 
