@@ -12,7 +12,6 @@
 	margin-right: 0;
 	margin-left: 0;
 
-	text-align: center;
 	text-decoration: none;
 
 	@include media('>=desktop') {
@@ -94,7 +93,7 @@
 
 	z-index: layer('default');
 
-	max-width: span(3);
+	max-width: span(3) / 1em * 1rem;
 
 	padding: gutter() / 2;
 	margin-right: 0;
@@ -106,8 +105,6 @@
 }
 
 .topic__item dt {
-	margin-bottom: 2px;
-
 	border: 0;
 }
 
