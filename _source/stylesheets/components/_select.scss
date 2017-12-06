@@ -19,9 +19,18 @@ option {
  * 2. Revert to default for Edge
  */
 select {
+	@extend %os-element-reset;
+
+	text-indent: 0.01px; // sass-lint:disable-line property-units
+	text-overflow: '';
+
+	background-image: url('data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==');
+	background-position: 95% 50%;
+
 	box-sizing: content-box;
 
-	-webkit-appearance: menulist-button; /* 1. Mac Aqua off */ // sass-lint:disable-line no-vendor-prefixes
+	-moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+	appearance: none;
 
 	@supports (-ms-accelerator: true) {
 		-webkit-appearance: menulist; /* 2 */ // sass-lint:disable-line no-vendor-prefixes
