@@ -26,8 +26,6 @@
   translation:
     one: "Distrito"
     other: "Distritos"
-- id: districtFile
-  translation: "Ficha do distrito"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: filterBy
@@ -88,6 +86,8 @@
   translation:
     one: "Subprefeitura"
     other: "Subprefeituras"
+- id: subprefectureFile
+  translation: "Ficha da Prefeitura Regional"
 - id: textProgress
   translation: "Progresso de acordo com a prefeitura."
 - id: topic
