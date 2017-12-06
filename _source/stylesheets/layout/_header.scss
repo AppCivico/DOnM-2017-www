@@ -18,15 +18,30 @@
 
 	padding-top: gutter();
 
+	background-image: image('photo_2017-12-06_10-20-11__first-plan.jpg');
+	background-position: -110% 23px;
+	background-repeat: repeat-x;
 	background-color: palette('white');
 
 	box-shadow: 0 16px 24px palette('shadow');
+
+	@include media('>=480px') {
+		background-image: image('photo_2017-12-06_10-20-11__first-plan.jpg'), image('photo_2017-12-06_10-20-11__last-plan.jpg');
+		background-position: 35% 100%, 75% 100%;
+		background-repeat: no-repeat, repeat-x;
+	}
+
+	@include media('>=desktop') {
+		background-image: image('photo_2017-12-06_10-20-11.jpg');
+		background-position: center bottom;
+		background-repeat: repeat-x;
+	}
 }
 
 [role='banner'] {
 	position: relative;
 
-	height: span(1 'wider');
+	height: span(2);
 	max-width: $max-width;
 
 	padding-top: (gutter() / 2);
@@ -35,6 +50,14 @@
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;
+
+	@include media('>=480px') {
+		height: span(3);
+	}
+
+	@include media('>=desktop') {
+		height: span(2);
+	}
 
 	@include media('>=12col') {
 		margin-bottom: (gutter() * -2);
