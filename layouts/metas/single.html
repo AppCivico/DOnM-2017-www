@@ -71,10 +71,10 @@
 		</section>
 
 		<section class="districts">
-			<h2>{{ i18n "benefitedDistrict" (len .) }}</h2>
-			{{ if .regions }}
+			<h2>{{ i18n "benefitedSubprefectures" (len .) }}</h2>
+			{{ if .subprefectures }}
 				<ul class="district-list">
-					{{ range .regions }}
+					{{ range .subprefectures }}
 						<li>
 							{{ with .slug }}
 								<a href="/distritos/{{ . }}">
@@ -90,9 +90,9 @@
 				<p class="warning">{{ i18n "dataNotRestrictedToARegion" }}</p>
 			{{ end }}
 			<div id="map" class="map"
-				{{ if .regions }}
-					data-to-draw="regions cities"
-					data-regions-to-draw="{{ range .regions }}{{ .id }} {{ end }}"
+				{{ if .subprefectures }}
+					data-to-draw="subprefectures cities"
+					data-subprefectures-to-draw="{{ range .subprefectures }}{{ .id }} {{ end }}"
 				{{ else }}
 					data-to-draw="cities"
 					data-zoom="+1"

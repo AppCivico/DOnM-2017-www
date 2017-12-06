@@ -4,10 +4,10 @@
     other: "Linhas de ação"
 - id: associatedActionLine
   translation: "Linhas de ação associadas"
-- id: benefitedDistrict
+- id: benefitedSubprefectures
   translation:
-    one: "Distrito beneficiado"
-    other: "Distritos beneficiados"
+    one: "Prefeitura regional beneficiada"
+    other: "Prefeituras regionais beneficiadas"
 - id: budget
   translation: "Orçamento"
 - id: compareTo
