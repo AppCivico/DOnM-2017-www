@@ -1,3 +1,10 @@
+.topics {
+	@include media('>=desktop') {
+		margin-right: gutter() * -1;
+		margin-left: gutter() * -1;
+	}
+}
+
 .topics__list {
 	width: 100%;
 
