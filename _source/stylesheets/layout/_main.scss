@@ -30,6 +30,10 @@
 	}
 }
 
+.content-container {
+	flex: 1 0 auto;
+}
+
 main,
 [role='main'] {
 	clear: both;
