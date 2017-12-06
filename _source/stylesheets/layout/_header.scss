@@ -33,7 +33,7 @@
 
 	@include media('>=desktop') {
 		background-image: image('photo_2017-12-06_10-20-11.jpg');
-		background-position: center bottom;
+		background-position: center top;
 		background-repeat: repeat-x;
 	}
 }
