@@ -29,21 +29,21 @@ menu:
         Weight: 3
         Identifier: "metas"
         URL: "/metas/"
-      - Name: "Indicadores"
+      - Name: "Projetos"
         Pre: ""
         Weight: 4
-        Identifier: "indicadores"
-        URL: "/indicadores/"
+        Identifier: "projetos"
+        URL: "/projetos/"
       - Name: "Linhas de ação"
         Pre: ""
         Weight: 5
         Identifier: "linhas-de-acao"
         URL: "/linhas-de-acao/"
-      - Name: "Dados abertos"
+      - Name: "Eixos"
         Pre: ""
         Weight: 6
-        Identifier: "dados-abertos"
-        URL: "/dados-abertos/"
+        Identifier: "eixos"
+        URL: "/eixos/"
 
   footer:
       - Name: "O que é?"
@@ -61,41 +61,41 @@ menu:
         Weight: 3
         Identifier: "metas"
         URL: "/metas/"
-      - Name: "Indicadores"
+      - Name: "Projetos"
         Pre: ""
         Weight: 4
-        Identifier: "indicadores"
-        URL: "/indicadores/"
+        Identifier: "projetos"
+        URL: "/projetos/"
       - Name: "Linhas de ação"
         Pre: ""
         Weight: 5
         Identifier: "linhas-de-acao"
         URL: "/linhas-de-acao/"
-      - Name: "Dados abertos"
-        Pre: ""
-        Weight: 6
-        Identifier: "dados-abertos"
-        URL: "/dados-abertos/"
-      - Name: "Distritos"
-        Pre: ""
-        Weight: 7
-        Identifier: "distritos"
-        URL: "/distritos/"
-      - Name: "Projetos"
-        Pre: ""
-        Weight: 8
-        Identifier: "projetos"
-        URL: "/projetos/"
       - Name: "Eixos"
         Pre: ""
-        Weight: 9
+        Weight: 6
         Identifier: "eixos"
         URL: "/eixos/"
+      - Name: "Indicadores"
+        Pre: ""
+        Weight: 7
+        Identifier: "indicadores"
+        URL: "/indicadores/"
+      - Name: "Distritos"
+        Pre: ""
+        Weight: 8
+        Identifier: "distritos"
+        URL: "/distritos/"
       - Name: "Gestão anterior"
         Pre: ""
-        Weight: 10
+        Weight: 9
         Identifier: "gestao-anterior"
         URL: "http://2013.deolhonasmetas.org.br"
+      - Name: "Dados abertos"
+        Pre: ""
+        Weight: 10
+        Identifier: "dados-abertos"
+        URL: "/dados-abertos/"
 params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
