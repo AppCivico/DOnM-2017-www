@@ -35,7 +35,7 @@
 						{{ with $regions.regions }}
 							<td class="js-only districts-comparison__field-wrapper">
 								{{ i18n "compareTo" }}
-								<select id="js-districts-comparison__field">
+								<select id="js-districts-comparison__field" class="districts-comparison__field">
 									<option></option>
 								{{ range sort . "name" "asc" }}
 									{{ if ne .name $currentDistrict }}
