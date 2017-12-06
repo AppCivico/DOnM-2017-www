@@ -22,7 +22,7 @@
 				{{ range sort . "name" "asc" }}
 					<a href="/eixos/{{ .slug }}" id="topic-{{ .id }}" class="topic__item topic__item--{{ .id }}">
 						<dt>
-								{{ .name | humanize }}
+							{{ .name | humanize }}
 						</dt>
 						<dd>
 							<p>
