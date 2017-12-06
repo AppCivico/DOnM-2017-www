@@ -5,7 +5,6 @@
 
 {{ with $topics.topic }}
 
-
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -16,14 +15,15 @@
 			<h1>
 				{{ .name }}
 			</h1>
-
-			{{ with .description }}
-				<p>
-					{{ . }}
-				</p>
-			{{ end }}
-
 		</header>
+
+		{{ with .description }}
+			<section>
+				<p>
+					{{ . | markdownify }}
+				</p>
+			</section>
+		{{ end }}
 
 		{{ with .goals }}
 			<section class="h-feed">
