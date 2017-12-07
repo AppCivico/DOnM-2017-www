@@ -38,6 +38,8 @@
 }
 
 .districts-comparison__field-wrapper {
+	white-space: normal;
+
 	@include media('<toggle-table-layout') {
 		display: block;
 

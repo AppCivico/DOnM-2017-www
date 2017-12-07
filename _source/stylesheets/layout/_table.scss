@@ -67,6 +67,7 @@ th {
 thead th,
 thead td {
 	text-align: right;
+	white-space: nowrap;
 	vertical-align: bottom;
 
 	border-bottom: $stroke solid palette('border');
