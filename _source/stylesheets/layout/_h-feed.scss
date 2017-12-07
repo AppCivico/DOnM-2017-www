@@ -2,21 +2,6 @@
 * @see http://microformats.org/wiki/h-feed
 */
 .h-feed {
-	max-width: $max-width;
-
-	padding-right: gutter() / 1em * 1rem;
-	padding-left: gutter() / 1em * 1rem;
-	margin: 0 auto;
-
-	@include media('>=10col') {
-		@include fallback('max-width', $max-width / 1em * 1rem);
-		@include inline-block-wrapper;
-
-		display: block;
-
-		padding-right: gutter() / 2em * 1rem;
-		padding-left: gutter() / 2em * 1rem;
-	}
 }
 
 .h-feed > section {
@@ -39,6 +24,23 @@
 }
 
 .h-feed__u-photo {
+}
+
+.h-feed__h-entry-wrapper {
+	padding-top: span(1) / 1em * -1rem;
+	padding-bottom: span(1) / 1em * -1rem;
+
+	@include media('>=10col') {
+		@include fallback('max-width', $max-width / 1em * 1rem);
+		@include inline-block-wrapper;
+
+		display: block;
+
+		padding-right: gutter() / 2em * 1rem;
+		padding-left: gutter() / 2em * 1rem;
+		margin-right: gutter() / 1em * -1rem;
+		margin-left: gutter() / 1em * -1rem;
+	}
 }
 
 .h-feed .h-entry {
