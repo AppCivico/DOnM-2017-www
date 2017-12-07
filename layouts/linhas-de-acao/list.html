@@ -4,7 +4,7 @@
 
 {{ $action_lines := getJSON "./static/dist/data/action_lines.json" }}
 
-<article id="conteudo" class="h-entry">
+<article id="conteudo" class="h-entry" role="main">
 	<header>
 		<h1>
 			{{ i18n "actionLine" (len $action_lines.action_lines) }}
