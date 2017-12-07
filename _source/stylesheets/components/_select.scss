@@ -19,6 +19,7 @@ option {
  * 2. Revert to default for Edge
  */
 select {
+	// sass-lint:disable-block property-sort-order
 	@extend %os-element-reset;
 
 	text-indent: 0.01px; // sass-lint:disable-line property-units
