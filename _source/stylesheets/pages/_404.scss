@@ -1,10 +1,14 @@
 .not-found-page {
+	background: palette('white');
 }
 
 .not-found-page .site-header {
 	margin-bottom: 0;
-}
 
+	background: transparent;
+
+	box-shadow: none;
+}
 .not-found-page [role='banner'] > a {
 	margin-right: auto;
 	margin-left: auto;
@@ -18,11 +22,13 @@
 	padding-top: $line-height * 2em;
 	padding-bottom: 0;
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: span(1);
 
 	background-image: image('404--320w.jpg');
 	background-position: 50% 50%;
 	background-size: cover;
+
+	box-shadow: 0 4px 2px palette('shadow');
 
 	@include media('>=480px') {
 		background-image: image('404--480w.jpg');
@@ -54,14 +60,13 @@
 }
 
 .not-found-page p {
-	@include visually-hidden;
+	@include image-replacement (false);
+}
 
-	max-width: $max-width;
-
-	margin-right: auto;
-	margin-left: auto;
-
-	text-align: center;
-
-	background-color: palette('white');
+[href='/'] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
