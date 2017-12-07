@@ -5,8 +5,8 @@
 
 		display: block;
 
-		padding-right: gutter() / 2;
-		padding-left: gutter() / 2;
+		padding-right: gutter() / 2em * 1rem;
+		padding-left: gutter() / 2em * 1rem;
 	}
 
 	.faq.h-entry > details {
