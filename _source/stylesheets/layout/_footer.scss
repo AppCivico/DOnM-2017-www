@@ -24,14 +24,20 @@
  */
 [role='contentinfo'] {
 	width: 100%;
-	max-width: $max-width - gutter();
+	max-width: $max-width;
 
-	padding: gutter() gutter() / 2;
+	padding: gutter();
 	margin: 0 auto;
 
 	@include media('>=6col') {
 		@include table-layout-wrapper {
+			padding-right: 0;
+			padding-left: 0;
+
+			border-spacing: gutter();
+
 			table-layout: fixed;
+			border-collapse: separate;
 		}
 	}
 }
@@ -52,17 +58,12 @@
 		@include table-layout-item;
 	}
 
-	@include media('>=6col', '<#{$max-width - gutter()}') {
-		padding: gutter() / 2;
-	}
-
 	.grid & {
 		outline: 1px solid palette('gray');
 	}
 }
 
 [role='contentinfo'] h5 {
-	padding: gutter() / 2;
 	margin: 0 0 $line-height * 1rem;
 
 	font-size: ms(-1);
@@ -76,8 +77,6 @@
 
 [role='contentinfo'] li {
 	@include inline-block-item;
-
-	padding: gutter() / 2;
 }
 
 [role='contentinfo'] img {
