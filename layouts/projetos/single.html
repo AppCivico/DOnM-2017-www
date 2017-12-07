@@ -21,12 +21,12 @@
 
 		<section class="situation">
 			<h3>{{ i18n "currentSituation" }}</h3>
-			<p>{{ .current_scenario }}</p>
+			<p>{{ .current_scenario | markdownify }}</p>
 		</section>
 
 		<section class="expected-results">
-			<h3> {{ i18n "expectedResults" }}</h3>
-			<p>{{ .expected_results }}</p>
+			<h3>{{ i18n "expectedResults" }}</h3>
+			<p>{{ .expected_results | markdownify }}</p>
 		</section>
 
 		<section class="budget">
