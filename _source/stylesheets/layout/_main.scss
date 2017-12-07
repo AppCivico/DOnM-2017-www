@@ -38,14 +38,11 @@ main,
 [role='main'] {
 	clear: both;
 
-	margin-top: span(1);
-	margin-bottom: span(1);
-}
-
-article[role='main'] {
 	max-width: $max-width;
 
 	padding: gutter();
+	margin-top: span(1);
 	margin-right: auto;
+	margin-bottom: span(1);
 	margin-left: auto;
 }
