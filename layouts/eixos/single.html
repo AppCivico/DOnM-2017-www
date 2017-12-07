@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ $.Scratch.Add "rootClass" "topic-page" }}{{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/topic/" .Params.id ) }}
 
 {{ $topics := getJSON $url }}
@@ -28,27 +28,28 @@
 		{{ with .goals }}
 			<section class="h-feed">
 				<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
+				<div class="h-feed__h-entry-wrapper">
+					{{ range sort . "id" "asc" }}
+						<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
+							<div class="h-entry__e-content e-content">
+								<h2 class="h-entry__p-name p-name">
+									<a href="/metas/{{ .slug }}">
+										{{ i18n "goal" 1 }} <strong class="id">{{ .id }}</strong>
+									</a>
+								</h2>
+								<p>{{ .title }}</p>
 
-				{{ range sort . "id" "asc" }}
-					<article class="h-feed__h-entry h-entry" id="goal-{{ .id }}">
-						<div class="h-entry__e-content e-content">
-							<h2 class="h-entry__p-name p-name">
-								<a href="/metas/{{ .slug }}">
-									{{ i18n "goal" 1 }} <strong class="id">{{ .id }}</strong>
-								</a>
-							</h2>
-							<p>{{ .title }}</p>
+								{{ with .topic }}
+									<footer>
+										{{ i18n "topicTitleCase" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+									</footer>
+								{{ end }}
 
-							{{ with .topic }}
-								<footer>
-									{{ i18n "topicTitleCase" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
-								</footer>
-							{{ end }}
+							</div>
 
-						</div>
-
-					</article>
-				{{ end }}
+						</article>
+					{{ end }}
+				</div>
 			</section>
 
 		{{ end }}
