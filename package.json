@@ -21,6 +21,7 @@
     "compress:css": "postcss --use autoprefixer cssnano --safe -r ./static/dist/css/**/*.css",
     "compress:img": "imagemin \"./_source/images/**/*.{gif,jpg,png,svg}\" --out-dir=./static/dist/img",
     "compile:js": "browserify ./_source/scripts/index.js -o ./static/dist/js/index.js -t [ babelify ]",
+    "prelint": "rimraf ./_testReports/**/*.xml",
     "lint": "npm-run-all --parallel lint:*",
     "lint:es": "eslint --ext .es,.js \"./_source/scripts/**\" --format junit --output-file ./_testReports/esLint.xml",
     "lint:sass": "sass-lint \"./_source/stylesheets/**/*.scss\" --verbose --no-exit --format junit --output ./_testReports/sassLint.xml",
