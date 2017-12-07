@@ -41,6 +41,7 @@
 		transition-duration: 1s !important;
 		transition-property: color, margin-bottom, max-height, opacity !important;
 
+		&.action-lines__list-item,
 		.h-feed & {
 			display: none;
 		}

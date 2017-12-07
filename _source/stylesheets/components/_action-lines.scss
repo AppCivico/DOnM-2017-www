@@ -2,27 +2,47 @@
 }
 
 .action-lines__list {
-	display: table;
+	@include media('>=10col') {
+		@include inline-block-wrapper;
 
-	width: 100%;
-	max-width: 44em;
+		padding-right: gutter() / 2em * 1rem;
+		padding-left: gutter() / 2em * 1rem;
+		margin-right: gutter() / 1em * -1rem;
+		margin-left: gutter() / 1em * -1rem;
+	}
 }
 
 .action-lines__list-item {
-	display: table-row;
-}
+	@include clearfix;
 
-.action-lines__item-id,
-.action-lines__item-title {
-	display: table-cell;
+	margin-bottom: $line-height * 1em;
 
-	vertical-align: middle;
+	@include media('>=10col') {
+		@include inline-block-item;
+
+		width: 50%;
+
+		padding-right: gutter() / 2em * 1rem;
+		padding-left: gutter() / 2em * 1rem;
+
+		&.filterable__item {
+			display: inline-block;
+		}
+	}
 }
 
 .action-lines__item-id {
+	float: left;
+
+	width: span(1) / 1em * 1rem;
+
 	font-size: ms(2);
 
 	color: palette('gray');
 
 	border-bottom: 0;
+}
+
+.action-lines__item-title {
+	margin-left: span(1 'wide');
 }
