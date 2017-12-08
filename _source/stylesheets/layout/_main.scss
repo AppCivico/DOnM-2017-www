@@ -43,6 +43,6 @@ main,
 	padding: gutter();
 	margin-top: span(1);
 	margin-right: auto;
-	margin-bottom: span(1);
+	margin-bottom: $line-height * 1em;
 	margin-left: auto;
 }

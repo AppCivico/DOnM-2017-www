@@ -1,9 +1,16 @@
+.faq.h-entry {
+	@include fallback('max-width', $max-width / 1em * 1rem);
+
+	padding-right: gutter();
+	padding-left: gutter();
+}
+
+.faq.h-entry > details {
+}
+
 @include media ('>=10col') {
 	.faq.h-entry {
-		@include fallback('max-width', $max-width / 1em * 1rem);
 		@include inline-block-wrapper;
-
-		display: block;
 
 		padding-right: gutter() / 2em * 1rem;
 		padding-left: gutter() / 2em * 1rem;
