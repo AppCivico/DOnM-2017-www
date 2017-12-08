@@ -160,7 +160,14 @@ menu,
 nav,
 section {
 	display: block;
+}
 
+article,
+aside,
+footer,
+header,
+main,
+section {
 	margin-bottom: $line-height * 1em;
 }
 
