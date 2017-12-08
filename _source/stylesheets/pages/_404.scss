@@ -10,6 +10,12 @@
 	box-shadow: none;
 }
 
+.not-found-page [role='banner'] {
+	@include media('>=12col') {
+		margin-bottom: 0;
+	}
+}
+
 .not-found-page [role='banner'] > a {
 	margin-right: auto;
 	margin-left: auto;
