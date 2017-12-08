@@ -9,10 +9,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Added
 
+- action lines data
+- IOTA variables data
 - development credits
+- districts pages
+- link to previous version
+- lists filter
 - menu and FAQ animations
 - partners logos
+- subprefectures data
+- topics data
 
+## Changed
+
+- layout overall
+
+## Fixed
+
+- districts lists and pages layout
+
+## Removed
+
+- link to deprecated page Companies
 
 ## [0.1.1][] - 2017-10-11
 
