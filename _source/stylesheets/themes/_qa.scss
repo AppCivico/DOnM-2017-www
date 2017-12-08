@@ -149,7 +149,6 @@ link[rel='stylesheet'][type='text/css'] {
 p:empty:not([id]),
 li:empty:not([id]),
 th:empty:not([id]),
-td:empty:not([id]),
 div:empty:not([id]),
 span:empty:not([id]) {
 	@extend %error;
