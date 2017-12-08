@@ -3,10 +3,15 @@ import apiSources from '../apiSources.json';
 export default function initComparison() {
 	const comparisonField = document.getElementById('js-districts-comparison__field');
 	let comparisonTable = document.getElementById('js-districts-comparison__table');
+
+	if (comparisonField === null || comparisonTable === null) {
+		return false;
+	}
+
 	const filledComparisonTable = comparisonTable.cloneNode(true);
 	const comparisonItems = filledComparisonTable.querySelectorAll('.js-districts-comparison__value');
 
-	if (comparisonItems.length === 0 || comparisonField === null || comparisonTable === null) {
+	if (comparisonItems.length === 0) {
 		return false;
 	}
 
