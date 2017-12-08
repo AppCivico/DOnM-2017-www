@@ -42,6 +42,8 @@
   translation:
     one: "Indicador"
     other: "Indicadores"
+- id: introIOTA
+  translation: "Principais indicadores relacionadas a qualidade de vida nos distritos da cidade compilados pela [Rede Nossa São Paulo](http://www.nossasaopaulo.org.br/). Os dados exibidos são referentes ao último ano disponível."
 - id: investiment
   translation: "Investimento"
 - id: of
@@ -98,6 +100,12 @@
     other: "Eixos"
 - id: value
   translation: "Valor"
+- id: variable
+  translation:
+    one: "Indicadores do distrito"
+    other: "Indicador do distrito"
+- id: via
+  translation: "Via"
 
 #404
 - id: notFoundTitleCase
