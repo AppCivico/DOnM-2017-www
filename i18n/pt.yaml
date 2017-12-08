@@ -37,7 +37,7 @@
 - id: goalProjection
   translation: "Projeção da meta"
 - id: in
-  translation: "em"
+  translation: "Em"
 - id: indicator
   translation:
     one: "Indicador"

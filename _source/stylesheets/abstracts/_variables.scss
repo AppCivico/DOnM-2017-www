@@ -160,7 +160,7 @@ $palette: (
 	'placeholder': hsl(0, 0%, 34%),
 	'selection': rgb(20, 105, 140),
 	'tap-highlight': rgb(255, 94, 153),
-	'target-highlight': rgb(255, 255, 102),
+	'target-highlight': $_orange--light,
 	'text': (
 		'dark': hsl(0, 0%, 13%),
 		'light': rgb(229, 231, 234),

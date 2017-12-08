@@ -127,7 +127,9 @@ td img {
 }
 
 td small {
-	display: block;
+	vertical-align: baseline;
+
+	color: palette('gray', 'base');
 }
 
 tbody tr:nth-of-type(even) > th,

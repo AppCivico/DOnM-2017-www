@@ -1,4 +1,4 @@
-.custom-info-panel {
+%custom-tooltip {
 	z-index: layer('modal');
 
 	padding: gutter() / 2;
@@ -7,13 +7,13 @@
 
 	text-align: center;
 
+	pointer-events: none;
+
+	color: palette('text', 'dark');
+
 	background-color: palette('white');
 
 	border-top: $stroke solid palette('border', 'focus');
-
-	transform: translate(calc(-50% - 20px), calc(-100% - 20px - #{gutter()}));
-	transform-origin: left top;
-	transform-style: preserve-3d;
 
 	box-shadow: 0 4px 2px palette('shadow');
 
@@ -42,6 +42,13 @@
 
 		color: palette('white');
 	}
+}
+
+.custom-info-panel {
+	@extend %custom-tooltip;
+
+	transform: translate(calc(-50% - 20px), calc(-100% - 20px - #{gutter()}));
+	transform-origin: left top;
 }
 
 .custom-info-panel dl {

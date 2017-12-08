@@ -46,3 +46,63 @@
 		margin-bottom: $line-height * 1em;
 	}
 }
+
+.districts-comparison__table {
+	animation: highlight 0.8s ease-out;
+}
+
+.districts-comparison__year {
+	font-style: italic;
+
+	&::before {
+		display: block;
+
+		content: '';
+	}
+}
+
+.districts-comparison__source {
+	position: relative;
+
+	font-style: italic;
+
+	cursor: help;
+
+	border-bottom: 1px dotted;
+
+	&:focus {
+		outline: 0;
+	}
+
+	@supports (text-decoration: dotted underline) {
+		text-decoration: dotted underline;
+
+		border-bottom: inherit;
+	}
+}
+
+.districts-comparison__source > b {
+	@extend %custom-tooltip; // sass-lint:disable-line placeholder-in-extend
+
+	position: absolute;
+	bottom: $line-height * 1em;
+	left: 50%;
+
+	display: none;
+
+	min-width: span(2);
+
+	font-style: normal;
+	font-weight: normal;
+
+	text-decoration: none;
+
+	border-bottom: inherit;
+
+	transform: translateX(-50%);
+}
+
+.districts-comparison__source:focus > b,
+.districts-comparison__source:hover > b {
+	display: block;
+}

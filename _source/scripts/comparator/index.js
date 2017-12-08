@@ -57,6 +57,7 @@ export default function initComparison() {
 					comparisonItems[i].textContent = comparisonValues.value.replace(/\.00$/, '');
 					comparisonItems[i].innerHTML += districtValueTemplate;
 					comparisonItems[i].querySelector('[data-to-bind="year"]').textContent = comparisonValues.year;
+					comparisonItems[i].querySelector('[data-to-bind="source"]').textContent = comparisonValues.source;
 					comparisonItems[i].title = districtToCompareName;
 				}
 
