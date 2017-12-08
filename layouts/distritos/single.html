@@ -24,18 +24,22 @@
 		</section>
 
 		{{ with .variables }}
+			<script type="text/tempalte" id="js-districts-comparison__field-template">
+				<small>({{ i18n "in" }} <b data-to-bind="year"></b>)</small>
+			</script>
+
 			{{ $regions := getJSON "./static/dist/data/regions.json" }}
 			<section class="IOTA-indicators">
 				<h3>{{ i18n "indicator" (len .) | title }}</h3>
 				<p>{{ i18n "introIOTA" | markdownify }}</p>
-				<table id="js-districts-comparison__table">
+				<table>
 					<thead>
 						<th>{{ i18n "indicator" 1 | title }}</th>
 						<td>{{ $currentDistrict }}</td>
 						{{ with $regions.regions }}
 							<td class="js-only districts-comparison__field-wrapper">
 								{{ i18n "compareTo" }}
-								<select id="js-districts-comparison__field" class="districts-comparison__field">
+								<select id="js-districts-comparison__field" name="district-to-compare-to" class="districts-comparison__field">
 									<option></option>
 								{{ range sort . "name" "asc" }}
 									{{ if ne .name $currentDistrict }}
@@ -48,15 +52,20 @@
 							</td>
 						{{ end }}
 					</thead>
+					<tbody id="js-districts-comparison__table">
 					{{ range . }}
 						<tr id="IOTA-indicators__{{ .id }}">
 							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
-							<td title="{{ $currentDistrict }}">{{ strings.TrimSuffix ".00" .value }}</td>
+							<td title="{{ $currentDistrict }}">
+								{{ strings.TrimSuffix ".00" .value }}
+								<small>({{ i18n "in" }} {{ .year }})</small>
+							</td>
 							{{ if $regions.regions }}
 								<td title="" class="js-only js-districts-comparison__value" data-to-bind="{{ .id }}"></td>
 							{{ end }}
 						</tr>
 					{{ end }}
+					</tbody>
 				</table>
 			</section>
 		{{ end }}

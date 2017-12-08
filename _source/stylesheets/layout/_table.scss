@@ -126,6 +126,10 @@ td img {
 	vertical-align: top;
 }
 
+td small {
+	display: block;
+}
+
 tbody tr:nth-of-type(even) > th,
 tbody tr:nth-of-type(even) > td {
 	background-color: palette('gray', 'x-light');

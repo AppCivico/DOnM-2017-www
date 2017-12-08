@@ -1,9 +1,10 @@
 import apiSources from '../apiSources.json';
 
 export default function initComparison() {
-	const comparisonTable = document.getElementById('js-districts-comparison__table');
-	const comparisonItems = document.querySelectorAll('.js-districts-comparison__value');
 	const comparisonField = document.getElementById('js-districts-comparison__field');
+	let comparisonTable = document.getElementById('js-districts-comparison__table');
+	const filledComparisonTable = comparisonTable.cloneNode(true);
+	const comparisonItems = filledComparisonTable.querySelectorAll('.js-districts-comparison__value');
 
 	if (comparisonItems.length === 0 || comparisonField === null || comparisonTable === null) {
 		return false;
@@ -12,6 +13,7 @@ export default function initComparison() {
 	function fillItems() {
 		const districtToCompareId = parseInt(comparisonField[comparisonField.selectedIndex].value, 10);
 		const districtToCompareName = comparisonField[comparisonField.selectedIndex].textContent;
+		const districtValueTemplate = document.getElementById('js-districts-comparison__field-template').innerHTML;
 
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');
@@ -42,14 +44,20 @@ export default function initComparison() {
 				for (let i = comparisonItems.length - 1; i >= 0; i -= 1) {
 					const varId = parseInt(comparisonItems[i].getAttribute('data-to-bind'), 10);
 
-					comparisonItems[i].textContent = variables
+					const comparisonValues = variables
 						.filter(x => x.id === varId)
-						.map(x => x.regions
-							.filter(y => y.id === districtToCompareId)
-							.map(y => y.value)
-							.join('')).join('').replace(/\.00$/, '');
+						.map(x => x.regions.filter(y => y.id === districtToCompareId))
+						.map(x => x[0])[0];
+
+					comparisonItems[i].textContent = comparisonValues.value.replace(/\.00$/, '');
+					comparisonItems[i].innerHTML += districtValueTemplate;
+					comparisonItems[i].querySelector('[data-to-bind="year"]').textContent = comparisonValues.year;
 					comparisonItems[i].title = districtToCompareName;
 				}
+
+				comparisonTable.parentNode.replaceChild(filledComparisonTable, comparisonTable);
+
+				comparisonTable = filledComparisonTable;
 			});
 	}
 
