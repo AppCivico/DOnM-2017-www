@@ -226,6 +226,7 @@ $toggle-breakpoints: (
 	'toggle-menu': 64em,
 	'toggle-table-layout': span(6 'wider'),
 	'max-width': $max-width,
+	'columnize': span(10 'wider'),
 );
 
 $breakpoints: map-merge($breakpoints, $toggle-breakpoints);

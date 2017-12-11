@@ -30,7 +30,7 @@
 	padding-top: span(1) / 1em * -1rem;
 	padding-bottom: span(1) / 1em * -1rem;
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		@include fallback('max-width', $max-width / 1em * 1rem);
 		@include inline-block-wrapper;
 
@@ -48,7 +48,7 @@
 
 	border-bottom: 1px solid palette('border');
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		@include inline-block-item;
 
 		width: calc(50% - #{gutter()}); //sobral
@@ -73,7 +73,7 @@
 		margin: 0;
 	}
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		margin-bottom: $line-height * 1rem;
 	}
 }
@@ -93,7 +93,7 @@
 		@include fallback('padding-top', $line-height * 1rem);
 	}
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		display: block;
 
 		width: auto;
@@ -105,7 +105,7 @@
 }
 
 .h-feed .h-entry ul {
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		padding: 0;
 	}
 }
@@ -120,7 +120,7 @@
 		}
 	}
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		position: static;
 
 		.h-entry + & {

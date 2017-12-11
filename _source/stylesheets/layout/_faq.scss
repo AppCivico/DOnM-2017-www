@@ -8,7 +8,7 @@
 .faq.h-entry > details {
 }
 
-@include media ('>=10col') {
+@include media ('>=columnize') {
 	.faq.h-entry {
 		@include inline-block-wrapper;
 

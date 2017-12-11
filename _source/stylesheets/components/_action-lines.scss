@@ -2,7 +2,7 @@
 }
 
 .action-lines__list {
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		@include inline-block-wrapper;
 
 		padding-right: gutter() / 2em * 1rem;
@@ -17,7 +17,7 @@
 
 	margin-bottom: $line-height * 1em;
 
-	@include media('>=10col') {
+	@include media('>=columnize') {
 		@include inline-block-item;
 
 		width: 50%;
