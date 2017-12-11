@@ -100,6 +100,18 @@
 	border-bottom: inherit;
 
 	transform: translateX(-50%);
+
+	@include media('<max-width') {
+		right: 0;
+		left: auto;
+
+		transform: none;
+
+		&::after {
+			right: 0;
+			left: auto;
+		}
+	}
 }
 
 .districts-comparison__source:focus > b,
