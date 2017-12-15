@@ -111,7 +111,7 @@ export default function initMap() {
 							polygonsToDraw = polygonsToDraw.filter(x => areasToDraw.indexOf(x.id) !== -1);
 						}
 
-						let fills;
+						let fills = [];
 
 						const distributeBy = mapElement.hasAttribute(`data-${rootElement}-distribute-by`)
 							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
