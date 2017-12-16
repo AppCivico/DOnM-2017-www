@@ -21,17 +21,14 @@ export default function initComparison() {
 		const districtValueTemplate = document.getElementById('js-districts-comparison__field-template').innerHTML;
 
 		const myHeaders = new Headers();
-		myHeaders.append('Content-Type', 'application/json');
-
 		const myInit = {
 			method: 'GET',
-			headers: myHeaders,
+			headers: myHeaders.append('Content-Type', 'application/json'),
 			mode: 'cors',
 			cache: 'default',
 		};
 
 		const endPointData = apiSources.filter(x => x.jsonRootElement === 'variables');
-
 		const myRequest = new Request(endPointData[0].dataDest.replace('./static', ''));
 
 		fetch(myRequest, myInit)

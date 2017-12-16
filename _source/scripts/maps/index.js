@@ -56,19 +56,17 @@ export default function initMap() {
 			.filter(endPoint => toDraw.indexOf(endPoint.jsonRootElement) !== -1)
 			.map((endPointData) => {
 				const rootElement = endPointData.jsonRootElement;
-
 				const myHeaders = new Headers();
-
-				myHeaders.append('Content-Type', 'application/json');
-
 				const myInit = {
 					method: 'GET',
-					headers: myHeaders,
+					headers: myHeaders.append('Content-Type', 'application/json'),
 					mode: 'cors',
 					cache: 'default',
 				};
+				const myRequest = new Request(endPointData.dataDest.replace('./static', ''));
 
 				let panelTemplate = null;
+				let previousSegments = null;
 
 				if (mapElement.hasAttribute('data-info-panel-for')) {
 					const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
@@ -79,8 +77,6 @@ export default function initMap() {
 					}
 				}
 
-				let previousSegments = null;
-
 				if (mapElement.hasAttribute('data-link-for')) {
 					const linkFor = mapElement.getAttribute('data-link-for').split(' ');
 					if (linkFor.indexOf(rootElement) !== -1) {
@@ -89,8 +85,6 @@ export default function initMap() {
 						}
 					}
 				}
-
-				const myRequest = new Request(endPointData.dataDest.replace('./static', ''));
 
 				return fetch(myRequest, myInit)
 					.then((response) => {
@@ -103,22 +97,22 @@ export default function initMap() {
 						throw new TypeError("Oops, we haven't got JSON!");
 					})
 					.then((areasList) => {
+						const distributeBy = mapElement.hasAttribute(`data-${rootElement}-distribute-by`)
+							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
+							: null;
+
 						let polygonsToDraw = areasList[rootElement];
+
+						let fills = [];
+
+						let minimum = 0;
+						let maximum = 0;
 
 						if (mapElement.hasAttribute(`data-${rootElement}-to-draw`)) {
 							const areasToDraw = mapElement.getAttribute(`data-${rootElement}-to-draw`).split(' ')
 								.map(item => parseInt(item, 10));
 							polygonsToDraw = polygonsToDraw.filter(x => areasToDraw.indexOf(x.id) !== -1);
 						}
-
-						let fills = [];
-
-						const distributeBy = mapElement.hasAttribute(`data-${rootElement}-distribute-by`)
-							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
-							: null;
-
-						let minimum = 0;
-						let maximum = 0;
 
 						if (distributeBy != null) {
 							if (!polygonsToDraw[0][distributeBy]) {
@@ -145,7 +139,6 @@ export default function initMap() {
 									: polygonStyles.initial;
 
 								const geoJSON = JSON.parse(polygon.geo_json);
-
 								const drawnPolygon = drawPolygon(geoJSON.coordinates);
 
 								drawnPolygon.setOptions(initialStyles);
