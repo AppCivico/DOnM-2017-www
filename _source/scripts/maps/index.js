@@ -137,16 +137,13 @@ export default function initMap() {
 							fills = gradientSteps([255, 144, 68], [255, 83, 66], maximum - minimum - 1);
 						}
 
-						const polygons = [];
+						const polygons = polygonsToDraw
+							.filter(polygon => polygon.geo_json !== null)
+							.map((polygon) => {
+								const initialStyles = distributeBy != null
+									? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[polygon[distributeBy] - minimum].join(', ')})` })
+									: polygonStyles.initial;
 
-						for (let i = 0; i < polygonsToDraw.length; i += 1) {
-							const polygon = polygonsToDraw[i];
-
-							const initialStyles = distributeBy != null
-								? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[polygon[distributeBy] - minimum].join(', ')})` })
-								: polygonStyles.initial;
-
-							if (polygon.geo_json !== null) {
 								const geoJSON = JSON.parse(polygon.geo_json);
 
 								const drawnPolygon = drawPolygon(geoJSON.coordinates);
@@ -224,9 +221,9 @@ export default function initMap() {
 									}
 								}
 
-								polygons.push(drawnPolygon);
-							}
-						}
+								return drawnPolygon;
+							});
+
 						return getArrayBounds(polygons) || null;
 					})
 					.catch((error) => {
