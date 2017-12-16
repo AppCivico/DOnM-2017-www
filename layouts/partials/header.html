@@ -24,7 +24,6 @@
 	<title>{{ if not .IsHome }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
 	{{ with .Site.Params.SiteDescription }}<meta name="description" content="{{ . }}">{{ end }}
-	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
 	{{ with $.Scratch.Get "scriptsHeader" }}
 		{{ . | safeHTML }}
