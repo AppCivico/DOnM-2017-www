@@ -11,7 +11,7 @@ import apiSources from '../apiSources.json';
 
 import { gradientSteps } from '../helpers';
 
-let map;
+let map = {};
 
 export default function initMap() {
 	const mapElement = document.getElementById('map');
@@ -33,8 +33,8 @@ export default function initMap() {
 
 	function getArrayBounds(polyArray) {
 		const bounds = new google.maps.LatLngBounds();
-		let path;
-		let paths;
+		let path = {};
+		let paths = {};
 
 		for (let polys = 0; polys < polyArray.length; polys += 1) {
 			paths = polyArray[polys].getPaths();
@@ -66,7 +66,7 @@ export default function initMap() {
 				const myRequest = new Request(endPointData.dataDest.replace('./static', ''));
 
 				let panelTemplate = null;
-				let previousSegments = null;
+				let previousURLSegments = '';
 
 				if (mapElement.hasAttribute('data-info-panel-for')) {
 					const infoPanelFor = mapElement.getAttribute('data-info-panel-for').split(' ');
@@ -81,7 +81,7 @@ export default function initMap() {
 					const linkFor = mapElement.getAttribute('data-link-for').split(' ');
 					if (linkFor.indexOf(rootElement) !== -1) {
 						if (endPointData.contentFolder != null) {
-							previousSegments = `${endPointData.contentFolder.replace('./content', '')}`;
+							previousURLSegments = `${endPointData.contentFolder.replace('./content', '')}`;
 						}
 					}
 				}
@@ -99,7 +99,7 @@ export default function initMap() {
 					.then((areasList) => {
 						const distributeBy = mapElement.hasAttribute(`data-${rootElement}-distribute-by`)
 							? mapElement.getAttribute(`data-${rootElement}-distribute-by`)
-							: null;
+							: '';
 
 						let polygonsToDraw = areasList[rootElement];
 
@@ -114,7 +114,7 @@ export default function initMap() {
 							polygonsToDraw = polygonsToDraw.filter(x => areasToDraw.indexOf(x.id) !== -1);
 						}
 
-						if (distributeBy != null) {
+						if (distributeBy !== '') {
 							if (!polygonsToDraw[0][distributeBy]) {
 								polygonsToDraw = polygonsToDraw.map((item) => {
 									const newItem = item;
@@ -134,7 +134,7 @@ export default function initMap() {
 						const polygons = polygonsToDraw
 							.filter(polygon => polygon.geo_json !== null)
 							.map((polygon) => {
-								const initialStyles = distributeBy != null
+								const initialStyles = distributeBy !== ''
 									? Object.assign(polygonStyles.initial, { fillColor: `rgb(${fills[polygon[distributeBy] - minimum].join(', ')})` })
 									: polygonStyles.initial;
 
@@ -173,14 +173,14 @@ export default function initMap() {
 									});
 								}
 
-								if (previousSegments !== null || panelTemplate !== null) {
+								if (previousURLSegments !== '' || panelTemplate !== null) {
 									drawnPolygon.setOptions({ clickable: true });
 								}
 
-								if (previousSegments !== null) {
+								if (previousURLSegments !== '') {
 									if (polygon.slug != null) {
 										google.maps.event.addListener(drawnPolygon, 'click', () => {
-											window.location = `${previousSegments}/${polygon.slug}`;
+											window.location = `${previousURLSegments}/${polygon.slug}`;
 										});
 									}
 								}

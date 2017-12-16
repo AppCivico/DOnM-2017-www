@@ -1,8 +1,8 @@
 export default function gradientSteps(firstColor, lastColor, steps = 1) {
 	const r = [firstColor];
 
-	let cMax;
-	let cMin;
+	let cMax = 0;
+	let cMin = 0;
 	let j = 1;
 
 	while (j <= steps) {
