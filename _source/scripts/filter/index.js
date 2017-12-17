@@ -1,6 +1,5 @@
 export default function initFilter() {
 	const filterableItems = document.querySelectorAll('.js-filterable__item');
-	const filterableForm = document.getElementById('js-filterable__form');
 	const filterableField = document.getElementById('js-filterable__field');
 	const filterableCounter = document.getElementById('js-filterable__counter');
 	let counter = filterableItems.length;
@@ -9,7 +8,10 @@ export default function initFilter() {
 		return false;
 	}
 
-	filterableForm.onsubmit = false;
+	if (filterableField.form !== null) {
+		filterableField.form.onsubmit = () => false;
+	}
+
 
 	function filterBy() {
 		const filterTerm = filterableField.value.toLowerCase().trim();
