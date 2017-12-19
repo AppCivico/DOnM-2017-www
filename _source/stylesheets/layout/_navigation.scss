@@ -10,7 +10,7 @@ menu ol,
 nav ul,
 nav ol {
 	width: 100%;
-	max-width: $max-width;
+	max-width: $max-width / 1em * 1rem;
 
 	padding: 0;
 	margin: 0 auto;
@@ -179,14 +179,30 @@ nav a {
 }
 
 .footer-menu ul {
+	@include inline-block-wrapper;
+
 	@include media ('>=desktop') {
 		@include table-layout-wrapper;
 	}
 }
 
 .footer-menu li {
+	@include inline-block-item;
+
+	width: 50%;
+
+	@include media ('>=6col') {
+		width: 33%;
+	}
+
+	@include media ('>=8col') {
+		width: 25%;
+	}
+
 	@include media ('>=desktop') {
 		@include table-layout-item;
+
+		width: auto;
 	}
 }
 
