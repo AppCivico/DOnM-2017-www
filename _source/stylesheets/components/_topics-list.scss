@@ -113,21 +113,101 @@
 }
 
 .topic__item--1 {
-	background-image: image('desenvolvimento-humano.png');
+	background-image: image('desenvolvimento-humano--272w.jpg');
+
+	@include media('>=480px') {
+		background-image: image('desenvolvimento-humano--432w.jpg');
+	}
+	@include media('>=640px') {
+		background-image: image('desenvolvimento-humano--592w.jpg');
+	}
+	@include media('>=768px') {
+		background-image: image('desenvolvimento-humano--720w.jpg');
+	}
+	@include media('>=1024px') {
+		background-image: image('desenvolvimento-humano--176w.jpg');
+	}
+	@include media('>=1280px') {
+		background-image: image('desenvolvimento-humano--207w.jpg');
+	}
 }
 
 .topic__item--2 {
-	background-image: image('desenvolvimento-social.png');
+	background-image: image('desenvolvimento-social--272w.jpg');
+
+	@include media('>=480px') {
+		background-image: image('desenvolvimento-social--432w.jpg');
+	}
+	@include media('>=640px') {
+		background-image: image('desenvolvimento-social--592w.jpg');
+	}
+	@include media('>=768px') {
+		background-image: image('desenvolvimento-social--720w.jpg');
+	}
+	@include media('>=1024px') {
+		background-image: image('desenvolvimento-social--176w.jpg');
+	}
+	@include media('>=1280px') {
+		background-image: image('desenvolvimento-social--207w.jpg');
+	}
 }
 
 .topic__item--3 {
-	background-image: image('desenvolvimento-urbano.png');
+	background-image: image('desenvolvimento-urbano--272w.jpg');
+
+	@include media('>=480px') {
+		background-image: image('desenvolvimento-urbano--432w.jpg');
+	}
+	@include media('>=640px') {
+		background-image: image('desenvolvimento-urbano--592w.jpg');
+	}
+	@include media('>=768px') {
+		background-image: image('desenvolvimento-urbano--720w.jpg');
+	}
+	@include media('>=1024px') {
+		background-image: image('desenvolvimento-urbano--176w.jpg');
+	}
+	@include media('>=1280px') {
+		background-image: image('desenvolvimento-urbano--207w.jpg');
+	}
 }
 
 .topic__item--4 {
-	background-image: image('desenvolvimento-institucional.png');
+	background-image: image('desenvolvimento-institucional--272w.jpg');
+
+	@include media('>=480px') {
+		background-image: image('desenvolvimento-institucional--432w.jpg');
+	}
+	@include media('>=640px') {
+		background-image: image('desenvolvimento-institucional--592w.jpg');
+	}
+	@include media('>=768px') {
+		background-image: image('desenvolvimento-institucional--720w.jpg');
+	}
+	@include media('>=1024px') {
+		background-image: image('desenvolvimento-institucional--176w.jpg');
+	}
+	@include media('>=1280px') {
+		background-image: image('desenvolvimento-institucional--207w.jpg');
+	}
 }
 
 .topic__item--5 {
-	background-image: image('desenvolvimento-economico-e-gestao.png');
+	background-image: image('desenvolvimento-economico-e-gestao--272w.jpg');
+
+	@include media('>=480px') {
+		background-image: image('desenvolvimento-economico-e-gestao--432w.jpg');
+	}
+	@include media('>=640px') {
+		background-image: image('desenvolvimento-economico-e-gestao--592w.jpg');
+	}
+	@include media('>=768px') {
+		background-image: image('desenvolvimento-economico-e-gestao--720w.jpg');
+	}
+	@include media('>=1024px') {
+		background-image: image('desenvolvimento-economico-e-gestao--176w.jpg');
+	}
+	@include media('>=1280px') {
+		background-image: image('desenvolvimento-economico-e-gestao--207w.jpg');
+	}
 }

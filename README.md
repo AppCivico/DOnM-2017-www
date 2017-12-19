@@ -58,7 +58,7 @@ Used images sizes.
 
 ### Topics
 
-- smallest size: 320px × 480px, with space for text at top
+- smallest size: 272px × 404px, with space for text at top
 - for viewport `>=480px`: 432px × 408px, with space for text at top right
 - for viewport `>=640px`: 592px × 408px, with space for text at top right
 - for viewport `>=768px`: 720px × 264px, with space for text at right
