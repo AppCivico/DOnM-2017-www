@@ -41,3 +41,36 @@ Move the content of `/public` to site root.
 ## run tests
 
 `npm test`
+
+## Images sizes
+
+Used images sizes.
+
+### Footer
+
+- smallest size: 320px × 876px
+- for viewport `>=480px`: 480px × 824px
+- for viewport `>=640px`: 640px × 680px
+- for viewport `>=768px`: 768px × 680px
+- for viewport `>=1024px`: 1024px × 566px
+- for viewport `>=1280px`: 1280px × 542px
+- for viewport `>=1600px`: 1600px × 542px
+
+### Topics
+
+- smallest size: 320px × 480px, with space for text at top
+- for viewport `>=480px`: 432px × 408px, with space for text at top right
+- for viewport `>=640px`: 592px × 408px, with space for text at top right
+- for viewport `>=768px`: 720px × 264px, with space for text at right
+- for viewport `>=1024px`: 176px × 672px, with space for text at middle
+- for viewport `>=1280px`: 207px × 634px, with space for text at middle
+
+### 404
+
+- smallest size: 320px × 213px
+- for viewport `>=480px`: 480px × 277px
+- for viewport `>=640px`: 640px × 352px
+- for viewport `>=768px`: 768px × 421px
+- for viewport `>=1024px`: 1024px × 576px
+- for viewport `>=1280px`: 1280px × 771px
+- for viewport `>=1600px`: 1600px × 908px
