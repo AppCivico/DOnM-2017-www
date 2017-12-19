@@ -12,6 +12,18 @@
 	}
 }
 
+.action-lines__list > a {
+	@include link-undercover;
+
+	overflow: hidden;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+}
+
 .action-lines__list-item {
 	@include clearfix;
 
