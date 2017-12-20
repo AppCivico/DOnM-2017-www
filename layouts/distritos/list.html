@@ -1,7 +1,7 @@
 {{ $.Scratch.Add "scriptsHeader" `
-<link rel="preload" href="/dist/data/regions.json" as="fetch" type="application/json">
+<link rel="preload" href="/assets/data/regions.json" as="fetch" type="application/json">
 ` }}{{ $.Scratch.Add "rootClass" "regions-page" }}{{ partial "header.html" . }}
-	{{ $regions := getJSON "./static/dist/data/regions.json" }}
+	{{ $regions := getJSON "./static/assets/data/regions.json" }}
 
 <article id="conteudo" role="main">
 	<header>

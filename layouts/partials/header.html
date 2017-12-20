@@ -11,9 +11,9 @@
 
 	<meta content="width=device-width,initial-scale=1.0" name="viewport">
 
-	<link rel="stylesheet" href="/dist/css/index.css" media="all">
+	<link rel="stylesheet" href="/assets/css/index.css" media="all">
 	{{ if eq (getenv "NODE_ENV") "development" }}
-		<link rel="stylesheet" href="/dist/css/qa.css" media="all">
+		<link rel="stylesheet" href="/assets/css/qa.css" media="all">
 	{{ end }}
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
@@ -21,7 +21,7 @@
 	<script type="text/javascript">document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, '');
 	</script>
 
-	<link rel="preload" href="/dist/js/index.js" as="script">
+	<link rel="preload" href="/assets/js/index.js" as="script">
 	<link rel="preload" href="https://maps.googleapis.com/maps/api/js" as="script">
 
 	<title>{{ if not .IsHome }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>

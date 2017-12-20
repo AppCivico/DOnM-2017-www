@@ -1,55 +1,55 @@
 [
   {
     "url": "/api/region",
-    "dataDest": "./static/dist/data/regions.json",
+    "dataDest": "./static/assets/data/regions.json",
     "contentFolder": "./content/distritos",
     "jsonRootElement": "regions"
   },
 
   {
     "url": "/api/project",
-    "dataDest": "./static/dist/data/projects.json",
+    "dataDest": "./static/assets/data/projects.json",
     "contentFolder": "./content/projetos",
     "jsonRootElement": "projects"
   },
 
   {
     "url": "/api/goal",
-    "dataDest": "./static/dist/data/goals.json",
+    "dataDest": "./static/assets/data/goals.json",
     "contentFolder": "./content/metas",
     "jsonRootElement": "goals"
   },
 
   {
     "url": "/api/subprefecture",
-    "dataDest": "./static/dist/data/subprefectures.json",
+    "dataDest": "./static/assets/data/subprefectures.json",
     "contentFolder": "./content/prefeituras-regionais",
     "jsonRootElement": "subprefectures"
   },
 
   {
     "url": "/api/action-line",
-    "dataDest": "./static/dist/data/action_lines.json",
+    "dataDest": "./static/assets/data/action_lines.json",
     "contentFolder": "./content/linhas-de-acao",
     "jsonRootElement": "action_lines"
   },
 
   {
     "url": "/api/sao-paulo",
-    "dataDest": "./static/dist/data/cities.json",
+    "dataDest": "./static/assets/data/cities.json",
     "jsonRootElement": "cities"
   },
 
   {
     "url": "/api/topic",
-    "dataDest": "./static/dist/data/topic.json",
+    "dataDest": "./static/assets/data/topic.json",
     "contentFolder": "./content/eixos",
     "jsonRootElement": "topics"
   },
 
   {
     "url": "/api/variable",
-    "dataDest": "./static/dist/data/variable.json",
+    "dataDest": "./static/assets/data/variable.json",
     "jsonRootElement": "variables"
   }
 ]

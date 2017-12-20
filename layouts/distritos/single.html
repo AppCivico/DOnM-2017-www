@@ -1,5 +1,5 @@
 {{ $.Scratch.Add "scriptsHeader" `
-<link rel="preload" href="/dist/data/variable.json" as="fetch" type="application/json">
+<link rel="preload" href="/assets/data/variable.json" as="fetch" type="application/json">
 ` }}{{ partial "header.html" . }}
 {{ $url := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/api/region/" .Params.id ) }}
 
@@ -29,7 +29,7 @@
 				<small class="districts-comparison__source" tabindex="-1">({{ i18n "via" | lower }} <b data-to-bind="source"></b>)</small>
 			</script>
 
-			{{ $regions := getJSON "./static/dist/data/regions.json" }}
+			{{ $regions := getJSON "./static/assets/data/regions.json" }}
 			<section class="IOTA-indicators">
 				<h3>{{ i18n "variable" (len .) | title }}</h3>
 				<p>{{ i18n "introIOTA" | markdownify }}</p>

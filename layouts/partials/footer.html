@@ -8,7 +8,7 @@
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/assets/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
 						{{ end }}
 					</ul>
 				</div>
@@ -21,7 +21,7 @@
 					</h5>
 					<ul>
 						{{ range $k, $v := . }}
-							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/dist/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
+							<li class="{{ $k }}"><a href="{{ $v.link }}" target="_blank"><img src="/assets/img/{{ $v.logo }}" alt="{{ i18n "logo" }} {{ $v.name }}"></a></li>
 						{{ end }}
 					</ul>
 				</div>
@@ -51,7 +51,7 @@
 	}
 </style>
 
-	<script src="/dist/js/index.js"></script>
+	<script src="/assets/js/index.js"></script>
 
 	{{ with $.Site.Params.googleMapsAPI }}
 		<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}&callback=initMap" async defer></script>

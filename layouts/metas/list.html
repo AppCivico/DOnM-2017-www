@@ -1,5 +1,5 @@
 {{ $.Scratch.Add "scriptsHeader" `
-<link rel="preload" href="/dist/data/goals.json" as="fetch" type="application/json">
+<link rel="preload" href="/assets/data/goals.json" as="fetch" type="application/json">
 ` }}{{ $.Scratch.Add "rootClass" "goals-page" }}{{ partial "header.html" . }}
 <main id="conteudo" class="h-feed">
 	<h1 class="h-feed__p-name p-name">{{ .Title }}</h1>
@@ -9,7 +9,7 @@
 		</article>
 	{{ end }}
 
-	{{ $goals := getJSON "./static/dist/data/goals.json" }}
+	{{ $goals := getJSON "./static/assets/data/goals.json" }}
 
 	{{ with $goals.goals }}
 		<section class="goals-list">
