@@ -24,13 +24,13 @@
 			{{ partialCached "filterForm.html" . }}
 
 			<dl class="action-lines__list">
-				{{ range sort . "name" "asc" }}
+				{{ range . }}
 					{{ with .slug }}
 						<a href="/linhas-de-acao/{{ . }}">
 					{{ end }}
 					<div class="definition-item action-lines__list-item js-filterable__item filterable__item">
 						<dt class="action-lines__item-id">
-								{{ .id }}
+							{{ .id }}
 						</dt>
 						<dd class="action-lines__item-title">
 							<p>{{ .title | markdownify }}</p>

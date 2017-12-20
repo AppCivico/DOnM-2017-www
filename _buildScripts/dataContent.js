@@ -1,5 +1,6 @@
 const https = require('https');
 const fs = require('fs');
+const { versionCompare } = require('./versionCompare.js');
 
 const sourcesAndDests = require('../_source/scripts/apiSources.json');
 
@@ -61,8 +62,19 @@ id: ${page.id}
 
 		pageList[pageList.length] = filename;
 	});
-}
 
+	if (fileData.jsonRootElement === 'action_lines') {
+		console.log('Saving sorted action lines');
+		jsonElements.sort((a, b) => versionCompare(a.id, b.id));
+		const orderedJSON = {};
+		orderedJSON[fileData.jsonRootElement] = jsonElements;
+
+		fs.writeFile(fileData.dataDest, JSON.stringify(orderedJSON), 'utf8', (err) => {
+			if (err) throw new Error(`error on writing ${fileData.dataDest}. ${err.message}`);
+			console.log('Sorted action lines saved!');
+		});
+	}
+}
 
 function download(url, fileData, cb) {
 	const file = fs.createWriteStream(fileData.dataDest);
