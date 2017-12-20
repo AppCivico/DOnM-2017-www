@@ -48,6 +48,12 @@
 	}
 }
 
+.e-content__inner {
+	@media(min-height: 100vh) and (min-width: #{map-get($breakpoints, 'desktop')}) {
+		column-count: 2;
+		column-gap: gutter();
+	}
+}
 
 // when the entry was published
 .h-entry__dt-published {
