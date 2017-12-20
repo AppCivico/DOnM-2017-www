@@ -64,14 +64,14 @@ id: ${page.id}
 	});
 
 	if (fileData.jsonRootElement === 'action_lines') {
-		console.log('Saving sorted action lines');
+		console.log('Saving sorted action lines'); // eslint-disable-line no-console
 		jsonElements.sort((a, b) => versionCompare(a.id, b.id));
 		const orderedJSON = {};
 		orderedJSON[fileData.jsonRootElement] = jsonElements;
 
 		fs.writeFile(fileData.dataDest, JSON.stringify(orderedJSON), 'utf8', (err) => {
 			if (err) throw new Error(`error on writing ${fileData.dataDest}. ${err.message}`);
-			console.log('Sorted action lines saved!');
+			console.log('Sorted action lines saved!'); // eslint-disable-line no-console
 		});
 	}
 }
