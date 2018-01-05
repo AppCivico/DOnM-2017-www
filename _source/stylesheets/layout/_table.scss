@@ -126,7 +126,9 @@ td img {
 	vertical-align: top;
 }
 
-td small {
+table small {
+	font-weight: normal;
+
 	vertical-align: baseline;
 
 	color: palette('gray', 'base');

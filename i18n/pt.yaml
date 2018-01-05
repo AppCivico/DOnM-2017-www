@@ -16,6 +16,8 @@
   translation: "Custeio"
 - id: currentSituation
   translation: "Situação atual"
+- id: description
+  translation: "Descrição"
 - id: dataNotRestrictedToARegion
   translation: "Esses dados não se restringem a áreas específicas da cidade, mas a ela como um todo."
 - id: developedBy

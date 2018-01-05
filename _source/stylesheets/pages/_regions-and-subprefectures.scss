@@ -61,7 +61,7 @@
 	}
 }
 
-.districts-comparison__source {
+%tooltip-parent {
 	position: relative;
 
 	font-style: italic;
@@ -79,10 +79,20 @@
 	@supports (text-decoration: dotted underline) {
 		text-decoration: dotted underline;
 
-		border-bottom: inherit;
+		border-bottom: 0;
 	}
 }
 
+.districts-comparison__source,
+.districts-comparison__indicator small {
+	@extend %tooltip-parent;
+}
+
+.districts-comparison__indicator small {
+	display: table;
+}
+
+.districts-comparison__indicator > small > span,
 .districts-comparison__source > b {
 	@extend %custom-tooltip; // sass-lint:disable-line placeholder-in-extend
 
@@ -92,6 +102,7 @@
 
 	display: none;
 
+	width: span(3);
 	min-width: span(2);
 
 	font-style: normal;
@@ -103,6 +114,23 @@
 	border-bottom: inherit;
 
 	transform: translateX(-50%);
+
+}
+
+.districts-comparison__indicator > small > span {
+	right: auto;
+	left: 1em;
+
+	transform: none;
+
+	&::after {
+		right: auto;
+		left: $line-height * 1em + 1em;
+	}
+}
+
+.districts-comparison__source > b {
+	max-width: 100%;
 
 	@include media('<max-width') {
 		right: 0;
@@ -117,6 +145,8 @@
 	}
 }
 
+.districts-comparison__indicator > small:focus > span,
+.districts-comparison__indicator > small:hover > span,
 .districts-comparison__source:focus > b,
 .districts-comparison__source:hover > b {
 	display: block;
