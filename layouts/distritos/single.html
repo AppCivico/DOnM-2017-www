@@ -23,10 +23,11 @@
 			<div id="map" class="map" data-to-draw="regions" data-regions-to-draw="{{ .id }}"></div>
 		</section>
 
-		{{ with .variables }}
+		{{ with .indicators }}
 			<script type="text/template" id="js-districts-comparison__field-template">
+				<a></a>
 				<small class="districts-comparison__year">({{ i18n "in" | lower }} <b data-to-bind="year"></b>)</small>
-				<small class="districts-comparison__source" tabindex="-1">({{ i18n "via" | lower }} <b data-to-bind="source"></b>)</small>
+				<small class="districts-comparison__source" tabindex="-1">({{ i18n "via" | lower }} <span data-to-bind="source"></span>)</small>
 			</script>
 
 			{{ $regions := getJSON "./static/assets/data/regions.json" }}
@@ -56,11 +57,37 @@
 					<tbody id="js-districts-comparison__table" class="districts-comparison__table">
 					{{ range . }}
 						<tr id="IOTA-indicators__{{ .id }}">
-							<th>{{ .name | replaceRE "^(?:Número )*(?:[Tt]otal )*d[ea] " "" | humanize }}</th>
+							<th class="districts-comparison__indicator">
+								{{ .name | humanize }}
+								{{ if or .explanation .formula }}
+								<small tabindex="-1">
+									({{ i18n "description" | lower }}:
+										<span>
+											<p>{{ .explanation | markdownify }}</p>
+
+											{{ with .formula }}<p>{{ i18n "formula" }}: {{ . }}</p>{{ end }}
+										</span>
+									)
+									</small>
+								{{ end }}
+							</th>
 							<td title="{{ $currentDistrict }}">
-								{{ strings.TrimSuffix ".00" .value }}
+								{{ with .url_observatorio }}<a href="{{ . }}">{{ end }}
+									{{ float .value }}
+								{{ with .url_observatorio }}</a>{{ end }}
+
 								<small class="districts-comparison__year">({{ i18n "in" | lower }} <b>{{ .year }}</b>)</small>
-								<small class="districts-comparison__source" tabindex="-1">({{ i18n "via" | lower }} <b>{{ .source }}</b>)</small>
+								{{ with .sources }}
+									<small class="districts-comparison__source" tabindex="-1">
+										({{ i18n "via" | lower }}
+										<span>
+											{{ range $i, $source := . }}
+												{{ if $i }}, {{ end }}{{ . }}
+											{{ end }}
+										</span>
+										)
+									</small>
+								{{ end }}
 							</td>
 							{{ if $regions.regions }}
 								<td title="" class="js-only js-districts-comparison__value" data-to-bind="{{ .id }}"></td>

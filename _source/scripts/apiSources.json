@@ -48,8 +48,8 @@
   },
 
   {
-    "url": "/api/variable",
-    "dataDest": "./static/assets/data/variable.json",
-    "jsonRootElement": "variables"
+    "url": "/api/indicator",
+    "dataDest": "./static/assets/data/indicator.json",
+    "jsonRootElement": "indicators"
   }
 ]

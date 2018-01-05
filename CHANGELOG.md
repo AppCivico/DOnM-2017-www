@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Changed
 
 - layout overall
+- replace IOTA variables by IOTA indicators
 - update dependencies
 
 ## Fixed

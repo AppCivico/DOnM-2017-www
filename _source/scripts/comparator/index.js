@@ -28,7 +28,7 @@ export default function initComparison() {
 			cache: 'default',
 		};
 
-		const endPointData = apiSources.filter(x => x.jsonRootElement === 'variables');
+		const endPointData = apiSources.filter(x => x.jsonRootElement === 'indicators');
 		const myRequest = new Request(endPointData[0].dataDest.replace('./static', ''));
 
 		fetch(myRequest, myInit)
@@ -41,20 +41,21 @@ export default function initComparison() {
 
 				throw new TypeError("Oops, we haven't got JSON!");
 			})
-			.then(response => response.variables)
-			.then((variables) => {
+			.then(response => response.indicators)
+			.then((indicators) => {
 				for (let i = comparisonItems.length - 1; i >= 0; i -= 1) {
 					const varId = parseInt(comparisonItems[i].getAttribute('data-to-bind'), 10);
 
-					const comparisonValues = variables
+					const comparisonValues = indicators
 						.filter(x => x.id === varId)
 						.map(x => x.regions.filter(y => y.id === districtToCompareId))
 						.map(x => x[0])[0];
 
-					comparisonItems[i].textContent = comparisonValues.value.replace(/\.00$/, '');
-					comparisonItems[i].innerHTML += districtValueTemplate;
+					comparisonItems[i].innerHTML = districtValueTemplate;
+					comparisonItems[i].querySelector('a').textContent = parseFloat(comparisonValues.value) || 0;
+					comparisonItems[i].querySelector('a').href = comparisonValues.url_observatorio;
 					comparisonItems[i].querySelector('[data-to-bind="year"]').textContent = comparisonValues.year;
-					comparisonItems[i].querySelector('[data-to-bind="source"]').textContent = comparisonValues.source;
+					comparisonItems[i].querySelector('[data-to-bind="source"]').textContent = comparisonValues.sources.join(', ');
 					comparisonItems[i].title = districtToCompareName;
 				}
 

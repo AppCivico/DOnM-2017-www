@@ -93,7 +93,7 @@
 }
 
 .districts-comparison__indicator > small > span,
-.districts-comparison__source > b {
+.districts-comparison__source > span {
 	@extend %custom-tooltip; // sass-lint:disable-line placeholder-in-extend
 
 	position: absolute;
@@ -129,8 +129,8 @@
 	}
 }
 
-.districts-comparison__source > b {
-	max-width: 100%;
+.districts-comparison__source > span {
+	max-width: span(3);
 
 	@include media('<max-width') {
 		right: 0;
@@ -147,7 +147,7 @@
 
 .districts-comparison__indicator > small:focus > span,
 .districts-comparison__indicator > small:hover > span,
-.districts-comparison__source:focus > b,
-.districts-comparison__source:hover > b {
+.districts-comparison__source:focus > span,
+.districts-comparison__source:hover > span {
 	display: block;
 }
