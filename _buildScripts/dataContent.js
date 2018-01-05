@@ -82,7 +82,7 @@ function download(url, fileData, cb) {
 	const request = https.get(url, (response) => {
 		// check if response is success
 		if (response.statusCode !== 200) {
-			throw new Error(`Response status was ${response.statusCode}`);
+			throw new Error(`Response status was ${response.statusCode} for url ${url}`);
 		}
 
 		response.pipe(file);
