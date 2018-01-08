@@ -32,6 +32,8 @@
   translation: "Resultados esperados"
 - id: filterBy
   translation: "Buscar"
+- id: formula
+  translation: "Fórmula"
 - id: goal
   translation:
     one: "Meta"
