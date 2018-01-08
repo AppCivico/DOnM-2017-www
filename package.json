@@ -1,6 +1,6 @@
 {
   "name": "donm-2017-www",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Sistema de acompanhamento da administração municipal de São Paulo na gestão 2017.",
   "main": "index.html",
   "scripts": {
