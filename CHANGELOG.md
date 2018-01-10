@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.0][] - 2018-01-10
+
+### Changed
+
+- initial public release
+
 ## [0.2.0][] - 2018-01-08
 
 ## Added
@@ -47,6 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - link to projects on goals pages
 
 
-[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/AppCivico/DOnM-2017-www/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/AppCivico/DOnM-2017-www/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/AppCivico/DOnM-2017-www/tree/v0.1.1
