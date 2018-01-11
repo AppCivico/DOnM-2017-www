@@ -7,7 +7,7 @@ const sourcesAndDests = require('../_source/scripts/apiSources.json');
 let DOMAIN;
 
 if (process.env.NODE_ENV === 'production') {
-	DOMAIN = 'https://api.2017.deolhonasmetas.org.br';
+	DOMAIN = 'https://api-2017.deolhonasmetas.org.br';
 } else if (process.env.NODE_ENV === 'homol') {
 	DOMAIN = 'https://hapidonm.eokoe.com';
 } else {
