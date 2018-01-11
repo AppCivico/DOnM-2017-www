@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.3][] - 2018-01-11
+
 ### Fixed
 
 - Google Translator component position
@@ -69,7 +71,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - link to projects on goals pages
 
 
-[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AppCivico/DOnM-2017-www/compare/v0.2.0...v1.0.0
