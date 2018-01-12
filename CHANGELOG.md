@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Google Translator alignment
+
 ## [1.0.3][] - 2018-01-11
 
 ### Fixed
