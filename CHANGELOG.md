@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.4][] - 2018-01-12
+
 ### Changed
 
 - Google Translator alignment
@@ -75,7 +77,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - link to projects on goals pages
 
 
-[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/AppCivico/DOnM-2017-www/compare/v1.0.0...v1.0.1
