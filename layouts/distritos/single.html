@@ -55,7 +55,7 @@
 						{{ end }}
 					</thead>
 					<tbody id="js-districts-comparison__table" class="districts-comparison__table">
-					{{ range . }}
+					{{ range sort . "name" "asc" }}
 						<tr id="IOTA-indicators__{{ .id }}">
 							<th class="districts-comparison__indicator">
 								{{ .name | humanize }}
