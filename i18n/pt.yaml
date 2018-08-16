@@ -98,6 +98,8 @@
   translation: "Ficha da Prefeitura Regional"
 - id: textProgress
   translation: "Progresso de acordo com a prefeitura."
+- id: textStatus
+  translation: "Status:"
 - id: topic
   translation:
     one: "Eixo"

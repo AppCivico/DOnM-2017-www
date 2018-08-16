@@ -59,6 +59,11 @@
 
 	<aside>
 		<section class="progress">
+			{{ with .status }}
+				<h2>{{ i18n "textStatus" }}</h2>
+				<p>{{ . }}</p>
+			{{ end }}
+
 			<p>{{ i18n "textProgress" }}</p>
 
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
