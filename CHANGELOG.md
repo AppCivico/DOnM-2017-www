@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- broken filter RegEx
+
 ## [1.0.5][] - 2018-01-29
 
 ### Changed

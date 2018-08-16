@@ -23,7 +23,7 @@ export default function initFilter() {
 	}
 
 	function removeDiacritics(str) {
-		return str.replace(/[^\u0000-\u007E]/g, a => diacriticsMap[a] || a);
+		return str.replace(/[^\\u0000-\\u007E]/g, a => diacriticsMap[a] || a);
 	}
 
 	for (let i = filterableItems.length - 1; i >= 0; i -= 1) {
