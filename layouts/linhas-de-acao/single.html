@@ -16,6 +16,20 @@
 			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 		</header>
 
+		{{ with .indicator_description }}
+			<section class="description">
+				<h2>{{ i18n "description" }}</h2>
+				<p>{{ . }}</p>
+			</section>
+		{{ end }}
+
+		{{ with .indicators }}
+			<section class="indicators">
+				<h2>{{ i18n "indicator" 1 }}</h2>
+				<p>{{ . }}</p>
+			</section>
+		{{ end }}
+
 		<section class="map-container">
 			<h2>{{ i18n "regionalizationMap" }}</h2>
 			{{ if not .subprefectures }}
@@ -88,6 +102,18 @@
 	</div>
 
 	<aside>
+		{{ with .last_updated_at }}
+		<h2>
+			{{ i18n "lastUpdatedAt" }}:
+			<br>
+			{{ dateFormat "02/01/2006" . }}
+		</h2>
+		{{ end }}
+
+		{{ with .status }}
+			<h2>{{ i18n "textStatus" }}: {{ . }}</h2>
+		{{ end }}
+
 		<section class="secretaries">
 			<h2>{{ i18n "secretary" (len $action_line.action_line) }}</h2>
 			<ul class="district-list">
@@ -106,6 +132,7 @@
 		</section>
 
 		<section class="progress">
+
 			<p>{{ i18n "textProgress" }}</p>
 
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
