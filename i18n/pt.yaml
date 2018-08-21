@@ -2,6 +2,10 @@
   translation:
     one: "Linha de ação"
     other: "Linhas de ação"
+- id: aditionalInfo
+  translation:
+    one: "Informação adicional"
+    other: "Informações adicionais"
 - id: associatedActionLine
   translation: "Linhas de ação associadas"
 - id: benefitedSubprefectures
@@ -50,6 +54,8 @@
   translation: "Principais indicadores relacionadas a qualidade de vida nos distritos da cidade compilados pela [Rede Nossa São Paulo](http://www.nossasaopaulo.org.br/). Os dados exibidos são referentes ao último ano disponível."
 - id: investiment
   translation: "Investimento"
+- id: lastUpdatedAt
+  translation: "Última atualização"
 - id: of
   translation: "De"
 - id: othersResources
@@ -90,6 +96,8 @@
   translation:
     one: "Secretaria"
     other: "Secretarias"
+- id: secretary_at
+  translation: "Secretarias Envolvidas"
 - id: subPrefecture
   translation:
     one: "Subprefeitura"
@@ -99,7 +107,7 @@
 - id: textProgress
   translation: "Progresso de acordo com a prefeitura."
 - id: textStatus
-  translation: "Status:"
+  translation: "Status"
 - id: topic
   translation:
     one: "Eixo"

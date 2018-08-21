@@ -36,6 +36,20 @@
 			</dl>
 		</section>
 
+		{{ with $.Site.Data.mock.additional_infos }}
+			<section class="togglebox">
+				<h2>{{ i18n "aditionalInfo" (len .) }}</h2>
+				{{ range $.Site.Data.mock.additional_infos }}
+					<div class="togglebox__content">
+						<time datetime="{{ .date }}">{{ dateFormat "02/01/2006" .date }}</time>
+						<div class="text">
+							{{ .content }}
+						</div>
+						<button class="read-more" data-js="togglebox-button">Ver mais</button>
+					</div>
+				{{ end }}
+			</section>
+		{{ end }}
 		<section class="related-projects">
 			<h2>{{ i18n "relatedProject" (len .) }}</h2>
 
@@ -59,9 +73,16 @@
 
 	<aside>
 		<section class="progress">
-			{{ with .status }}
-				<h2>{{ i18n "textStatus" }}</h2>
-				<p>{{ . }}</p>
+			{{ with $.Site.Data.mock.last_updated_at }}
+				<h2>
+					{{ i18n "lastUpdatedAt" }}:
+					<br>
+					{{ dateFormat "02/01/2006" . }}
+				</h2>
+			{{ end }}
+
+			{{ with $.Site.Data.mock.status }}
+				<h2>{{ i18n "textStatus" }}: {{ . }}</h2>
 			{{ end }}
 
 			<p>{{ i18n "textProgress" }}</p>
@@ -73,6 +94,12 @@
 					</span>
 				</div>
 			</progress>
+		</section>
+
+		<section class="secretary">
+			{{ with $.Site.Data.mock.secretariat }}
+			<h2>{{ i18n "secretary_at" }}: {{ . }}</h2>
+			{{ end }}
 		</section>
 
 		<section class="districts">

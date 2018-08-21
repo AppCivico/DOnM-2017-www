@@ -7,11 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.0.7][] - 2018-08-16
-
 ## Added
-
-- Add status on goals
+	- Add new information on goals
 
 ## [1.0.6][] - 2018-08-16
 

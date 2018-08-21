@@ -1,0 +1,28 @@
+.togglebox__content {
+	position: relative;
+	max-height: 120px;
+	margin-bottom: 30px;
+	overflow: hidden;
+	transition: max-height 0.3s;
+
+	.read-more {
+		position: absolute;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		max-width: none;
+		padding-top: 100px;
+		cursor: pointer;
+		background-image: linear-gradient(to top, palette('white') 15%, transparent 100%);
+		background-color: transparent;
+		border: 0;
+	}
+}
+
+.togglebox__content.togglebox__content--opened {
+	max-height: none;
+
+	.read-more {
+		display: none;
+	}
+}
