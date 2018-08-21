@@ -24,36 +24,66 @@
 			<p>{{ .current_scenario | markdownify }}</p>
 		</section>
 
+		{{ with .project_justification }}
+			<section class="project-justification">
+				<h3>{{ i18n "projectJustification" }}</h3>
+				<p>{{ .project_justification }}</p>
+			</section>
+		{{ end }}
+
 		<section class="expected-results">
 			<h3>{{ i18n "expectedResults" }}</h3>
 			<p>{{ .expected_results | markdownify }}</p>
 		</section>
 
-		<section class="budget">
-			<h3>{{ i18n "budget" }}</h3>
+		{{ if and (isset . "costing_own_resources") (isset . "costing_other_resources") (isset . "own_resources") (isset . "own_other_resources") }}
+			<section class="budget">
+				<h3>{{ i18n "budget" }}</h3>
 
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>{{ i18n "ownResources" }}</th>
-						<th>{{ i18n "othersResources" }}</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>{{ i18n "investiment" }}</th>
-						<td title="{{ i18n "ownResources" }}">0</td>
-						<td title="{{ i18n "othersResources" }}">0</td>
-					</tr>
-					<tr>
-						<th>{{ i18n "costing" }}</th>
-						<td title="{{ i18n "ownResources" }}">0</td>
-						<td title="{{ i18n "othersResources" }}">0</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>{{ i18n "ownResources" }}</th>
+							<th>{{ i18n "othersResources" }}</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						{{ if and (isset . "costing_own_resources") (isset . "costing_other_resources") }}
+							<tr>
+								<th>{{ i18n "investiment" }}</th>
+								<td title="{{ i18n "ownResources" }}"> {{ .own_resources }} </td>
+								<td title="{{ i18n "othersResources" }}"> {{ .other_resources }} </td>
+							</tr>
+						{{ end }}
+						{{ if and (isset . "own_resources") (isset . "own_other_resources") }}
+							<tr>
+								<th>{{ i18n "costing" }}</th>
+								<td title="{{ i18n "ownResources" }}">{{ .costing_own_resources }}</td>
+								<td title="{{ i18n "othersResources" }}">{{ .costing_other_resources }}</td>
+							</tr>
+						{{ end }}
+					</tbody>
+				</table>
+			</section>
+		{{ end }}
+
+		{{ with $.Site.Data.mock.additional_infos }}
+			<section class="togglebox">
+				<h2>{{ i18n "aditionalInfo" (len .) }}</h2>
+				{{ range $.Site.Data.mock.additional_infos }}
+					<div class="togglebox__content">
+						<time datetime="{{ .date }}">{{ dateFormat "02/01/2006" .date }}</time>
+						<div class="text">
+							{{ .content }}
+						</div>
+						<button class="read-more" data-js="togglebox-button">Ver mais</button>
+					</div>
+				{{ end }}
+			</section>
+		{{ end }}
+
 
 		{{ with .action_lines }}
 		<section class="action-lines">
@@ -84,6 +114,14 @@
 
 	<aside>
 		<section class="progress">
+			{{ with $.Site.Data.mock.last_updated_at }}
+				<h2>
+					{{ i18n "lastUpdatedAt" }}:
+					<br>
+					{{ dateFormat "02/01/2006" . }}
+				</h2>
+			{{ end }}
+
 			<h3>{{ i18n "progressProject" }}</h3>
 			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100" value="50">
 				<div class="progress-bar">

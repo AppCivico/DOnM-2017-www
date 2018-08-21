@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Added
 	- Add new information on goals
+	- Add new information on projects
 
 ## [1.0.6][] - 2018-08-16
 

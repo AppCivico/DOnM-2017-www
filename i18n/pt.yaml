@@ -68,6 +68,8 @@
   translation:
     one: "projeto"
     other: "projetos"
+- id: projectJustification
+  translation: "Justificativa do Projeto"
 - id: regionalMayor
   translation: "Prefeito Regional"
 - id: regionalPrefecture
