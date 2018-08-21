@@ -8,6 +8,14 @@
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
+			{{ if (isset . "badges") }}
+				<div class="badges">
+					{{ range .badges }}
+						<img src="{{ .url }}" alt="{{ .title }}"/>
+					{{ end }}
+				</div>
+			{{ end }}
+
 			<h2>
 				{{ i18n "project" 1 }}
 				{{ .id }}
