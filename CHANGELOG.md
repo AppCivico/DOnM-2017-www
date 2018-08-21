@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add new information on projects
 	- Add badges on projects
 	- Add badges on goals
+	- Add new information on action lines
 
 ## [1.0.6][] - 2018-08-16
 
