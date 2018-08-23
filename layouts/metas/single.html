@@ -94,7 +94,7 @@
 
 			<p>{{ i18n "textProgress" }}</p>
 
-			<progress {{ with .progress }}value="{{ . }}"{{ end }} max="100">
+			<progress {{ with .progress }} value="{{ . }}"{{ end }} max="100">
 				<div class="progress-bar">
 					<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
 						{{ with .progress }}{{ . }}%{{ end }}
