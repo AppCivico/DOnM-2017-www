@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add badges on projects
 	- Add badges on goals
 	- Add new information on action lines
+	- Add badges placeholder images
+
+### Fixed
+	- Fix badges styles
+
+- Google Translator component position
 
 ## [1.0.6][] - 2018-08-16
 
