@@ -3,6 +3,8 @@ import defaultDiacriticsRemovalMap from './diacriticsMap.json';
 export default function initFilter() {
 	const filterableItems = document.querySelectorAll('.js-filterable__item');
 	const filterableField = document.getElementById('js-filterable__field');
+	const filterableInputs = document.querySelectorAll('.js-filterable__input');
+
 	const filterableCounter = document.getElementById('js-filterable__counter');
 	const diacriticsMap = {};
 	let counter = filterableItems.length;
@@ -52,9 +54,43 @@ export default function initFilter() {
 		}
 	}
 
-	return filterableField.addEventListener(
+	function filterByMultiple(event) {
+		const selected = event.target;
+		const filterTerm = selected.options[selected.selectedIndex].value;
+		const filterTopic = selected.getAttribute('data-filter-type');
+		counter = 0;
+		console.log(filterTopic);
+
+		for (let i = 0; i < filterableItems.length; i += 1) {
+			filterableItems[i].setAttribute('hidden', 'hidden');
+
+			// check if topic exist in item
+			if (filterableItems[i].getAttribute(`data-${filterTopic}`)) {
+				// iterate and set visibility of items to visible
+				// when they match the filterTerm on the topics
+				if (filterableItems[i].getAttribute(`data-${filterTopic}`).indexOf(filterTerm) !== -1) {
+					filterableItems[i].removeAttribute('hidden');
+					counter += 1;
+				}
+			}
+		}
+
+		if (filterableCounter !== null) {
+			filterableCounter.textContent = counter;
+		}
+	}
+
+	filterableField.addEventListener(
 		'input',
 		filterBy,
 		false,
 	);
+
+	filterableInputs.forEach(input => input.addEventListener(
+		'change',
+		filterByMultiple,
+		false,
+	));
+
+	return true;
 }

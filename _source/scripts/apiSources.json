@@ -51,5 +51,15 @@
     "url": "/api/indicator",
     "dataDest": "./static/assets/data/indicator.json",
     "jsonRootElement": "indicators"
+  },
+  {
+    "url": "/api/secretariats",
+    "dataDest": "./static/assets/data/secretariats.json",
+    "jsonRootElement": "secretariats"
+  },
+  {
+    "url": "/api/badges",
+    "dataDest": "./static/assets/data/badges.json",
+    "jsonRootElement": "badges"
   }
 ]

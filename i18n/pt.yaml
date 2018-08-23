@@ -14,8 +14,10 @@
     other: "Prefeituras regionais beneficiadas"
 - id: budget
   translation: "Orçamento"
-- id: compareTo
-  translation: "Comparar com"
+- id: clearFilters
+  translation: "Limpar filtros"
+- id: compareto
+  translation: "comparar com"
 - id: costing
   translation: "Custeio"
 - id: currentSituation
@@ -34,8 +36,12 @@
     other: "Distritos"
 - id: expectedResults
   translation: "Resultados esperados"
-- id: filterBy
-  translation: "Buscar"
+- id: filterByTopic
+  translation: "Filtrar por eixo"
+- id: filterBySecretary
+  translation: "Filtrar por secretaria"
+- id: filterByBadge
+  translation: "Filtrar por selos"
 - id: formula
   translation: "Fórmula"
 - id: goal
@@ -94,12 +100,20 @@
   translation:
     one: "Distrito pertencente"
     other: "Distritos pertencentes"
+- id: search
+  translation: "Buscar"
 - id: secretary
   translation:
     one: "Secretaria"
     other: "Secretarias"
 - id: secretary_at
   translation: "Secretarias Envolvidas"
+- id: selectTopic
+  translation: "Selecione o eixo"
+- id: selectSecretary
+  translation: "Selecione a secretaria"
+- id: selectBadge
+  translation: "Selecione o selo"
 - id: subPrefecture
   translation:
     one: "Subprefeitura"
