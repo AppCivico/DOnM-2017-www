@@ -42,7 +42,7 @@
 			<p>{{ .expected_results | markdownify }}</p>
 		</section>
 
-		{{ if and (isset . "costing_own_resources") (isset . "costing_other_resources") (isset . "own_resources") (isset . "own_other_resources") }}
+		{{ with .budget }}
 			<section class="budget">
 				<h3>{{ i18n "budget" }}</h3>
 
@@ -55,21 +55,16 @@
 						</tr>
 					</thead>
 					<tbody>
-
-						{{ if and (isset . "costing_own_resources") (isset . "costing_other_resources") }}
-							<tr>
-								<th>{{ i18n "investiment" }}</th>
-								<td title="{{ i18n "ownResources" }}"> {{ .own_resources }} </td>
-								<td title="{{ i18n "othersResources" }}"> {{ .other_resources }} </td>
-							</tr>
-						{{ end }}
-						{{ if and (isset . "own_resources") (isset . "own_other_resources") }}
-							<tr>
-								<th>{{ i18n "costing" }}</th>
-								<td title="{{ i18n "ownResources" }}">{{ .costing_own_resources }}</td>
-								<td title="{{ i18n "othersResources" }}">{{ .costing_other_resources }}</td>
-							</tr>
-						{{ end }}
+						<tr>
+							<th>{{ i18n "investiment" }}</th>
+							<td title="{{ i18n "ownResources" }}"> {{ .own_resources.investment }} </td>
+							<td title="{{ i18n "othersResources" }}"> {{ .other_resources.investment }} </td>
+						</tr>
+						<tr>
+							<th>{{ i18n "costing" }}</th>
+							<td title="{{ i18n "ownResources" }}">{{ .own_resources.costing }}</td>
+							<td title="{{ i18n "othersResources" }}">{{ .other_resources.costing }}</td>
+						</tr>
 					</tbody>
 				</table>
 			</section>
