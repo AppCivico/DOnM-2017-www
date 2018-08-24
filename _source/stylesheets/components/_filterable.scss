@@ -1,10 +1,24 @@
 .filterable__form {
-	max-width: span(2) / 1em * 1rem;
-
+	// max-width: span(2) / 1em * 1rem;
 	margin-left: 0;
 }
 
+.filterable__form label {
+	@include media('>=11col') {
+		float: left;
+		max-width: 20em;
+		margin-left: 3em;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
 .filterable__field {
+	width: 100%;
+	white-space: nowrap;
+	box-sizing: border-box;
 }
 
 .filterable__counter {

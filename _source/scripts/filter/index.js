@@ -3,9 +3,10 @@ import defaultDiacriticsRemovalMap from './diacriticsMap.json';
 export default function initFilter() {
 	const filterableItems = document.querySelectorAll('.js-filterable__item');
 	const filterableField = document.getElementById('js-filterable__field');
+	const filterableInputs = document.querySelectorAll('.js-filterable__input');
+
 	const filterableCounter = document.getElementById('js-filterable__counter');
 	const diacriticsMap = {};
-	let counter = filterableItems.length;
 
 	if (filterableItems === null || filterableField === null) {
 		return false;
@@ -32,29 +33,73 @@ export default function initFilter() {
 		filterableItems[i].setAttribute('data-normalized-content', normalizedContent);
 	}
 
-	function filterBy() {
-		const filterTerm = filterableField.value.toLowerCase().trim();
-
-		for (let i = 0; i < filterableItems.length; i += 1) {
-			if (filterTerm !== '' && filterableItems[i].getAttribute('data-normalized-content').indexOf(filterTerm) === -1) {
-				if (!filterableItems[i].hasAttribute('hidden')) {
-					filterableItems[i].setAttribute('hidden', 'hidden');
-					counter -= 1;
-				}
-			} else if (filterableItems[i].hasAttribute('hidden')) {
-				filterableItems[i].removeAttribute('hidden');
-				counter += 1;
-			}
-		}
-
+	function setCounter(value) {
 		if (filterableCounter !== null) {
-			filterableCounter.textContent = counter;
+			filterableCounter.textContent = value;
 		}
 	}
 
-	return filterableField.addEventListener(
+	function handleVisibility(list) {
+		filterableItems.forEach((item) => {
+			if (list.includes(item)) {
+				item.removeAttribute('hidden');
+			} else {
+				item.setAttribute('hidden', 'hidden');
+			}
+		});
+		return filterableItems;
+	}
+
+	function filterItems(filterTerm, filterWhere, filterList) {
+		const filteredList = Array.prototype.filter.call(filterList, (item) => {
+			if (item.getAttribute(filterWhere).indexOf(filterTerm) !== -1) {
+				return item;
+			}
+		});
+		return filteredList;
+	}
+
+	function handleFilter(event) {
+		let filterTerm = '';
+		let filteredList = '';
+		const eventElement = event.target.nodeName.toLowerCase();
+		const filterWhere = event.target.getAttribute('data-filter-by');
+
+		if (eventElement === 'input') {
+			filterTerm = filterableField.value.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+		}
+		if (eventElement === 'select') {
+			filterTerm = event.target.options[event.target.selectedIndex].value;
+		}
+
+		if (!filterTerm) {
+			return;
+		}
+
+		filteredList = filterItems(filterTerm, filterWhere, filterableItems);
+
+		filterableInputs.forEach((item) => {
+			if (item.options[item.selectedIndex].defaultSelected) { return; }
+			const filterWhereInput = item.getAttribute('data-filter-by');
+			filterTerm = item.options[item.selectedIndex].value;
+			filteredList = filterItems(filterTerm, filterWhereInput, filteredList);
+		});
+
+		handleVisibility(filteredList);
+		setCounter(filteredList.length);
+	}
+
+	filterableField.addEventListener(
 		'input',
-		filterBy,
+		handleFilter,
 		false,
 	);
+
+	filterableInputs.forEach(input => input.addEventListener(
+		'change',
+		handleFilter,
+		false,
+	));
+
+	return true;
 }
