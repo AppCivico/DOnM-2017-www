@@ -16,18 +16,18 @@
 			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "goal" (len .) | lower }}.</p>
 
-			{{ partial "filterForm.html" . }}
+			{{ partial "filterForm.html" "goalsPage" }}
 
 			<div class="h-feed__h-entry-wrapper">
 				{{ range sort . "id" "asc" }}
 					<article
 						{{ with .topic }}
-							data-topic="{{ .name }}"
+							data-topic="{{lower .name }}"
 						{{ end }}
 						{{ with .secretariat }}
-							data-secretariat="{{ . }}"
+							data-secretariat="{{lower . }}"
 						{{ end }}
-						data-badge="{{ range .badges }} {{- .name }} {{ end }}"
+						data-badge="{{ range .badges }} {{- lower .name }} {{ end }}"
 						class="h-feed__h-entry h-entry js-filterable__reference js-filterable__item filterable__item"
 						id="goal-{{ .id }}">
 						<div class="h-entry__e-content e-content">
@@ -37,13 +37,6 @@
 								</a>
 							</h2>
 							<p>{{ .title }}</p>
-							{{ with .secretariat }}
-								Secretaria: {{ . }}
-							{{ end }}
-							<br>
-							{{ range .badges }}
-								Selos: {{ .name }}
-							{{ end }}
 							{{ with .topic }}
 								<footer>
 									{{ i18n "topic" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>

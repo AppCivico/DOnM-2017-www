@@ -7,7 +7,6 @@ export default function initFilter() {
 
 	const filterableCounter = document.getElementById('js-filterable__counter');
 	const diacriticsMap = {};
-	let counter = filterableItems.length;
 
 	if (filterableItems === null || filterableField === null) {
 		return false;
@@ -34,61 +33,71 @@ export default function initFilter() {
 		filterableItems[i].setAttribute('data-normalized-content', normalizedContent);
 	}
 
-	function filterBy() {
-		const filterTerm = filterableField.value.toLowerCase().trim();
-
-		for (let i = 0; i < filterableItems.length; i += 1) {
-			if (filterTerm !== '' && filterableItems[i].getAttribute('data-normalized-content').indexOf(filterTerm) === -1) {
-				if (!filterableItems[i].hasAttribute('hidden')) {
-					filterableItems[i].setAttribute('hidden', 'hidden');
-					counter -= 1;
-				}
-			} else if (filterableItems[i].hasAttribute('hidden')) {
-				filterableItems[i].removeAttribute('hidden');
-				counter += 1;
-			}
-		}
-
+	function setCounter(value) {
 		if (filterableCounter !== null) {
-			filterableCounter.textContent = counter;
+			filterableCounter.textContent = value;
 		}
 	}
 
-	function filterByMultiple(event) {
-		const selected = event.target;
-		const filterTerm = selected.options[selected.selectedIndex].value;
-		const filterTopic = selected.getAttribute('data-filter-type');
-		counter = 0;
-		console.log(filterTopic);
-
-		for (let i = 0; i < filterableItems.length; i += 1) {
-			filterableItems[i].setAttribute('hidden', 'hidden');
-
-			// check if topic exist in item
-			if (filterableItems[i].getAttribute(`data-${filterTopic}`)) {
-				// iterate and set visibility of items to visible
-				// when they match the filterTerm on the topics
-				if (filterableItems[i].getAttribute(`data-${filterTopic}`).indexOf(filterTerm) !== -1) {
-					filterableItems[i].removeAttribute('hidden');
-					counter += 1;
-				}
+	function handleVisibility(list) {
+		filterableItems.forEach((item) => {
+			if (list.includes(item)) {
+				item.removeAttribute('hidden');
+			} else {
+				item.setAttribute('hidden', 'hidden');
 			}
+		});
+		return filterableItems;
+	}
+
+	function filterItems(filterTerm, filterWhere, filterList) {
+		const filteredList = Array.prototype.filter.call(filterList, (item) => {
+			if (item.getAttribute(filterWhere).indexOf(filterTerm) !== -1) {
+				return item;
+			}
+		});
+		return filteredList;
+	}
+
+	function handleFilter(event) {
+		let filterTerm = '';
+		let filteredList = '';
+		const eventElement = event.target.nodeName.toLowerCase();
+		const filterWhere = event.target.getAttribute('data-filter-by');
+
+		if (eventElement === 'input') {
+			filterTerm = filterableField.value.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+		}
+		if (eventElement === 'select') {
+			filterTerm = event.target.options[event.target.selectedIndex].value;
 		}
 
-		if (filterableCounter !== null) {
-			filterableCounter.textContent = counter;
+		if (!filterTerm) {
+			return;
 		}
+
+		filteredList = filterItems(filterTerm, filterWhere, filterableItems);
+
+		filterableInputs.forEach((item) => {
+			if (item.options[item.selectedIndex].defaultSelected) { return; }
+			const filterWhereInput = item.getAttribute('data-filter-by');
+			filterTerm = item.options[item.selectedIndex].value;
+			filteredList = filterItems(filterTerm, filterWhereInput, filteredList);
+		});
+
+		handleVisibility(filteredList);
+		setCounter(filteredList.length);
 	}
 
 	filterableField.addEventListener(
 		'input',
-		filterBy,
+		handleFilter,
 		false,
 	);
 
 	filterableInputs.forEach(input => input.addEventListener(
 		'change',
-		filterByMultiple,
+		handleFilter,
 		false,
 	));
 
