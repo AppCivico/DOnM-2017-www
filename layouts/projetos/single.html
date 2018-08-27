@@ -70,14 +70,14 @@
 			</section>
 		{{ end }}
 
-		{{ with .additional_infos }}
+		{{ with .additional_information }}
 			<section class="togglebox">
 				<h2>{{ i18n "aditionalInfo" (len .) }}</h2>
-				{{ range .additional_infos }}
+				{{ range . }}
 					<div class="togglebox__content">
-						<time datetime="{{ .date }}">{{ dateFormat "02/01/2006" .date }}</time>
+						<time datetime="{{ .inserted_at }}">{{ dateFormat "02/01/2006" .inserted_at }}</time>
 						<div class="text">
-							{{ .content }}
+							{{ .description }}
 						</div>
 						<button class="read-more" data-js="togglebox-button">Ver mais</button>
 					</div>
