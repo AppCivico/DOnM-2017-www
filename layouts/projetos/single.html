@@ -8,11 +8,13 @@
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
-			<div class="badges">
-				{{ range .badges }}
-					<img src="/assets/img/{{- .id -}}.png" alt="{{ .name }}"/>
-				{{ end }}
-			</div>
+			{{ if .badges }}
+				<div class="badges">
+					{{ range .badges }}
+						<img src="/assets/img/project-badge-{{- .id -}}.png" alt="{{ .name }}"/>
+					{{ end }}
+				</div>
+			{{ end }}
 
 			<h2>
 				{{ i18n "project" 1 }}
