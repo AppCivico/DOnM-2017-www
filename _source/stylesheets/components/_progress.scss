@@ -73,8 +73,7 @@ progress {
 	display: flex;
 	height: 2.3em;
 	overflow: hidden;
-	border: 1px solid lighten(palette('gray'), 5%);
-	border-radius: 5px;
+	border: 1px solid palette('gray', light);
 
 	$alpha: 5;
 	$color: palette('hit-pink');
@@ -97,10 +96,12 @@ progress {
 	float: left;
 	width: 50%;
 	padding: 0 0.8em;
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
 
 	strong {
 		display: block;
+		margin-bottom: 0.3em;
+		font-size: 1.2em;
 		border-bottom: 1px solid palette('gray');
 	}
 
@@ -108,6 +109,7 @@ progress {
 		display: inline-block;
 		width: 1em;
 		height: 1em;
+		margin-right: 0.4em;
 		vertical-align: middle;
 	}
 }
