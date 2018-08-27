@@ -22,12 +22,8 @@
 			<div class="h-feed__h-entry-wrapper">
 				{{ range sort . "id" "asc" }}
 					<article
-						{{ with .topic }}
-							data-topic="{{lower .name }}"
-						{{ end }}
-						{{ with .secretariat }}
-							data-secretariat="{{lower . }}"
-						{{ end }}
+						data-topic="{{ range .topics }} {{- lower .name }} {{ end }}"
+						data-secretariat="{{ range .secretariats }} {{- lower .name }} {{ end }}"
 						data-badge="{{ range .badges }} {{- lower .name }} {{ end }}"
 						class="h-feed__h-entry h-entry js-filterable__item filterable__item" id="project-{{ .id }}">
 						<div class="h-entry__e-content .e-content">

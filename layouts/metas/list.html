@@ -21,12 +21,8 @@
 			<div class="h-feed__h-entry-wrapper">
 				{{ range sort . "id" "asc" }}
 					<article
-						{{ with .topic }}
-							data-topic="{{lower .name }}"
-						{{ end }}
-						{{ with .secretariat }}
-							data-secretariat="{{lower . }}"
-						{{ end }}
+						data-topic="{{ range .topics }} {{- lower .name }} {{ end }}"
+						data-secretariat="{{ range .secretariats }} {{- lower .name }} {{ end }}"
 						data-badge="{{ range .badges }} {{- lower .name }} {{ end }}"
 						class="h-feed__h-entry h-entry js-filterable__reference js-filterable__item filterable__item"
 						id="goal-{{ .id }}">
@@ -37,9 +33,18 @@
 								</a>
 							</h2>
 							<p>{{ .title }}</p>
-							{{ with .topic }}
+							{{ with .topics }}
 								<footer>
-									{{ i18n "topic" 1 }}: <a href='/eixos/{{ .slug }}'>{{ .name }}</a>
+									{{ i18n "topic" (len .) }}:
+									<ul>
+										{{ range . }}
+										<li>
+											<a href='/eixos/{{ .slug }}'>
+												{{ .name }}
+											</a>
+										</li>
+										{{ end }}
+									</ul>
 								</footer>
 							{{ end }}
 						</div>

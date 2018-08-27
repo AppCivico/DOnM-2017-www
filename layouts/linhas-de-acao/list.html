@@ -29,12 +29,8 @@
 						<a href="/linhas-de-acao/{{ . }}">
 					{{ end }}
 					<div
-						{{ with .topic }}
-							data-topic="{{lower .name }}"
-						{{ end }}
-						{{ with .secretariat }}
-							data-secretariat="{{lower . }}"
-						{{ end }}
+						data-topic="{{ range .topics }} {{- lower .name }} {{ end }}"
+						data-secretariat="{{ range .secretariats }} {{- lower .name }} {{ end }}"
 						data-badge="{{ range .badges }} {{- lower .name }} {{ end }}"
 						class="definition-item action-lines__list-item js-filterable__item filterable__item">
 						<dt class="action-lines__item-id">
