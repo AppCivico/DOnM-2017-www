@@ -16,7 +16,7 @@
 			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "goal" (len .) | lower }}.</p>
 
-			{{ partial "filterForm.html" "goalsPage" }}
+			{{ partialCached "filterForm.html" . }}
 
 			<div class="h-feed__h-entry-wrapper">
 				{{ range sort . "id" "asc" }}

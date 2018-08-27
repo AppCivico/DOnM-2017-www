@@ -28,7 +28,15 @@
 					{{ with .slug }}
 						<a href="/linhas-de-acao/{{ . }}">
 					{{ end }}
-					<div class="definition-item action-lines__list-item js-filterable__item filterable__item">
+					<div
+						{{ with .topic }}
+							data-topic="{{lower .name }}"
+						{{ end }}
+						{{ with .secretariat }}
+							data-secretariat="{{lower . }}"
+						{{ end }}
+						data-badge="{{ range .badges }} {{- lower .name }} {{ end }}"
+						class="definition-item action-lines__list-item js-filterable__item filterable__item">
 						<dt class="action-lines__item-id">
 							{{ .id }}
 						</dt>
