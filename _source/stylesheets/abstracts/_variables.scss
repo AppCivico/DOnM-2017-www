@@ -109,6 +109,7 @@ $palette: (
 		'base': $_brown--base,
 		'dark': shade($_brown--base, 35%),
 	),
+	'hit-pink': rgb(253, 175, 129),
 	'orange': (
 		'x-light': tint($_orange--x-light, 25%),
 		'light': $_orange--light,

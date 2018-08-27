@@ -95,49 +95,53 @@
 
 			<p>{{ i18n "textProgress" }}</p>
 
-			<progress {{ with .progress }} value="{{ . }}"{{ end }} max="100">
-				<div class="progress-bar">
-					<span {{ with .progress }} style="width: {{ . }}%;" {{ end }}>
-						{{ with .progress }}{{ . }}%{{ end }}
-					</span>
-				</div>
-			</progress>
+			<div role="progress" aria-valuemin="0" aria-valuemax="100">
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+			</div>
+			<p>25% da meta atingida no 1 semestre de 2017</p>
 
 			<div class="progress-legend">
-				<div class="progress-legend__year">
+				<div class="progress-legend__year progress-legend__year--2017">
 					<strong>2017</strong>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "first_semester" }}
+						<span class="progres-legend__year--color-first-semester"></span> {{ i18n "first_semester" }}
 					</div>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "second_semester" }}
+						<span class="progres-legend__year--color-second-semester"></span> {{ i18n "second_semester" }}
 					</div>
 				</div>
-				<div class="progress-legend__year">
+				<div class="progress-legend__year progress-legend__year--2018">
 					<strong>2018</strong>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "first_semester" }}
+						<span class="progres-legend__year--color-first-semester"></span> {{ i18n "first_semester" }}
 					</div>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "second_semester" }}
+						<span class="progres-legend__year--color-second-semester"></span> {{ i18n "second_semester" }}
 					</div>
 				</div>
-				<div class="progress-legend__year">
+				<div class="progress-legend__year progress-legend__year--2019">
 					<strong>2019</strong>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "first_semester" }}
+						<span class="progres-legend__year--color-first-semester"></span> {{ i18n "first_semester" }}
 					</div>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "second_semester" }}
+						<span class="progres-legend__year--color-second-semester"></span> {{ i18n "second_semester" }}
 					</div>
 				</div>
-				<div class="progress-legend__year">
+				<div class="progress-legend__year progress-legend__year--2020">
 					<strong>2020</strong>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "first_semester" }}
+						<span class="progres-legend__year--color-first-semester"></span> {{ i18n "first_semester" }}
 					</div>
 					<div class="progres-legend__line">
-						<span></span> {{ i18n "second_semester" }}
+						<span class="progres-legend__year--color-second-semester"></span> {{ i18n "second_semester" }}
 					</div>
 				</div>
 			</div>

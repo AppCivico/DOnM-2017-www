@@ -69,6 +69,25 @@ progress {
 	}
 }
 
+[role='progress'] {
+	display: flex;
+	height: 2.3em;
+	overflow: hidden;
+	border: 1px solid lighten(palette('gray'), 5%);
+	border-radius: 5px;
+
+	$alpha: 5;
+	$color: palette('hit-pink');
+
+	@for $i from 1 through 8 {
+		div:nth-child(#{$i}) {
+			background-color: darken($color, $alpha + 0%);
+		}
+
+		$alpha: $alpha + 5;
+	}
+}
+
 .progress-legend {
 	margin-top: 1em;
 	overflow: hidden;
@@ -90,7 +109,46 @@ progress {
 		width: 1em;
 		height: 1em;
 		vertical-align: middle;
-		background: palette('black');
 	}
 }
 
+.progress-legend__year--2017 {
+	.progres-legend__year--color-first-semester {
+		background-color: darken(palette('hit-pink'), 5%);
+	}
+
+	.progres-legend__year--color-second-semester {
+		background-color: darken(palette('hit-pink'), 10%);
+	}
+}
+
+.progress-legend__year--2018 {
+	.progres-legend__year--color-first-semester {
+		background-color: darken(palette('hit-pink'), 15%);
+	}
+
+	.progres-legend__year--color-second-semester {
+		background-color: darken(palette('hit-pink'), 20%);
+	}
+}
+
+
+.progress-legend__year--2019 {
+	.progres-legend__year--color-first-semester {
+		background-color: darken(palette('hit-pink'), 25%);
+	}
+
+	.progres-legend__year--color-second-semester {
+		background-color: darken(palette('hit-pink'), 30%);
+	}
+}
+
+.progress-legend__year--2020 {
+	.progres-legend__year--color-first-semester {
+		background-color: darken(palette('hit-pink'), 35%);
+	}
+
+	.progres-legend__year--color-second-semester {
+		background-color: darken(palette('hit-pink'), 40%);
+	}
+}
