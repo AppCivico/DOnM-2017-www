@@ -42,6 +42,10 @@
   translation: "Filtrar por secretaria"
 - id: filterByBadge
   translation: "Filtrar por selos"
+- id: filterBy
+  translation: "Buscar"
+- id: first_semester
+  translation: "1 semestre"
 - id: formula
   translation: "Fórmula"
 - id: goal
@@ -102,6 +106,8 @@
     other: "Distritos pertencentes"
 - id: search
   translation: "Buscar"
+- id: second_semester
+  translation: "2 semestre"
 - id: secretary
   translation:
     one: "Secretaria"
