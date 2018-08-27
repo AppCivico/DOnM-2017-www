@@ -51,6 +51,7 @@ export default function initFilter() {
 	}
 
 	function filterItems(filterTerm, filterWhere, filterList) {
+		// eslint-disable-next-line
 		const filteredList = Array.prototype.filter.call(filterList, (item) => {
 			if (item.getAttribute(filterWhere).indexOf(filterTerm) !== -1) {
 				return item;
