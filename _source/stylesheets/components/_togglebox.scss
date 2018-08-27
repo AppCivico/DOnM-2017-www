@@ -5,6 +5,16 @@
 	overflow: hidden;
 	transition: max-height 0.3s;
 
+	time {
+		font-style: normal;
+		font-weight: bold;
+		color: palette('brown', 'light');
+	}
+
+	.text {
+		margin-top: 0.5em;
+	}
+
 	.read-more {
 		position: absolute;
 		bottom: 0;
