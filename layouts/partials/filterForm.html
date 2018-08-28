@@ -11,29 +11,31 @@
 				name="filter-by"
 				data-filter-by="data-normalized-content" />
 		</label>
-		<label>{{ i18n "filterByTopic" }}
-			<select name="" class="js-filterable__input filterable__field" data-filter-by="data-topic">
-				<option value="null" selected disabled>{{ i18n "selectTopic" }}</option>
-				{{ range $topics.topics }}
-					<option value="{{lower .name }}">{{ .name }}</option>
-				{{ end }}
-			</select>
-		</label>
-		<label>{{ i18n "filterBySecretary" }}
-			<select name="" class="js-filterable__input filterable__field" data-filter-by="data-secretariat">
-				<option value="null" selected disabled>{{ i18n "selectSecretary" }}</option>
-				{{ range $secretariat.secretariats }}
-					<option value="{{lower . }}">{{ . }}</option>
-				{{ end }}
-			</select>
-		</label>
-		<label>{{ i18n "filterByBadge" }}
-			<select name="" class="js-filterable__input filterable__field" data-filter-by="data-badge">
-				<option value="null" selected disabled>{{ i18n "selectBadge" }}</option>
-				{{ range $badges.badges }}
-					<option value="{{lower .name }}">{{ .name }}</option>
-				{{ end }}
-			</select>
-		</label>
+		{{ if eq . "completeForm" }}
+			<label>{{ i18n "filterByTopic" }}
+				<select name="" class="js-filterable__input filterable__field" data-filter-by="data-topic">
+					<option value="null" selected disabled>{{ i18n "selectTopic" }}</option>
+					{{ range $topics.topics }}
+						<option value="{{lower .name }}">{{ .name }}</option>
+					{{ end }}
+				</select>
+			</label>
+			<label>{{ i18n "filterBySecretary" }}
+				<select name="" class="js-filterable__input filterable__field" data-filter-by="data-secretariat">
+					<option value="null" selected disabled>{{ i18n "selectSecretary" }}</option>
+					{{ range $secretariat.secretariats }}
+						<option value="{{lower . }}">{{ . }}</option>
+					{{ end }}
+				</select>
+			</label>
+			<label>{{ i18n "filterByBadge" }}
+				<select name="" class="js-filterable__input filterable__field" data-filter-by="data-badge">
+					<option value="null" selected disabled>{{ i18n "selectBadge" }}</option>
+					{{ range $badges.badges }}
+						<option value="{{lower .name }}">{{ .name }}</option>
+					{{ end }}
+				</select>
+			</label>
+		{{ end }}
 	</fieldset>
 </form>

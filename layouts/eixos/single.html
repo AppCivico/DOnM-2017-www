@@ -29,7 +29,7 @@
 			<section class="h-feed">
 				<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "goal" (len .) }}.</p>
 
-				{{ partialCached "filterForm.html" . }}
+				{{ partial "filterForm.html" }}
 
 				<div class="h-feed__h-entry-wrapper">
 					{{ range sort . "id" "asc" }}

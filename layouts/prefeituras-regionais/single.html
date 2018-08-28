@@ -23,7 +23,7 @@
 			<section class="action-lines">
 				<h2>{{ i18n "actionLine" (len .) }}</h2>
 
-				{{ partialCached "filterForm.html" . }}
+				{{ partial "filterForm.html" }}
 
 				<dl class="action-lines__list">
 				{{ range . }}

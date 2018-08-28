@@ -15,7 +15,7 @@
 		<section>
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "project" (len .) | lower }}.</p>
 
-			{{ partialCached "filterForm.html" . }}
+			{{ partial "filterForm.html" "completeForm" }}
 
 			<p class="h-feed__p-summary p-summary"><b>{{ len . }}</b> {{ i18n "project" (len .) }}.</p>
 
