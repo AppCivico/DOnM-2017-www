@@ -47,6 +47,63 @@
 		{{ if .subprefectures }}
 			<section class="projection">
 				<h2>{{ i18n "regionalization" }}</h2>
+
+				<section class="regionalization-progress">
+					<header>
+						<h2>Prefeituras Regionais</h2>
+						<h2>Projeção</h2>
+						<h2>Progresso</h2>
+						<h2>2017 - 2020</h2>
+					</header>
+					<details>
+						<summary>
+							<span class="regionalization-progress__region">Tatuapé</span>
+							<span class="regionalization-progress__projection"><i>4</i></span>
+							<div class="regionalization-progress__progress">
+								<progress
+									value="80"
+									max="100">
+									<div>
+										<span style="width: 80%;"></span>
+									</div>
+								</progress>
+								80%
+							</div>
+						</summary>
+						<table>
+							<thead>
+								<tr class="regionalization-progress__years">
+									<th colspan="2" scope="colgroup">2017</th>
+									<th colspan="2" scope="colgroup">2018</th>
+									<th colspan="2" scope="colgroup">2019</th>
+									<th colspan="2" scope="colgroup">2020</th>
+								</tr>
+								<tr>
+									<th scope="col">1º Sem.</th>
+									<th scope="col">2º Sem.</th>
+									<th scope="col">1º Sem.</th>
+									<th scope="col">2º Sem.</th>
+									<th scope="col">1º Sem.</th>
+									<th scope="col">2º Sem.</th>
+									<th scope="col">1º Sem.</th>
+									<th scope="col">2º Sem.</th>
+								</tr>
+							</thead>
+							<tr>
+								<td title="1º Sem. 2017">01</td>
+								<td title="2º Sem. 2017">01</td>
+								<td title="1º Sem. 2018">-</td>
+								<td title="2º Sem. 2018">-</td>
+								<td title="1º Sem. 2019">02</td>
+								<td title="2º Sem. 2019">01</td>
+								<td title="1º Sem. 2020">01</td>
+								<td title="2º Sem. 2020">01</td>
+							</tr>
+						</table>
+						</table>
+					</details>
+				</section>
+
 				<table>
 					<thead>
 						<tr>

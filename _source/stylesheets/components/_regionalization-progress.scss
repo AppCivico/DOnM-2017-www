@@ -1,0 +1,144 @@
+.regionalization-progress {
+	header {
+		display: flex;
+		padding-bottom: 0.5em;
+		border-bottom: 1px solid palette('gray', 'x-light');
+	}
+
+	h2 {
+		flex-basis: 100%;
+		font-weight: bold;
+		font-size: 1em;
+		text-align: center;
+		text-transform: none;
+
+		&:first-child {
+			text-align: left;
+		}
+
+		&:last-child {
+			text-align: right;
+		}
+	}
+
+
+	details {
+		padding: 0.5em;
+		border: 1px solid palette('gray', 'x-light');
+		box-shadow: 0 1px 5px palette('shadow');
+
+		summary {
+			display: flex;
+			margin: 0;
+			border: 0;
+
+			* {
+				flex-basis: 100%;
+			}
+
+			&::before {
+				position: absolute;
+				right: 2.5em;
+				bottom: 0;
+				z-index: 2;
+				width: 0.05em;
+				height: 100%;
+				background-color: palette('gray', 'x-light');
+				border: 0;
+				content: '';
+			}
+
+			&::after {
+				position: relative;
+				display: block;
+				z-index: 2;
+				width: 100%;
+				padding-right: 0.4em;
+				font-size: 1.2em;
+				text-align: right;
+				color: palette('gray');
+				border: 0;
+				content: '\25BE';
+			}
+		}
+
+
+
+		.regionalization-progress__region {
+			padding-left: 0.4em;
+			color: palette('orange', 'x-light');
+		}
+
+		.regionalization-progress__projection {
+			text-align: center;
+
+			i {
+				padding: 0.2em 0.5em;
+				text-decoration: none;
+				color: palette('white');
+				background-color: palette('orange', 'x-light');
+				border-radius: 10%;
+			}
+		}
+
+		table {
+			margin: 2em 0;
+		}
+	}
+}
+
+.regionalization-progress__progress {
+	display: flex;
+	align-items: center;
+
+	progress {
+		@include progress-bar-fg {
+			background-image: none;
+			background-size: auto;
+			background-color: palette('orange', 'x-light');
+		}
+
+		@include progress-bar-bg {
+			background-image: none;
+			background-size: auto;
+			background-color: palette('gray', 'light');
+		}
+
+		width: 100%;
+		height: $line-height * 1em;
+		margin-right: 0.5em;
+	}
+}
+
+.regionalization-progress thead th {
+	padding: 1em 0;
+	text-align: center;
+}
+
+.regionalization-progress .regionalization-progress__years th {
+	background-color: palette('white', 'dark');
+	border-top: 1px solid palette('gray');
+	border-bottom: 1px solid palette('gray');
+}
+
+.regionalization-progress tbody td {
+	padding: 1em 0;
+	text-align: center;
+	background: palette('white');
+
+	@include media('<phone') {
+		&:before {
+			float: none;
+			display: inline-block;
+			margin-right: 10px;
+			font-style: normal;
+			content: attr(title)': ';
+		}
+	}
+
+	&[title]:before {
+		float: none;
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+}

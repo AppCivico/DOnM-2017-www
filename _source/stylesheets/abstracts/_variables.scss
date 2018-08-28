@@ -98,7 +98,10 @@ $palette: (
 		'dark': rgb(64, 68, 71),
 		'x-dark': shade(rgb(64, 68, 71), 10%),
 	),
-	'white': rgb(255, 255, 255),
+	'white': (
+		'base': rgb(255, 255, 255),
+		'dark': shade(palette('white'), 2%),
+	),
 	'black': rgb(0, 0, 0),
 	'shadow': (
 		'inverse': rgba(255, 255, 255, 0.25),
