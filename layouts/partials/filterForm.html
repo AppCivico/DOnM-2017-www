@@ -1,6 +1,7 @@
 {{ $topics := getJSON "./static/assets/data/topic.json" }}
 {{ $secretariat := getJSON "./static/assets/data/secretariats.json" }}
 {{ $badges := getJSON "./static/assets/data/badges.json" }}
+
 <form class="filterable__form js-only">
 	<fieldset>
 		<label>{{ i18n "search" }}
@@ -24,7 +25,7 @@
 				<select name="" class="js-filterable__input filterable__field" data-filter-by="data-secretariat">
 					<option value="null" selected disabled>{{ i18n "selectSecretary" }}</option>
 					{{ range $secretariat.secretariats }}
-						<option value="{{lower . }}">{{ . }}</option>
+						<option value="{{lower .name }}">{{ .name }}</option>
 					{{ end }}
 				</select>
 			</label>
