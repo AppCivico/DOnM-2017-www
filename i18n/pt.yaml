@@ -46,6 +46,8 @@
   translation: "Buscar"
 - id: first_semester
   translation: "1 semestre"
+- id: firstSemesterAbbr
+  translation: "1º sem."
 - id: formula
   translation: "Fórmula"
 - id: goal
@@ -72,12 +74,16 @@
   translation: "Outros recursos"
 - id: ownResources
   translation: "Recursos próprios"
+- id: progress
+  translation: "Progresso"
 - id: progressProject
   translation: "Progresso deste projeto"
 - id: project
   translation:
     one: "projeto"
     other: "projetos"
+- id: projection
+  translation: "Projeção"
 - id: projectJustification
   translation: "Justificativa do Projeto"
 - id: regionalMayor
@@ -108,6 +114,8 @@
   translation: "Buscar"
 - id: second_semester
   translation: "2 semestre"
+- id: secondSemesterAbbr
+  translation: "2º sem."
 - id: secretary
   translation:
     one: "Secretaria"
