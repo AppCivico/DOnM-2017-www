@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add new information on action lines
 	- Add badges placeholder images
 	- Add select filters on goals
+	- Add new layout to regionalization action lines
 
 ### Fixed
 	- Fix badges styles
