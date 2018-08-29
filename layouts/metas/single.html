@@ -95,17 +95,22 @@
 
 			<p>{{ i18n "textProgress" }}</p>
 
-			<div role="progress" aria-valuemin="0" aria-valuemax="100">
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-				<div role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-			</div>
-			<p>25% da meta atingida no 1 semestre de 2017</p>
+				<div role="progress" aria-valuemin="0" aria-valuemax="100">
+					{{ range .execution }}
+						<div
+							role="progressbar"
+							aria-valuenow="0"
+							aria-valuemin="0"
+							aria-valuemax="100"
+							class="js-progress-hover progress-year-{{- .year }} progress-year--semester-{{- .semester -}}"
+							data-more-info="{{ .progress }}% atingido no {{ .semester }}&ordm; semestre de {{ .year }}"
+							style="width: {{- .progress -}}%">
+						</div>
+					{{ end }}
+				</div>
+				<div class="js-progress-more-info progress__more-info">
+					<p></p>
+				</div>
 
 			<div class="progress-legend">
 				<div class="progress-legend__year progress-legend__year--2017">

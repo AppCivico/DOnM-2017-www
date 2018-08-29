@@ -75,16 +75,24 @@ progress {
 	overflow: hidden;
 	border: 1px solid palette('gray', light);
 
-	$alpha: 5;
+	$alpha: 3;
 	$color: palette('hit-pink');
 
-	@for $i from 1 through 8 {
-		div:nth-child(#{$i}) {
-			background-color: darken($color, $alpha + 0%);
-		}
+	@for $i from 17 through 20 {
+		.progress-year-20#{$i} {
+			background-color: darken($color, $alpha * 1%);
 
-		$alpha: $alpha + 5;
+			&.progress-year--semester-2 {
+				background-color: darken($color, $alpha * 2%);
+			};
+
+		}
+		$alpha: $alpha + 8;
 	}
+}
+
+.progress__more-info {
+	min-height: 4em;
 }
 
 .progress-legend {
@@ -114,43 +122,20 @@ progress {
 	}
 }
 
-.progress-legend__year--2017 {
-	.progres-legend__year--color-first-semester {
-		background-color: darken(palette('hit-pink'), 5%);
-	}
 
-	.progres-legend__year--color-second-semester {
-		background-color: darken(palette('hit-pink'), 10%);
-	}
-}
+$alpha: 3;
+$color: palette('hit-pink');
 
-.progress-legend__year--2018 {
-	.progres-legend__year--color-first-semester {
-		background-color: darken(palette('hit-pink'), 15%);
-	}
+@for $i from 17 through 20 {
 
-	.progres-legend__year--color-second-semester {
-		background-color: darken(palette('hit-pink'), 20%);
-	}
-}
+	.progress-legend__year--20#{$i} {
+		.progres-legend__year--color-first-semester {
+			background-color: darken($color, $alpha * 1%);
+		}
 
-
-.progress-legend__year--2019 {
-	.progres-legend__year--color-first-semester {
-		background-color: darken(palette('hit-pink'), 25%);
+		.progres-legend__year--color-second-semester {
+			background-color: darken($color, $alpha * 2%);
+		}
 	}
-
-	.progres-legend__year--color-second-semester {
-		background-color: darken(palette('hit-pink'), 30%);
-	}
-}
-
-.progress-legend__year--2020 {
-	.progres-legend__year--color-first-semester {
-		background-color: darken(palette('hit-pink'), 35%);
-	}
-
-	.progres-legend__year--color-second-semester {
-		background-color: darken(palette('hit-pink'), 40%);
-	}
+	$alpha: $alpha + 8;
 }
