@@ -16,7 +16,7 @@
   translation: "Orçamento"
 - id: clearFilters
   translation: "Limpar filtros"
-- id: compareto
+- id: compareTo
   translation: "comparar com"
 - id: costing
   translation: "Custeio"
