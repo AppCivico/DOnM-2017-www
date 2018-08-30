@@ -14,6 +14,10 @@
     other: "Prefeituras regionais beneficiadas"
 - id: budget
   translation: "Orçamento"
+- id: budgetExecution
+  translation: "Execução Orçamentária"
+- id: budgetaryProjection
+  translation: "Projeção Orçamentária"
 - id: clearFilters
   translation: "Limpar filtros"
 - id: compareTo
@@ -22,6 +26,8 @@
   translation: "Custeio"
 - id: currentSituation
   translation: "Situação atual"
+- id: defrayal
+  translation: "Custeio"
 - id: description
   translation: "Descrição"
 - id: dataNotRestrictedToARegion
@@ -64,10 +70,12 @@
     other: "Indicadores"
 - id: introIOTA
   translation: "Principais indicadores relacionadas a qualidade de vida nos distritos da cidade compilados pela [Rede Nossa São Paulo](http://www.nossasaopaulo.org.br/). Os dados exibidos são referentes ao último ano disponível."
-- id: investiment
+- id: investment
   translation: "Investimento"
-- id: lastUpdatedAt
-  translation: "Última atualização"
+- id: lastupdatedat
+  translation: "última atualização"
+- id: noDataForPeriod
+  translation: "Nenhum registro encontrado para o período selecionado"
 - id: of
   translation: "De"
 - id: othersResources
@@ -76,6 +84,8 @@
   translation: "Recursos próprios"
 - id: progress
   translation: "Progresso"
+- id: progressPercentageDescription
+  translation: "Progresso (%) realizado ao longo dos anos"
 - id: progressProject
   translation: "Progresso deste projeto"
 - id: project
@@ -128,6 +138,8 @@
   translation: "Selecione a secretaria"
 - id: selectBadge
   translation: "Selecione o selo"
+- id: sources
+  translation: "Fontes"
 - id: subPrefecture
   translation:
     one: "Subprefeitura"
@@ -142,6 +154,10 @@
   translation:
     one: "Eixo"
     other: "Eixos"
+- id: total
+  translation: "Total"
+- id: totalBudget
+  translation: "Orçamento total"
 - id: value
   translation: "Valor"
 - id: variable

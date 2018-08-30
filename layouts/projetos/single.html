@@ -5,6 +5,9 @@
 
 {{ range $project }}
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -46,31 +49,150 @@
 
 		{{ with .budget }}
 			<section class="budget">
-				<h3>{{ i18n "budget" }}</h3>
+				<h3>{{ i18n "totalBudget" }}</h3>
 
-				<table>
+				<p>{{ i18n "budgetaryProjection" }} (2017 - 2020)</p>
+
+				<table class="bordered-table">
 					<thead>
 						<tr>
-							<th></th>
-							<th>{{ i18n "ownResources" }}</th>
-							<th>{{ i18n "othersResources" }}</th>
+							<th>{{ i18n "sources" }}</th>
+							<th>{{ i18n "investment" }}</th>
+							<th>{{ i18n "defrayal" }}</th>
+							{{ if or (.own_resources.total) (.other_resources.total) }}
+								<td title="{{ i18n "ownResources" }}">total proprio</td>
+								<th>{{ i18n "total" }}</th>
+							{{ end }}
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th>{{ i18n "investiment" }}</th>
-							<td title="{{ i18n "ownResources" }}"> {{ .own_resources.investment }} </td>
-							<td title="{{ i18n "othersResources" }}"> {{ .other_resources.investment }} </td>
+							<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+							<td title="{{ i18n "ownResources" }}">{{ .own_resources.investment }}</td>
+							<td title="{{ i18n "ownResources" }}">{{ .own_resources.costing }}</td>
+							{{ if .own_resources.total }}
+								<td title="{{ i18n "ownResources" }}">total proprio</td>
+							{{ end }}
 						</tr>
 						<tr>
-							<th>{{ i18n "costing" }}</th>
-							<td title="{{ i18n "ownResources" }}">{{ .own_resources.costing }}</td>
-							<td title="{{ i18n "othersResources" }}">{{ .other_resources.costing }}</td>
+							<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+							<td title="{{ i18n "ownResources" }}">{{ .other_resources.investment }}</td>
+							<td title="{{ i18n "ownResources" }}">{{ .other_resources.costing }}</td>
 						</tr>
 					</tbody>
+					{{ if .total }}
+						<tfoot>
+							<tr>
+								<th scope="row">{{ i18n "total" }}</th>
+								<td colspan="3" title="{{ i18n "ownResources" }}">{{ .total.value }}</td>
+							</tr>
+						</tfoot>
+					{{ end }}
 				</table>
-			</section>
 		{{ end }}
+
+		{{ with .budget_execution }}
+			<h3>{{ i18n "budgetExecution" }}</h3>
+			<p>Escolha a opção para visualizar</p>
+
+			<div class="tabs">
+				<div class="js-tabs-control tabs__control">
+					<a href="#tab-2017">2017</a>
+					<a href="#tab-2018">2018</a>
+					<a href="#tab-2019">2019</a>
+					<a href="#tab-2020">2020</a>
+					<a href="#tab-all">2017 - 2020</a>
+				</div>
+
+				<div class="tab__content" id="tab-2017">
+					{{ $save := . }}
+					{{ range .per_year }}
+						{{ if eq (int .year) 2018 }}
+							<table class="bordered-table bordered-table--orange">
+								<thead>
+									<tr>
+										<th>{{ i18n "sources" }}</th>
+										<th>{{ i18n "investment" }}</th>
+										<th>{{ i18n "defrayal" }}</th>
+										<th>{{ i18n "total" }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_total }}</td>
+									</tr>
+									<tr>
+										<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
+									</tr>
+								</tbody>
+								{{ if $save.overall_total }}
+									<tfoot>
+										<tr>
+											<th scope="row">{{ i18n "total" }}</th>
+											<td colspan="3" title="{{ i18n "total" }}">
+												R$ {{ int $save.overall_total }}
+											</td>
+										</tr>
+									</tfoot>
+								{{ end }}
+							</table>
+						{{ else }}
+							<p>{{ i18n "noDataForPeriod" }}</p>
+						{{ end }}
+					{{ end }}
+				</div>
+
+				<div class="tab__content" id="tab-2018">2018</div>
+				<div class="tab__content" id="tab-2019">2019</div>
+				<div class="tab__content" id="tab-2020">2020</div>
+				<div class="tab__content" id="tab-all">2020</div>
+			</div>
+
+
+		{{ end }}
+
+		<h3>{{ i18n "progress" }}</h3>
+		<p>{{ i18n "progressPercentageDescription" }}</p>
+
+		<div class="ct-chart ct-golden-section"></div>
+		<style type="text/css">
+			.ct-series-a .ct-bar,
+			.ct-series-b .ct-bar,
+			.ct-series-c .ct-bar,
+			.ct-series-d .ct-bar
+			{
+			  /* Colour of your bars */
+			  stroke: orange;
+			  /* The width of your bars */
+			  stroke-width: 1em;
+			}
+		</style>
+		<script>
+			new Chartist.Bar('.ct-chart',
+				{
+					labels: ['2017', '2018', '2019', '2020'],
+					series: [ [10, 30, 50, 60] ],
+				},
+				{
+					high: 100,
+					axisY: {
+						onlyInteger: true,
+						type: Chartist.FixedScaleAxis,
+						ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+						low: 0
+					},
+				},
+			);
+		</script>
+
+	</section>
+
 
 		{{ with .additional_information }}
 			<section class="togglebox">
