@@ -168,10 +168,12 @@
 			{{ end }}
 		</section>
 
-		{{ with .secretariat }}
+		{{ with .secretariats }}
 			<section class="secretary">
-				<h2>{{ i18n "secretary_at" }}:</h2>
-				<span>{{ . }}</span>
+				{{ range . }}
+					<h2>{{ i18n "secretary_at" }}:</h2>
+					<span>{{ .name }}</span>
+				{{ end }}
 			</section>
 		{{ end }}
 
