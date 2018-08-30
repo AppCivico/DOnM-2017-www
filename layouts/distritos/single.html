@@ -23,6 +23,62 @@
 			<div id="map" class="map" data-to-draw="regions" data-regions-to-draw="{{ .id }}"></div>
 		</section>
 
+		<section class="regionalization-progress">
+			<header>
+				<h2>{{ i18n "regionalPrefecture" 1 }}</h2>
+				<h2>{{ i18n "projection" }}</h2>
+				<h2>{{ i18n "progress" }}</h2>
+				<h2 class="regionalization-progress__years-header">2017 - 2020</h2>
+			</header>
+			<details>
+				<summary>
+					<span title="Prefeituras Regionais" class="regionalization-progress__region">Tatuapé</span>
+					<span title="Projeção" class="regionalization-progress__projection"><i>4</i></span>
+					<div title="Progresso" class="regionalization-progress__progress">
+						<progress
+							value="80"
+							max="100">
+							<div>
+								<span style="width: 80%;"></span>
+							</div>
+						</progress>
+						80%
+					</div>
+				</summary>
+				<table>
+					<thead>
+						<tr class="regionalization-progress__years">
+							<th colspan="2" scope="colgroup">2017</th>
+							<th colspan="2" scope="colgroup">2018</th>
+							<th colspan="2" scope="colgroup">2019</th>
+							<th colspan="2" scope="colgroup">2020</th>
+						</tr>
+						<tr>
+							<th scope="col">{{ i18n "firstSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "secondSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "firstSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "secondSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "firstSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "secondSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "firstSemesterAbbr" }}</th>
+							<th scope="col">{{ i18n "secondSemesterAbbr" }}</th>
+						</tr>
+					</thead>
+					<tr>
+						<td title="{{ i18n "firstSemesterAbbr" }} 2017">01</td>
+						<td title="{{ i18n "secondSemesterAbbr" }} 2017">01</td>
+						<td title="{{ i18n "firstSemesterAbbr" }} 2018">-</td>
+						<td title="{{ i18n "secondSemesterAbbr" }} 2018">-</td>
+						<td title="{{ i18n "firstSemesterAbbr" }} 2019">02</td>
+						<td title="{{ i18n "secondSemesterAbbr" }} 2019">01</td>
+						<td title="{{ i18n "firstSemesterAbbr" }} 2020">01</td>
+						<td title="{{ i18n "secondSemesterAbbr" }} 2020">01</td>
+					</tr>
+				</table>
+				</table>
+			</details>
+		</section>
+
 		{{ with .indicators }}
 			<script type="text/template" id="js-districts-comparison__field-template">
 				<a></a>
