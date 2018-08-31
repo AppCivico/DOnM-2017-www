@@ -44,7 +44,7 @@
 			></div>
 		</section>
 
-		{{ if .subprefectures }}
+		{{ if .execution_subprefectures }}
 			<section class="projection">
 				<h2>{{ i18n "regionalization" }}</h2>
 
@@ -55,7 +55,8 @@
 						<h2>{{ i18n "progress" }}</h2>
 						<h2 class="regionalization-progress__years-header">2017 - 2020</h2>
 					</header>
-					{{ $actionLineStatus := .status }}
+					{{ $status := .status }}
+
 					{{ range .execution_subprefectures }}
 						<details>
 							<summary>
@@ -87,7 +88,7 @@
 										{{ . }}%
 									</div>
 								{{ else }}
-								<span title="{{ i18n "progress" }}" class="regionalization-progress__status">{{ $actionLineStatus }}</span>
+								<span title="{{ i18n "progress" }}" class="regionalization-progress__status">{{ $status }}</span>
 								{{ end }}
 							</summary>
 							<table>
