@@ -142,7 +142,10 @@
 					{{ end }}
 					{{ if isset . "accumulated" }}
 						<p>
-							{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}: {{ .value }}
+							<strong>
+								{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
+							</strong>
+							{{ .value }}
 						</p>
 					{{ end }}
 				{{ end }}
