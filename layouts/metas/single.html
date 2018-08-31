@@ -11,7 +11,13 @@
 			{{ if .badges }}
 				<div class="badges">
 					{{ range .badges }}
-						<img src="/assets/img/goal-badge-{{- .id -}}.png" alt="{{ .name }}" title="{{ .name }}">
+						<span data-tooltip="{{ .name }}">
+							<img
+								src="/assets/img/goal-badge-{{- .id -}}.png"
+								alt="{{ .name }}"
+								title="{{ .name }}"
+							>
+						</span>
 					{{ end }}
 				</div>
 			{{ end }}
