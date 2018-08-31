@@ -14,7 +14,7 @@
 			{{ if .badges }}
 				<div class="badges">
 					{{ range .badges }}
-						<img src="/assets/img/project-badge-{{- .id -}}.png" alt="{{ .name }}"/>
+						<img src="/assets/img/project-badge-{{- .id -}}.png" alt="{{ .name }}" title="{{ .name }}">
 					{{ end }}
 				</div>
 			{{ end }}
