@@ -159,22 +159,24 @@
 
 	<aside>
 		{{ with .last_updated_at }}
-		<h2>
-			{{ i18n "lastUpdatedAt" }}:
-			<br>
-			{{ dateFormat "02/01/2006" . }}
-		</h2>
+			<h2>
+				{{ i18n "lastUpdatedAt" }}:
+				<span class="subtitle">{{ dateFormat "02/01/2006" . }}</span>
+			</h2>
 		{{ end }}
 
 		{{ with .status }}
-			<h2>{{ i18n "textStatus" }}: {{ . }}</h2>
+			<h2>
+				{{ i18n "textStatus" }}:
+				<span class="subtitle">{{ . }}</span>
+			</h2>
 		{{ end }}
 
 		<section class="progress">
 			<p>{{ i18n "textProgress" }}</p>
 
 			{{ with .executions }}
-				Execução
+				<h2>Execução</h2>
 				<div role="progress" aria-valuemin="0" aria-valuemax="100">
 					{{ range . }}
 						<div
