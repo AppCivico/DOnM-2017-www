@@ -87,13 +87,15 @@
 			{{ with .last_updated_at }}
 				<h2>
 					{{ i18n "lastUpdatedAt" }}:
-					<br>
-					{{ dateFormat "02/01/2006" . }}
+					<span class="subtitle">{{ dateFormat "02/01/2006" . }}</span>
 				</h2>
 			{{ end }}
 
 			{{ with .status }}
-				<h2>{{ i18n "textStatus" }}: {{ . }}</h2>
+				<h2>
+					{{ i18n "textStatus" }}:
+					<span class="subtitle">{{ . }}</span>
+				</h2>
 			{{ end }}
 
 			<p>{{ i18n "textProgress" }}</p>
@@ -171,8 +173,10 @@
 		{{ with .secretariats }}
 			<section class="secretary">
 				{{ range . }}
-					<h2>{{ i18n "secretary_at" }}:</h2>
-					<span>{{ .name }}</span>
+					<h2>
+						{{ i18n "secretary_at" }}:
+						<span class="subtitle">{{ .name }}</span>
+					</h2>
 				{{ end }}
 			</section>
 		{{ end }}

@@ -72,8 +72,8 @@
   translation: "Principais indicadores relacionadas a qualidade de vida nos distritos da cidade compilados pela [Rede Nossa São Paulo](http://www.nossasaopaulo.org.br/). Os dados exibidos são referentes ao último ano disponível."
 - id: investment
   translation: "Investimento"
-- id: lastupdatedat
-  translation: "última atualização"
+- id: lastUpdatedAt
+  translation: "Última atualização"
 - id: noDataForPeriod
   translation: "Nenhum registro encontrado para o período selecionado"
 - id: of
