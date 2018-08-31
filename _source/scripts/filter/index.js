@@ -4,6 +4,7 @@ export default function initFilter() {
 	const filterableItems = document.querySelectorAll('.js-filterable__item');
 	const filterableField = document.getElementById('js-filterable__field');
 	const filterableInputs = document.querySelectorAll('.js-filterable__input');
+	const resetButton = document.getElementById('js-reset-button');
 
 	const filterableCounter = document.getElementById('js-filterable__counter');
 	const diacriticsMap = {};
@@ -86,6 +87,19 @@ export default function initFilter() {
 		handleVisibility(filteredList);
 		setCounter(filteredList.length);
 	}
+
+	function clearFilters() {
+		filterableItems.forEach((item) => {
+			item.removeAttribute('hidden');
+		});
+		setCounter(filterableItems.length);
+	}
+
+	resetButton.addEventListener(
+		'click',
+		clearFilters,
+		false,
+	);
 
 	filterableField.addEventListener(
 		'input',

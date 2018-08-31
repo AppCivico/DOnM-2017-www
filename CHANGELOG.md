@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add select filters on goals
 	- Add new layout to regionalization action lines
 	- Add progressbar on action lines
+	- Add reset button on filters
 
 ### Fixed
 	- Fix badges styles

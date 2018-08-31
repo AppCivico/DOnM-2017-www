@@ -65,3 +65,12 @@
 		}
 	}
 }
+
+.filterable__form input[type='reset'] {
+	float: right;
+	margin-top: 1.3em;
+	font-size: 0.8em;
+	text-decoration: underline;
+	background: none;
+	border: 0;
+}
