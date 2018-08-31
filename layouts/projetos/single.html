@@ -85,7 +85,9 @@
 						<tfoot>
 							<tr>
 								<th scope="row">{{ i18n "total" }}</th>
-								<td colspan="3" title="{{ i18n "ownResources" }}">{{ .total }}</td>
+								<td colspan="3" title="{{ i18n "ownResources" }}">
+									R$ {{ lang.NumFmt 2 .total "- , ." }}
+								</td>
 							</tr>
 						</tfoot>
 					{{ end }}
@@ -315,36 +317,67 @@
 		<h3>{{ i18n "progress" }}</h3>
 		<p>{{ i18n "progressPercentageDescription" }}</p>
 
-		<div class="ct-chart ct-golden-section"></div>
-		<style type="text/css">
-			.ct-series-a .ct-bar,
-			.ct-series-b .ct-bar,
-			.ct-series-c .ct-bar,
-			.ct-series-d .ct-bar
-			{
-			  /* Colour of your bars */
-			  stroke: orange;
-			  /* The width of your bars */
-			  stroke-width: 1em;
-			}
-		</style>
-		<script>
-			new Chartist.Bar('.ct-chart',
+		<!-- Check if all .progress are null -->
+		{{ $.Scratch.Set "hasGraphic" false }}
+
+		{{ with .budget_execution }}
+			{{ range .per_year }}
+				{{ with .progress }}
+					{{ $.Scratch.Set "hasProgressBar" true }}
+				{{ end }}
+			{{ end }}
+		{{ end }}
+
+		{{ if $.Scratch.Get "hasProgressBar"  }}
+			<div class="ct-chart ct-golden-section"></div>
+			<style type="text/css">
+				.ct-series-a .ct-bar,
+				.ct-series-b .ct-bar,
+				.ct-series-c .ct-bar,
+				.ct-series-d .ct-bar
 				{
-					labels: ['2017', '2018', '2019', '2020'],
-					series: [ [10, 30, 50, 60] ],
-				},
-				{
-					high: 100,
-					axisY: {
-						onlyInteger: true,
-						type: Chartist.FixedScaleAxis,
-						ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-						low: 0
+				  /* Colour of your bars */
+				  stroke: orange;
+				  /* The width of your bars */
+				  stroke-width: 1em;
+				}
+			</style>
+			<script>
+				new Chartist.Bar('.ct-chart',
+					{
+						labels: ['2017', '2018', '2019', '2020'],
+						series: [ [
+
+						{{ with .budget_execution }}
+							{{ range .per_year }}
+								{{ if eq (int .year) 2017 }}
+									{{ .progress }},
+								{{ end }}
+								{{ if eq (int .year) 2018 }}
+									{{ .progress }},
+								{{ end }}
+								{{ if eq (int .year) 2019 }}
+									{{ .progress }},
+								{{ end }}
+								{{ if eq (int .year) 2020 }}
+									{{ .progress }}
+								{{ end }}
+						] ],
+							{{ end }}
+						{{ end }}
 					},
-				},
-			);
-		</script>
+					{
+						high: 100,
+						axisY: {
+							onlyInteger: true,
+							type: Chartist.FixedScaleAxis,
+							ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+							low: 0
+						},
+					},
+				);
+			</script>
+		{{ end }}
 
 	</section>
 
