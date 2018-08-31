@@ -5,6 +5,10 @@
 			padding: 0.5em 0.8em;
 			margin-left: 1em;
 			border: 1px solid;
+
+			&:focus {
+				vertical-align: top;
+			}
 		}
 	}
 
@@ -14,6 +18,10 @@
 
 	.tab__content:target {
 		display: block;
+
+		p {
+			padding: 1em;
+		}
 
 		&:first-child {
 			display: block;
