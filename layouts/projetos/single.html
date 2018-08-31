@@ -18,15 +18,14 @@
 					{{ end }}
 				</div>
 			{{ end }}
-
 			<h2>
 				{{ i18n "project" 1 }}
 				{{ .id }}
 			</h2>
-			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 			{{ with .topics }}
 				<h3>{{ i18n "topic" 1 }} {{ range . }}{{ .name }}{{ end }} </h3>
 			{{ end }}
+			<h1 class="h-entry__p-name p-name">{{ trim .title "." }}</h1>
 			<h4>{{ .description }}</h4>
 		</header>
 
