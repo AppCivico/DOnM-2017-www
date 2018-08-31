@@ -2,12 +2,16 @@
   translation:
     one: "Linha de ação"
     other: "Linhas de ação"
+- id: accumulated
+  translation: "Acumulado"
 - id: aditionalInfo
   translation:
     one: "Informação adicional"
     other: "Informações adicionais"
 - id: associatedActionLine
   translation: "Linhas de ação associadas"
+- id: baseValue
+  translation: "Valor base"
 - id: benefitedSubprefectures
   translation:
     one: "Prefeitura regional beneficiada"
@@ -40,6 +44,8 @@
   translation:
     one: "Distrito"
     other: "Distritos"
+- id: execution
+  translation: "Execução"
 - id: expectedResults
   translation: "Resultados esperados"
 - id: filterByTopic
@@ -142,6 +148,8 @@
   translation: "Selecione a secretaria"
 - id: selectBadge
   translation: "Selecione o selo"
+- id: semesterAbbr
+  translation: "Sem."
 - id: sources
   translation: "Fontes"
 - id: subPrefecture

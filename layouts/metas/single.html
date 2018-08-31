@@ -104,10 +104,20 @@
 				</h2>
 			{{ end }}
 
-			<p>{{ i18n "textProgress" }}</p>
+			{{ with .execution }}
+				<p>{{ i18n "textProgress" }}</p>
 
-				{{ with .execution }}
-					Execução
+				<h2>{{ i18n "execution" }}</h2>
+
+				<!-- Check if all .progress are null -->
+				{{ $.Scratch.Set "hasProgressBar" false }}
+				{{ range . }}
+					{{ with .progress }}
+						{{ $.Scratch.Set "hasProgressBar" true }}
+					{{ end }}
+				{{ end }}
+
+				{{ if $.Scratch.Get "hasProgressBar"  }}
 					<div role="progress" aria-valuemin="0" aria-valuemax="100">
 						{{ range . }}
 							<div
@@ -125,16 +135,22 @@
 						<p></p>
 					</div>
 				{{ else }}
-					<p>
-						Valor Base: R$12312312,00
-						<br>
-						Acumulado 1º Sem. 2017: R$12312312,00
-						<br>
-						Acumulado 2º Sem. 2017: R$12312312,00
-					</p>
+
+				{{ range sort . ".year" }}
+					{{ with .base_value }}
+						<p>{{ i18n "baseValue" }}: {{ . }}</p>
+					{{ end }}
+					{{ if isset . "accumulated" }}
+						<p>
+							{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}: {{ .value }}
+						</p>
+					{{ end }}
 				{{ end }}
 
-			{{ with .execution }}
+				{{ end }}
+			{{ end }}
+
+			{{ if $.Scratch.Get "hasProgressBar"  }}
 				<div class="progress-legend">
 					<div class="progress-legend__year progress-legend__year--2017">
 						<strong>2017</strong>
