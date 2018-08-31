@@ -84,7 +84,7 @@
 						<tfoot>
 							<tr>
 								<th scope="row">{{ i18n "total" }}</th>
-								<td colspan="3" title="{{ i18n "ownResources" }}">{{ .total.value }}</td>
+								<td colspan="3" title="{{ i18n "ownResources" }}">{{ .total }}</td>
 							</tr>
 						</tfoot>
 					{{ end }}
@@ -105,7 +105,47 @@
 				</div>
 
 				<div class="tab__content" id="tab-2017">
-					{{ $save := . }}
+					{{ range .per_year }}
+						{{ if eq (int .year) 2017 }}
+							<table class="bordered-table bordered-table--orange">
+								<thead>
+									<tr>
+										<th>{{ i18n "sources" }}</th>
+										<th>{{ i18n "investment" }}</th>
+										<th>{{ i18n "defrayal" }}</th>
+										<th>{{ i18n "total" }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_total }}</td>
+									</tr>
+									<tr>
+										<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th scope="row">{{ i18n "total" }}</th>
+										<td colspan="3" title="{{ i18n "total" }}">
+											{{ .total_year_total }}
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						{{ else }}
+							<p>{{ i18n "noDataForPeriod" }}</p>
+						{{ end }}
+					{{ end }}
+				</div>
+
+				<div class="tab__content" id="tab-2018">
 					{{ range .per_year }}
 						{{ if eq (int .year) 2018 }}
 							<table class="bordered-table bordered-table--orange">
@@ -131,16 +171,14 @@
 										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
 									</tr>
 								</tbody>
-								{{ if $save.overall_total }}
-									<tfoot>
-										<tr>
-											<th scope="row">{{ i18n "total" }}</th>
-											<td colspan="3" title="{{ i18n "total" }}">
-												R$ {{ int $save.overall_total }}
-											</td>
-										</tr>
-									</tfoot>
-								{{ end }}
+								<tfoot>
+									<tr>
+										<th scope="row">{{ i18n "total" }}</th>
+										<td colspan="3" title="{{ i18n "total" }}">
+											{{ .total_year_total }}
+										</td>
+									</tr>
+								</tfoot>
 							</table>
 						{{ else }}
 							<p>{{ i18n "noDataForPeriod" }}</p>
@@ -148,10 +186,126 @@
 					{{ end }}
 				</div>
 
-				<div class="tab__content" id="tab-2018">2018</div>
-				<div class="tab__content" id="tab-2019">2019</div>
-				<div class="tab__content" id="tab-2020">2020</div>
-				<div class="tab__content" id="tab-all">2020</div>
+				<div class="tab__content" id="tab-2019">
+					{{ range .per_year }}
+						{{ if eq (int .year) 2019 }}
+							<table class="bordered-table bordered-table--orange">
+								<thead>
+									<tr>
+										<th>{{ i18n "sources" }}</th>
+										<th>{{ i18n "investment" }}</th>
+										<th>{{ i18n "defrayal" }}</th>
+										<th>{{ i18n "total" }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_total }}</td>
+									</tr>
+									<tr>
+										<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th scope="row">{{ i18n "total" }}</th>
+										<td colspan="3" title="{{ i18n "total" }}">
+											{{ .total_year_total }}
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						{{ else }}
+							<p>{{ i18n "noDataForPeriod" }}</p>
+						{{ end }}
+					{{ end }}
+				</div>
+				<div class="tab__content" id="tab-2020">
+					{{ range .per_year }}
+						{{ if eq (int .year) 2020 }}
+							<table class="bordered-table bordered-table--orange">
+								<thead>
+									<tr>
+										<th>{{ i18n "sources" }}</th>
+										<th>{{ i18n "investment" }}</th>
+										<th>{{ i18n "defrayal" }}</th>
+										<th>{{ i18n "total" }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_total }}</td>
+									</tr>
+									<tr>
+										<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th scope="row">{{ i18n "total" }}</th>
+										<td colspan="3" title="{{ i18n "total" }}">
+											{{ .total_year_total }}
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						{{ else }}
+							<p>{{ i18n "noDataForPeriod" }}</p>
+						{{ end }}
+					{{ end }}
+				</div>
+				<div class="tab__content" id="tab-all">
+					{{ range .per_year }}
+						{{ if eq .year "all" }}
+							<table class="bordered-table bordered-table--orange">
+								<thead>
+									<tr>
+										<th>{{ i18n "sources" }}</th>
+										<th>{{ i18n "investment" }}</th>
+										<th>{{ i18n "defrayal" }}</th>
+										<th>{{ i18n "total" }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th title="{{ i18n "ownResources" }}">{{ i18n "ownResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .own_resources_total }}</td>
+									</tr>
+									<tr>
+										<th title="{{ i18n "othersResources" }}">{{ i18n "othersResources" }}</th>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_investment }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_costing }}</td>
+										<td title="{{ i18n "ownResources" }}">{{ .other_resources_total }}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th scope="row">{{ i18n "total" }}</th>
+										<td colspan="3" title="{{ i18n "total" }}">
+											{{ .total_year_total }}
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						{{ else }}
+							<p>{{ i18n "noDataForPeriod" }}</p>
+						{{ end }}
+					{{ end }}
+				</div>
 			</div>
 
 
