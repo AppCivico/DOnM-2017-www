@@ -55,31 +55,40 @@
 						<h2>{{ i18n "progress" }}</h2>
 						<h2 class="regionalization-progress__years-header">2017 - 2020</h2>
 					</header>
-					{{ range .subprefectures }}
+					{{ $actionLineStatus := .status }}
+					{{ range .execution_subprefectures }}
 						<details>
 							<summary>
 								<span title="Prefeituras Regionais" class="regionalization-progress__region">
-									{{ with .slug }}
+									{{ with .subprefecture.slug }}
 										<a href="/prefeituras-regionais/{{ . }}">
 									{{ end }}
-										{{ .name }}
-									{{ with .slug }}
+										{{ .subprefecture.name }}
+									{{ with .subprefecture.slug }}
 										</a>
 									{{ end }}
 								</span>
-								<span title="Projeção" class="regionalization-progress__projection">
-									<i>{{ .indicator }}</i>
+								<span title="{{ i18n "progression" }}" class="regionalization-progress__projection">
+									{{ if .projection }}
+										<i>{{ .projection }}</i>
+									{{ else }}
+									<i>{{ i18n "notApplicable" }}</i>
+									{{ end }}
 								</span>
-								<div title="Progresso" class="regionalization-progress__progress">
-									<progress
-										value="80"
-										max="100">
-										<div>
-											<span style="width: 80%;"></span>
-										</div>
-									</progress>
-									80%
-								</div>
+								{{ with .total_progress }}
+									<div title="{{ i18n "progress" }}" class="regionalization-progress__progress">
+										<progress
+											value="{{ . }}"
+											max="100">
+											<div>
+												<span style="width: {{ . }}%;"></span>
+											</div>
+										</progress>
+										{{ . }}%
+									</div>
+								{{ else }}
+								<span title="{{ i18n "progress" }}" class="regionalization-progress__status">{{ $actionLineStatus }}</span>
+								{{ end }}
 							</summary>
 							<table>
 								<thead>
@@ -101,51 +110,84 @@
 									</tr>
 								</thead>
 								<tr>
-									<td title="{{ i18n "firstSemesterAbbr" }} 2017">01</td>
-									<td title="{{ i18n "secondSemesterAbbr" }} 2017">01</td>
-									<td title="{{ i18n "firstSemesterAbbr" }} 2018">-</td>
-									<td title="{{ i18n "secondSemesterAbbr" }} 2018">-</td>
-									<td title="{{ i18n "firstSemesterAbbr" }} 2019">02</td>
-									<td title="{{ i18n "secondSemesterAbbr" }} 2019">01</td>
-									<td title="{{ i18n "firstSemesterAbbr" }} 2020">01</td>
-									<td title="{{ i18n "secondSemesterAbbr" }} 2020">01</td>
+									<td title="{{ i18n "firstSemesterAbbr" }} 2017">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2017) (eq (int .semester) 1) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "secondSemesterAbbr" }} 2017">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2017) (eq (int .semester) 2) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "firstSemesterAbbr" }} 2018">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2018) (eq (int .semester) 1) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "secondSemesterAbbr" }} 2018">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2018) (eq (int .semester) 2) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "firstSemesterAbbr" }} 2019">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2019) (eq (int .semester) 1) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "secondSemesterAbbr" }} 2019">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2019) (eq (int .semester) 2) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "firstSemesterAbbr" }} 2020">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2020) (eq (int .semester) 1) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
+									<td title="{{ i18n "secondSemesterAbbr" }} 2020">
+										{{ range .per_semester }}
+											{{ if and (eq (int .year) 2020) (eq (int .semester) 2) }}
+												{{ .value }}
+											{{ else }}
+											 -
+											{{ end }}
+										{{ end }}
+									</td>
 								</tr>
-							</table>
 							</table>
 						</details>
 					{{ end }}
 				</section>
 
-				<table>
-					<thead>
-						<tr>
-							<th>{{ i18n "regionalPrefecture" (len .) | title }}</th>
-							<th>{{ i18n "value" | title }} 2017-2020</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						{{ range .subprefectures }}
-							{{ if ne .indicator "0" }}
-								<tr>
-									<th>
-										{{ with .slug }}
-											<a href="/prefeituras-regionais/{{ . }}">
-										{{ end }}
-											{{ .name }}
-										{{ with .slug }}
-											</a>
-										{{ end }}
-									</th>
-
-									<td>
-										{{ .indicator }}
-									</td>
-								</tr>
-							{{ end }}
-						{{ end }}
-					</tbody>
-				</table>
 				<script>
 					var customDistribution = customDistribution || {};
 

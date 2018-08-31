@@ -76,6 +76,8 @@
   translation: "Última atualização"
 - id: noDataForPeriod
   translation: "Nenhum registro encontrado para o período selecionado"
+- id: notApplicable
+  translation: "n/a"
 - id: of
   translation: "De"
 - id: othersResources
@@ -84,6 +86,8 @@
   translation: "Recursos próprios"
 - id: progress
   translation: "Progresso"
+- id: progression
+  translation: "Progressão"
 - id: progressPercentageDescription
   translation: "Progresso (%) realizado ao longo dos anos"
 - id: progressProject

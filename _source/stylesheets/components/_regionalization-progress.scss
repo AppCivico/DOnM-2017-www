@@ -34,6 +34,7 @@
 
 	details {
 		padding: 0.5em;
+		margin-top: 1em;
 		border: 1px solid palette('gray', 'x-light');
 		box-shadow: 0 1px 5px palette('shadow');
 
@@ -90,8 +91,9 @@
 			}
 		}
 
-		.regionalization-progress__region {
+		.regionalization-progress__region a {
 			padding-left: 0.4em;
+			text-decoration: none;
 			color: palette('orange', 'x-light');
 
 			@include media('<tablet') {
@@ -112,6 +114,14 @@
 				color: palette('white');
 				background-color: palette('orange', 'x-light');
 				border-radius: 10%;
+			}
+		}
+
+		.regionalization-progress__status {
+			text-align: center;
+
+			@include media('<tablet') {
+				text-align: left;
 			}
 		}
 
