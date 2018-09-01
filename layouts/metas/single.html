@@ -68,19 +68,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="togglebox__more-items" hidden>
-					{{ range after 1 . }}
-						<div class="togglebox__content">
-							<time datetime="{{ .inserted_at }}">
-								{{ dateFormat "02/01/2006" .inserted_at }}
-							</time>
-							<div class="text">
-								{{ .description }}
+				{{ if gt (len .) 1 }}
+					<div class="togglebox__more-items" hidden>
+						{{ range after 1 . }}
+							<div class="togglebox__content">
+								<time datetime="{{ .inserted_at }}">
+									{{ dateFormat "02/01/2006" .inserted_at }}
+								</time>
+								<div class="text">
+									{{ .description }}
+								</div>
 							</div>
-						</div>
-					{{ end }}
-				</div>
-				<button class="read-more js-togglebox-toggle" data-js="togglebox-button">Ver mais</button>
+						{{ end }}
+					</div>
+					<button class="read-more js-togglebox-toggle" data-js="togglebox-button">Ver mais</button>
+				{{ end }}
 			</section>
 		{{ end }}
 
