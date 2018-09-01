@@ -171,7 +171,7 @@
 	background: palette('white');
 
 	@include media('<phone') {
-		&:before {
+		&::before {
 			float: none;
 			display: inline-block;
 			margin-right: 10px;
@@ -180,7 +180,7 @@
 		}
 	}
 
-	&[title]:before {
+	&[title]::before {
 		float: none;
 		display: inline-block;
 		margin-right: 0.5em;
