@@ -6,7 +6,7 @@
 .filterable__form label {
 	@include media('>=11col') {
 		float: left;
-		max-width: 20em;
+		max-width: 18em;
 		margin-left: 3em;
 
 		&:first-child {
