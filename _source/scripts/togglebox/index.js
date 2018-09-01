@@ -1,17 +1,24 @@
 export default function initToggleBox() {
-	const $buttons = document.querySelectorAll('[data-js="togglebox-button"]');
+	const $button = document.querySelector('.js-togglebox-toggle');
+	const $moreItems = document.querySelector('.togglebox__more-items');
 
-	if ($buttons === null) {
+	if ($button === null || $moreItems === null) {
 		return false;
 	}
 
-	function toggle(event) {
-		event.target.closest('.togglebox__content').classList.toggle('togglebox__content--opened');
+	function toggle() {
+		if ($moreItems.hasAttribute('hidden')) {
+			$moreItems.removeAttribute('hidden');
+			$button.textContent = 'Ver menos';
+		} else {
+			$moreItems.setAttribute('hidden', 'hidden');
+			$button.textContent = 'Ver mais';
+		}
 	}
 
-	return $buttons.forEach(button => button.addEventListener(
+	return $button.addEventListener(
 		'click',
 		toggle,
 		false,
-	));
+	);
 }

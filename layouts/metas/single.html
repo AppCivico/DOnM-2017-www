@@ -55,15 +55,32 @@
 		{{ with .additional_information }}
 			<section class="togglebox">
 				<h2>{{ i18n "aditionalInfo" (len .) }}</h2>
-				{{ range . }}
+
+				{{ $mainInfo := index (.) 0 }}
+
+				<div class="togglebox__main-item">
 					<div class="togglebox__content">
-						<time datetime="{{ .inserted_at }}">{{ dateFormat "02/01/2006" .inserted_at }}</time>
+						<time datetime="{{ $mainInfo.inserted_at }}">
+							{{ dateFormat "02/01/2006" $mainInfo.inserted_at }}
+						</time>
 						<div class="text">
-							{{ .description }}
+							{{ $mainInfo.description }}
 						</div>
-						<button class="read-more" data-js="togglebox-button">Ver mais</button>
 					</div>
-				{{ end }}
+				</div>
+				<div class="togglebox__more-items" hidden>
+					{{ range after 1 . }}
+						<div class="togglebox__content">
+							<time datetime="{{ .inserted_at }}">
+								{{ dateFormat "02/01/2006" .inserted_at }}
+							</time>
+							<div class="text">
+								{{ .description }}
+							</div>
+						</div>
+					{{ end }}
+				</div>
+				<button class="read-more js-togglebox-toggle" data-js="togglebox-button">Ver mais</button>
 			</section>
 		{{ end }}
 
