@@ -1,0 +1,250 @@
+{{ partialCached "header.html" . }}
+
+<article role="main" id="conteudo" class="h-entry">
+	<div class="h-entry__e-content e-content">
+		<header>
+			<h1 class="h-entry__p-name p-name">{{ .Title }}</h1>
+		</header>
+	</div>
+	<section class="disclaimer">
+		<h2>O que são dados abertos?</h2>
+		<p>
+			Segundo a definição da Open Knowledge Foundation, em suma:
+		</p>
+		<blockquote cite="http://opendatahandbook.org/guide/pt_BR/what-is-open-data/">
+			dados são abertos quando qualquer pessoa pode livremente usá-los, reutilizá-los e redistribuí-los, estando sujeito a, no máximo, a exigência de creditar a sua autoria e compartilhar pela mesma licença.
+		</blockquote>
+		<cite>
+			<a href="http://opendatahandbook.org/guide/pt_BR/what-is-open-data/">Open Knowledge Foundation</a>
+		</cite>
+		<p>
+			Você pode saber mais sobre o assunto acessando o
+			<a href="http://dados.gov.br/pagina/dados-abertos">Portal de dados abertos do Brasil</a>.
+		</p>
+
+
+		<h2>API para desenvolvedores</h2>
+		Você também pode consultar os dados que estão armazenados no DONM via API.
+
+		Para saber mais, navegue até a seção API
+	</section>
+	<section class="download-files">
+		<h2>Baixar arquivos</h2>
+		<label>Tabelas</label>
+		<select name="tabela" class="form-control">
+			<option value="conselho" selected="selected">Conselhos</option>
+			<option value="distrito" selected="selected">Distritos</option>
+			<option value="empresa" selected="selected">Empresas</option>
+			<option value="meta" selected="selected">Metas</option>
+			<option value="objetivo" selected="selected">Objetivos</option>
+			<option value="orcamento" selected="selected">Orçamentos</option>
+			<option value="projeto" selected="selected">Projetos</option>
+			<option value="subprefeitura" selected="selected">Subprefeituras</option>
+		</select>
+
+		<label>Formato</label>
+		<select name="formato" class="form-control">
+			<option value="csv" selected="selected">CSV</option>
+			<option value="xls">XLS</option>
+			<option value="xml">XML</option>
+			<option value="json">JSON</option>
+		</select>
+
+		<h3>Links</h3>
+
+		<label>Arquivo das tabelas</label>
+		<input type="text" name="url" readonly="readonly" class="form-control">
+		<a target="_blank" class="" href="http://www.deolhonasmetas.org.br/api/download/subprefeitura.csv">
+			Efetuar download das tabelas
+		</a>
+
+		<h3>Informações contidas nos arquivos</h3>
+		<span>Campos dos arquivos</span>
+		<div class="row">
+			<h2>Meta</h2>
+			<ul>
+				<li><strong>ID da meta</strong></li>
+				<li><strong>Nome</strong></li>
+				<li><strong>Descrição</strong></li>
+				<li><strong>Orçamento esperado</strong></li>
+				<li>Número da meta</li>
+				<li>Data de atualização</li>
+				<li>Data esperada para início</li>
+				<li>Data esperada para termino</li>
+				<li>Será entregue</li>
+				<li>Transversalidade</li>
+				<li>Progresso Qualitativo 1</li>
+				<li>Progresso Qualitativo 2</li>
+				<li>Progresso Qualitativo 3</li>
+				<li>Progresso Qualitativo 4</li>
+				<li>Progresso Qualitativo 5</li>
+				<li>Progresso Qualitativo 6</li>
+			</ul>
+
+			<div class="col-sm-3">
+				<h2>Objetivo</h2>
+
+				<ul>
+					<li><strong>ID do objetivo</strong></li>
+					<li><strong>Nome</strong></li>
+					<li><strong>Data de atualização</strong></li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<h2>Projeto</h2>
+
+				<ul>
+					<li><strong>ID do projeto</strong></li>
+					<li><strong>Nome</strong></li>
+					<li><strong>latitude</strong></li>
+					<li><strong>longitude</strong></li>
+					<li>Número do projeto</li>
+					<li>Progresso Qualitativo 1</li>
+					<li>Progresso Qualitativo 2</li>
+					<li>Progresso Qualitativo 3</li>
+					<li>Progresso Qualitativo 4</li>
+					<li>Progresso Qualitativo 5</li>
+					<li>Progresso Qualitativo 6</li>
+					<li>Porcentagem</li>
+					<li>Data de atualização</li>
+				</ul>
+			</div>
+
+			<div class="col-sm-3">
+				<h2>Empresa</h2>
+
+				<ul>
+					<li><strong>ID da empresa</strong></li>
+					<li><strong>Nome</strong></li>
+					<li><strong>Url do nome</strong></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="devs-api">
+		<h2>API para desenvolvedores</h2>
+		<p>O DONM fornece uma REST API para a consulta dos dados.</p>
+		<p>Os endpoints podem entregar o contéudo serializado em JSON.</p>
+		<p>O content-type é definido automaticamente pelo header Accept. Por padrão, a resposta é no formato JSON. </p>
+		<p>Para pedir manualmente, utilize ?content-type=application/json para JSON.</p>
+
+		<h3>Endpoints</h3>
+
+		<table class="bordered-table">
+			<thead>
+				<tr>
+					<th>Endpoint</th>
+					<th>Descrição</th>
+					<th>Parâmetros aceitos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code_goal">/api/public/goals</a></span></pre></th>
+						<td>Lista de todas as metas</td>
+						<td>
+							<ul class="list-unstyled list-param">
+								<li>?type_id=</li>
+								<li>?region_id=</li>
+							</ul>
+						</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code_goal_detail">/api/public/goals/*</a></span></pre></th>
+						<td>Lista de todos atributos da meta específica</td>
+						<td>
+							<ul class="list-unstyled list-param">
+								<li>* =&gt; id da meta</li>
+							</ul>
+						</td>
+				</tr>
+
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-project">/api/public/projects</a></span></pre></th>
+						<td>Lista de todos os projetos</td>
+						<td>-</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-project-detail">/api/public/projects/*</a></span></pre></th>
+						<td>Lista de todos os atributos do projeto específico</td>
+						<td>
+							<ul class="list-unstyled list-param">
+								<li>* =&gt; id do projeto</li>
+							</ul>
+						</td>
+
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-objective">/api/public/objectives</a></span></pre></th>
+						<td>Lista de todos os objetivos</td>
+						<td>-</td>
+
+				</tr>
+
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-company">/api/public/companies</a></span></pre></th>
+						<td>Lista de todas as empresas.</td>
+						<td>-</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-company-budget">/api/public/companies/*/budgets</a></span></pre></th>
+						<td>Lista de todas as empresas por metas de acordo com os orçamentos utilizados.</td>
+						<td>
+							<ul class="list-unstyled list-param">
+								<li>* =&gt; id da empresa</li>
+							</ul>
+
+						</td>
+				</tr>
+
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-budget-goal">/api/public/companies/*/goals</a></span></pre></th>
+						<td>Lista de todas as empresas por metas.</td>
+
+						<td>
+							<ul class="list-unstyled list-param">
+								<li> * =&gt; id da empresa</li>
+							</ul>
+
+						</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll" <a="" data-animated-anchor="" href="#code-council">/api/public/councils</span></pre></th>
+						<td>Lista de todos os conselhos.</td>
+
+						<td>
+							<ul class="list-unstyled list-param">
+							</ul>
+
+						</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-district">/api/public/districts</a></span></pre></th>
+						<td>Lista de todos os distritos.</td>
+
+						<td>
+							<ul class="list-unstyled list-param">
+							</ul>
+
+						</td>
+				</tr>
+				<tr>
+					<th><pre><span class="page-scroll"><a data-animated-anchor="" href="#code-subprefecture">/api/public/subprefectures</a></span></pre></th>
+						<td>Lista de todas as subprefeituras.</td>
+
+						<td>
+							<ul class="list-unstyled list-param">
+							</ul>
+
+						</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</section>
+
+
+
+</article>
+
+{{ partialCached "footer.html" . }}
