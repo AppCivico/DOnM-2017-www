@@ -1,0 +1,38 @@
+.disclaimer cite {
+	display: block;
+	margin-bottom: 1.5em;
+	text-align: right;
+}
+
+.download-files .download-files__form {
+	display: flex;
+
+	.download-files__table {
+		width: span(10 'wider');
+	}
+
+	.download-files__format {
+		width: span(3 'wider');
+		margin-left: span(1 'wider');
+	}
+
+	select {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+}
+
+.download-files .download-files__download-area {
+	overflow: hidden;
+}
+
+.download-files .download-files__button {
+	float: right;
+	padding: 0.4em 0.8em;
+	text-decoration: none;
+	color: palette('white');
+	background-color: palette('orange', 'light');
+	border: 1px solid palette('orange');
+}
+
