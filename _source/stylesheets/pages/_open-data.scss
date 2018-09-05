@@ -8,12 +8,7 @@
 	display: flex;
 
 	.download-files__table {
-		width: span(10 'wider');
-	}
-
-	.download-files__format {
-		width: span(3 'wider');
-		margin-left: span(1 'wider');
+		width: 100%;
 	}
 
 	select {
@@ -35,4 +30,33 @@
 	background-color: palette('orange', 'light');
 	border: 1px solid palette('orange');
 }
+
+.download-files__information-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0;
+	margin: 2em auto;
+
+	> div {
+		flex-grow: 1;
+		margin-bottom: 2em;
+
+		@include media('>tablet') {
+			width: 25%;
+		}
+	}
+}
+
+.api-examples__example {
+	width: 100%;
+	max-width: span(11 'wider');
+	margin-bottom: 3em;
+
+	pre {
+		max-width: 100%;
+		max-height: 60em;
+	}
+}
+
 

@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import Prism from 'prismjs'; // Prism auto initiate itself
 import initMap from './maps';
 import initComparison from './comparator';
 import initFilter from './filter';

@@ -2,6 +2,8 @@
   translation:
     one: "Linha de ação"
     other: "Linhas de ação"
+- id: acceptedParameters
+  translation: "Parâmetros aceitos"
 - id: accumulated
   translation: "Acumulado"
 - id: aditionalInfo
@@ -44,10 +46,22 @@
   translation:
     one: "Distrito"
     other: "Distritos"
+- id: downloadFiles
+  translation: "Baixar arquivos"
+- id: downloadTables
+  translation: "Efetuar download das tabelas"
+- id: endpoint
+  translation:
+    one: "Endpoint"
+    other: "Endpoints"
 - id: execution
   translation: "Execução"
 - id: expectedResults
   translation: "Resultados esperados"
+- id: file
+  translation: "Arquivo"
+- id: filesFields
+  translation: "Campos dos arquivos"
 - id: filterByTopic
   translation: "Filtrar por eixo"
 - id: filterBySecretary
@@ -60,6 +74,8 @@
   translation: "1 semestre"
 - id: firstSemesterAbbr
   translation: "1º sem."
+- id: format
+  translation: "Formato"
 - id: formula
   translation: "Fórmula"
 - id: goal
@@ -74,6 +90,8 @@
   translation:
     one: "Indicador"
     other: "Indicadores"
+- id: informationsOnFiles
+  translation: "Informações contidas nos arquivos"
 - id: introIOTA
   translation: "Principais indicadores relacionadas a qualidade de vida nos distritos da cidade compilados pela [Rede Nossa São Paulo](http://www.nossasaopaulo.org.br/). Os dados exibidos são referentes ao último ano disponível."
 - id: investment
@@ -130,6 +148,8 @@
   translation:
     one: "Distrito pertencente"
     other: "Distritos pertencentes"
+- id: returningExample
+  translation: "Exemplo de retorno"
 - id: search
   translation: "Buscar"
 - id: second_semester
@@ -158,6 +178,8 @@
     other: "Subprefeituras"
 - id: subprefectureFile
   translation: "Ficha da Prefeitura Regional"
+- id: tables
+  translation: "Tabelas"
 - id: textProgress
   translation: "Progresso de acordo com a prefeitura."
 - id: textStatus

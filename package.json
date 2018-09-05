@@ -74,5 +74,8 @@
     "susy": "^3.0.1",
     "uglify-js": "^3.3.4",
     "version-changelog": "^2.1.0"
+  },
+  "dependencies": {
+    "prismjs": "^1.15.0"
   }
 }
