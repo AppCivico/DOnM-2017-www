@@ -21,7 +21,7 @@
 		<section class="action-lines">
 			<p>{{ i18n "displaying" }} <b id="js-filterable__counter">{{ len . }}</b> {{ i18n "of" | lower }} <b>{{ len . }}</b> {{ i18n "actionLine" (len $action_lines.action_lines) | lower }}.</p>
 
-			{{ partial "filterForm.html" "completeForm" }}
+			{{ partial "filterForm.html" }}
 
 			<dl class="action-lines__list">
 				{{ range . }}
