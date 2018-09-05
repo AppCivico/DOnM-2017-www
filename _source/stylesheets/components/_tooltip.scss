@@ -41,8 +41,8 @@
 	content: ' ';
 }
 
-[data-tooltip]::hover::before,
-[data-tooltip]::hover::after {
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
 	opacity: 1;
 	visibility: visible;
 }
