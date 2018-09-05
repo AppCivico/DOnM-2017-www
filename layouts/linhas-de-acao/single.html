@@ -228,37 +228,55 @@
 		{{ end }}
 
 		<section class="progress">
-			<p>{{ i18n "textProgress" }}</p>
+			{{ with .execution }}
+				<h2>{{ i18n "execution" }}</h2>
+				<p>{{ i18n "textProgress" }}</p>
 
-			{{ with .executions }}
-				<h2>Execução</h2>
-				<div role="progress" aria-valuemin="0" aria-valuemax="100">
-					{{ range . }}
-						<div
-							role="progressbar"
-							aria-valuenow="0"
-							aria-valuemin="0"
-							aria-valuemax="100"
-							class="js-progress-hover progress-year-{{- .year }} progress-year--semester-{{- .semester -}}"
-							data-more-info="{{ .progress }}% atingido no {{ .semester }}&ordm; semestre de {{ .year }}"
-							style="width: {{- .progress -}}%">
-						</div>
+				<!-- Check if all .progress are null -->
+				{{ $.Scratch.Set "hasProgressBar" false }}
+				{{ range . }}
+					{{ with .progress }}
+						{{ $.Scratch.Set "hasProgressBar" true }}
 					{{ end }}
-				</div>
-				<div class="js-progress-more-info progress__more-info">
-					<p></p>
-				</div>
-			{{ else }}
-				<p>
-					Valor Base: R$12312312,00
-					<br>
-					Acumulado 1º Sem. 2017: R$12312312,00
-					<br>
-					Acumulado 2º Sem. 2017: R$12312312,00
-				</p>
+				{{ end }}
+
+				{{ if $.Scratch.Get "hasProgressBar"  }}
+					<div role="progress" aria-valuemin="0" aria-valuemax="100">
+						{{ range . }}
+							<div
+								role="progressbar"
+								aria-valuenow="0"
+								aria-valuemin="0"
+								aria-valuemax="100"
+								class="js-progress-hover progress-year-{{- .year }} progress-year--semester-{{- .semester -}}"
+								data-more-info="{{ .progress }}% atingido no {{ .semester }}&ordm; semestre de {{ .year }}"
+								style="width: {{- .progress -}}%">
+							</div>
+						{{ end }}
+					</div>
+					<div class="js-progress-more-info progress__more-info">
+						<p></p>
+					</div>
+				{{ else }}
+
+				{{ range sort . ".year" }}
+					{{ with .base_value }}
+						<p>{{ i18n "baseValue" }}: {{ . }}</p>
+					{{ end }}
+					{{ if isset . "accumulated" }}
+						<p>
+							<strong>
+								{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
+							</strong>
+							{{ .value }}
+						</p>
+					{{ end }}
+				{{ end }}
+
+				{{ end }}
 			{{ end }}
 
-			{{ with .executions }}
+			{{ if $.Scratch.Get "hasProgressBar"  }}
 				<div class="progress-legend">
 					<div class="progress-legend__year progress-legend__year--2017">
 						<strong>2017</strong>
@@ -300,22 +318,16 @@
 			{{ end }}
 		</section>
 
-		<section class="secretaries">
-			<h2>{{ i18n "secretary" (len $action_line.action_line) }}</h2>
-			<ul class="district-list">
-				{{ range .action_lines }}
-					<li>
-						{{ with .slug }}
-							<a href="/linhas-de-acao/{{ . }}">
-						{{ end }}
-							{{ .name }}
-						{{ with .slug }}
-							</a>
-						{{ end }}
-					</li>
+		{{ with .secretariats }}
+			<section class="secretary">
+				{{ range . }}
+					<h2>
+						{{ i18n "secretary_at" }}:
+						<span class="subtitle">{{ .name }}</span>
+					</h2>
 				{{ end }}
-			</ul>
-		</section>
+			</section>
+		{{ end }}
 
 		{{ with .project }}
 			<section class="related-projects">
