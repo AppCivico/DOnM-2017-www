@@ -5,9 +5,6 @@
 
 {{ range $project }}
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -314,8 +311,6 @@
 
 		{{ end }}
 
-		<h3>{{ i18n "progress" }}</h3>
-		<p>{{ i18n "progressPercentageDescription" }}</p>
 
 		<!-- Check if all .progress are null -->
 		{{ $.Scratch.Set "hasGraphic" false }}
@@ -328,7 +323,10 @@
 			{{ end }}
 		{{ end }}
 
-		{{ if $.Scratch.Get "hasProgressBar"  }}
+		{{ if $.Scratch.Get "hasGraphic"  }}
+			<h3>{{ i18n "progress" }}</h3>
+			<p>{{ i18n "progressPercentageDescription" }}</p>
+
 			<div class="ct-chart ct-golden-section"></div>
 			<style type="text/css">
 				.ct-series-a .ct-bar,
@@ -342,6 +340,10 @@
 				  stroke-width: 1em;
 				}
 			</style>
+
+			<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+			<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
 			<script>
 				new Chartist.Bar('.ct-chart',
 					{
