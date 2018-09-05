@@ -1,5 +1,6 @@
 export default function normalizeTabControllerClick() {
 	const hashLinks = document.querySelectorAll(".js-tabs-control a[href^='#']");
+	const firstLink = document.querySelector('.js-tabs-control > a');
 
 	Array.prototype.forEach.call(hashLinks, (link) => {
 		link.addEventListener('click', (event) => {
@@ -11,4 +12,7 @@ export default function normalizeTabControllerClick() {
 			window.history.back();
 		});
 	});
+
+	if (window.location.hash) return;
+	if (firstLink) firstLink.click();
 }
