@@ -103,7 +103,7 @@ params:
   googleMapsAPI: "AIzaSyDqT0PwlW6s3z_DmUF47L6A9bSTwNAyoYs"
   domainAPI:
     dev: "https://dapidonm.eokoe.com"
-    homol: "https://hapidonm.eokoe.com"
+    homol: "https://dapidonm.eokoe.com"
     prod: "https://2017.deolhonasmetas.org.br/api"
 
   responsibles:

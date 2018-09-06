@@ -9,7 +9,7 @@ let DOMAIN;
 if (process.env.NODE_ENV === 'production') {
 	DOMAIN = 'https://api-2017.deolhonasmetas.org.br';
 } else if (process.env.NODE_ENV === 'homol') {
-	DOMAIN = 'https://hapidonm.eokoe.com';
+	DOMAIN = 'https://dapidonm.eokoe.com';
 } else {
 	DOMAIN = 'https://dapidonm.eokoe.com';
 }
