@@ -1,3 +1,10 @@
+.togglebox .read-more{
+	border: none;
+	background: none;
+	font-weight: bold;
+	color: palette('orange');
+}
+
 .togglebox__content {
 	position: relative;
 	margin-bottom: 30px;

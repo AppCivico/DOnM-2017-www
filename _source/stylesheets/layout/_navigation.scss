@@ -31,7 +31,7 @@ nav li {
 menu a,
 nav a {
 	@include link-undercover {
-		color: palette('brown');
+		color: palette('white');
 	}
 
 	display: block;
@@ -97,7 +97,7 @@ nav a {
 	width: auto;
 	max-width: none;
 
-	background: linear-gradient(to left, palette('orange'), palette('orange', 'light'));
+	background-color: palette('orange', light);
 
 	@include media('<desktop') {
 		display: block;
@@ -110,7 +110,7 @@ nav a {
 	@include media('>=desktop') {
 		margin: 0 0 0 (span(3 'wide') / 1em * -1 * 1rem);
 
-		box-shadow: 0 16px 24px palette('shadow');
+		box-shadow: 0 5px 10px palette('shadow');
 	}
 
 	@include media('>=12col') {
