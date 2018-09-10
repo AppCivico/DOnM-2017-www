@@ -1,8 +1,9 @@
-.togglebox .read-more{
-	border: none;
-	background: none;
+.togglebox .read-more {
+	padding: 0;
 	font-weight: bold;
-	color: palette('orange');
+	color: palette('brown', 'light');
+	background: none;
+	border: 0;
 }
 
 .togglebox__content {
