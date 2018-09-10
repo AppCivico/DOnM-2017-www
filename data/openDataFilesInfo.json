@@ -1,0 +1,49 @@
+{
+  "infos": [
+    {
+      "info": {
+        "title": "Metas",
+        "values": [
+          "ID da meta",
+          "Nome",
+		  "Eixo",
+		  "Secretaria(s) envolvidas",
+          "Projeção da meta",
+          "Indicador da meta",
+          "Valor base",
+          "Status da meta"
+        ]
+      }
+    },
+    {
+      "info": {
+        "title": "Projetos",
+        "values": [
+			"ID do projeto",
+			"Nome",
+			"Descrição",
+			"Resultados esperados",
+			"Situação encontrada",
+			"Orçamento - investimento recursos próprios",
+			"Orçamento - investimento outros recursos",
+			"Orçamento - custeio recursos próprios",
+			"Orçamento - custeio outros recursos"
+        ]
+      }
+    },
+    {
+      "info": {
+        "title": "Linhas de ação",
+        "values": [
+			"ID da linha de ação",
+			"Nome",
+			"Status",
+			"Projeto",
+			"Indicador",
+			"Descrição indicador",
+			"Objetivo"
+        ]
+      }
+    }
+  ]
+}

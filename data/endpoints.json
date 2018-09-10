@@ -1,0 +1,88 @@
+[
+	{
+		"url": "/api/region",
+		"description": "Lista de todas as regiões"
+	},
+
+	{
+		"url": "/api/region/{$id}",
+		"description": "Lista detalhes da região"
+	},
+
+	{
+		"url": "/api/project",
+		"description": "Lista de todos os projetos"
+	},
+
+	{
+		"url": "/api/project/{$id}",
+		"description": "Lista detalhes do projeto"
+	},
+
+
+	{
+		"url": "/api/goal",
+		"description": "Lista de todas as metas"
+	},
+
+	{
+		"url": "/api/goal/{$id}",
+		"description": "Lista detalhes das metas"
+	},
+
+	{
+		"url": "/api/subprefecture",
+		"description": "Lista de todas as subprefeituras"
+	},
+
+	{
+		"url": "/api/subprefecture/{$id}",
+		"description": "Lista os detalhes das subprefeitura"
+	},
+
+	{
+		"url": "/api/action-line",
+		"description": "Lista de todas as linhas de ação"
+	},
+
+	{
+		"url": "/api/action-line/{$id}",
+		"description": "Lista de detalhes das linha de ação"
+	},
+
+	{
+		"url": "/api/sao-paulo",
+		"description": "Exibe um geo_json com as coordenadas da cidade de São Paulo"
+	},
+
+	{
+		"url": "/api/topic",
+		"description": "Lista de todos os eixos"
+	},
+
+	{
+		"url": "/api/topic/{$id}",
+		"description": "Lista detalhes do eixo"
+	},
+
+	{
+		"url": "/api/indicator",
+		"description": "Lista de todos os indicadores"
+	},
+	{
+		"url": "/api/secretariats",
+		"description": "Lista de todas as secretarias"
+	},
+	{
+		"url": "/api/secretariats",
+		"description": "Lista de todas as secretarias"
+	},
+	{
+		"url": "/api/badges",
+		"description": "Lista de todos os selos"
+	},
+	{
+		"url": "/api/variable",
+		"description": "Lista de todas as variáveis do IOTA"
+	}
+]
