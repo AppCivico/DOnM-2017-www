@@ -1,5 +1,7 @@
 {{ partialCached "header.html" . }}
 
+{{ $apiUrl := (print (index .Site.Params.domainapi (getenv "NODE_ENV") | default .Site.Params.domainapi.dev) "/download" ) }}
+
 <article role="main" id="conteudo" class="h-entry">
 	<div class="h-entry__e-content e-content">
 		<header>
@@ -8,21 +10,16 @@
 		<section class="disclaimer">
 			{{ .Content }}
 		</section>
-		<section class="download-files" hidden>
+		<section class="download-files">
 			<h2>{{ i18n "downloadFiles" }}</h2>
 
 			<div class="download-files__form">
 				<label class="download-files__table">
 					<span>{{ i18n "tables" }}</span>
-					<select name="tabela" class="form-control">
-						<option value="conselho" selected="selected">Conselhos</option>
-						<option value="distrito" selected="selected">Distritos</option>
-						<option value="empresa" selected="selected">Empresas</option>
-						<option value="meta" selected="selected">Metas</option>
-						<option value="objetivo" selected="selected">Objetivos</option>
-						<option value="orcamento" selected="selected">Orçamentos</option>
-						<option value="projeto" selected="selected">Projetos</option>
-						<option value="subprefeitura" selected="selected">Subprefeituras</option>
+					<select id="js-download-select">
+						<option value="{{ $apiUrl }}/goals" selected="selected">{{ i18n "goal" 2 }}</option>
+						<option value="{{ $apiUrl }}/projects">{{ i18n "project" 2 }}</option>
+						<option value="{{ $apiUrl }}/action-lines">{{ i18n "actionLine" 2 }}</option>
 					</select>
 				</label>
 			</div>
@@ -30,10 +27,15 @@
 			<div class="download-files__download-area">
 				<label>
 					<span>{{ i18n "file" }}</span>
-					<input type="text" name="url" readonly="readonly" class="form-control">
+					<input
+						type="text"
+						name="url"
+						readonly="readonly"
+						value="{{ $apiUrl }}/goals"
+						class="js-download-display">
 				</label>
 
-				<a target="_blank" class="download-files__button" href="http://www.deolhonasmetas.org.br/api/download/subprefeitura.csv" download>
+				<a class="js-download-button download-files__button" href="{{ $apiUrl }}/goals" download>
 					{{ i18n "downloadTables" }}
 				</a>
 			</div>

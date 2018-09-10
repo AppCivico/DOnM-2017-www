@@ -118,8 +118,8 @@
   translation: "Progresso deste projeto"
 - id: project
   translation:
-    one: "projeto"
-    other: "projetos"
+    one: "Projeto"
+    other: "Projetos"
 - id: projection
   translation: "Projeção"
 - id: projectJustification
