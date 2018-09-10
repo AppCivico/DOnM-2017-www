@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add new layout to regionalization action lines
 	- Add progressbar on action lines
 	- Add reset button on filters
+	- Add open data page
 
 ### Fixed
 	- Fix badges styles
