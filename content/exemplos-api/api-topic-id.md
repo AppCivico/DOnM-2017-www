@@ -7,6 +7,7 @@ draft: false
 ---
 
 ```
+
 {
   "topic": {
     "description": "Articulado em torno do objetivo comum de tornar São Paulo uma cidade diversa, que valoriza a cultura e que garanta educação de qualidade para todas e todos",
