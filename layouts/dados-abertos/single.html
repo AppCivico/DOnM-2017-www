@@ -10,7 +10,27 @@
 		<section class="disclaimer">
 			{{ .Content }}
 		</section>
-		<section class="download-files">
+		<section class="no-js-only">
+			<h2>{{ i18n "downloadFiles" }}</h2>
+			<ul>
+				<li>
+					<a class="download-files__button" href="{{ $apiUrl }}/goals" download>
+						{{ i18n "goal" 2 }}
+					</a>
+				</li>
+				<li>
+					<a class="download-files__button" href="{{ $apiUrl }}/projects" download>
+						{{ i18n "project" 2 }}
+					</a>
+				</li>
+				<li>
+					<a class="download-files__button" href="{{ $apiUrl }}/action-lines" download>
+						{{ i18n "actionLine" 2 }}
+					</a>
+				</li>
+			</ul>
+		</section>
+		<section class="download-files js-only">
 			<h2>{{ i18n "downloadFiles" }}</h2>
 
 			<div class="download-files__form">
