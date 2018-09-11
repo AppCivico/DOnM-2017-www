@@ -100,7 +100,7 @@ params:
   Subtitle:      "gestão 2017"
   AuthorName:    "AppCívico"
   GitHubUser:    "AppCivico"
-  googleMapsAPI: "AIzaSyDqT0PwlW6s3z_DmUF47L6A9bSTwNAyoYs"
+  googleMapsAPI: "AIzaSyC4NfJfPKmuVEqmliE663_31FFq9qt6VOE"
   domainAPI:
     dev: "https://dapidonm.eokoe.com"
     homol: "https://dapidonm.eokoe.com"
