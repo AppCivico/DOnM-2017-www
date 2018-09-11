@@ -162,6 +162,8 @@
     other: "Secretarias"
 - id: secretary_at
   translation: "Secretarias Envolvidas"
+- id: selectBudget
+  translation: "Escolha o ano para visualizar"
 - id: selectTopic
   translation: "Selecione o eixo"
 - id: selectSecretary
