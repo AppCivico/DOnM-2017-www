@@ -24,4 +24,5 @@ export default function normalizeTabControllerClick() {
 
 	if (window.location.hash) return;
 	if (firstLink) firstLink.click();
+	if (firstLink) firstLink.classList.add('active');
 }
