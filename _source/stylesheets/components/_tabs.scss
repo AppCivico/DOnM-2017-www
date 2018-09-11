@@ -9,6 +9,11 @@
 			&:focus {
 				vertical-align: top;
 			}
+
+			&.active {
+				color: palette('white');
+				background-color: palette('orange', light);
+			}
 		}
 	}
 
