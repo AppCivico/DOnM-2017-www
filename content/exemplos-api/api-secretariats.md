@@ -1,5 +1,6 @@
 ---
 title: "/api/public/secretariats"
+id: "secretariats"
 date: 2017-09-14T15:44:44-03:00
 layout: none
 type: exemplos-api
