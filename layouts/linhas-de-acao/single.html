@@ -214,7 +214,9 @@
 		<section class="progress">
 			{{ with .execution }}
 				<h2>{{ i18n "execution" }}</h2>
-				<p>{{ i18n "textProgress" }}</p>
+				<h2>
+					{{ i18n "textProgress" }}
+				</h2>
 
 				<!-- Check if all .progress are null -->
 				{{ $.Scratch.Set "hasProgressBar" false }}
