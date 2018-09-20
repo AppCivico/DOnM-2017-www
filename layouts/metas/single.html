@@ -261,10 +261,24 @@
 				</h2>
 			{{ end }}
 
-			{{ with .execution }}
-				<p>{{ i18n "textProgress" }}</p>
+			<!-- Check if total progress exist and save it -->
+			{{ with .total_progress }}
+				{{ $.Scratch.Set "totalProgress" . }}
+			{{ end }}
 
-				<h2>{{ i18n "execution" }}</h2>
+			{{ with .execution }}
+				<h2>
+					{{ i18n "textProgress" }}
+				</h2>
+
+				<h2>
+					{{ i18n "execution" }}
+					{{ if $.Scratch.Get "totalProgress"  }}
+						<span class="subtitle">
+								{{ i18n "total" }}: {{ $.Scratch.Get "totalProgress" }}%
+						</span>
+					{{ end }}
+				</h2>
 
 				<!-- Check if all .progress are null -->
 				{{ $.Scratch.Set "hasProgressBar" false }}
