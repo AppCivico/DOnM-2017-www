@@ -250,14 +250,11 @@
 						<p>{{ i18n "baseValue" }}: {{ . }}</p>
 					{{ end }}
 					{{ if isset . "accumulated" }}
-						<ul>
-							<li>
-								<strong>
-									{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
-								</strong>
-								{{ .value }}
-							</li>
-						</ul>
+						<strong>
+							{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
+						</strong>
+						{{ .value }}
+						<br>
 					{{ end }}
 				{{ end }}
 
