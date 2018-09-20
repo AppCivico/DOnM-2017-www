@@ -110,7 +110,7 @@ nav a {
 	@include media('>=desktop') {
 		margin: 0 0 0 (span(3 'wide') / 1em * -1 * 1rem);
 
-		box-shadow: 0 5px 10px palette('shadow');
+		box-shadow: 0 7px 15px palette('shadow', 'light');
 	}
 
 	@include media('>=12col') {

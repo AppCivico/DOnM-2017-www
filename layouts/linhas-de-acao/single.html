@@ -214,7 +214,9 @@
 		<section class="progress">
 			{{ with .execution }}
 				<h2>{{ i18n "execution" }}</h2>
-				<p>{{ i18n "textProgress" }}</p>
+				<h2>
+					{{ i18n "textProgress" }}
+				</h2>
 
 				<!-- Check if all .progress are null -->
 				{{ $.Scratch.Set "hasProgressBar" false }}
@@ -248,12 +250,14 @@
 						<p>{{ i18n "baseValue" }}: {{ . }}</p>
 					{{ end }}
 					{{ if isset . "accumulated" }}
-						<p>
-							<strong>
-								{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
-							</strong>
-							{{ .value }}
-						</p>
+						<ul>
+							<li>
+								<strong>
+									{{ i18n "accumulated" }} {{ .semester }}º {{ i18n "semesterAbbr" }} {{ .year }}:
+								</strong>
+								{{ .value }}
+							</li>
+						</ul>
 					{{ end }}
 				{{ end }}
 

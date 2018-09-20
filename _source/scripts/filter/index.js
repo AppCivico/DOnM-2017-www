@@ -95,11 +95,13 @@ export default function initFilter() {
 		setCounter(filterableItems.length);
 	}
 
-	resetButton.addEventListener(
-		'click',
-		clearFilters,
-		false,
-	);
+	if (resetButton) {
+		resetButton.addEventListener(
+			'click',
+			clearFilters,
+			false,
+		);
+	}
 
 	filterableField.addEventListener(
 		'input',

@@ -19,8 +19,7 @@
 	padding-top: gutter();
 
 	background-color: palette('white');
-
-	box-shadow: 0 16px 24px palette('shadow');
+	box-shadow: 0 7px 15px palette('shadow', 'light');
 }
 
 [role='banner'] {

@@ -1,88 +1,101 @@
 [
 	{
 		"url": "/api/region",
+		"example": "region",
 		"description": "Lista de todas as regiões"
 	},
 
 	{
 		"url": "/api/region/{$id}",
+		"example": "region-id",
 		"description": "Lista detalhes da região"
 	},
 
 	{
 		"url": "/api/project",
+		"example": "project",
 		"description": "Lista de todos os projetos"
 	},
 
 	{
 		"url": "/api/project/{$id}",
+		"example": "project",
 		"description": "Lista detalhes do projeto"
 	},
 
 
 	{
 		"url": "/api/goal",
+		"example": "goal",
 		"description": "Lista de todas as metas"
 	},
 
 	{
 		"url": "/api/goal/{$id}",
+		"example": "goal-id",
 		"description": "Lista detalhes das metas"
 	},
 
 	{
 		"url": "/api/subprefecture",
+		"example": "subprefecture",
 		"description": "Lista de todas as subprefeituras"
 	},
 
 	{
 		"url": "/api/subprefecture/{$id}",
+		"example": "subprefecture-id",
 		"description": "Lista os detalhes das subprefeitura"
 	},
 
 	{
 		"url": "/api/action-line",
+		"example": "action-line",
 		"description": "Lista de todas as linhas de ação"
 	},
 
 	{
 		"url": "/api/action-line/{$id}",
+		"example": "action-line-id",
 		"description": "Lista de detalhes das linha de ação"
 	},
 
 	{
 		"url": "/api/sao-paulo",
+		"example": "sao-paulo",
 		"description": "Exibe um geo_json com as coordenadas da cidade de São Paulo"
 	},
 
 	{
 		"url": "/api/topic",
+		"example": "topic",
 		"description": "Lista de todos os eixos"
 	},
 
 	{
 		"url": "/api/topic/{$id}",
+		"example": "topic-id",
 		"description": "Lista detalhes do eixo"
 	},
 
 	{
 		"url": "/api/indicator",
+		"example": "indicator",
 		"description": "Lista de todos os indicadores"
 	},
 	{
 		"url": "/api/secretariats",
-		"description": "Lista de todas as secretarias"
-	},
-	{
-		"url": "/api/secretariats",
+		"example": "secretariats",
 		"description": "Lista de todas as secretarias"
 	},
 	{
 		"url": "/api/badges",
+		"example": "badges",
 		"description": "Lista de todos os selos"
 	},
 	{
 		"url": "/api/variable",
+		"example": "variable",
 		"description": "Lista de todas as variáveis do IOTA"
 	}
 ]

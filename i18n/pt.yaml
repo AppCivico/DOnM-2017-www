@@ -183,7 +183,7 @@
 - id: tables
   translation: "Tabelas"
 - id: textProgress
-  translation: "Progresso de acordo com a prefeitura."
+  translation: "Progresso de acordo com a prefeitura:"
 - id: textStatus
   translation: "Status"
 - id: topic

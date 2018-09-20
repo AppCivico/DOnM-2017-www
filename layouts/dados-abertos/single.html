@@ -101,7 +101,9 @@
 							<th>
 								<pre>
 									<span class="page-scroll">
-										{{ .url }}
+										<a href="#example-{{ .example }}">
+											{{ .url }}
+										</a>
 									</span>
 								</pre>
 							</th>
@@ -115,7 +117,7 @@
 		<section class="api-examples">
 			{{ with where $.Site.RegularPages ".Type" "exemplos-api" }}
 				{{ range . }}
-					<div class="api-examples__example">
+					<div class="api-examples__example" id="example-{{ .Params.id }}">
 						<h3>{{ .Title }}</h3>
 						<small>{{ i18n "returningExample" }}</small>
 
