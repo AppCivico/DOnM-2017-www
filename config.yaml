@@ -76,11 +76,6 @@ menu:
         Weight: 6
         Identifier: "eixos"
         URL: "/eixos/"
-      - Name: "Indicadores"
-        Pre: ""
-        Weight: 7
-        Identifier: "indicadores"
-        URL: "/indicadores/"
       - Name: "Distritos"
         Pre: ""
         Weight: 8
