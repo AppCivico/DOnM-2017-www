@@ -31,7 +31,7 @@
 						{{ with .subprefecture }}
 							<small>
 								({{ i18n "subPrefecture" 1 }}:
-									{{ with .slug }}<a href="/prefeituras-regionais/{{ . }}">{{ end }}
+									{{ with .slug }}<a href="/subprefeituras/{{ . }}">{{ end }}
 										<strong>{{ .name }}</strong>{{ with .slug }}</a>{{ end }})
 							</small>
 						{{ end }}

@@ -19,11 +19,11 @@ menu:
         Weight: 1
         Identifier: "o-que-e"
         URL: "/o-que-e/"
-      - Name: "Prefeituras regionais"
+      - Name: "Subprefeituras"
         Pre: ""
         Weight: 2
-        Identifier: "prefeituras-regionais"
-        URL: "/prefeituras-regionais/"
+        Identifier: "subprefeituras"
+        URL: "/subprefeituras/"
       - Name: "Metas"
         Pre: ""
         Weight: 3
@@ -51,11 +51,11 @@ menu:
         Weight: 1
         Identifier: "o-que-e"
         URL: "/o-que-e/"
-      - Name: "Prefeituras regionais"
+      - Name: "Subprefeituras"
         Pre: ""
         Weight: 2
-        Identifier: "prefeituras-regionais"
-        URL: "/prefeituras-regionais/"
+        Identifier: "subprefeituras"
+        URL: "/subprefeituras/"
       - Name: "Metas"
         Pre: ""
         Weight: 3
