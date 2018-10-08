@@ -24,7 +24,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Fix badges styles
 	- Fix budges table on projects
 
-- Google Translator component position
+### Changed
+- Replace "Prefeituras Regionais" with "Subprefeituras"
 
 ## [1.0.6][] - 2018-08-16
 

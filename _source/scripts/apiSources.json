@@ -23,7 +23,7 @@
   {
     "url": "/api/subprefecture",
     "dataDest": "./static/assets/data/subprefectures.json",
-    "contentFolder": "./content/prefeituras-regionais",
+    "contentFolder": "./content/subprefeituras",
     "jsonRootElement": "subprefectures"
   },
 

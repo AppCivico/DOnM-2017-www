@@ -251,9 +251,9 @@ draft: false
       },
       {
         "slug": "ampliar-os-centros-de-convivencia-intergeracional-criando-no-minimo-uma-unidade-em-cada-uma-das-27-p",
-        "indicator_description": "Percentual de Prefeituras Regionais com CCINTER",
+        "indicator_description": "Percentual de Subprefeituras com CCINTER",
         "id": "13.4",
-        "title": "Ampliar os Centros de Convivência Intergeracional, criando no mínimo uma unidade em cada uma das 27 Prefeituras Regionais que hoje não contam com esse serviço, através de parcerias.",
+        "title": "Ampliar os Centros de Convivência Intergeracional, criando no mínimo uma unidade em cada uma das 27 Subprefeituras que hoje não contam com esse serviço, através de parcerias.",
         "achievement": ""
       },
       {
@@ -384,7 +384,7 @@ draft: false
       },
       {
         "id": "30.8",
-        "title": "Garantir que, nas prefeituras regionais onde não há biblioteca do SMB, possa ser realizada uma parceria para abertura e instalação de um Ponto de Leitura, especialmente nos distritos com elevada prioridade de implantação de serviços de leitura.",
+        "title": "Garantir que, nas subprefeituras onde não há biblioteca do SMB, possa ser realizada uma parceria para abertura e instalação de um Ponto de Leitura, especialmente nos distritos com elevada prioridade de implantação de serviços de leitura.",
         "achievement": "",
         "slug": "garantir-que-nas-prefeituras-regionais-onde-nao-ha-biblioteca-do-smb-possa-ser-realizada-uma-parceri",
         "indicator_description": "Número de “Pontos de Leitura instalados”"
@@ -482,7 +482,7 @@ draft: false
       },
       {
         "achievement": "",
-        "title": "Promover a desobstrução de 100% das galerias nas Prefeituras Regionais identificadas como prioritárias por possuírem impacto na drenagem urbana",
+        "title": "Promover a desobstrução de 100% das galerias nas Subprefeituras identificadas como prioritárias por possuírem impacto na drenagem urbana",
         "id": "47.4",
         "indicator_description": "Percentual de galerias prioritárias Desobstruídas",
         "slug": "promover-a-desobstrucao-de-100-das-galerias-nas-prefeituras-regionais-identificadas-como-prioritaria"

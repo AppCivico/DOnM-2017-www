@@ -17,7 +17,7 @@
 - id: benefitedSubprefectures
   translation:
     one: "Prefeitura regional beneficiada"
-    other: "Prefeituras regionais beneficiadas"
+    other: "Subprefeituras"
 - id: budget
   translation: "Orçamento"
 - id: budgetExecution
@@ -128,8 +128,8 @@
   translation: "Prefeito Regional"
 - id: regionalPrefecture
   translation:
-    one: "Prefeitura regional"
-    other: "Prefeituras regionais"
+    one: "Subprefeitura"
+    other: "Subprefeituras"
 - id: regionalPrefectureFile
   translation: "Ficha da prefeitura regional"
 - id: regionalization

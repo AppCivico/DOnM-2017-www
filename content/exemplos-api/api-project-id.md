@@ -292,7 +292,7 @@ draft: false
       {
         "slug": "ampliar-o-numero-de-acoes-intersetoriais-de-prevencao-e-promocao-a-saude-realizadas-nas-32-prefeitur",
         "indicator_description": "Nº de ações intersetoriais de promoção à saúde realizadas por ano",
-        "title": "Ampliar o número de ações intersetoriais de prevenção e promoção à saúde, realizadas nas 32 prefeituras regionais (no mínimo 4 em 2020).",
+        "title": "Ampliar o número de ações intersetoriais de prevenção e promoção à saúde, realizadas nas 32 subprefeituras (no mínimo 4 em 2020).",
         "id": "1.8",
         "achievement": ""
       },

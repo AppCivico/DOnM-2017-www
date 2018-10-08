@@ -121,9 +121,9 @@
 					{{ range .execution_subprefectures }}
 						<details>
 							<summary>
-								<span title="Prefeituras Regionais" class="regionalization-progress__region">
+								<span title="Subprefeituras" class="regionalization-progress__region">
 									{{ with .subprefecture.slug }}
-										<a href="/prefeituras-regionais/{{ . }}">
+										<a href="/subprefeituras/{{ . }}">
 									{{ end }}
 										{{ .subprefecture.name }}
 									{{ with .subprefecture.slug }}
