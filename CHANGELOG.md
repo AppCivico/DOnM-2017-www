@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 	- Add progressbar on action lines
 	- Add reset button on filters
 	- Add open data page
+	- Add facebook chatbot
 
 ### Fixed
 	- Fix badges styles
