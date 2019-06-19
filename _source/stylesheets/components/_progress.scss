@@ -91,6 +91,10 @@ progress {
 	}
 }
 
+[role='progressbar'] {
+	background: palette('hit-pink');
+}
+
 .progress__more-info {
 	min-height: 4em;
 }
