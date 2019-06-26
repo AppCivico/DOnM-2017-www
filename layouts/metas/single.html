@@ -268,7 +268,7 @@
 
 			{{ with $.Scratch.Get "totalProgress"  }}
 				<h2>
-					{{ i18n "textProgress" }}
+					{{ i18n "textProgressNossaSaoPaulo" }}
 				</h2>
 
 				<h2>
@@ -292,6 +292,13 @@
 				<div class="js-progress-more-info progress__more-info">
 					<p></p>
 				</div>
+			{{ else }}
+				<h2>
+					{{ i18n "textProgressNossaSaoPaulo" }}
+					<span class="subtitle">
+						{{ i18n "noData" }}
+					</span>
+				</h2>
 			{{ end }}
 		</section>
 

@@ -98,6 +98,8 @@
   translation: "Investimento"
 - id: lastUpdatedAt
   translation: "Última atualização"
+- id: noData
+  translation: "Sem dados"
 - id: noDataForPeriod
   translation: "Nenhum registro encontrado para o período selecionado"
 - id: notApplicable
@@ -184,6 +186,8 @@
   translation: "Tabelas"
 - id: textProgress
   translation: "Progresso de acordo com a prefeitura:"
+- id: textProgressNossaSaoPaulo
+  translation: "Progresso de acordo com a Rede Nossa São Paulo:"
 - id: textStatus
   translation: "Status"
 - id: topic
