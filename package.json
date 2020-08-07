@@ -76,6 +76,6 @@
     "version-changelog": "^2.1.0"
   },
   "dependencies": {
-    "prismjs": "^1.15.0"
+    "prismjs": "^1.21.0"
   }
 }
