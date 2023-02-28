@@ -70,7 +70,7 @@
     "postcss-cli": "^4.1.1",
     "replaceinfiles": "^1.1.4",
     "rimraf": "^2.6.2",
-    "sass-lint": "^1.12.1",
+    "sass-lint": "^1.13.0",
     "susy": "^3.0.1",
     "uglify-js": "^3.3.4",
     "version-changelog": "^2.1.0"
